@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block contenido %}
+<form id="f_registro" action="{% url 'envio' %}" method="post">
+    <div>
+        <label for="nombre">Nombres: </label>
+        <input id="nombre" name="nombre" type="text" required  placeholder="Ingrese nombre" />
+    </div>
+    <div>
+        <label for="apellido">Apellidos: </label>
+        <input id="apellido" name="apellido" type="text" required placeholder="Ingrese apellido" />
+    </div>
+    <div>
+        <label for="rut">RUT: </label>
+        <input id="rut" name="rut" type="text" required placeholder="Ingrese RUT" />
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input id="email" name="email" type="text" required placeholder="Ingrese Email" />
+    </div>
+    <div>
+        <label for="region">Región: </label>
+        <select id="region" name="region" required>
+            <option value="">SELECCIONE...</option>
+            {% for region in regiones %}
+            <option value="{{ region.id }}">{{ region.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="comuna">Comuna: </label>
+        <select id="comuna" name="comuna" required>
+            <option value="">SELECCIONE...</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Enviar" />
+    </div>
+</form>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/controllers/registro_controller.js' %}"></script>
+<script>
+    App.registroController = new App.Controllers.Registro();
+</script>
+{% endblock %}

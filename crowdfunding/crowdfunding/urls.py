@@ -14,4 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^templates/', 'crowdfunding.views.get_js_template', name="templates"),
+    url(r'^registro/',include('registro.urls')),
 )

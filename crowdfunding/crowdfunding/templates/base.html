@@ -1,0 +1,20 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="description" content="Lista de regalos por la life 1313 eaea sadsa qwertyuiop" />
+    <title>{% block titulo %}{% endblock %}</title>
+    {% block css %}{% endblock %}
+</head>
+<body>
+    {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}
+    <script src="{% static 'js/vendor/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/vendor/handlebars-1.1.2.min.js' %}"></script>
+    <script src="{% static 'js/vendor/template_loader.js' %}"></script>
+    <script src="{% static 'js/vendor/rlay_core.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>
