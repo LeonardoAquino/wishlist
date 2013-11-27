@@ -5,8 +5,7 @@ function TemplateLoader(engine, options){
     this.prefix = options.prefix ? options.prefix + "_" : "";
     this.engine = engine;
     this.template = null;
-    this.templateUrl = location.origin + location.pathname.replace(/\/?([\w\.-]+\.(html|php))?$/, '');
-    this.templateUrl +=  "/" + (options.folder || "templates") + "/{{ templateName }}.html";
+    this.withCache = "withCache" in options ? options.withCache : true;
 }
 
 TemplateLoader.prototype = {
@@ -23,7 +22,7 @@ TemplateLoader.prototype = {
 
         skey = this.prefix + templateName;
 
-        if(sessionStorage.getItem(skey)){
+        if(this.withCache && sessionStorage.getItem(skey)){
             this.cache[key] = sessionStorage.getItem(skey);
             return this.cache[key];
         }
@@ -35,10 +34,8 @@ TemplateLoader.prototype = {
         return this.cache[key];
     },
 
-    _getAjaxTemplate: function(templateName){
-        var xhr, templateUrl;
-
-        templateUrl = this.templateUrl.replace("{{ templateName }}", templateName);
+    _getAjaxTemplate: function(templateUrl){
+        var xhr;
 
         xhr = new XMLHttpRequest();
         xhr.open("GET", templateUrl, false);

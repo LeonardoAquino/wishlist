@@ -3,7 +3,7 @@ import os
 
 def get_js_template(req):
     my_path = os.path.dirname(__file__) + req.path
-    my_path = my_path.replace("\\","/")
+    my_path = my_path.replace("\\","/").rstrip("/") + ".html"
 
     js_template = open(my_path,"rb").read()
 

@@ -14,10 +14,10 @@ App.Controllers.Registro.mixin({
             return;
         }
 
-        $.get("/registro/obtener_comunas",{ region : regionId }, function(data){
-            var plantilla = templateLoader.render("registro/comunas",{
-                comunas : data
-            })
+        $.get("/registro/obtener_comunas/",{ region : regionId }, function(data){
+            var plantilla = templateLoader.render("/templates/registro/comunas/",{
+                comunas : JSON.parse(data)
+            });
 
             $("#comuna").empty().html(plantilla);
         });

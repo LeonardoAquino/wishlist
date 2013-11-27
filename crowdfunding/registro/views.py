@@ -19,7 +19,7 @@ def registro(req):
 
 def obtener_comunas(req):
     region_id = req.GET.get("region")
-    comunas = Comuna.objects.get(region_id=region_id)
+    comunas = Comuna.objects.filter(region_id=region_id)
     data = []
 
     for comuna in comunas:
