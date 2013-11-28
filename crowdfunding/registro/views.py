@@ -48,6 +48,7 @@ class EnvioView(View):
         valido = valido and self.__is_valid(nombre)
         valido = valido and self.__is_valid(apellido)
         valido = valido and self.__is_valid(rut)
+        valido = valido and self.__is_rut_valid(rut)
         valido = valido and self.__is_valid(email)
         valido = valido and self.__is_valid(region)
         valido = valido and self.__is_valid(comuna)
@@ -82,24 +83,14 @@ class EnvioView(View):
 
     def __is_rut_valid(self, rut):
         rut =rut.split('-')
-        ini=num
-        conta=2
-        suma=0
-        while num>0:
-            suma= suma + (conta * (num%10))
-            conta=conta+1
-            if conta==8:
-                conta=2 
-                num=num/10
-                conta=suma%11
-                valor=11-conta
-            if valor==10:
-                valor="K"   
-            if valor==11:
-                valor="0"
         
-        if rut[1].lower() == valor :
+        if rut[1] == 'k':
+            rut[1] = 'K'
+
+        value = 11 - sum([ int(a)*int(b)  for a,b in zip(str(rut[0]).zfill(8), '32765432')])%11
+        dv = {10: 'K', 11: '0'}.get(value, str(value))
+        
+        if str(dv) == str(rut[1]):
             return True
-        else :
+        else:
             return False
-        #return "%s-%s"%(ini,valor)
