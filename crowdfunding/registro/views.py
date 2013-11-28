@@ -1,5 +1,5 @@
 # Create your views here.
-#from django.core.context_processors import csrf
+import re
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
@@ -38,5 +38,18 @@ def envio(req):
     email = req.POST.get('email')
     region = req.POST.get('region')
     comuna = req.POST.get('comuna')
+    print isValidEmail(email)
 
     return HttpResponse("LISTOU")
+
+def isValid(txt):
+    if txt is not None:
+        return True
+    else:
+        return False
+
+def isValidEmail(txt):
+    if re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',txt.lower()):
+        return True
+    else:
+        return False
