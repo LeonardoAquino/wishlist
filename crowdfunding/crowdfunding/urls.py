@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+    url(r'^$',include("deseos.urls")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^templates/.+?/$', 'crowdfunding.views.get_js_template', name="templates"),
     url(r'^registro/',include('registro.urls')),
