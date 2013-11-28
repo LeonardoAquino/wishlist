@@ -1,4 +1,5 @@
 # Create your views here.
+#from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
@@ -31,4 +32,11 @@ def obtener_comunas(req):
     return HttpResponse(json.dumps(data))
 
 def envio(req):
+    nombre = req.POST.get('nombre')
+    apellido = req.POST.get('apellido')
+    rut = req.POST.get('rut')
+    email = req.POST.get('email')
+    region = req.POST.get('region')
+    comuna = req.POST.get('comuna')
+
     return HttpResponse("LISTOU")
