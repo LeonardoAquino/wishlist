@@ -56,7 +56,7 @@ class EnvioView(View):
         if valido:
             self.__save_user(nombre, apellido, rut, email, region, comuna)
 
-        return HttpResponse("LISTOUUUU")
+        return render_to_response("registro_exitoso.html")
 
     @transaction.commit_on_success
     def __save_user(self, nombre, apellido, rut, email, region, comuna):
