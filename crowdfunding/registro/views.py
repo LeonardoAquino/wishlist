@@ -81,4 +81,25 @@ class EnvioView(View):
         return re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',email.lower())
 
     def __is_rut_valid(self, rut):
-        pass
+        rut =rut.split('-')
+        ini=num
+        conta=2
+        suma=0
+        while num>0:
+            suma= suma + (conta * (num%10))
+            conta=conta+1
+            if conta==8:
+                conta=2 
+                num=num/10
+                conta=suma%11
+                valor=11-conta
+            if valor==10:
+                valor="K"   
+            if valor==11:
+                valor="0"
+        
+        if rut[1].lower() == valor :
+            return True
+        else :
+            return False
+        #return "%s-%s"%(ini,valor)
