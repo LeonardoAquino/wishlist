@@ -3,6 +3,7 @@
 
 {% block contenido %}
 <form id="f_registro" action="{% url 'envio' %}" method="post">{% csrf_token %}
+    {% csrf_token %}
     <div>
         <label for="nombre">Nombres: </label>
         <input id="nombre" name="nombre" type="text" required  placeholder="Ingrese nombre" />

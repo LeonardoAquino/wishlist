@@ -1,12 +1,13 @@
 # Create your views here.
 import re
+import json
+
 from django.shortcuts import render_to_response
-from django.template import RequestContext
 from django.http import HttpResponse
+from django.template import RequestContext
+from django.views.generic import View
 
 from deseos.models import Region, Comuna
-
-import json
 
 def registro(req):
     regiones = Region.objects.all()
@@ -31,25 +32,37 @@ def obtener_comunas(req):
 
     return HttpResponse(json.dumps(data))
 
-def envio(req):
-    nombre = req.POST.get('nombre')
-    apellido = req.POST.get('apellido')
-    rut = req.POST.get('rut')
-    email = req.POST.get('email')
-    region = req.POST.get('region')
-    comuna = req.POST.get('comuna')
-    print isValidEmail(email)
 
-    return HttpResponse("LISTOU")
+class EnvioView(View):
+    def post(self, req):
+        nombre = req.POST.get('nombre')
+        apellido = req.POST.get('apellido')
+        rut = req.POST.get('rut')
+        email = req.POST.get('email')
+        region = req.POST.get('region')
+        comuna = req.POST.get('comuna')
 
-def isValid(txt):
-    if txt is not None:
+        valido = True
+        valido = valido and self.__is_valid(nombre)
+        valido = valido and self.__is_valid(apellido)
+        valido = valido and self.__is_valid(rut)
+        valido = valido and self.__is_valid(email)
+        valido = valido and self.__is_valid(region)
+        valido = valido and self.__is_valid(comuna)
+
+        return HttpResponse("LISTOUUUU")
+
+    def __is_valid(self, texto):
+        if texto is None or str(texto).strip() == "":
+            return False
+
+        if len(texto) > 140:
+            return False
+
         return True
-    else:
-        return False
 
-def isValidEmail(txt):
-    if re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',txt.lower()):
-        return True
-    else:
-        return False
+    def __is_email_valid(self, email):
+        return re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',email.lower())
+
+    def __is_rut_valid(self, rut):
+        pass
