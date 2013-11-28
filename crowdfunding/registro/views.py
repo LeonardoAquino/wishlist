@@ -1,9 +1,11 @@
-# Create your views here.
+#-*- coding: utf-8 -*-
 import re
 import json
 
-from django.shortcuts import render_to_response
+from django.contrib.auth.models import User
+from django.db import transaction
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import View
 
@@ -50,10 +52,24 @@ class EnvioView(View):
         valido = valido and self.__is_valid(region)
         valido = valido and self.__is_valid(comuna)
 
+        if valido:
+            self.__save_user(nombre, apellido, rut, email, region, comuna)
+
         return HttpResponse("LISTOUUUU")
 
+    @transaction.commit_on_success
+    def __save_user(self, nombre, apellido, rut, email, region, comuna):
+        user = User()
+        user.first_name = nombre
+        user.last_name = apellido
+        user.email = email
+        user.username = email
+        user.is_staff = False
+        user.is_active = True
+        user.save()
+
     def __is_valid(self, texto):
-        if texto is None or str(texto).strip() == "":
+        if texto is None or texto.strip() == "":
             return False
 
         if len(texto) > 140:

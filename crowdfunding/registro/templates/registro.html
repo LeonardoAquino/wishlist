@@ -2,23 +2,27 @@
 {% load static from staticfiles %}
 
 {% block contenido %}
-<form id="f_registro" action="{% url 'envio' %}" method="post">{% csrf_token %}
+<form id="f_registro" action="{% url 'envio' %}" method="post">
     {% csrf_token %}
     <div>
         <label for="nombre">Nombres: </label>
         <input id="nombre" name="nombre" type="text" required  placeholder="Ingrese nombre" />
+        <span></span>
     </div>
     <div>
         <label for="apellido">Apellidos: </label>
         <input id="apellido" name="apellido" type="text" required placeholder="Ingrese apellido" />
+        <span></span>
     </div>
     <div>
         <label for="rut">RUT: </label>
         <input id="rut" name="rut" type="text" required placeholder="Ingrese RUT" />
+        <span></span>
     </div>
     <div>
         <label for="email">Email: </label>
         <input id="email" name="email" type="text" required placeholder="Ingrese Email" />
+        <span></span>
     </div>
     <div>
         <label for="region">Región: </label>
@@ -28,12 +32,14 @@
             <option value="{{ region.id }}">{{ region.nombre }}</option>
             {% endfor %}
         </select>
+        <span></span>
     </div>
     <div>
         <label for="comuna">Comuna: </label>
         <select id="comuna" name="comuna" required>
             <option value="">SELECCIONE...</option>
         </select>
+        <span></span>
     </div>
     <div>
         <input type="submit" value="Enviar" />
@@ -42,6 +48,7 @@
 {% endblock %}
 
 {% block js %}
+<script src="{% static 'js/plugins/jquery.Rut.min.js' %}"></script>
 <script src="{% static 'js/controllers/registro_controller.js' %}"></script>
 <script>
     App.registroController = new App.Controllers.Registro();
