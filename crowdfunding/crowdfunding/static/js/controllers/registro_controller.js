@@ -7,8 +7,6 @@ App.Controllers.Registro = function(){
     this.$comuna = $("#comuna");
 
     this.addEventos();
-
-    console.log(this);
 };
 
 App.Controllers.Registro.mixin({
@@ -72,7 +70,7 @@ App.Controllers.Registro.mixin({
             valido = false;
             $span = campo.parent().find("span");
             $span.addClass("error_message").text("Debe agregar " + tipo);
-        }else if(campo.val().trim() > 140){
+        }else if(campo.val().trim().length > 140){
             valido = false;
             $span = campo.parent().find("span");
             $span.addClass("error_message").text("El " + tipo + " debe poseer menos de 140 caracteres");
