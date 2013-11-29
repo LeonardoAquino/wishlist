@@ -4,5 +4,6 @@ from registro.views import EnvioView
 urlpatterns = patterns('registro.views',
     url(r'^$', 'registro', name='registro'),
     url(r'^obtener_comunas/','obtener_comunas', name="obtener_comunas"),
+    url(r'^verificar_usuario/',"verificar_usuario", name="verificar_usuario"),
     url(r'^envio/', EnvioView.as_view(), name="envio"),
 )

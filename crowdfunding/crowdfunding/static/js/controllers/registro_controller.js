@@ -58,7 +58,15 @@ App.Controllers.Registro.mixin({
             }
 
             if(valido){
-                this.submit();
+                $.get("/registro/verificar_usuario/",{ username : _this.$email.val() }, function(res){
+                    res = JSON.parse(res);
+
+                    if(!res.existe){
+                        this.submit();
+                    }else{
+                        alert("Lo sentimos, pero el usuario ya existe");
+                    }
+                });
             }
         };
     },

@@ -3,7 +3,7 @@ import re
 import json
 
 from django.contrib.auth.models import User
-from django.db import transaction
+from django.db import transaction, IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -34,6 +34,14 @@ def obtener_comunas(req):
 
     return HttpResponse(json.dumps(data))
 
+def verificar_usuario(req):
+    usuario = User.objects.get(username = req.GET.get("username"))
+
+    data = {
+        "existe" : usuario is not None
+    }
+
+    return HttpResponse(json.dumps(data))
 
 class EnvioView(View):
     def post(self, req):
@@ -60,14 +68,17 @@ class EnvioView(View):
 
     @transaction.commit_on_success
     def __save_user(self, nombre, apellido, rut, email, region, comuna):
-        user = User()
-        user.first_name = nombre
-        user.last_name = apellido
-        user.email = email
-        user.username = email
-        user.is_staff = False
-        user.is_active = True
-        user.save()
+        try:
+            user = User()
+            user.first_name = nombre
+            user.last_name = apellido
+            user.email = email
+            user.username = email
+            user.is_staff = False
+            user.is_active = True
+            user.save()
+        except IntegrityError:
+            pass
 
     def __is_valid(self, texto):
         if texto is None or texto.strip() == "":
@@ -83,7 +94,7 @@ class EnvioView(View):
 
     def __is_rut_valid(self, rut):
         rut = rut.split('-')
-        rut[1] = rut[1].uppercase()
+        rut[1] = str(rut[1]).upper()
 
         value = 11 - sum([ int(a)*int(b) for a,b in zip(str(rut[0]).zfill(8), '32765432')]) % 11
         dv = { 10 : 'K', 11 : '0'}.get(value, str(value))
