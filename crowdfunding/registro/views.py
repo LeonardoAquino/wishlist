@@ -100,3 +100,6 @@ class EnvioView(View):
         dv = { 10 : 'K', 11 : '0'}.get(value, str(value))
 
         return str(dv) == str(rut[1])
+
+
+envio = EnvioView.as_view()

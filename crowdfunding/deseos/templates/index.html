@@ -3,4 +3,7 @@
 {% block contenido %}
     bienvenidos :D 1313, POTATOOOO, SPAAAAACEEEE !!!!!!
     <a href="{% url 'registro' %}">LINK AL REGISTRO VITEH</a>
+    {% for lista in listas %}
+        <div> - {{ lista.get_short_description }}</div>
+    {% endfor %}
 {% endblock %}
