@@ -72,7 +72,7 @@ App.Controllers.Registro.mixin({
                     res = JSON.parse(res);
 
                     if(!res.existe){
-                        this.get(0).submit();
+                        $(this).get(0).submit();
                     }else{
                         alert("Lo sentimos, pero el usuario ya existe");
                     }
