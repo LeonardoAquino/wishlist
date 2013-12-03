@@ -35,8 +35,11 @@ def obtener_comunas(req):
     return HttpResponse(json.dumps(data))
 
 def verificar_usuario(req):
-    usuario = User.objects.get(username = req.GET.get("username"))
-
+    try:
+        usuario = User.objects.get(username = req.GET.get("username"))
+    except User.DoesNotExist as e:
+        usuario = None
+        
     data = {
         "existe" : usuario is not None
     }
@@ -51,6 +54,7 @@ class EnvioView(View):
         email = req.POST.get('email')
         region = req.POST.get('region')
         comuna = req.POST.get('comuna')
+        pword = req.POST.get('password')
 
         valido = True
         valido = valido and self.__is_valid(nombre)
@@ -60,14 +64,15 @@ class EnvioView(View):
         valido = valido and self.__is_valid(email)
         valido = valido and self.__is_valid(region)
         valido = valido and self.__is_valid(comuna)
+        valido = valido and self.__is_valid(pword)
 
         if valido:
-            self.__save_user(nombre, apellido, rut, email, region, comuna)
+            self.__save_user(nombre, apellido, rut, email, region, comuna, pword)
 
         return render_to_response("registro_exitoso.html")
 
     @transaction.commit_on_success
-    def __save_user(self, nombre, apellido, rut, email, region, comuna):
+    def __save_user(self, nombre, apellido, rut, email, region, comuna, pword):
         try:
             user = User()
             user.first_name = nombre
@@ -76,6 +81,7 @@ class EnvioView(View):
             user.username = email
             user.is_staff = False
             user.is_active = True
+            user.set_password()
             user.save()
         except IntegrityError:
             pass
