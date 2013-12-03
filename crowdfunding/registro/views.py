@@ -39,10 +39,8 @@ def verificar_usuario(req):
         usuario = User.objects.get(username = req.GET.get("username"))
     except User.DoesNotExist as e:
         usuario = None
-        
-    data = {
-        "existe" : usuario is not None
-    }
+
+    data = { "existe" : usuario is not None }
 
     return HttpResponse(json.dumps(data))
 
@@ -73,18 +71,15 @@ class EnvioView(View):
 
     @transaction.commit_on_success
     def __save_user(self, nombre, apellido, rut, email, region, comuna, pword):
-        try:
-            user = User()
-            user.first_name = nombre
-            user.last_name = apellido
-            user.email = email
-            user.username = email
-            user.is_staff = False
-            user.is_active = True
-            user.set_password()
-            user.save()
-        except IntegrityError:
-            pass
+        user = User()
+        user.first_name = nombre
+        user.last_name = apellido
+        user.email = email
+        user.username = email
+        user.is_staff = False
+        user.is_active = True
+        user.set_password(pword)
+        user.save()
 
     def __is_valid(self, texto):
         if texto is None or texto.strip() == "":
