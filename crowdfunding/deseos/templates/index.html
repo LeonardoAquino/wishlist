@@ -4,6 +4,24 @@
 {% block contenido %}
     bienvenidos :D 1313, POTATOOOO, SPAAAAACEEEE !!!!!!
     <a href="{% url 'registro' %}">LINK AL REGISTRO VITEH</a>
+
+    <form id="f_login" action="{% url "login" %}" method="post">
+        {% csrf_token %}
+        <aside>
+            <div>
+                <label for="usuario">Usuario: </label>
+                <input id="usuario" type="text" value="" placeholder="Usuario" />
+                <span></span>
+            </div>
+            <div>
+                <label for="password">Contraseña: </label>
+                <input id="password" type="password" value="" placeholder="Contraseña" />
+                <span></span>
+            </div>
+            <input id="btn_enviar" type="submit" value="Enviar" />
+        </aside>
+    </form>
+
     {% for lista in listas %}
         <div> - {{ lista.get_short_description }}</div>
     {% endfor %}
@@ -11,4 +29,7 @@
 
 {% block js %}
 <script src="{% static "js/controllers/login_controller.js" %}"></script>
+<script>
+    App.login = new App.Controllers.Login();
+</script>
 {% endblock %}

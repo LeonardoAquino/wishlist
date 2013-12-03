@@ -13,6 +13,9 @@ class ProyectosList(ListView):
         context = super(ProyectosList, self).get_context_data(**kwargs)
         context["listas"] = self.model.objects.all()
 
+        print "*" * 30
+        print context["listas"]
+
         return context
 
 index = ProyectosList.as_view()
