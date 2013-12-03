@@ -23,10 +23,14 @@ class LoginView(View):
             "message" : "",
             "url" : "sadsa"
         }
-
         try:
-            usuario = User.objects.get(username = username, password = password)
+            usuario = User.objects.get(username = username)
         except User.DoesNotExist as e:
+            data["status"] = "fail"
+
+        if usuario.check_password(password):
+            data["status"] = "ok"
+        else:
             data["status"] = "fail"
 
         return HttpResponse(json.dumps(data))
