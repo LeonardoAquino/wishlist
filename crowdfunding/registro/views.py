@@ -21,6 +21,7 @@ def registro(req):
 
     return render_to_response("registro.html", data, context_instance = RequestContext(req))
 
+
 def obtener_comunas(req):
     region_id = req.GET.get("region")
     comunas = Comuna.objects.filter(region_id=region_id)
@@ -34,6 +35,7 @@ def obtener_comunas(req):
 
     return HttpResponse(json.dumps(data))
 
+
 def verificar_usuario(req):
     try:
         usuario = User.objects.get(username = req.GET.get("username"))
@@ -43,6 +45,7 @@ def verificar_usuario(req):
     data = { "existe" : usuario is not None }
 
     return HttpResponse(json.dumps(data))
+
 
 class EnvioView(View):
     def post(self, req):

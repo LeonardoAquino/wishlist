@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -13,9 +13,16 @@ class ProyectosList(ListView):
         context = super(ProyectosList, self).get_context_data(**kwargs)
         context["listas"] = self.model.objects.all()
 
-        print "*" * 30
-        print context["listas"]
-
         return context
 
+
+class DashboardView(TemplateView):
+    template_name = "dashboard.html"
+
+    def get_context_data(self,**kwargs):
+        context = super(DashboardView, self).get_context_data(**kwargs)
+        return context
+
+
 index = ProyectosList.as_view()
+dashboard = DashboardView.as_view()
