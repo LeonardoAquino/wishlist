@@ -20,7 +20,7 @@ class Lista(models.Model):
     terminado = models.BooleanField(default = False)
 
     def __unicode__(self):
-        return self.titulo + " " + self.terminado
+        return self.titulo + " " + str(self.terminado)
 
     def get_short_description(self):
         nombre_creador = self.creador.first_name + " " + self.creador.last_name
