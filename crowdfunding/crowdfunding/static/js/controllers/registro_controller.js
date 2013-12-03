@@ -34,14 +34,17 @@ App.Controllers.Registro.mixin({
     },
 
     validarEnvio: function(){
+        //haciendo referencia al controller
         var _this = this;
 
         return function(evt){
             evt.preventDefault();
             $(".error_message").removeClass("error_message").text("");
 
-            var valido, $span;
+            var valido, $span, me;
 
+            //hacemos referencia al form
+            me = this;
             valido = _this.validacionCampo(_this.$nombre, "nombre");
             valido = valido && _this.validacionCampo(_this.$apellido, "apellido");
             valido = valido && _this.validacionCampo(_this.$rut, "rut");
@@ -71,8 +74,11 @@ App.Controllers.Registro.mixin({
                 $.get("/registro/verificar_usuario/",{ username : _this.$email.val() }, function(res){
                     res = JSON.parse(res);
 
+                    //el this aqui iria a ser del evento que ejecuta el ajaxazo y no el form
+
                     if(!res.existe){
-                        $(this).get(0).submit();
+                        console.log(me);
+                        me.submit();
                     }else{
                         alert("Lo sentimos, pero el usuario ya existe");
                     }
