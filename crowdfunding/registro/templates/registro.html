@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static from staticfiles %}
+{% load staticfiles %}
 
 {% block contenido %}
 <form id="f_registro" action="{% url 'envio' %}" method="post">
@@ -43,7 +43,7 @@
     </div>
     <div>
         <label for="password">Contraseña: </label>
-        <input id="password" type="password" value="" required placeholder="Ingrese password" />
+        <input id="password" name="password" type="password" value="" required placeholder="Ingrese password" />
         <span></span>
     </div>
     <div>
