@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block contenido %}
     bienvenidos :D 1313, POTATOOOO, SPAAAAACEEEE !!!!!!
@@ -6,4 +7,8 @@
     {% for lista in listas %}
         <div> - {{ lista.get_short_description }}</div>
     {% endfor %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static "js/controllers/login_controller.js" %}"></script>
 {% endblock %}
