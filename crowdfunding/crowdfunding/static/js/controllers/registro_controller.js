@@ -5,6 +5,8 @@ App.Controllers.Registro = function(){
     this.$email = $("#email");
     this.$region = $("#region");
     this.$comuna = $("#comuna");
+    this.$password = $("#password");
+    this.$repeat = $("#repeat");
 
     this.addEventos();
 };
@@ -46,6 +48,8 @@ App.Controllers.Registro.mixin({
             valido = valido && _this.validacionCampo(_this.$email, "email");
             valido = valido && _this.validacionCampo(_this.$region, "region");
             valido = valido && _this.validacionCampo(_this.$comuna, "comuna");
+            valido = valido && _this.validacionCampo(_this.$password, "constraseña");
+            valido = valido && _this.validacionCampo(_this.$repeat,"repetir contraseña");
 
             if(!/^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$/.test(_this.$email.val())){
                 valido = false;
@@ -55,6 +59,12 @@ App.Controllers.Registro.mixin({
             if(!$.Rut.validar(_this.$rut.val())){
                 valido = false;
                 _this.$rut.parent().find("span").addClass("error_message").text("El rut es inválido");
+            }
+
+            if(_this.$password.val() !== _this.$repeat.val()){
+                valido = false;
+                _this.$password.parent().find("span").addClass("error_message").text("Las contraseñas deben ser iguales");
+                _this.$repeat.parent().find("span").addClass("error_message").text("Las contraseñas deben ser iguales");
             }
 
             if(valido){
