@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^$',include("deseos.urls")),
     url(r'^login/$',"crowdfunding.views.login",name="login"),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^dashboard/', include('dashboard.urls')),
     url(r'^templates/.+?/$', 'crowdfunding.views.get_js_template', name="templates"),
     url(r'^registro/',include('registro.urls')),
 )
