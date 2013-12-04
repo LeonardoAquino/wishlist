@@ -1,7 +1,7 @@
+from django.contrib.auth.models import User
 from django.views.generic import ListView, TemplateView
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
 from .models import Lista
 
 
@@ -24,5 +24,14 @@ class DashboardView(TemplateView):
         return context
 
 
+class MisProyectos(ListView):
+	model = Lista
+	template_name = ""
+
+	def get_comtext_data(self, **kwargs):
+		context = super(MisProyectos, self).get_comtext_data(**kwargs)
+		tmp = self.model.objects.filter()
+
 index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
+misproyectos = MisProyectos.as_view()
