@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends "base_login.html" %}
 
 {% block h1 %}MIS PROYECTOS{% endblock %}
 
-{% block barra_navegacion %}
-    {% include "mi_menu.html" %}
-{% endblock %}
-
 {% block contenido %}
+    <a href="{% url 'nuevo_proyecto' %}">Nuevo Proyecto</a>
+
     {% for proyecto in mis_proyectos %}
         <div>{{ proyecto.get_short_description }}</div>
     {% endfor %}

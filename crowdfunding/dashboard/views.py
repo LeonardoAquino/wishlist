@@ -21,10 +21,16 @@ class MisProyectosView(ListView):
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
         return context
 
+
 class MiPerfilView(TemplateView):
     template_name = "mi_perfil.html"
+
+
+class NuevoProyectoView(TemplateView):
+    template_name = "nuevo_proyecto.html"
 
 
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())
+nuevo_proyecto = login_required(NuevoProyectoView.as_view())
