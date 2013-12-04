@@ -17,7 +17,6 @@ class MisProyectosView(ListView):
     def get_context_data(self,**kwargs):
         context = super(MisProyectosView, self).get_context_data(**kwargs)
         mi_usuario = self.request.user
-        print mi_usuario
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
         return context
 
@@ -30,7 +29,11 @@ class NuevoProyectoView(TemplateView):
     template_name = "nuevo_proyecto.html"
 
 
+class GuardarNuevoProyectoView(TemplateView)
+    template_name = "guardarnuevoproyecto.html"    
+
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())
 nuevo_proyecto = login_required(NuevoProyectoView.as_view())
+guardar_nuevo_proyecto = login_required(GuardarNuevoProyectoView.as_view())
