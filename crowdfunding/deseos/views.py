@@ -33,6 +33,7 @@ class MisProyectos(ListView):
 		context = super(MisProyectos, self).get_comtext_data(**kwargs)
 		tmp = self.model.objects.filter()
 
+
 index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
 misproyectos = MisProyectos.as_view()
