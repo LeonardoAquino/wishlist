@@ -17,7 +17,6 @@ def get_js_template(req):
 
     return HttpResponse(js_template)
 
-
 class LoginView(View):
     def post(self, req):
         username = self.request.POST.get("username")

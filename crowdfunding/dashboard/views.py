@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
 from deseos.models import Lista
 
@@ -23,6 +24,7 @@ class MisProyectosView(ListView):
 class MiPerfilView(TemplateView):
     template_name = "mi_perfil.html"
 
-dashboard = DashboardView.as_view()
-mis_proyectos = MisProyectosView.as_view()
-mi_perfil = MiPerfilView.as_view()
+
+dashboard = login_required(DashboardView.as_view())
+mis_proyectos = login_required(MisProyectosView.as_view())
+mi_perfil = login_required(MiPerfilView.as_view())
