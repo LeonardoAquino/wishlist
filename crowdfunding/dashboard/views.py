@@ -29,7 +29,7 @@ class NuevoProyectoView(TemplateView):
     template_name = "nuevo_proyecto.html"
 
 
-class GuardarNuevoProyectoView(TemplateView)
+class GuardarNuevoProyectoView(TemplateView):
     template_name = "guardarnuevoproyecto.html"    
 
 dashboard = login_required(DashboardView.as_view())
