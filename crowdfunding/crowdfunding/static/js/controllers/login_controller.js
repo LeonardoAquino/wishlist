@@ -31,7 +31,9 @@ App.Controllers.Login.mixin({
         };
 
         $.post("/login/",data, function(data){
+            data = JSON.parse(data);
             console.log(data);
+            window.location.href = data.url
         });
     }
 });

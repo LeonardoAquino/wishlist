@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block h1 %}MIS PROYECTOS{% endblock %}
+
+{% block barra_navegacion %}
+    {% include "mi_menu.html" %}
+{% endblock %}
+
+{% block contenido %}
+    {% for proyecto in mis_proyectos %}
+        <div>{{ proyecto.get_short_description }}</div>
+    {% endfor %}
+{% endblock %}
