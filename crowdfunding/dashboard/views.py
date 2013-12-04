@@ -15,7 +15,9 @@ class MisProyectosView(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(MisProyectosView, self).get_context_data(**kwargs)
-        context["mis_proyectos"] = self.model.objects.all()
+        mi_usuario = self.request.user
+        print mi_usuario
+        context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
         return context
 
 class MiPerfilView(TemplateView):

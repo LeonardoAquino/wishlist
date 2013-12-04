@@ -1,6 +1,11 @@
 from django.http import HttpResponse
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as log_in
+from django.contrib.auth import logout as log_out
 from django.contrib.auth.models import User
 from django.views.generic import View
+from django.core.urlresolvers import reverse
+from django.shortcuts import redirect
 
 import os, json
 
@@ -15,24 +20,25 @@ def get_js_template(req):
 
 class LoginView(View):
     def post(self, req):
-        username = req.POST.get("username")
-        password = req.POST.get("password")
+        username = self.request.POST.get("username")
+        password = self.request.POST.get("password")
 
-        data = {
-            "status" : "ok",
-            "message" : "",
-            "url" : "sadsa"
-        }
-        try:
-            usuario = User.objects.get(username = username)
-        except User.DoesNotExist as e:
-            data["status"] = "fail"
+        data = { "status" : "ok", "message" : "" }
+        user = authenticate(username=username, password=password)
 
-        if usuario.check_password(password):
-            data["status"] = "ok"
+        if user is not None:
+            log_in(self.request, user)
+            data["url"] = reverse("dashboard")
         else:
             data["status"] = "fail"
 
         return HttpResponse(json.dumps(data))
 
+
+class LogoutView(View):
+    def get(self, req):
+        log_out(req)
+        return redirect(reverse("index"))
+
 login = LoginView.as_view()
+logout = LogoutView.as_view()
