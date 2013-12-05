@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
-from deseos.models import Lista
+from deseos.models import Proyecto
 
 class DashboardView(TemplateView):
     template_name = "dashboard.html"
@@ -11,7 +11,7 @@ class DashboardView(TemplateView):
 
 
 class MisProyectosView(ListView):
-    model = Lista
+    model = Proyecto
     template_name = "mis_proyectos.html"
 
     def get_context_data(self,**kwargs):
@@ -44,7 +44,7 @@ class GuardarNuevoProyectoView(TemplateView):
         valido = valido and self.__is_valid(video, 250)
         valido = valido and self.__is_valid(categoria, 140)
         #valido = valido and self.__is_valid(tiempo, 140) Falta determinar cantida max.
-        
+
 
     def __is_valid(self, texto, largo):
         if texto is None or texto.strip() == "":
