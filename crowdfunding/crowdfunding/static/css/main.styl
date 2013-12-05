@@ -1,2 +1,81 @@
+@font-face
+    font-family 'icomoon'
+    src url('../fonts/icomoon.eot')
+    src url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.svg#icomoon') format('svg')
+    font-weight normal
+    font-style normal
+
+celeste = #00b9d1
+naranjo = #ff942d
+
+body
+    font-family 'Karla', sans-serif
+    font-size 16px
+    margin auto
+    max-width 1200px
+
+header
+    #logo
+        width 15%
+
+    aside.iblock
+        background #efefef
+        border-radius 0 0 10px 10px
+        color celeste
+        font-size 1.3em
+        height 80px
+        line-height 80px
+        text-align center
+        width 20%
+
+    #f_login
+        label
+            display inline-block
+            width 90px
+
+    #registro
+        color black
+        position relative
+        text-decoration none
+        top 1em
+
+        &:before
+            font-family 'icomoon'
+            content '\e600'
+
+        &:hover
+            color naranjo
+
+    .btn_header
+        border-radius 12px
+        color white
+        padding 0.2em 0.5em
+        position relative
+        text-decoration none
+        top 1em
+
+        &:hover
+            color black
+
+#buscador
+    color white
+    label
+        font-size 2em
+
+#slider
+    height 150px
+
 .error_message
     color red
+
+.fondo_celeste
+    background celeste
+
+.fondo_naranjo
+    background naranjo
+
+.iblock
+    display inline-block
+    vertical-align top
+
+
