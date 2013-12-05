@@ -6,14 +6,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <meta name="description" content="Lista de regalos por la life 1313 eaea sadsa qwertyuiop" />
     <title>{% block titulo %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
     {% block css %}{% endblock %}
 </head>
 <body>
     <header>
-        <h1>{% block h1 %}TÍTULO PRINCIPAL{% endblock %}</h1>
-        {% block barra_navegacion %}{% endblock %}
+        <figure id="logo" class="iblock">
+            <img src="{% static 'images/logo.jpg' %}" alt="logo juntemonos" />
+        </figure>
+
+        {% block menu %}
+            <a href="#" class="btn_header iblock fondo_celeste">Tengo un evento</a>
+            <a href="#" class="btn_header iblock fondo_naranjo">Quiero aportar</a>
+            <a id="registro" href="{% url 'registro' %}" class="iblock">Registrarse</a>
+
+            <form id="f_login" action="{% url "login" %}" method="post" class="iblock">
+                {% csrf_token %}
+                <aside>
+                    <div>
+                        <label for="usuario">Usuario: </label>
+                        <input id="usuario" type="text" value="" placeholder="Usuario" />
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="password">Contraseña: </label>
+                        <input id="password" type="password" value="" placeholder="Contraseña" />
+                        <span></span>
+                    </div>
+                    <input id="btn_enviar" type="submit" value="Ingresar" />
+                </aside>
+            </form>
+        {% endblock %}
+
+        <aside class="iblock">
+            ¿Qué es juntemonos?
+        </aside>
     </header>
+
+    <h1>{% block h1 %}TÍTULO PRINCIPAL{% endblock %}</h1>
+
     {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}
     <script src="{% static 'js/vendor/jquery-2.0.3.min.js' %}"></script>
     <script src="{% static 'js/vendor/handlebars-1.1.2.min.js' %}"></script>
