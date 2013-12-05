@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
 from deseos.models import Proyecto
@@ -47,6 +48,7 @@ class GuardarNuevoProyectoView(TemplateView):
         #valido = valido and self.__is_valid(otros_productos) no se ni como llegara...
 
         creador_id = self.request.user.id
+
         if valido:
             self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria)
 
@@ -62,6 +64,7 @@ class GuardarNuevoProyectoView(TemplateView):
     @transaction.commit_on_success
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria):
         pass
+
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())

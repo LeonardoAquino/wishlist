@@ -12,7 +12,7 @@ class ProyectosList(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(ProyectosList, self).get_context_data(**kwargs)
-        context["listas"] = self.model.objects.all()
+        context["proyectos"] = self.model.objects.all()
 
         return context
 
