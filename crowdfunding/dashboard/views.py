@@ -2,6 +2,7 @@ from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
 from deseos.models import Proyecto
+from crowdfunding.common import is_valid_text
 
 class DashboardView(TemplateView):
     template_name = "dashboard.html"
@@ -31,6 +32,8 @@ class NuevoProyectoView(TemplateView):
 
 
 class GuardarNuevoProyectoView(TemplateView):
+
+    @transaction.commit_on_success
     def post(self, req):
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
@@ -40,30 +43,20 @@ class GuardarNuevoProyectoView(TemplateView):
         otros_productos = req.POST.get('otros_productos')
 
         valido = True
-        valido = valido and self.__is_valid(titulo, 140)
-        valido = valido and self.__is_valid(descripcion, 500)
-        valido = valido and self.__is_valid(video, 250)
-        valido = valido and self.__is_valid(categoria, 140)
+        valido = valido and is_valid_text(titulo)
+        valido = valido and is_valid_text(descripcion, 500)
+        valido = valido and is_valid_text(video, 250)
+        valido = valido and is_valid_text(categoria)
         #valido = valido and self.__is_valid(tiempo, 140) Falta determinar cantida max.
         #valido = valido and self.__is_valid(otros_productos) no se ni como llegara...
 
         creador_id = self.request.user.id
 
         if not valido:
-            pass
-        #no eh echo nada malito
+            return
+
         self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
 
-    def __is_valid(self, texto, largo):
-        if texto is None or texto.strip() == "":
-            return False
-
-        if len(texto) > largo:
-            return False
-
-        return True
-
-    @transaction.commit_on_success
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
         proyecto = Proyecto()
         proyecto.titulo = titulo
@@ -72,6 +65,7 @@ class GuardarNuevoProyectoView(TemplateView):
         proyecto.video_url = video
         proyecto.duracion = duracion
         proyecto.save()
+
         return proyecto.id
 
 dashboard = login_required(DashboardView.as_view())

@@ -10,6 +10,7 @@ header .btn_header{border-radius:12px;color:#fff;padding:.2em .5em;position:rela
 header .btn_header:hover{color:#000}
 #buscador{color:#fff;}
 #buscador label{font-size:2em}
+#buscador #busqueda{border-radius:5px}
 #slider{height:150px}
 .error_message{color:#f00}
 .fondo_celeste{background:#00b9d1}

@@ -10,6 +10,7 @@ from django.template import RequestContext
 from django.views.generic import View
 
 from deseos.models import Region, Comuna
+from crowdfunding.common import is_valid_text
 
 def registro(req):
     regiones = Region.objects.all()

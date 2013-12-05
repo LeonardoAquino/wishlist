@@ -1,6 +1,6 @@
 App.Controllers.Login = function(){
-    this.usuario = $("#usuario");
-    this.password = $("#password");
+    this.usuario = $("#usuario_login");
+    this.password = $("#password_login");
 
     this.addEvents();
 };

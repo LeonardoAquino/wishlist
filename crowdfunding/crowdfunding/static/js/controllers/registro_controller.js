@@ -34,7 +34,6 @@ App.Controllers.Registro.mixin({
     },
 
     validarEnvio: function(){
-        //haciendo referencia al controller
         var _this = this;
 
         return function(evt){
@@ -43,7 +42,6 @@ App.Controllers.Registro.mixin({
 
             var valido, $span, me;
 
-            //hacemos referencia al form
             me = this;
             valido = _this.validacionCampo(_this.$nombre, "nombre");
             valido = valido && _this.validacionCampo(_this.$apellido, "apellido");
