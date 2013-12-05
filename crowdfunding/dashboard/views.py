@@ -25,19 +25,20 @@ class MiPerfilView(TemplateView):
     template_name = "mi_perfil.html"
 
 
-class NuevoProyectoView(View):
+class NuevoProyectoView(TemplateView):
+    template_name = "nuevo_proyecto.html"
+
+
+class GuardarNuevoProyectoView(TemplateView):
     def post(self, req):
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
-        tiempo = req.POST.get('tiempo')
-
-
-class GuardarNuevoProyectoView(TemplateView):
-    template_name = "guardar_nuevo_proyecto.html"
+        tiempo = req.POST.get('tiempo')   
 
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())
 nuevo_proyecto = login_required(NuevoProyectoView.as_view())
+guardar_nuevo_proyecto = login_required(GuardarNuevoProyectoView.as_view())
