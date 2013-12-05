@@ -35,7 +35,25 @@ class GuardarNuevoProyectoView(TemplateView):
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
-        tiempo = req.POST.get('tiempo')   
+        tiempo = req.POST.get('tiempo')
+        otros_productos = req.POST.get('otros_productos')
+
+        valido = True
+        valido = valido and self.__is_valid(titulo, 140)
+        valido = valido and self.__is_valid(descripcion, 500)
+        valido = valido and self.__is_valid(video, 250)
+        valido = valido and self.__is_valid(categoria, 140)
+        #valido = valido and self.__is_valid(tiempo, 140) Falta determinar cantida max.
+        
+
+    def __is_valid(self, texto, largo):
+        if texto is None or texto.strip() == "":
+            return False
+
+        if len(texto) > largo:
+            return False
+
+        return True
 
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
