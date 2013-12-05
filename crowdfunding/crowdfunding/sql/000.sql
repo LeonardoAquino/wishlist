@@ -372,3 +372,8 @@ INSERT INTO deseos_comuna(codigo, nombre, region_id) VALUES (1,'ARICA',15);
 INSERT INTO deseos_comuna(codigo, nombre, region_id) VALUES (295,'CAMARONES',15);
 INSERT INTO deseos_comuna(codigo, nombre, region_id) VALUES (293,'GENERAL LAGOS',15);
 INSERT INTO deseos_comuna(codigo, nombre, region_id) VALUES (294,'PUTRE',15);
+
+
+INSERT INTO deseos_categoria(id, nombre) VALUES (1, 'Cumpleaños');
+INSERT INTO deseos_categoria(id, nombre) VALUES (2, 'Evento');
+INSERT INTO deseos_categoria(id, nombre) VALUES (3, 'Causa social');

@@ -49,6 +49,7 @@ def verificar_usuario(req):
 
 
 class EnvioView(View):
+    @transaction.commit_on_success
     def post(self, req):
         nombre = req.POST.get('nombre')
         apellido = req.POST.get('apellido')
@@ -59,21 +60,20 @@ class EnvioView(View):
         pword = req.POST.get('password')
 
         valido = True
-        valido = valido and self.__is_valid(nombre)
-        valido = valido and self.__is_valid(apellido)
-        valido = valido and self.__is_valid(rut)
+        valido = valido and is_valid_text(nombre)
+        valido = valido and is_valid_text(apellido)
+        valido = valido and is_valid_text(rut)
+        valido = valido and is_valid_text(region)
+        valido = valido and is_valid_text(comuna)
+        valido = valido and is_valid_text(pword)
+        valido = valido and self.__email_valid(email)
         valido = valido and self.__is_rut_valid(rut)
-        valido = valido and self.__is_valid(email)
-        valido = valido and self.__is_valid(region)
-        valido = valido and self.__is_valid(comuna)
-        valido = valido and self.__is_valid(pword)
 
         if valido:
             self.__save_user(nombre, apellido, rut, email, region, comuna, pword)
 
         return render_to_response("registro_exitoso.html")
 
-    @transaction.commit_on_success
     def __save_user(self, nombre, apellido, rut, email, region, comuna, pword):
         user = User()
         user.first_name = nombre
@@ -84,15 +84,6 @@ class EnvioView(View):
         user.is_active = True
         user.set_password(pword)
         user.save()
-
-    def __is_valid(self, texto):
-        if texto is None or texto.strip() == "":
-            return False
-
-        if len(texto) > 140:
-            return False
-
-        return True
 
     def __is_email_valid(self, email):
         return re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',email.lower())
