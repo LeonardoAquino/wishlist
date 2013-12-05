@@ -36,7 +36,7 @@ class GuardarNuevoProyectoView(TemplateView):
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
-        tiempo = req.POST.get('tiempo')
+        duracion = req.POST.get('tiempo')
         otros_productos = req.POST.get('otros_productos')
 
         valido = True
@@ -49,8 +49,10 @@ class GuardarNuevoProyectoView(TemplateView):
 
         creador_id = self.request.user.id
 
-        if valido:
-            self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria)
+        if not valido:
+            pass
+        #no eh echo nada malito
+        self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
 
     def __is_valid(self, texto, largo):
         if texto is None or texto.strip() == "":
@@ -62,8 +64,15 @@ class GuardarNuevoProyectoView(TemplateView):
         return True
 
     @transaction.commit_on_success
-    def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria):
-        pass
+    def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
+        proyecto = Proyecto()
+        proyecto.titulo = titulo
+        proyecto.descripcion = descripcion
+        proyecto.creador = creador_id
+        proyecto.video_url = video
+        proyecto.duracion = duracion
+        proyecto.save()
+        return proyecto.id
 
 dashboard = login_required(DashboardView.as_view())
 mis_proyectos = login_required(MisProyectosView.as_view())
