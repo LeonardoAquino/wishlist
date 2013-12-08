@@ -66,7 +66,7 @@ class EnvioView(View):
         valido = valido and is_valid_text(region)
         valido = valido and is_valid_text(comuna)
         valido = valido and is_valid_text(pword)
-        valido = valido and self.__email_valid(email)
+        valido = valido and self.__is_email_valid(email)
         valido = valido and self.__is_rut_valid(rut)
 
         if valido:
