@@ -10,5 +10,6 @@ urlpatterns += patterns("together.proyectos_view",
     url(r'^terminos\-y\-condiciones/',"terminos_condiciones",name="terminos_condiciones"),
     url(r'^tipo\-de\-proyecto','tipo_proyecto',name="tipo_proyecto"),
     url(r'^nuevo\-proyecto/(\d+)/$',"nuevo_proyecto", name="nuevo_proyecto"),
+    url(r'^guardar\-paso\-1/$',"guardar_paso_1",name="guardar_paso_1"),
     url(r'^guardar\-nuevo_proyecto/$',"guardar_nuevo_proyecto", name="guardar_nuevo_proyecto"),
 )

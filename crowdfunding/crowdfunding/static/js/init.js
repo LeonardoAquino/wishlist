@@ -20,7 +20,6 @@ cookies.forEach(function(token){
 
 $.ajaxSetup({
     beforeSend: function(xhr, settings) {
-        console.log("TOKEN : " + keys.csrftoken);
         xhr.setRequestHeader("X-CSRFToken", keys.csrftoken);
     }
 });
