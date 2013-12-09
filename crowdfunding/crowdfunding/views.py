@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as log_in
@@ -17,6 +19,7 @@ def get_js_template(req):
 
     return HttpResponse(js_template)
 
+
 class LoginView(View):
     def post(self, req):
         username = self.request.POST.get("username")
@@ -30,6 +33,7 @@ class LoginView(View):
             data["url"] = reverse("dashboard")
         else:
             data["status"] = "fail"
+            data["message"] = "El usuario y/o contraseña son inválidos"
 
         return HttpResponse(json.dumps(data))
 

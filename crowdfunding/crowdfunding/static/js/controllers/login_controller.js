@@ -33,7 +33,11 @@ App.Controllers.Login.mixin({
         $.post("/login/",data, function(data){
             data = JSON.parse(data);
             console.log(data);
-            window.location.href = data.url
+            if(data.status === "ok"){
+                window.location.href = data.url
+            }else if(data.status === "fail"){
+                alert(data.message);
+            }
         });
     }
 });

@@ -1,11 +1,87 @@
 {% extends "base_login.html" %}
 
 {% block contenido %}
- tipos de proyecto de la life
 
- - todo o nada
- - todo suma
- - monto fijo
+<table>
+    <thead>
+        <th>*</th>
+        <th>Todo o nada</th>
+        <th>Todo suma</th>
+        <th>Monto fijo</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>¿Cómo Funciona?</td>
+            <td>
+                Debes alcanzar el 100% de tu objetivo económico. <strong>En caso de no hacerlo, se devolverán los fondos a tus colaboradores y no cobrarás nada.</strong>
+            </td>
+            <td>
+                Debes plantear un objetivo económico que tendrás de guía para tu proyecto completo. Sin embargo, <strong>si no alcanzas el 100%, podrás cobrar lo recaudado presentando junto con tu proyecto un plan de acción</strong>, es decir, qué harás con el 10% de lo recaudado, el 25%, el 50% y 75%, esto permite ser totalmente transparentes con tus potenciales colaboradores.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>¿Qué consideraciones debes tener?</td>
+            <td>
+                <strong>Plantear un objetivo económico acorde a tu red de contactos</strong>. Si tienes 100 amigos, es dificil que consigas US$10,000 y no lograrás el éxito.
+            </td>
+            <td>
+                <p>
+                    <strong>Las recompensas no pueden estar asociadas al proyecto final </strong>y deberán ser creativas para captar colaboradores.
+                </p>
 
- <a href="{% url 'nuevo_proyecto' %}">Continuar</a>
+                <p>
+                    En caso de no llegar al 100%, antes de cobrar, <strong>deberás presentar un plan alternativo de uso de los fondos.</strong>
+                </p>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>¿Para que proyectos se sugiere usar?</td>
+            <td>
+                Lo recomendamos para proyectos específicos que tienen un principio y fin claro y no pueden realizarse por partes. Por ejemplo, la edición de un libro.
+            </td>
+            <td>
+                Lo recomendamos para proyectos de emprendimientos o de ONGs donde todo suma para seguir contribuyendo a la misión de la empresa u organismo y su crecimiento.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Si llegas a tu objetivo (100% o más), las comisiones son:</td>
+            <td>
+                <strong>5% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>
+                (consulta en FAQs las de tu país)
+            </td>
+            <td>
+                <strong>5% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>
+                (consulta en FAQs las de tu país)
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Si NO alcanzas tu objetivo, las comisiones son:</td>
+            <td>
+                <p><strong>No hay costos.</strong></p>
+                <p>Ni Juntándonos ni los métodos de pago cobramos comisión</p>
+            </td>
+            <td>
+                <strong>10% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>. Es una forma de motivarlos a planteen un objetivo alcanzable y hagan campaña.
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href="{% url 'nuevo_proyecto' %}">Continuar</a>
+            </td>
+            <td>
+                <a href="{% url 'nuevo_proyecto' %}">Continuar</a>
+            </td>
+            <td>
+                <a href="{% url 'nuevo_proyecto' %}">Continuar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 {% endblock %}
