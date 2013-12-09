@@ -9,7 +9,7 @@ from .common import is_valid_text
 
 class MisProyectosView(ListView):
     model = Proyecto
-    template_name = "mis_proyectos.html"
+    template_name = "dashboard/mis_proyectos.html"
 
     def get_context_data(self,**kwargs):
         context = super(MisProyectosView, self).get_context_data(**kwargs)
@@ -21,7 +21,7 @@ class MisProyectosView(ListView):
 class NuevoProyectoView(TemplateView):
     def get(self, req, tipo_proyecto):
         req.session["tipo_proyecto_id"] = tipo_proyecto
-        return render_to_response("nuevo_proyecto.html",context_instance=RequestContext(req))
+        return render_to_response("dashboard/nuevo_proyecto.html",context_instance=RequestContext(req))
 
 
 class GuardarNuevoProyectoView(TemplateView):
@@ -64,5 +64,5 @@ class GuardarNuevoProyectoView(TemplateView):
 mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto = login_required(NuevoProyectoView.as_view())
 guardar_nuevo_proyecto = login_required(GuardarNuevoProyectoView.as_view())
-terminos_condiciones = login_required(TemplateView.as_view(template_name="terminos_y_condiciones.html"))
-tipo_proyecto = login_required(TemplateView.as_view(template_name="tipo_de_proyecto.html"))
+terminos_condiciones = login_required(TemplateView.as_view(template_name="dashboard/terminos_y_condiciones.html"))
+tipo_proyecto = login_required(TemplateView.as_view(template_name="dashboard/tipo_de_proyecto.html"))

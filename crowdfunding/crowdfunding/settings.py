@@ -84,7 +84,6 @@ ROOT_URLCONF = 'crowdfunding.urls'
 WSGI_APPLICATION = 'crowdfunding.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(SITE_ROOT, "templates"),
 )
 
 INSTALLED_APPS = (

@@ -5,7 +5,7 @@ from .models import Proyecto
 from .common import is_valid_text
 
 class DashboardView(TemplateView):
-    template_name = "dashboard.html"
+    template_name = "dashboard/dashboard.html"
 
     def get_context_data(self,**kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
@@ -13,7 +13,7 @@ class DashboardView(TemplateView):
 
 
 class MiPerfilView(TemplateView):
-    template_name = "mi_perfil.html"
+    template_name = "dashboard/mi_perfil.html"
 
 
 dashboard = login_required(DashboardView.as_view())
