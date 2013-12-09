@@ -377,3 +377,8 @@ INSERT INTO deseos_comuna(codigo, nombre, region_id) VALUES (294,'PUTRE',15);
 INSERT INTO deseos_categoria(id, nombre) VALUES (1, 'Cumpleaños');
 INSERT INTO deseos_categoria(id, nombre) VALUES (2, 'Evento');
 INSERT INTO deseos_categoria(id, nombre) VALUES (3, 'Causa social');
+
+
+INSERT INTO deseos_tipoproyecto(id, nombre) VALUES(1, 'Todo o nada');
+INSERT INTO deseos_tipoproyecto(id, nombre) VALUES(2, 'Todo suma');
+INSERT INTO deseos_tipoproyecto(id, nombre) VALUES(3, 'Monto fijo');

@@ -11,6 +11,13 @@ class Producto(models.Model):
         return self.nombre + " " + self.url
 
 
+class TipoProyecto(models.Model):
+    nombre = models.CharField(max_length=140)
+
+    def __unicode__(self):
+        return self.nombre
+
+
 class Proyecto(models.Model):
     titulo = models.CharField(max_length=250, unique=True)
     descripcion = models.TextField()
@@ -21,6 +28,7 @@ class Proyecto(models.Model):
     terminado = models.BooleanField(default = False)
     video_url = models.URLField(max_length=250)
     duracion = models.IntegerField()
+    tipo_proyecto = models.ForeignKey(TipoProyecto)
 
     def __unicode__(self):
         return self.titulo + " " + str(self.terminado)
