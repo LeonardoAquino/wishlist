@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenido %}
+
+<section id="slider" class="fondo_naranjo">
+    SADFASDFASDF
+</section>
+
+<section id="buscador" class="fondo_celeste">
+    <label for="busqueda">Busca tu Evento:</label>
+    <input id="busqueda" type="text" value="" placeholder="Ingrese búsqueda" />
+</section>
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static "js/controllers/login_controller.js" %}"></script>
+<script>
+    App.login = new App.Controllers.Login();
+</script>
+
+{% endblock %}

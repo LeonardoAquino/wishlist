@@ -1,0 +1,11 @@
+{% extends "base_login.html" %}
+
+<h1>MIS PROYECTOS</h1>
+
+{% block contenido %}
+    <a href="{% url 'terminos_condiciones' %}">Nuevo Proyecto</a>
+
+    {% for proyecto in mis_proyectos %}
+        <div>{{ proyecto.get_short_description }}</div>
+    {% endfor %}
+{% endblock %}
