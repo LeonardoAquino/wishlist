@@ -18,10 +18,10 @@ class MisProyectosView(ListView):
         return context
 
 
-class NuevoProyectoView(TemplateView):
+class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto):
         req.session["tipo_proyecto_id"] = tipo_proyecto
-        return render_to_response("dashboard/nuevo_proyecto_paso_1.html",context_instance=RequestContext(req))
+        return render_to_response("nuevo_proyecto/nuevo_proyecto_paso_1.html",context_instance=RequestContext(req))
 
 
 class GuardarPasoUno(TemplateView):
@@ -66,7 +66,7 @@ class GuardarPasoUno(TemplateView):
 
 
 class NuevoProyecto2View(TemplateView):
-    template_name = "nuevo_proyecto_paso_2.html"
+    template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
 
 class GuardarNuevoProyectoView(TemplateView):
     @transaction.commit_on_success
@@ -109,9 +109,8 @@ class GuardarNuevoProyectoView(TemplateView):
 
 
 mis_proyectos = login_required(MisProyectosView.as_view())
-nuevo_proyecto_paso_1 = login_required(NuevoProyectoView.as_view())
+nuevo_proyecto_paso_1 = login_required(NuevoProyecto1View.as_view())
 guardar_paso_1 = login_required(GuardarPasoUno.as_view())
 nuevo_proyecto_paso_2 = login_required(NuevoProyecto2View.as_view())
-guardar_nuevo_proyecto = login_required(GuardarNuevoProyectoView.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="dashboard/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="dashboard/tipo_de_proyecto.html"))
