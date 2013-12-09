@@ -71,11 +71,7 @@ App.Controllers.Registro.mixin({
             if(valido){
                 $.get("/registro/verificar_usuario/",{ username : _this.$email.val() }, function(res){
                     res = JSON.parse(res);
-
-                    //el this aqui iria a ser del evento que ejecuta el ajaxazo y no el form
-
                     if(!res.existe){
-                        console.log(me);
                         me.submit();
                     }else{
                         alert("Lo sentimos, pero el usuario ya existe");
