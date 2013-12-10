@@ -33,7 +33,7 @@ class GuardarPasoUno(View):
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
-        duracion = req.POST.get('tiempo')
+        duracion = req.POST.get('duracion')
         #otros_productos = req.POST.get('otros_productos')
 
         #producto_0
@@ -47,27 +47,27 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(titulo)
         valido = valido and is_valid_text(descripcion, 500)
         valido = valido and is_valid_text(video, 250)
-        valido = valido and is_valid_text(categoria)
-        valido = valido and is_valid_text()
 
         valido = valido and is_valid_text(nombre_producto)
         valido = valido and is_valid_text(url_producto, 500)
         valido = valido and is_valid_text(desc_producto, 500)
         valido = valido and is_valid_text(precio)
-        valido = valido and id_valid_text(tipo_moneda_producto)
+        valido = valido and is_valid_text(tipo_moneda_producto)
 
         creador_id = self.request.user.id
 
         if not valido:
             raise Http500()
 
-        proyecto_id = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
-        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto_id, desc_producto)
+        proyecto = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
+
+        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto, desc_producto)
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
         tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
         creador = User.objects.get(pk = creador_id)
+        
         tipo_proyecto = TipoProyecto.objects.get(pk = tipo_proyecto_id)
 
         proyecto = Proyecto()
@@ -79,7 +79,7 @@ class GuardarPasoUno(View):
         proyecto.tipo_proyecto = tipo_proyecto
         proyecto.save()
 
-        return proyecto.id
+        return proyecto
 
 
     def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
@@ -99,5 +99,5 @@ mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
 guardar_paso1 = login_required(GuardarPasoUno.as_view())
 nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
-terminos_condiciones = login_required(TemplateView.as_view(template_name="dashboard/terminos_y_condiciones.html"))
-tipo_proyecto = login_required(TemplateView.as_view(template_name="dashboard/tipo_de_proyecto.html"))
+terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
+tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
