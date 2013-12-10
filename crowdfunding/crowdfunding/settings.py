@@ -35,7 +35,7 @@ else:
         }
     }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 TIME_ZONE = 'America/Santiago'
 

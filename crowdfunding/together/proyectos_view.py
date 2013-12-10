@@ -61,8 +61,8 @@ class GuardarPasoUno(View):
         if not valido:
             raise Http500()
 
-        proyecto_id = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
-        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto_id, desc_producto)
+        proyecto = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
+        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto, desc_producto)
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
@@ -79,7 +79,7 @@ class GuardarPasoUno(View):
         proyecto.tipo_proyecto = tipo_proyecto
         proyecto.save()
 
-        return proyecto.id
+        return proyecto
 
 
     def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
