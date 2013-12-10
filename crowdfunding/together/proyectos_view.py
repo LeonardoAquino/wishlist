@@ -34,13 +34,21 @@ class GuardarPasoUno(View):
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
         duracion = req.POST.get('tiempo')
-        otros_productos = req.POST.get('otros_productos')
+        #otros_productos = req.POST.get('otros_productos')
+
+        #producto_0
+        nombre_producto = req.POST.get("nombre_0")
+        url_producto = req.POST.get("url_0")
+        desc_producto = req.POST.get("descripcion_0")
+        tipo_moneda_producto = req.POST.get("tipo_moneda_0")
+        valor_producto = req.POST.get("valor_0")
 
         valido = True
         valido = valido and is_valid_text(titulo)
         valido = valido and is_valid_text(descripcion, 500)
         valido = valido and is_valid_text(video, 250)
         valido = valido and is_valid_text(categoria)
+        valido = valido and is_valid_text()
 
         creador_id = self.request.user.id
 
@@ -64,6 +72,10 @@ class GuardarPasoUno(View):
         proyecto.tipo_proyecto = tipo_proyecto
         proyecto.save()
 
+        return proyecto.id
+
+    def __guardar_producto(self, proyecto_id, nombre, desc, url, tipo_moneda, valor):
+        pass
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
