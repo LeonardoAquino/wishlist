@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import include, patterns, url
 
 urlpatterns = patterns('together.dashboard_views',
     url(r'^$', "dashboard", name="dashboard"),
@@ -7,9 +7,5 @@ urlpatterns = patterns('together.dashboard_views',
 
 urlpatterns += patterns("together.proyectos_view",
     url(r'^mis\-proyectos/', "mis_proyectos", name="mis_proyectos"),
-    url(r'^terminos\-y\-condiciones/',"terminos_condiciones",name="terminos_condiciones"),
-    url(r'^tipo\-de\-proyecto','tipo_proyecto',name="tipo_proyecto"),
-    url(r'^nuevo\-proyecto\-paso\-1/(\d+)/$',"nuevo_proyecto_paso_1", name="nuevo_proyecto_paso_1"),
-    url(r'^guardar\-paso\-1/$',"guardar_paso_1",name="guardar_paso_1"),
-    url(r'^nuevo\-proyecto\-paso\-2/$',"nuevo_proyecto_paso_2", name="nuevo_proyecto_paso_2"),
+    url(r'^nuevo\-proyecto/',include("together.nuevo_proyecto_urls")),
 )

@@ -9,5 +9,5 @@ def is_valid_text(texto, largo=140):
 
     return True
 
-class Http500(HttpResponse):
-    status_code = 500
+class Http500(Exception):
+    pass

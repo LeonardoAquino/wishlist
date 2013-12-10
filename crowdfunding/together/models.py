@@ -3,16 +3,6 @@ from django.db import models
 from django.db import models
 from django.contrib.auth.models import User
 
-class Producto(models.Model):
-    nombre = models.CharField(max_length=140)
-    url = models.URLField(max_length=250)
-    precio = models.IntegerField(default=0)
-    es_recomendado = models.BooleanField(default=False)
-
-    def __unicode__(self):
-        return self.nombre + " " + self.url
-
-
 class TipoProyecto(models.Model):
     nombre = models.CharField(max_length=140)
 
@@ -38,6 +28,18 @@ class Proyecto(models.Model):
     def get_short_description(self):
         nombre_creador = self.creador.first_name + " " + self.creador.last_name
         return self.titulo + ", por " + nombre_creador
+
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=140)
+    url = models.URLField(max_length=250)
+    precio = models.IntegerField(default=0)
+    es_recomendado = models.BooleanField(default=False)
+    descripcion = models.TextField()
+    proyecto = models.ForeignKey(Proyecto)
+
+    def __unicode__(self):
+        return self.nombre + " " + self.url
 
 
 class Categoria(models.Model):
