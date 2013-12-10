@@ -32,7 +32,14 @@ class GuardarPasoUno(TemplateView):
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
         duracion = req.POST.get('tiempo')
-        otros_productos = req.POST.get('otros_productos')
+        #otros_productos = req.POST.get('otros_productos')
+
+        #producto_0
+        nombre_producto = req.POST.get("nombre_0")
+        url_producto = req.POST.get("url_0")
+        desc_producto = req.POST.get("descripcion_0")
+        tipo_moneda_producto = req.POST.get("tipo_moneda_0")
+        valor_producto = req.POST.get("valor_0")
 
         valido = True
         valido = valido and is_valid_text(titulo)
@@ -41,6 +48,8 @@ class GuardarPasoUno(TemplateView):
         valido = valido and is_valid_text(categoria)
         #valido = valido and self.__is_valid(tiempo, 140) Falta determinar cantida max.
         #valido = valido and self.__is_valid(otros_productos) no se ni como llegara...
+        #producto_0
+        valido = valido and is_valid_text()
 
         creador_id = self.request.user.id
 
@@ -48,6 +57,7 @@ class GuardarPasoUno(TemplateView):
             return common.Http500
 
         self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
+
         return redirect("nuevo_proyecto_paso_2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
@@ -63,6 +73,9 @@ class GuardarPasoUno(TemplateView):
         proyecto.save()
 
         return proyecto.id
+
+    def __guardar_producto(self, proyecto_id, nombre, desc, url, tipo_moneda, valor):
+        pass
 
 
 class NuevoProyecto2View(TemplateView):
