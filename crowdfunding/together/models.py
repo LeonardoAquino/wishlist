@@ -28,6 +28,15 @@ class Proyecto(models.Model):
     def get_short_description(self):
         nombre_creador = self.creador.first_name + " " + self.creador.last_name
         return self.titulo + ", por " + nombre_creador
+    def get_obj(self):
+        nombre_creador = self.creador.first_name + " " + self.creador.last_name
+        obj = {'id': self.id,
+            'titulo': self.titulo,
+            'creador': nombre_creador,
+            'fecha_creacion': self.fecha_creacion,
+            'duracion': self.duracion}
+
+        return obj
 
 
 class Producto(models.Model):

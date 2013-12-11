@@ -5,7 +5,48 @@
 {% block contenido %}
     <a href="{% url 'terminos_condiciones' %}">Nuevo Proyecto</a>
 
+    <table>
+    	<tr>
+	    	<td>
+	    		ID
+	    	</td>
+	    	<td>
+	    		titulo
+	    	</td>
+	    	<td>
+	    		Creador
+	    	</td>
+	    	<td>
+	    		Fecha de inicio
+	    	</td>
+	    	<td>
+	    		Duracion
+	    	</td>
+	    	<td>
+	    		Mas Datos
+	    	</td>
+	    </tr>
     {% for proyecto in mis_proyectos %}
-        <div>{{ proyecto.get_short_description }}</div>
+        <tr>
+        	<td>
+        		{{ proyecto.get_obj.id }}
+        	</td>
+        	<td>
+        		{{ proyecto.get_obj.titulo }}
+        	</td>
+        	<td>
+        		{{ proyecto.get_obj.creador }}
+        	</td>
+        	<td>
+        		{{ proyecto.get_obj.fecha_creacion }}
+        	</td>
+        	<td>
+        		{{ proyecto.get_obj.duracion }}
+        	</td>
+        	<td>
+        		ver productos
+        	</td>
+        </tr>
     {% endfor %}
+    </table>
 {% endblock %}
