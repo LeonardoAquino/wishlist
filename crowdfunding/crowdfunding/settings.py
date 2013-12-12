@@ -1,6 +1,6 @@
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -12,28 +12,16 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': os.path.join(PARENT_FOLDER, "db.sqlite3"),
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',# Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-            'PORT': '',# Set to empty string for default.
-        }
+DATABASES = {
+    "default": {
+        "ENGINE" : "django.db.backends.postgresql_psycopg2",
+        "NAME" : "together",
+        "USER" : "together_user",
+        "PASSWORD" : "together_password",
+        "HOST" : "",
+        "PORT" : ""
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE" : "django.db.backends.postgresql_psycopg2",
-            "NAME" : "together",
-            "USER" : "together_user",
-            "PASSWORD" : "together_password",
-            "HOST" : "",
-            "PORT" : ""
-        }
-    }
+}
 
 ALLOWED_HOSTS = ["*"]
 
@@ -139,3 +127,9 @@ LOGGING = {
         },
     }
 }
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

@@ -1,6 +1,8 @@
 # python compiled extensions
 *.pyc
 
+crowdfunding/crowdfunding/local_settings.py
+
 # C extensions
 *.so
 
