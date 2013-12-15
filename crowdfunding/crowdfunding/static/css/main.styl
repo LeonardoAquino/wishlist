@@ -7,70 +7,106 @@
 
 celeste = #00b9d1
 naranjo = #ff942d
+rosado = #fa006a
+amarillo = #ffd800
+calipso = #00aef0
+
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Varela Round', sans-serif;
+font-family: 'Exo 2', sans-serif;
+*/
 
 body
-    font-family 'Karla', sans-serif
+    font-family 'Varela Round', sans-serif
     font-size 16px
     margin auto
     max-width 1200px
 
 header
-    #logo
-        width 15%
+    background naranjo
+    position relative
+    text-align center
+    border-bottom 5px solid rosado
 
-    aside.iblock
-        background #efefef
-        border-radius 0 0 10px 10px
-        color celeste
-        font-size 1.3em
-        height 80px
-        line-height 80px
-        text-align center
-        width 20%
+    .titulo
+        border-radius 0 0 0.4em 0.4em
+        font-family 'Exo 2', sans-serif
+        margin auto
+        width 60%
 
-    #f_login
-        label
-            display inline-block
-            width 90px
+        figure
+            background url('../images/fondo_rayado.png')
+            background-position 50%
+            background-size 100% 100%
+            img
+                width 100%
 
-    #registro
-        color black
-        position relative
-        text-decoration none
-        top 1em
-
-        &:before
-            font-family 'icomoon'
-            content '\e600'
-
-        &:hover
-            color naranjo
-
-    .btn_header
-        border-radius 12px
-        color white
-        padding 0.2em 0.5em
-        position relative
-        text-decoration none
-        top 1em
-
-        &:hover
-            color black
-
-#buscador
-    color white
-
-    label
-        font-size 2em
-
-    #busqueda
-        border-radius 5px
+    .div_inutil
+        background white
+        height 5px
 
 #slider
-    height 150px
+    background-color calipso
+    background-image url('../images/globo_texto.png'),url('../images/bg_slider.png')
+    background-position center bottom,left top
+    background-size 100%, 100%
+    background-repeat no-repeat
+    min-height 10em
+    padding 1em
 
-.error_message
-    color red
+    h2, p
+        text-align center
+
+    h2
+        color rosado
+
+.buscador
+    border-bottom 5px solid pink
+    padding 1em
+    text-align center
+
+    .caja_busqueda
+        border none
+        border-radius 5px
+        color rosado
+        padding 0.5em
+
+.categorias
+    padding 0
+    text-align center
+
+    h2
+        background-color amarillo
+        color white
+        margin-top 0
+        position relative
+        text-shadow 3px 2px 1px #555
+
+        &:after
+            content ""
+            border-bottom 10px solid transparent
+            border-left 10px solid white
+            border-top 10px solid transparent
+            position absolute
+            right 0.2em
+            top 0.2em
+
+    .proyecto
+        padding 0.5em
+        border-radius 5px
+        margin 0.5em
+
+        figure
+            figcaption
+                color white
+                text-align left
+
+            img
+                width 100%
+
+.fondo_calipso
+    background calipso
 
 .fondo_celeste
     background celeste
@@ -78,8 +114,13 @@ header
 .fondo_naranjo
     background naranjo
 
+.fondo_rosado
+    background rosado
+
 .iblock
+    box-sizing border-box
     display inline-block
     vertical-align top
 
-
+.w44
+    width 44%

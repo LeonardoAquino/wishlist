@@ -1,18 +1,24 @@
 @font-face{font-family:'icomoon';src:url("../fonts/icomoon.eot");src:url("../fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("../fonts/icomoon.woff") format('woff'),url("../fonts/icomoon.ttf") format('truetype'),url("../fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
-body{font-family:'Karla',sans-serif;font-size:16px;margin:auto;max-width:1200px}
-header #logo{width:15%}
-header aside.iblock{background:#efefef;border-radius:0 0 10px 10px;color:#00b9d1;font-size:1.3em;height:80px;line-height:80px;text-align:center;width:20%}
-header #f_login label{display:inline-block;width:90px}
-header #registro{color:#000;position:relative;text-decoration:none;top:1em;}
-header #registro:before{font-family:'icomoon';content:'\e600'}
-header #registro:hover{color:#ff942d}
-header .btn_header{border-radius:12px;color:#fff;padding:.2em .5em;position:relative;text-decoration:none;top:1em;}
-header .btn_header:hover{color:#000}
-#buscador{color:#fff;}
-#buscador label{font-size:2em}
-#buscador #busqueda{border-radius:5px}
-#slider{height:150px}
-.error_message{color:#f00}
+body{font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
+header{background:#ff942d;position:relative;text-align:center;border-bottom:5px solid #fa006a;}
+header .titulo{border-radius:0 0 .4em .4em;font-family:'Exo 2',sans-serif;margin:auto;width:60%;}
+header .titulo figure{background:url("../images/fondo_rayado.png");background-position:50%;background-size:100% 100%;}
+header .titulo figure img{width:100%}
+header .div_inutil{background:#fff;height:5px}
+#slider{background-color:#00aef0;background-image:url("../images/globo_texto.png"),url("../images/bg_slider.png");background-position:center bottom,left top;background-size:100%,100%;background-repeat:no-repeat;min-height:10em;padding:1em;}
+#slider h2,#slider p{text-align:center}
+#slider h2{color:#fa006a}
+.buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
+.buscador .caja_busqueda{border:none;border-radius:5px;color:#fa006a;padding:.5em}
+.categorias{padding:0;text-align:center;}
+.categorias h2{background-color:#ffd800;color:#fff;margin-top:0;position:relative;text-shadow:3px 2px 1px #555;}
+.categorias h2:after{content:"";border-bottom:10px solid transparent;border-left:10px solid #fff;border-top:10px solid transparent;position:absolute;right:.2em;top:.2em}
+.categorias .proyecto{padding:.5em;border-radius:5px;margin:.5em;}
+.categorias .proyecto figure figcaption{color:#fff;text-align:left}
+.categorias .proyecto figure img{width:100%}
+.fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
-.iblock{display:inline-block;vertical-align:top}
+.fondo_rosado{background:#fa006a}
+.iblock{box-sizing:border-box;display:inline-block;vertical-align:top}
+.w44{width:44%}

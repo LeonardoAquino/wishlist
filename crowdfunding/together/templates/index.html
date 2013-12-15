@@ -3,13 +3,31 @@
 
 {% block contenido %}
 
-<section id="slider" class="fondo_naranjo">
-    SADFASDFASDF
+<section id="slider">
+    <h2>Slider</h2>
+    <p>Explicación de lo que se busca en slider</p>
+    <p>Explicación de lo que se busca en slider</p>
 </section>
 
-<section id="buscador" class="fondo_celeste">
-    <label for="busqueda">Busca tu Evento:</label>
-    <input id="busqueda" type="text" value="" placeholder="Ingrese búsqueda" />
+<section id="buscador" class="fondo_rosado buscador">
+    <input id="busqueda" class="caja_busqueda" type="text" value="" placeholder="BUSCA TU EVENTO" />
+</section>
+
+<section id="categorias" class="categorias">
+    <h2>CATEGORÍAS</h2>
+
+    <article class="proyecto iblock w44 fondo_calipso">
+        <figure>
+            <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
+            <figcaption>Título del evento</figcaption>
+        </figure>
+    </article>
+    <article class="proyecto iblock w44 fondo_calipso">
+        <figure>
+            <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
+            <figcaption>Título del evento</figcaption>
+        </figure>
+    </article>
 </section>
 
 {% endblock %}
