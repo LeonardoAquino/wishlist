@@ -32,18 +32,13 @@ LANGUAGE_CODE = 'es-CL'
 SITE_ID = 1
 
 USE_I18N = True
-
-
 USE_L10N = True
-
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(PARENT_FOLDER, '/user_uploads')
+MEDIA_ROOT = "/home/crowdf/webapps/media/"
+MEDIA_URL = '/media/'
 
-MEDIA_URL = '/user_uploads/'
-
-STATIC_ROOT = os.path.join(SITE_ROOT, '/static_root')
-
+STATIC_ROOT = "/home/crowdf/webapps/static/"
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
