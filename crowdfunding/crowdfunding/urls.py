@@ -3,13 +3,16 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^$',"together.views.index", name="index"),
-    url(r'^ingresar/$',"together.views.ingresar", name="ingresar"),
-    url(r'^login/$',"together.views.login",name="login"),
-    url(r'^logout/$',"together.views.logout",name="logout"),
-    url(r'^templates/.+?/$', 'together.views.get_js_template', name="templates"),
+urlpatterns = patterns('together.views',
+    url(r'^$',"index", name="index"),
+    url(r'^ingresar/$',"ingresar", name="ingresar"),
+    url(r'^login/$',"login",name="login"),
+    url(r'^logout/$',"logout",name="logout"),
+    url(r'^templates/.+?/$', 'get_js_template', name="templates"),
+)
+
+urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dashboard/', include('together.dashboard_urls')),
-    url(r'^registro/',include('together.registro_urls')),
+    url(r'^dashboard/', include('together.dashboard.urls')),
+    url(r'^registro/',include('together.registro.urls')),
 )

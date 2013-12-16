@@ -9,8 +9,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import View
 
-from .models import Region, Comuna
-from .common import is_valid_text
+from ..models import Region, Comuna
+from ..common import is_valid_text
 
 def registro(req):
     regiones = Region.objects.all()
@@ -19,6 +19,8 @@ def registro(req):
         "regiones" : regiones,
         "comunas" : []
     }
+
+    print "pshh " * 5
 
     return render_to_response("registro/registro.html", data, context_instance = RequestContext(req))
 

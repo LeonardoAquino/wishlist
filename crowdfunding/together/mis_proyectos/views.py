@@ -5,8 +5,8 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 
-from .models import Proyecto, TipoProyecto, Producto
-from .common import is_valid_text, Http500
+from ..models import Proyecto, TipoProyecto, Producto
+from ..common import is_valid_text, Http500
 
 class MisProyectosView(ListView):
     model = Proyecto
