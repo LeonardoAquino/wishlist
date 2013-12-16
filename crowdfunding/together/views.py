@@ -75,7 +75,7 @@ class MisProyectos(ListView):
     template_name = "dashboard/mis_proyectos.html"
 
     def get_comtext_data(self, **kwargs):
-        context = super(MisProyectos, self).get_comtext_data(**kwargs)
+        context = super(MisProyectos, self).get_context_data(**kwargs)
         tmp = self.model.objects.filter()
 
 

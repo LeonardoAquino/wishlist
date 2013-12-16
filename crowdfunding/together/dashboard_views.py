@@ -17,18 +17,15 @@ class MiPerfilView(TemplateView):
 
 
 class VerProyectoView(TemplateView):
-    proyecto = Proyecto
-    productos = Producto
-    categoria = Categoria
     template_name = 'dashboard/ver_proyecto.html'
 
     def get_context_data(self, **kwargs):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
         id_proyecto = kwargs.get('id_proyecto')
-        
-        obj_proyecto = self.proyecto.objects.get(id = id_proyecto)
+
+        obj_proyecto = Proyecto.objects.get(id = id_proyecto)
         context["proyecto"] = obj_proyecto
-        context["productos"] = self.productos.objects.filter(proyecto = id_proyecto)
+        context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
         #context['categoria'] = self.categoria.objects.filter(obj_proyecto.id_categoria)
         return context
 
@@ -36,4 +33,4 @@ class VerProyectoView(TemplateView):
 dashboard = login_required(DashboardView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())
 ver_proyecto = VerProyectoView.as_view()
-	
+
