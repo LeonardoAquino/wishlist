@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$',"together.views.index", name="index"),
+    url(r'^ingresar/$',"together.views.ingresar", name="ingresar"),
     url(r'^login/$',"together.views.login",name="login"),
     url(r'^logout/$',"together.views.logout",name="logout"),
     url(r'^templates/.+?/$', 'together.views.get_js_template', name="templates"),

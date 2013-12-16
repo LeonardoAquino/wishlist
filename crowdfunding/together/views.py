@@ -22,6 +22,11 @@ def get_js_template(req):
     return HttpResponse(js_template)
 
 
+class IngresoView(View):
+    def get(self, req):
+        return render_to_response("ingreso/index.html",context_instance=RequestContext(req))
+
+
 class LoginView(View):
     def post(self, req):
         username = self.request.POST.get("username")
@@ -79,3 +84,4 @@ dashboard = DashboardView.as_view()
 misproyectos = MisProyectos.as_view()
 login = LoginView.as_view()
 logout = LogoutView.as_view()
+ingresar = IngresoView.as_view()
