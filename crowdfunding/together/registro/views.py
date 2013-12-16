@@ -20,8 +20,6 @@ def registro(req):
         "comunas" : []
     }
 
-    print "pshh " * 5
-
     return render_to_response("registro/registro.html", data, context_instance = RequestContext(req))
 
 
