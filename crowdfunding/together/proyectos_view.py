@@ -17,7 +17,7 @@ class MisProyectosView(ListView):
         mi_usuario = self.request.user
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
         return context
-        
+
 
 class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto):
@@ -94,7 +94,7 @@ class GuardarPasoUno(View):
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
 
-ver_proyecto = login_required(VerProyectoView.as_view())
+
 mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
 guardar_paso1 = login_required(GuardarPasoUno.as_view())

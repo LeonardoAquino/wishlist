@@ -1,7 +1,7 @@
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
-from .models import Proyecto, Producto, TipoProyecto
+from .models import Proyecto, Producto, Categoria
 from .common import is_valid_text
 
 class DashboardView(TemplateView):
@@ -20,13 +20,14 @@ class MiPerfilView(TemplateView):
 class VerProyectoView(TemplateView):
     proyecto = Proyecto
     productos = Producto
-    model3 = TipoProyecto
+    categoria = Categoria
     template_name = ''
 
     def get(self, req, id_proyecto):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
         context["proyecto"] = self.proyecto.objects.get(id = id_proyecto)
         context["productos"] = self.productos.objects.filter(proyecto = id_proyecto)
+        #context['categoria'] = self.categoria.objects.filter()
 
 
 dashboard = login_required(DashboardView.as_view())
