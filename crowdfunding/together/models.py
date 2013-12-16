@@ -28,7 +28,7 @@ class Proyecto(models.Model):
     def get_short_description(self):
         nombre_creador = self.creador.first_name + " " + self.creador.last_name
         return self.titulo + ", por " + nombre_creador
-    def get_obj(self):
+    def get_proyecto(self):
         nombre_creador = self.creador.first_name + " " + self.creador.last_name
         obj = {'id': self.id,
             'titulo': self.titulo,
@@ -49,6 +49,16 @@ class Producto(models.Model):
 
     def __unicode__(self):
         return self.nombre + " " + self.url
+
+    def get_producto(self):
+        print 'hola'
+        obj = {'id': self.id,
+        'nombre': self.nombre,
+        'url': self.url,
+        'precio': self.precio,
+        'es_recomendado': self.es_recomendado}
+
+        return obj
 
 
 class Categoria(models.Model):
