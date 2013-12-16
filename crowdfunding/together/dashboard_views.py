@@ -24,8 +24,7 @@ class VerProyectoView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
-        #print id_proyecto
-        id_proyecto = 1
+        id_proyecto = kwargs.get('id_proyecto')
         
         obj_proyecto = self.proyecto.objects.get(id = id_proyecto)
         context["proyecto"] = obj_proyecto
