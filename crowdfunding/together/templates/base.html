@@ -13,11 +13,18 @@
 </head>
 <body>
     <header>
-        <h2 class="titulo">
-            <figure class="marco_logo">
+        <div class="menu">
+            <figure class="logo" onclick="window.location.href='{% url "index" %}'">
                 <img src="{% static 'images/logo.png' %}" alt="logo de juntándonos" />
             </figure>
-        </h2>
+
+            <div class="menu_opciones">
+                <a href="javascript:;" class="link_evento">TENGO UN EVENTO</a>
+                <a href="javascript:;" class="link_aportar">QUIERO APORTAR</a>
+                <a href="{% url 'registro' %}" class="link_registro">Registrarse</a>
+                <a href="javascript:;" class="link_entrar">Entrar</a>
+            </div>
+        </div>
 
         {% block menu %}
             <form id="f_login" action="{% url "login" %}" method="post" class="iblock" style="display:none">
@@ -37,7 +44,6 @@
                 </aside>
             </form>
         {% endblock %}
-        <div class="div_inutil"></div>
     </header>
 
     {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}

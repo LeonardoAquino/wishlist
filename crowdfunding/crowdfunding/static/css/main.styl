@@ -17,6 +17,15 @@ font-family: 'Varela Round', sans-serif;
 font-family: 'Exo 2', sans-serif;
 */
 
+box_style()
+    box-sizing border-box
+    display inline-block
+    vertical-align top
+
+limitar(ancho)
+    margin auto
+    max-width ancho
+
 body
     font-family 'Varela Round', sans-serif
     font-size 16px
@@ -25,41 +34,61 @@ body
 
 header
     background naranjo
+    border-bottom 5px solid rosado
+    padding 0 0 1em
     position relative
     text-align center
-    border-bottom 5px solid rosado
 
-    .titulo
+    .menu
+        background url('../images/barra_fondo.png') repeat-y
         border-radius 0 0 0.4em 0.4em
+        box-shadow 0 0 10px #000
         font-family 'Exo 2', sans-serif
         margin auto
+        padding 1em 0
         width 60%
 
-        figure
-            background url('../images/fondo_rayado.png')
-            background-position 50%
-            background-size 100% 100%
-            img
-                width 100%
+        .logo
+            box_style()
+            cursor pointer
 
-    .div_inutil
-        background white
-        height 5px
+            img
+                width 130px
+
+        .menu_opciones
+            display none
 
 #slider
     background-color calipso
-    background-image url('../images/globo_texto.png'),url('../images/bg_slider.png')
-    background-position center bottom,left top
-    background-size 100%, 100%
+    background-image url('../images/bg_slider.png')
+    background-position left top
+    background-size 100%
     background-repeat no-repeat
     min-height 10em
-    padding 1em
+    padding 0.5em
 
     h2, p
         text-align center
 
     h2
         color rosado
+
+    .globo_texto
+        limitar(500px)
+        background white
+        border-radius 10px
+        padding 1em
+        position relative
+
+        &:after
+            border-left 15px solid transparent
+            border-right 15px solid transparent
+            border-top 15px solid white
+            content ""
+            left 50%
+            margin-left -15px
+            position absolute
+            top 100%
 
 .buscador
     border-bottom 5px solid pink
@@ -96,6 +125,7 @@ header
         padding 0.5em
         border-radius 5px
         margin 0.5em
+        width 135px
 
         figure
             figcaption
@@ -124,3 +154,28 @@ header
 
 .w44
     width 44%
+
+@media screen and (min-width: 768px)
+    header
+        .menu
+            width 90%
+            .menu_opciones
+                box_style()
+
+                .link_aportar,.link_entrar,.link_evento,.link_registro
+                    box_style()
+                    text-decoration none
+                    padding 0.5em
+
+                .link_aportar, .link_evento
+                    border-radius 0.5em
+                    color white
+
+                .link_entrar,.link_registro
+                    color black
+
+                .link_aportar
+                    background-color rosado
+
+                .link_evento
+                    background-color calipso
