@@ -4,7 +4,6 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
-PARENT_FOLDER = os.path.join(SITE_ROOT,os.pardir)
 
 ADMINS = (
     ("Crowdfunding", "crowdfunding@mailinator.com"),
