@@ -43,6 +43,8 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=140)
     url = models.URLField(max_length=250)
     precio = models.IntegerField(default=0)
+    #impuesto = models.IntegerField(default=0)
+    #mondea = models.foreingKey(Moneda)
     es_recomendado = models.BooleanField(default=False)
     descripcion = models.TextField()
     proyecto = models.ForeignKey(Proyecto)
@@ -59,6 +61,14 @@ class Producto(models.Model):
         'es_recomendado': self.es_recomendado}
 
         return obj
+
+"""
+class Moneda(models.Model):
+    nombre = models.CharField(max_length=140)
+
+    def __unicode__(self):
+        return self.nombre
+"""
 
 
 class Categoria(models.Model):
