@@ -1,13 +1,13 @@
 App.Controllers.Login = function(){
-    this.usuario = $("#usuario_login");
-    this.password = $("#password_login");
+    this.usuario = $("#usr_login");
+    this.password = $("#pwd_login");
 
     this.addEvents();
 };
 
 App.Controllers.Login.mixin({
     addEvents: function(){
-        $("#f_login").on("submit", this.verificar.bind(this));
+        $("#f_login_normal").on("submit", this.verificar.bind(this));
     },
 
     verificar: function(evt){

@@ -2,11 +2,36 @@
 {% load staticfiles %}
 
 {% block contenido %}
-    <p>Iniciar sesión con Facebook:</p>
-    <div id="fb-root"></div>
-    <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+
+    <section>
+        <h2>Iniciar sesión normal</h2>
+        <form id="f_login_normal" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <input id="usr_login" name="username" type="text" value="" placeholder="Usuario:" />
+                <span></span>
+            </div>
+            <div>
+                <input id="pwd_login" name="password" type="password" value="" placeholder="Contraseña:" />
+                <span></span>
+            </div>
+            <div>
+                <input type="submit" value="Ingresar" />
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h2>Iniciar sesión con Facebook</h2>
+        <div id="fb-root"></div>
+        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+    </section>
 {% endblock %}
 
 {% block js %}
 <script src="{% static 'js/controllers/facebook_login.js' %}"></script>
+<script src="{% static 'js/controllers/login_controller.js' %}"></script>
+<script>
+    App.login = new App.Controllers.Login();
+</script>
 {% endblock %}
