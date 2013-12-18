@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns("together.proyectos_view",
+urlpatterns = patterns("together.mis_proyectos.views",
     url(r'^terminos\-y\-condiciones/',"terminos_condiciones",name="terminos_condiciones"),
     url(r'^tipo\-de\-proyecto','tipo_proyecto',name="tipo_proyecto"),
     url(r'^paso1/(\d+)/$',"nuevo_proyecto_paso1", name="nuevo_proyecto_paso1"),

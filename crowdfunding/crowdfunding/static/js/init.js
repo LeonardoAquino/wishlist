@@ -3,7 +3,7 @@ App.Controllers = {};
 App.Models = {};
 
 //inicio de nuestro cargador dinamico de plantillas
-var templateLoader = new TemplateLoader(Handlebars);
+var templateLoader = new TemplateLoader(Handlebars, { withCache : false });
 var storage = new Storage({ method : "session" });
 
 Handlebars.render = function(string, data){
