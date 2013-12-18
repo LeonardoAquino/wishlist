@@ -22,7 +22,11 @@ class MisProyectosView(ListView):
 class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto):
         req.session["tipo_proyecto_id"] = tipo_proyecto
-        return render_to_response("nuevo_proyecto/nuevo_proyecto_paso_1.html",context_instance=RequestContext(req))
+        template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
+
+        data = { "dias" : [i + 1 for i in xrange(60)] }
+
+        return render_to_response(template, data, context_instance=RequestContext(req))
 
 
 class GuardarPasoUno(View):

@@ -1,4 +1,5 @@
 {% extends "base_login.html" %}
+{% load staticfiles %}
 
 <h1>Nuevo proyecto</h1>
 
@@ -46,31 +47,33 @@
 
         <h4>Productos</h4>
 
-        <a href="javascript:;">Otro producto</a>
+        <a id="btn_otro_producto" href="javascript:;">Otro producto</a>
 
-        <div>
-            <div>
-                <label for="nombre_0">Nombre: </label>
-                <input id="nombre_0" name="nombre_0" type="text" />
-            </div>
+        <section id="lista_productos">
+            <article>
+                <div>
+                    <label for="nombre_0">Nombre: </label>
+                    <input id="nombre_0" name="nombre_0" type="text" />
+                </div>
 
-            <div>
-                <label for="url_0">URL: </label>
-                <input id="url_0" name="url_0" type="text" />
-            </div>
+                <div>
+                    <label for="url_0">URL: </label>
+                    <input id="url_0" name="url_0" type="text" />
+                </div>
 
-            <div>
-                <label for="descripcion_0">Descripción: </label>
-                <input id="descripcion_0" name="descripcion_0" type="text" />
-            </div>
-            <div>
-                <select id="tipo_moneda_0" name="tipo_moneda_0">
-                    <option value="peso">Peso</option>
-                    <option value="usd">USD</option>
-                </select>
-                <input id="valor_0" name="valor_0" type="text" value="" />
-            </div>
-        </div>
+                <div>
+                    <label for="descripcion_0">Descripción: </label>
+                    <input id="descripcion_0" name="descripcion_0" type="text" />
+                </div>
+                <div>
+                    <select id="tipo_moneda_0" name="tipo_moneda_0">
+                        <option value="peso">Peso</option>
+                        <option value="usd">USD</option>
+                    </select>
+                    <input id="valor_0" name="valor_0" type="text" value="" />
+                </div>
+            </article>
+        </section>
 
         <div>
             <label for="total">Total:</label>
@@ -86,4 +89,10 @@
             <input type="submit" value="Continuar" />
         </div>
     </form>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/controllers/paso1_controller.js' %}"></script>
+<script>
+    App.paso1 = new App.Controllers.Paso1();
+</script>
 {% endblock %}
