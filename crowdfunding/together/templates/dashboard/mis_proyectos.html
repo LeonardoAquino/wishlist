@@ -44,7 +44,7 @@
         		{{ proyecto.get_proyecto.duracion }}
         	</td>
         	<td>
-        		ver productos
+        		<a href="{% url 'ver_proyecto' proyecto.get_proyecto.id %}">Nuevo Proyecto</a>
         	</td>
         </tr>
     {% endfor %}
