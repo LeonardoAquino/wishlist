@@ -29,15 +29,6 @@ class GuardarPasoUno(View):
 
     @transaction.commit_on_success
     def post(self, req):
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
-        print "================================================"
 
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
@@ -63,15 +54,8 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(desc_producto, 500)
         valido = valido and is_valid_text(precio)
         valido = valido and is_valid_text(tipo_moneda_producto)
-        print "================================================"
-        print 'aqui estoy'
-        print "================================================"
+
         creador_id = self.request.user.id
-        moneda = Moneda.objects.get( nombre = 'clp' )
-        print "================================================"
-        print moneda
-        print "================================================"
-        
         if not valido:
             raise Http500()
 
@@ -98,7 +82,7 @@ class GuardarPasoUno(View):
         return proyecto
 
 
-    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion, moneda):
+    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
         
         producto = Producto()
         producto.nombre = nombre
@@ -106,7 +90,6 @@ class GuardarPasoUno(View):
         producto.precio = precio
         producto.proyecto = proyecto
         producto.descripcion = descripcion
-        producto.moneda_id = moneda
         producto.save()
 
 class NuevoProyecto2View(TemplateView):
