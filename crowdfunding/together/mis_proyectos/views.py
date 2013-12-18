@@ -45,7 +45,6 @@ class GuardarPasoUno(View):
         duracion = req.POST.get('duracion')
         #otros_productos = req.POST.get('otros_productos')
 
-        #producto_0
         nombre_producto = req.POST.get("nombre_0")
         url_producto = req.POST.get("url_0")
         desc_producto = req.POST.get("descripcion_0")
@@ -62,8 +61,9 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(desc_producto, 500)
         valido = valido and is_valid_text(precio)
         valido = valido and is_valid_text(tipo_moneda_producto)
+
         creador_id = self.request.user.id
-        moneda = Moneda.objects.get( nombre = 'clp' )
+        moneda = Moneda.objects.get(pk=tipo_moneda_producto)
 
         if not valido:
             raise Http500()
