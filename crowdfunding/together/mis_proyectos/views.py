@@ -62,8 +62,9 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(desc_producto, 500)
         valido = valido and is_valid_text(precio)
         valido = valido and is_valid_text(tipo_moneda_producto)
-
         creador_id = self.request.user.id
+        moneda = Moneda.objects.get( nombre = 'clp' )
+
         if not valido:
             raise Http500()
 
@@ -89,15 +90,14 @@ class GuardarPasoUno(View):
 
         return proyecto
 
-
-    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
-
+    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion, moneda):
         producto = Producto()
         producto.nombre = nombre
         producto.url = url
         producto.precio = precio
         producto.proyecto = proyecto
         producto.descripcion = descripcion
+        producto.moneda = moneda
         producto.save()
 
 class NuevoProyecto2View(TemplateView):
