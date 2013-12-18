@@ -4,6 +4,7 @@ App.Models = {};
 
 //inicio de nuestro cargador dinamico de plantillas
 var templateLoader = new TemplateLoader(Handlebars);
+var storage = new Storage({ method : "session" });
 
 Handlebars.render = function(string, data){
     return Handlebars.compile(string)(data);
