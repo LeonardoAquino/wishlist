@@ -2,29 +2,30 @@
 {% load staticfiles %}
 
 {% block contenido %}
+    <section id="contenedor_ingreso">
+        <section class="iblock w45 t_centered contenedor">
+            <h2>Iniciar sesión normal</h2>
+            <form id="f_login_normal" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input id="usr_login" name="username" type="text" value="" placeholder="Usuario:" />
+                    <span></span>
+                </div>
+                <div>
+                    <input id="pwd_login" name="password" type="password" value="" placeholder="Contraseña:" />
+                    <span></span>
+                </div>
+                <div>
+                    <input type="submit" value="Ingresar" />
+                </div>
+            </form>
+        </section>
 
-    <section>
-        <h2>Iniciar sesión normal</h2>
-        <form id="f_login_normal" action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <div>
-                <input id="usr_login" name="username" type="text" value="" placeholder="Usuario:" />
-                <span></span>
-            </div>
-            <div>
-                <input id="pwd_login" name="password" type="password" value="" placeholder="Contraseña:" />
-                <span></span>
-            </div>
-            <div>
-                <input type="submit" value="Ingresar" />
-            </div>
-        </form>
-    </section>
-
-    <section>
-        <h2>Iniciar sesión con Facebook</h2>
-        <div id="fb-root"></div>
-        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+        <section class="iblock w45 t_centered contenedor">
+            <h2>Iniciar sesión con Facebook</h2>
+            <div id="fb-root"></div>
+            <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+        </section>
     </section>
 {% endblock %}
 

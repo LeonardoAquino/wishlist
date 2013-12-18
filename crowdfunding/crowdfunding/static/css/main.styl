@@ -58,6 +58,18 @@ header
         .menu_opciones
             display none
 
+#formulario_registro
+    background-color #f9f9f9
+    border-radius 7px
+    margin-top 2em
+    padding 1em
+
+    .fila
+        label
+            color #555
+            font-weight bold
+            min-width 160px
+
 #slider
     background-color calipso
     background-image url('../images/bg_slider.png')
@@ -135,6 +147,15 @@ header
             img
                 width 100%
 
+.contenedor
+    background-color #f9f9f9
+    border-radius 7px
+    margin-top 2em
+    padding 1em
+
+.error_message
+    color #D15538
+
 .fondo_calipso
     background calipso
 
@@ -147,13 +168,35 @@ header
 .fondo_rosado
     background rosado
 
+.formulario
+    margin auto
+    width 60%
+    .fila
+        padding 0.3em
+
+        label
+            display inline-block
+            min-width 140px
+
+        select
+            width 180px
+
 .iblock
     box-sizing border-box
     display inline-block
     vertical-align top
 
+.t_centered
+    text-align center
+
 .w44
     width 44%
+
+.w45
+    width 45%
+
+.w49
+    width 49%
 
 @media screen and (min-width: 768px)
     header
@@ -179,3 +222,6 @@ header
 
                 .link_evento
                     background-color calipso
+
+
+@import "ingreso"

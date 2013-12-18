@@ -5,6 +5,8 @@ header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
 header .menu .logo img{width:130px}
 header .menu .menu_opciones{display:none}
+#formulario_registro{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em;}
+#formulario_registro .fila label{color:#555;font-weight:bold;min-width:160px}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
@@ -18,12 +20,21 @@ header .menu .menu_opciones{display:none}
 .categorias .proyecto{padding:.5em;border-radius:5px;margin:.5em;width:135px;}
 .categorias .proyecto figure figcaption{color:#fff;text-align:left}
 .categorias .proyecto figure img{width:100%}
+.contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
+.error_message{color:#d15538}
 .fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
 .fondo_rosado{background:#fa006a}
+.formulario{margin:auto;width:60%;}
+.formulario .fila{padding:.3em;}
+.formulario .fila label{display:inline-block;min-width:140px}
+.formulario .fila select{width:180px}
 .iblock{box-sizing:border-box;display:inline-block;vertical-align:top}
+.t_centered{text-align:center}
 .w44{width:44%}
+.w45{width:45%}
+.w49{width:49%}
 @media screen and (min-width: 768px){header .menu{width:90%;}
 header .menu .menu_opciones{box-sizing:border-box;display:inline-block;vertical-align:top;}
 header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_evento,header .menu .menu_opciones .link_registro{box-sizing:border-box;display:inline-block;vertical-align:top;text-decoration:none;padding:.5em}
@@ -31,4 +42,5 @@ header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_even
 header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_registro{color:#000}
 header .menu .menu_opciones .link_aportar{background-color:#fa006a}
 header .menu .menu_opciones .link_evento{background-color:#00aef0}
-}
+}#contenedor_ingreso{margin:auto;width:60%;}
+#contenedor_ingreso section{margin:1em}

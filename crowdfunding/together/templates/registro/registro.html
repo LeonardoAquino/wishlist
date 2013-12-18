@@ -2,59 +2,61 @@
 {% load staticfiles %}
 
 {% block contenido %}
-<form id="f_registro" action="{% url 'envio' %}" method="post">
-    {% csrf_token %}
-    <div>
-        <label for="nombre">Nombres: </label>
-        <input id="nombre" name="nombre" type="text" required  placeholder="Ingrese nombre" />
-        <span></span>
-    </div>
-    <div>
-        <label for="apellido">Apellidos: </label>
-        <input id="apellido" name="apellido" type="text" required placeholder="Ingrese apellido" />
-        <span></span>
-    </div>
-    <div>
-        <label for="rut">RUT: </label>
-        <input id="rut" name="rut" type="text" required placeholder="Ingrese RUT" />
-        <span></span>
-    </div>
-    <div>
-        <label for="email">Email: </label>
-        <input id="email" name="email" type="text" required placeholder="Ingrese Email" />
-        <span></span>
-    </div>
-    <div>
-        <label for="region">Región: </label>
-        <select id="region" name="region" required>
-            <option value="">SELECCIONE...</option>
-            {% for region in regiones %}
-            <option value="{{ region.id }}">{{ region.nombre }}</option>
-            {% endfor %}
-        </select>
-        <span></span>
-    </div>
-    <div>
-        <label for="comuna">Comuna: </label>
-        <select id="comuna" name="comuna" required>
-            <option value="">SELECCIONE...</option>
-        </select>
-        <span></span>
-    </div>
-    <div>
-        <label for="password">Contraseña: </label>
-        <input id="password" name="password" type="password" value="" required placeholder="Ingrese password" />
-        <span></span>
-    </div>
-    <div>
-        <label for="repeat">Repita contraseña: </label>
-        <input id="repeat" type="password" value="" required placeholder="Repita password" />
-        <span></span>
-    </div>
-    <div>
-        <input type="submit" value="Enviar" />
-    </div>
-</form>
+<section id="formulario_registro" class="formulario">
+    <form id="f_registro" action="{% url 'envio' %}" method="post">
+        {% csrf_token %}
+        <div class="fila">
+            <label for="nombre">Nombres: </label>
+            <input id="nombre" name="nombre" type="text" required  placeholder="Ingrese nombre" />
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="apellido">Apellidos: </label>
+            <input id="apellido" name="apellido" type="text" required placeholder="Ingrese apellido" />
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="rut">RUT: </label>
+            <input id="rut" name="rut" type="text" required placeholder="Ingrese RUT" />
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="email">Email: </label>
+            <input id="email" name="email" type="text" required placeholder="Ingrese Email" />
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="region">Región: </label>
+            <select id="region" name="region" required>
+                <option value="">SELECCIONE...</option>
+                {% for region in regiones %}
+                <option value="{{ region.id }}">{{ region.nombre }}</option>
+                {% endfor %}
+            </select>
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="comuna">Comuna: </label>
+            <select id="comuna" name="comuna" required>
+                <option value="">SELECCIONE...</option>
+            </select>
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="password">Contraseña: </label>
+            <input id="password" name="password" type="password" value="" required placeholder="Ingrese password" />
+            <span></span>
+        </div>
+        <div class="fila">
+            <label for="repeat">Repita contraseña: </label>
+            <input id="repeat" type="password" value="" required placeholder="Repita password" />
+            <span></span>
+        </div>
+        <div class="t_centered">
+            <input type="submit" value="Enviar" />
+        </div>
+    </form>
+</section>
 {% endblock %}
 
 {% block js %}
