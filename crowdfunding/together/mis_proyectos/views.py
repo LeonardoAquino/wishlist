@@ -43,7 +43,7 @@ class GuardarPasoUno(View):
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
         duracion = req.POST.get('duracion')
-        #otros_productos = req.POST.get('otros_productos')
+        i = 0
 
         nombre_producto = req.POST.get("nombre_0")
         url_producto = req.POST.get("url_0")
@@ -55,22 +55,47 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(titulo)
         valido = valido and is_valid_text(descripcion, 500)
         valido = valido and is_valid_text(video, 250)
+        
+        productos_dict = []
+        while True:
+            if not is_valid_text(req.POST.get("nombre_%d"%i)):
+                break
+                
+            nombre_producto = req.POST.get("nombre_%d"%i)
+            url_producto = req.POST.get("url_%d"%i)
+            desc_producto = req.POST.get("descripcion_%d"%i)
+            tipo_moneda_producto = req.POST.get("tipo_moneda_%d"%i)
+            precio = req.POST.get("valor_%d"%i)
+            
+            valido = valido and is_valid_text(nombre_producto)
+            valido = valido and is_valid_text(url_producto, 500)
+            valido = valido and is_valid_text(desc_producto, 500)
+            valido = valido and is_valid_text(precio)
+            valido = valido and is_valid_text(tipo_moneda_producto)
 
-        valido = valido and is_valid_text(nombre_producto)
-        valido = valido and is_valid_text(url_producto, 500)
-        valido = valido and is_valid_text(desc_producto, 500)
-        valido = valido and is_valid_text(precio)
-        valido = valido and is_valid_text(tipo_moneda_producto)
+            if not valido:
+                break
+
+            moneda = Moneda.objects.get(pk=tipo_moneda_producto)
+            prod = {
+                "nombre": nombre_producto,
+                "url": url_producto,
+                "descripcion": desc_producto,
+                "tipo_moneda_producto": moneda,
+                "precio": precio,
+            }
+
+            productos_dict.append(prod)
+            i +=1
 
         creador_id = self.request.user.id
-        moneda = Moneda.objects.get(pk=tipo_moneda_producto)
 
         if not valido:
             raise Http500()
 
         proyecto = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
 
-        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto, desc_producto, moneda)
+        self.__guardar_producto(productos_dict, proyecto)
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
@@ -90,15 +115,16 @@ class GuardarPasoUno(View):
 
         return proyecto
 
-    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion, moneda):
-        producto = Producto()
-        producto.nombre = nombre
-        producto.url = url
-        producto.precio = precio
-        producto.proyecto = proyecto
-        producto.descripcion = descripcion
-        producto.moneda = moneda
-        producto.save()
+    def __guardar_producto(self, items, proyecto):
+        for item in items:
+            producto = Producto()
+            producto.nombre = item['nombre']
+            producto.url = item['url']
+            producto.precio = item['precio']
+            producto.proyecto = proyecto
+            producto.descripcion = item['descripcion']
+            producto.moneda = item['tipo_moneda_producto']
+            producto.save()
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
