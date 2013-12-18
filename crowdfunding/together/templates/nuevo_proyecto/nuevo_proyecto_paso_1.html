@@ -29,9 +29,9 @@
             <label for="categoria">Categoría:</label>
             <select id="categoria" name="categoria">
                 <option value="">Seleccione...</option>
-                <option value="cumple">cumpleaños</option>
-                <option value="evento">evento</option>
-                <option value="causa social">causa social</option>
+                {% for categoria in categorias %}
+                <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                {% endfor %}
             </select>
         </div>
 
@@ -67,8 +67,9 @@
                 </div>
                 <div>
                     <select id="tipo_moneda_0" name="tipo_moneda_0">
-                        <option value="peso">Peso</option>
-                        <option value="usd">USD</option>
+                        {% for moneda in monedas %}
+                        <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
+                        {% endfor %}
                     </select>
                     <input id="valor_0" name="valor_0" type="text" value="" />
                 </div>

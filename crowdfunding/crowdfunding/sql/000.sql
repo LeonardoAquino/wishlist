@@ -383,5 +383,5 @@ INSERT INTO together_tipoproyecto(id, nombre) VALUES(1, 'Todo o nada');
 INSERT INTO together_tipoproyecto(id, nombre) VALUES(2, 'Todo suma');
 INSERT INTO together_tipoproyecto(id, nombre) VALUES(3, 'Monto fijo');
 
-INSERT INTO together_moneda(id, nombre) VALUES (1, "clp");
-INSERT INTO together_moneda(id, nombre) VALUES (1, "usd");
+INSERT INTO together_moneda(id, nombre) VALUES (1, 'CLP');
+INSERT INTO together_moneda(id, nombre) VALUES (2, 'USD');

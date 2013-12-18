@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 
-from ..models import Proyecto, TipoProyecto, Producto, Moneda
+from ..models import Proyecto, TipoProyecto, Producto, Moneda, Categoria
 from ..common import is_valid_text, Http500
 
 class MisProyectosView(ListView):
@@ -24,7 +24,11 @@ class NuevoProyecto1View(TemplateView):
         req.session["tipo_proyecto_id"] = tipo_proyecto
         template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
 
-        data = { "dias" : [i + 1 for i in xrange(60)] }
+        data = {
+            "dias" : [i + 1 for i in xrange(60)],
+            "monedas" : Moneda.objects.all(),
+            "categorias" : Categoria.objects.all()
+        }
 
         return render_to_response(template, data, context_instance=RequestContext(req))
 
@@ -87,7 +91,7 @@ class GuardarPasoUno(View):
 
 
     def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
-        
+
         producto = Producto()
         producto.nombre = nombre
         producto.url = url
