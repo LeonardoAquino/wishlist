@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 
-from ..models import Proyecto, TipoProyecto, Producto
+from ..models import Proyecto, TipoProyecto, Producto, Moneda
 from ..common import is_valid_text, Http500
 
 class MisProyectosView(ListView):
@@ -29,6 +29,16 @@ class GuardarPasoUno(View):
 
     @transaction.commit_on_success
     def post(self, req):
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+        print "================================================"
+
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
@@ -53,15 +63,21 @@ class GuardarPasoUno(View):
         valido = valido and is_valid_text(desc_producto, 500)
         valido = valido and is_valid_text(precio)
         valido = valido and is_valid_text(tipo_moneda_producto)
-
+        print "================================================"
+        print 'aqui estoy'
+        print "================================================"
         creador_id = self.request.user.id
-
+        moneda = Moneda.objects.get( nombre = 'clp' )
+        print "================================================"
+        print moneda
+        print "================================================"
+        
         if not valido:
             raise Http500()
 
         proyecto = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
 
-        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto, desc_producto)
+        self.__guardar_producto(nombre_producto, url_producto, precio, proyecto, desc_producto, moneda)
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
@@ -82,13 +98,15 @@ class GuardarPasoUno(View):
         return proyecto
 
 
-    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion):
+    def __guardar_producto(self, nombre, url, precio, proyecto, descripcion, moneda):
+        
         producto = Producto()
         producto.nombre = nombre
         producto.url = url
         producto.precio = precio
         producto.proyecto = proyecto
         producto.descripcion = descripcion
+        producto.moneda_id = moneda
         producto.save()
 
 class NuevoProyecto2View(TemplateView):
