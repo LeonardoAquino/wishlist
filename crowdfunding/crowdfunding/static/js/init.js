@@ -1,10 +1,12 @@
-var App = {};
+var App, templateLoader, storage;
+
+App = {};
 App.Controllers = {};
 App.Models = {};
 
 //inicio de nuestro cargador dinamico de plantillas
-var templateLoader = new TemplateLoader(Handlebars, { withCache : false });
-var storage = new Storage({ method : "session" });
+templateLoader = new TemplateLoader(Handlebars, { withCache : false });
+storage = new Storage({ method : "session" });
 
 Handlebars.render = function(string, data){
     return Handlebars.compile(string)(data);
