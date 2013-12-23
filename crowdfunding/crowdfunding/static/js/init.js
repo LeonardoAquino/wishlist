@@ -14,7 +14,8 @@ Handlebars.render = function(string, data){
 
 (function(){
 var cookies = document.cookie.split(";"),
-    cookieKeys = {};
+    cookieKeys = {},
+    fooKey = $("#foo").val();
 
 cookies.forEach(function(token){
     var cookie = token.split("=");
@@ -23,8 +24,7 @@ cookies.forEach(function(token){
 
 $.ajaxSetup({
     beforeSend: function(xhr, settings) {
-        console.log("csrfToken: ", cookieKeys.csrftoken);
-        xhr.setRequestHeader("X-CSRFToken", cookieKeys.csrftoken);
+        xhr.setRequestHeader("X-CSRFToken", fooKey);
     }
 });
 
