@@ -14,16 +14,17 @@ Handlebars.render = function(string, data){
 
 (function(){
 var cookies = document.cookie.split(";"),
-    keys = {};
+    cookieKeys = {};
 
 cookies.forEach(function(token){
     var cookie = token.split("=");
-    keys[cookie[0]] = cookie[1];
+    cookieKeys[cookie[0]] = cookie[1];
 });
 
 $.ajaxSetup({
     beforeSend: function(xhr, settings) {
-        xhr.setRequestHeader("X-CSRFToken", keys.csrftoken);
+        console.log("csrfToken: ", cookieKeys.csrftoken);
+        xhr.setRequestHeader("X-CSRFToken", cookieKeys.csrftoken);
     }
 });
 
