@@ -1,5 +1,7 @@
 #-*- coding: utf-8 -*-
 import json
+import calendar
+from datetime import datetime
 
 from django.contrib.auth.models import User
 from django.db import transaction, IntegrityError
@@ -16,8 +18,17 @@ def registro(req):
 
     data = {
         "regiones" : regiones,
-        "comunas" : []
+        "comunas" : [],
+        "dias" : [i + 1 for i in range(30)],
+        "meses" : [],
+        "anios" : [i for i in range(1975, datetime.now().year - 15)]
     }
+
+    for monthnumber in range(1,13):
+        data["meses"].append({
+            "valor" : monthnumber,
+            "nombre" : calendar.month_name[monthnumber]
+        })
 
     return render_to_response("registro/registro.html", data, context_instance = RequestContext(req))
 

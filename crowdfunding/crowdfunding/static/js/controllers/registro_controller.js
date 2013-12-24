@@ -1,11 +1,13 @@
 App.Controllers.Registro = function(){
-    this.$nombre = $("#nombre");
-    this.$apellido = $("#apellido");
+    this.$nombreUsuario = $("#nombre_usuario");
     this.$email = $("#email");
     this.$region = $("#region");
     this.$comuna = $("#comuna");
     this.$password = $("#password");
     this.$repeat = $("#repeat");
+    this.$dia = $("#dia");
+    this.$mes = $("#mes");
+    this.$anio = $("#anio");
 
     this.addEventos();
 };
@@ -42,8 +44,7 @@ App.Controllers.Registro.mixin({
             var valido, $span, me, json;
 
             me = this;
-            valido = _this.validacionCampo(_this.$nombre, "nombre");
-            valido = valido && _this.validacionCampo(_this.$apellido, "apellido");
+            valido = _this.validacionCampo(_this.$nombreUsuario, "nombre_usuario");
             valido = valido && _this.validacionCampo(_this.$email, "email");
             valido = valido && _this.validacionCampo(_this.$region, "region");
             valido = valido && _this.validacionCampo(_this.$comuna, "comuna");
@@ -59,6 +60,19 @@ App.Controllers.Registro.mixin({
                 valido = false;
                 _this.$password.parent().find("span").addClass("error_message").text("Las contraseñas deben ser iguales");
                 _this.$repeat.parent().find("span").addClass("error_message").text("Las contraseñas deben ser iguales");
+            }else if(_this.$password.val().length < 6 || _this.$password.val().length > 50){
+                valido = false;
+                _this.$password.parent().find("span").addClass("error_message").text("La contraseña debe tener entre 6 y 50 caracteres");
+            }
+
+            if(!$("input[type=radio]:checked").length){
+                valido = false;
+                $("input[type=radio]:first").parent().find("span").addClass("error_message").text("Debe seleccionar sexo 1313");
+            }
+
+            if(!_this.$dia.val() || !_this.$mes.val() || !_this.$anio.val()){
+                valido = false;
+                _this.$dia.parent().find("span").addClass("error_message").text("Debe seleccionar una fecha válida");
             }
 
             if(valido){

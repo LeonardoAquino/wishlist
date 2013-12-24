@@ -1,12 +1,24 @@
 @font-face{font-family:'icomoon';src:url("../fonts/icomoon.eot");src:url("../fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("../fonts/icomoon.woff") format('woff'),url("../fonts/icomoon.ttf") format('truetype'),url("../fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
-body{font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
+body{background-color:#f5f5f5;font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
 header{background:#ff942d;border-bottom:5px solid #fa006a;padding:0 0 1em;position:relative;text-align:center;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:60%;}
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
 header .menu .logo img{width:130px}
 header .menu .menu_opciones{display:none}
-#formulario_registro{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em;}
-#formulario_registro .fila label{color:#555;font-weight:bold;min-width:160px}
+#contenedor_ingreso{background-color:#f7d000;margin:auto;width:90%;}
+#contenedor_ingreso section{margin:1em}
+#contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
+#contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(50% - 15px)}
+#contenedor_ingreso .contenedor div{margin:.5em 0;}
+#contenedor_ingreso .contenedor div input[type="text"],#contenedor_ingreso .contenedor div input[type="password"]{border:1px solid #999;border-radius:5px;padding:.5em}
+#contenedor_ingreso .contenedor div input[type="submit"]{background:#1520ff;border:0;color:#fff;border-radius:5px;padding:.5em 1em;}
+#contenedor_ingreso .contenedor div input[type="submit"]:hover{background:#00e7fb}
+#contenedor_ingreso .contenedor h2{color:#fa006a;font-family:'Lobster',sans-serif}
+#formulario_registro{background-color:#f9f9f9;border:3px solid #fa006a;border-radius:7px;margin-top:2em;padding:1em;}
+#formulario_registro .fila label{color:#555;display:block;font-weight:bold;min-width:160px;}
+#formulario_registro .fila label span{font-weight:lighter;color:#999}
+#formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
+#formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
@@ -42,5 +54,4 @@ header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_even
 header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_registro{color:#000}
 header .menu .menu_opciones .link_aportar{background-color:#fa006a}
 header .menu .menu_opciones .link_evento{background-color:#00aef0}
-}#contenedor_ingreso{margin:auto;width:60%;}
-#contenedor_ingreso section{margin:1em}
+}

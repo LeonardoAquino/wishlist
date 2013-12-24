@@ -10,6 +10,7 @@ naranjo = #ff942d
 rosado = #fa006a
 amarillo = #ffd800
 calipso = #00aef0
+amarillo_oscuro = #f7d000
 
 /*
 font-family: 'Lobster', cursive;
@@ -27,6 +28,7 @@ limitar(ancho)
     max-width ancho
 
 body
+    background-color #f5f5f5
     font-family 'Varela Round', sans-serif
     font-size 16px
     margin auto
@@ -58,8 +60,53 @@ header
         .menu_opciones
             display none
 
+#contenedor_ingreso
+    background-color amarillo_oscuro
+    margin auto
+    width 90%
+
+    section
+        margin 1em
+
+    .contenedor
+        border-radius 20px
+        position relative
+
+        &:after
+            content ""
+            border-left 15px solid transparent
+            border-right 15px solid transparent
+            border-top 15px solid white
+            position absolute
+            top 100%
+            left calc(50% - 15px)
+
+        div
+            margin 0.5em 0
+
+            input[type="text"],
+            input[type="password"]
+                border 1px solid #999
+                border-radius 5px
+                padding 0.5em
+
+            input[type="submit"]
+                background #1520ff
+                border 0
+                color white
+                border-radius 5px
+                padding 0.5em 1em
+
+                &:hover
+                    background #00e7fb
+        h2
+            color rosado
+            font-family 'Lobster', sans-serif
+
+
 #formulario_registro
     background-color #f9f9f9
+    border 3px solid rosado
     border-radius 7px
     margin-top 2em
     padding 1em
@@ -67,8 +114,26 @@ header
     .fila
         label
             color #555
+            display block
             font-weight bold
             min-width 160px
+
+            span
+                font-weight lighter
+                color #999999
+
+        input[type="password"],
+        input[type="text"]
+            border 1px solid silver
+            border-radius 5px
+
+
+    input[type="submit"]
+        background-color rosado
+        border 0
+        border-radius 5px
+        color white
+        padding 0.2em 2em
 
 #slider
     background-color calipso
@@ -222,6 +287,3 @@ header
 
                 .link_evento
                     background-color calipso
-
-
-@import "ingreso"
