@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 
 from ..models import Proyecto, TipoProyecto, Producto, Moneda, Categoria
-from ..common import is_valid_text, Http500
+from ..common import is_text_valid, Http500
 
 class MisProyectosView(ListView):
     model = Proyecto
@@ -52,26 +52,26 @@ class GuardarPasoUno(View):
         precio = req.POST.get("valor_0")
 
         valido = True
-        valido = valido and is_valid_text(titulo)
-        valido = valido and is_valid_text(descripcion, 500)
-        valido = valido and is_valid_text(video, 250)
-        
+        valido = valido and is_text_valid(titulo)
+        valido = valido and is_text_valid(descripcion, 500)
+        valido = valido and is_text_valid(video, 250)
+
         productos_dict = []
         while True:
-            if not is_valid_text(req.POST.get("nombre_%d"%i)):
+            if not is_text_valid(req.POST.get("nombre_%d"%i)):
                 break
-                
+
             nombre_producto = req.POST.get("nombre_%d"%i)
             url_producto = req.POST.get("url_%d"%i)
             desc_producto = req.POST.get("descripcion_%d"%i)
             tipo_moneda_producto = req.POST.get("tipo_moneda_%d"%i)
             precio = req.POST.get("valor_%d"%i)
-            
-            valido = valido and is_valid_text(nombre_producto)
-            valido = valido and is_valid_text(url_producto, 500)
-            valido = valido and is_valid_text(desc_producto, 500)
-            valido = valido and is_valid_text(precio)
-            valido = valido and is_valid_text(tipo_moneda_producto)
+
+            valido = valido and is_text_valid(nombre_producto)
+            valido = valido and is_text_valid(url_producto, 500)
+            valido = valido and is_text_valid(desc_producto, 500)
+            valido = valido and is_text_valid(precio)
+            valido = valido and is_text_valid(tipo_moneda_producto)
 
             if not valido:
                 break

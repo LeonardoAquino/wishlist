@@ -2,7 +2,7 @@ from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
 from ..models import Proyecto, Producto, Categoria
-from ..common import is_valid_text
+from ..common import is_text_valid
 
 class DashboardView(TemplateView):
     template_name = "dashboard/dashboard.html"
