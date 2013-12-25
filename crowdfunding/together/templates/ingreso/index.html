@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block contenido %}
-    <section id="contenedor_ingreso">
+    <section id="contenedor_ingreso" class="t_centered">
         <section class="iblock w45 t_centered contenedor">
             <h2>Iniciar Sesión</h2>
             <form id="f_login_normal" action="{% url 'login' %}" method="post">
@@ -21,10 +21,11 @@
             </form>
         </section>
 
-        <section class="iblock w45 t_centered contenedor">
+        <section class="iblock w45 t_centered contenedor" style="height:238px">
             <h2>Iniciar sesión con Facebook</h2>
-            <div id="fb-root"></div>
-            <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+            <div>
+                <a id="btn_login_facebook" class="btn_facebook">Entra con facebook</a>
+            </div>
         </section>
     </section>
 {% endblock %}

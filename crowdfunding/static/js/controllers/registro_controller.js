@@ -67,21 +67,25 @@ App.Controllers.Registro.mixin({
 
             if(!$("input[type=radio]:checked").length){
                 valido = false;
-                $("input[type=radio]:first").parent().find("span").addClass("error_message").text("Debe seleccionar sexo 1313");
+                $("input[type=radio]:first").parent().find("span").addClass("error_message").text("Debe indicar si es hombre o mujer");
             }
 
             if(!_this.$dia.val() || !_this.$mes.val() || !_this.$anio.val()){
                 valido = false;
                 _this.$dia.parent().find("span").addClass("error_message").text("Debe seleccionar una fecha válida");
+            }else if(!_this.isFechaValida(_this.$dia.val(), _this.$mes.val(), _this.$anio.val())){
+                valido = false;
+                _this.$dia.parent().find("span").addClass("error_message").text("Debe seleccionar una fecha válida");
             }
 
             if(valido){
-                $.get("/registro/verificar_usuario/",{ username : _this.$email.val() }, function(res){
+                $.get("/registro/verificar_usuario/",{ username : _this.$nombreUsuario.val() }, function(res){
                     res = JSON.parse(res);
                     if(!res.existe){
                         me.submit();
                     }else{
-                        alert("Lo sentimos, pero el usuario ya existe");
+                        valido = false;
+                        _this.$nombreUsuario.parent().find("span").addClass("error_message").text("Lo sentimos, el usuario ya existe, intente con otro");
                     }
                 });
             }
@@ -102,5 +106,21 @@ App.Controllers.Registro.mixin({
         }
 
         return valido;
+    },
+
+    isFechaValida: function(dia, mes, anio){
+        function getDiaMaximo(m){
+            var days = 31;
+
+            if(m == 4 || m == 6 || m == 9 || m == 11){
+                days = 30;
+            }else if(m == 2){
+                days = ((anio % 4 == 0) && (!(anio % 100 === 0) || anio % 400 === 0 )) ? 29 : 28;
+            }
+
+            return days;
+        }
+
+        return  parseInt(dia, 10) <= getDiaMaximo(mes);
     }
 });

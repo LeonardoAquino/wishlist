@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from django.contrib.auth.models import User
 
 class TipoProyecto(models.Model):
@@ -13,11 +11,11 @@ class TipoProyecto(models.Model):
 class Proyecto(models.Model):
     titulo = models.CharField(max_length=250, unique=True)
     descripcion = models.TextField()
-    creador = models.ForeignKey(User,related_name="creador")
+    creador = models.ForeignKey(User, related_name="creador")
     contribuyentes = models.ManyToManyField(User, related_name="contribuyentes", blank=True, null=True)
     fecha_creacion = models.DateField(auto_now_add=True)
-    fecha_modificacion = models.DateField(auto_now=True,auto_now_add=True)
-    terminado = models.BooleanField(default = False)
+    fecha_modificacion = models.DateField(auto_now=True, auto_now_add=True)
+    terminado = models.BooleanField(default=False)
     video_url = models.URLField(max_length=250)
     duracion = models.IntegerField()
     tipo_proyecto = models.ForeignKey(TipoProyecto)
@@ -105,6 +103,13 @@ class TipoCuenta(models.Model):
         return self.nombre
 
 
+class Banco(models.Model):
+    nombre = models.CharField(max_length=140)
+
+    def __unicode__(self):
+        return self.nombre
+
+
 class CuentaCorriente(models.Model):
     numero_cuenta = models.IntegerField()
     tipo_cuenta = models.ForeignKey(TipoCuenta)
@@ -115,10 +120,11 @@ class CuentaCorriente(models.Model):
 
 class DetalleUsuario(models.Model):
     usuario = models.ForeignKey(User)
-    rut = models.CharField(max_length=40,unique=True)
+    rut = models.CharField(max_length=40, unique=True, null=True)
     comuna = models.ForeignKey(Comuna)
-    cuenta_corriente = models.ForeignKey(CuentaCorriente)
+    sexo = models.BooleanField(default=True)
+    cuenta_corriente = models.ForeignKey(CuentaCorriente, null=True)
+    fecha_nacimiento = models.DateField()
 
     def __unicode__(self):
-        nombre_usuario = self.usuario.first_name + " " + self.usuario.last_name
-        return nombre_usuario + ", " + self.rut
+        return self.usuario.username

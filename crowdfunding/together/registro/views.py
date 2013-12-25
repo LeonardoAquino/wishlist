@@ -1,36 +1,40 @@
 #-*- coding: utf-8 -*-
 import json
 import calendar
-from datetime import datetime
+from datetime import datetime, date
 
 from django.contrib.auth.models import User
 from django.db import transaction, IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
-from ..models import Region, Comuna
+from ..models import Region, Comuna, DetalleUsuario
 from ..common import is_text_valid, is_email_valid
 
-def registro(req):
-    regiones = Region.objects.all()
+class RegistroView(TemplateView):
+    template_name = "registro/registro.html"
 
-    data = {
-        "regiones" : regiones,
-        "comunas" : [],
-        "dias" : [i + 1 for i in range(30)],
-        "meses" : [],
-        "anios" : [i for i in range(1975, datetime.now().year - 15)]
-    }
+    def get_context_data(self, **kw):
+        data = super(RegistroView, self).get_context_data(**kw)
+        regiones = Region.objects.all()
 
-    for monthnumber in range(1,13):
-        data["meses"].append({
-            "valor" : monthnumber,
-            "nombre" : calendar.month_name[monthnumber]
-        })
+        data = {
+            "regiones" : regiones,
+            "comunas" : [],
+            "dias" : [i + 1 for i in range(30)],
+            "meses" : [],
+            "anios" : [i for i in range(1975, datetime.now().year - 15)]
+        }
 
-    return render_to_response("registro/registro.html", data, context_instance = RequestContext(req))
+        for monthnumber in range(1,13):
+            data["meses"].append({
+                "valor" : monthnumber,
+                "nombre" : calendar.month_name[monthnumber]
+            })
+
+        return data
 
 
 def obtener_comunas(req):
@@ -61,36 +65,54 @@ def verificar_usuario(req):
 class EnvioView(View):
     @transaction.commit_on_success
     def post(self, req):
-        nombre = req.POST.get('nombre')
-        apellido = req.POST.get('apellido')
-        email = req.POST.get('email')
-        region = req.POST.get('region')
-        comuna = req.POST.get('comuna')
-        pword = req.POST.get('password')
+        self.nombre_usuario = req.POST.get("nombre_usuario")
+        self.email = req.POST.get("email")
+        self.region = req.POST.get("region")
+        self.comuna = req.POST.get("comuna")
+        self.clave = req.POST.get("password")
+        self.sexo = req.POST.get("sexo")
+        self.dia = req.POST.get("dia")
+        self.mes = req.POST.get("mes")
+        self.anio = req.POST.get("anio")
 
         valido = True
-        valido = valido and is_text_valid(nombre)
-        valido = valido and is_text_valid(apellido)
-        valido = valido and is_text_valid(region)
-        valido = valido and is_text_valid(comuna)
-        valido = valido and is_text_valid(pword)
-        valido = valido and is_email_valid(email)
+        valido = valido and is_text_valid(self.nombre_usuario)
+        valido = valido and is_email_valid(self.email)
+        valido = valido and is_text_valid(self.region)
+        valido = valido and is_text_valid(self.comuna)
+        valido = valido and is_text_valid(self.clave)
+        valido = valido and is_text_valid(self.sexo)
+        valido = valido and is_text_valid(self.dia)
+        valido = valido and is_text_valid(self.mes)
+        valido = valido and is_text_valid(self.anio)
 
         if valido:
-            self.__save_user(nombre, apellido, email, region, comuna, pword)
+            self.__guardar_usuario()
 
         return render_to_response("registro/registro_exitoso.html")
 
-    def __save_user(self, nombre, apellido, email, region, comuna, pword):
+    def __guardar_usuario(self):
         user = User()
-        user.first_name = nombre
-        user.last_name = apellido
-        user.email = email
-        user.username = email
+        user.username = self.nombre_usuario
+        user.email = self.email
         user.is_staff = False
         user.is_active = True
-        user.set_password(pword)
+        user.set_password(self.clave)
         user.save()
 
+        print "DIA : " + self.dia
+        print "MES : " + self.mes
+        print "ANIO : " + self.anio
 
+        fecha_nacimiento = date(int(self.anio), int(self.mes), int(self.dia))
+        comuna = Comuna.objects.get(pk = self.comuna)
+
+        detalle = DetalleUsuario()
+        detalle.fecha_nacimiento = fecha_nacimiento
+        detalle.usuario = user
+        detalle.comuna = comuna
+        detalle.sexo = self.sexo
+        detalle.save()
+
+registro = RegistroView.as_view()
 envio = EnvioView.as_view()

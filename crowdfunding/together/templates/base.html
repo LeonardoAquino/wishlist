@@ -21,8 +21,17 @@
             <div class="menu_opciones">
                 <a href="javascript:;" class="link_evento">TENGO UN EVENTO</a>
                 <a href="javascript:;" class="link_aportar">QUIERO APORTAR</a>
-                <a href="{% url 'registro' %}" class="link_registro">Registrarse</a>
-                <a href="{% url 'ingresar' %}" class="link_entrar">Entrar</a>
+                <a href="{% url 'registro' %}" class="link_registro">
+                    <img src="{% static 'images/registrarse.png' %}" alt="imagen registro" />
+                    Registrarse
+                </a>
+                <a href="{% url 'ingresar' %}" class="link_entrar">
+                    <img src="{% static 'images/entrar.png' %}" alt="imagen entrar" />
+                    Entrar
+                </a>
+                <figure>
+                    <img src="{% static 'images/que_es_juntandonos.png' %}" alt="¿ qué es juntandonos ?" />
+                </figure>
             </div>
         </div>
 
@@ -47,6 +56,7 @@
     </header>
 
     {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}
+
     <footer>
         <input id="foo" type="hidden" value="{{ csrf_token }}" />
     </footer>
