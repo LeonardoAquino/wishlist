@@ -54,17 +54,29 @@ def obtener_comunas(req):
 def verificar_usuario(req):
     email = req.GET.get("email")
     username = req.GET.get("username")
+    mensaje = None;
     try:
         username_exist = User.objects.get(username = username)
     except User.DoesNotExist as e:
         username_exist = None
+        mensaje = "El nombre de usuario ya existe"
 
     try:
         email_exist = User.objects.get(email = email.lower())
-    except User.DoesNotExist as e:
+        if mensaje is None:
+            mensaje = "El Correo ya existe"
+        else:
+            mensaje = "Nombre de usuario y correo ya existen"
+
+    except User.MultipleObjectsReturned as mor:
+        if mensaje is None:
+            mensaje = "El Correo ya existe"
+        else:
+            mensaje = "Nombre de usuario y correo ya existen"
+    except User.DoesNotExist as dne:
         email_exist = None
 
-    data = { "existe" : username_exist is not None }
+    data = { "existe" : username_exist is not None, "mensaje" : mensaje }
 
     return HttpResponse(json.dumps(data))
 
