@@ -57,9 +57,10 @@ def verificar_usuario(req):
     mensaje = None;
     try:
         username_exist = User.objects.get(username = username)
+        mensaje = "El nombre de usuario ya existe"
+        
     except User.DoesNotExist as e:
         username_exist = None
-        mensaje = "El nombre de usuario ya existe"
 
     try:
         email_exist = User.objects.get(email = email.lower())
@@ -73,6 +74,7 @@ def verificar_usuario(req):
             mensaje = "El Correo ya existe"
         else:
             mensaje = "Nombre de usuario y correo ya existen"
+
     except User.DoesNotExist as dne:
         email_exist = None
 
