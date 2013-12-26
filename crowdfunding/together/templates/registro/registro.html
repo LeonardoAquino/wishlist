@@ -3,7 +3,29 @@
 {% load i18n %}
 
 {% block contenido %}
+
+<section class="t_centered">
+
+<section id="login_usuario">
+    <h3>¿ YA ERES USUARIO ?</h3>
+    <label for="">email</label>
+    <input type="text" value="" />
+    <label for="">contraseña</label>
+    <input type="password" value="" />
+    RECUPERAR CONTRASEÑA
+    <input type="checkbox" value="1" />
+    <input type="submit" value="INGRESAR" />
+</section>
+
+<section id="login_facebook">
+    <h3>LOGIN CON FACEBOOK</h3>
+    Recomendamos que te conectes on facebook. Es rápido, fácil y seguro.
+    Funciona igual que el login de juntandonos y nunca compartiremos información
+    con facebook ni postearemos nada en tu perfil sin tu autorización.
+</section>
+
 <section id="formulario_registro" class="formulario">
+    <h3>¿ NUEVO EN JUNTANDONOS ?</h3>
     <form id="f_registro" action="{% url 'envio' %}" method="post">
         {% csrf_token %}
         <div class="fila">
@@ -75,6 +97,8 @@
             <input type="submit" value="Registrarse" />
         </div>
     </form>
+</section>
+
 </section>
 {% endblock %}
 

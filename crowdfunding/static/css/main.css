@@ -12,16 +12,22 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
-#contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(50% - 15px)}
+#contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(35%)}
 #contenedor_ingreso .contenedor div{margin:.5em 0;}
 #contenedor_ingreso .contenedor div input[type="text"],#contenedor_ingreso .contenedor div input[type="password"]{border:1px solid #999;border-radius:5px;padding:.5em}
 #contenedor_ingreso .contenedor div input[type="submit"]{background:#00b9d1;border:0;color:#fff;border-radius:5px;padding:.5em 1em}
 #contenedor_ingreso .contenedor h2{color:#fa006a;font-family:'Lobster',sans-serif}
-#formulario_registro{background-color:#f9f9f9;border:3px solid #fa006a;border-radius:7px;margin-top:2em;padding:1em;}
+#formulario_registro,#login_facebook,#login_usuario{border-radius:7px;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
+#formulario_registro{background-color:#f9f9f9;border:3px solid #fa006a;padding:1em;}
+#formulario_registro h3{color:#fa006a}
 #formulario_registro .fila label{color:#555;display:block;font-weight:bold;min-width:160px;}
 #formulario_registro .fila label span{font-weight:lighter;color:#999}
 #formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
 #formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
+#login_facebook{border:3px solid #ffd800;}
+#login_facebook h3{color:#ffd800}
+#login_usuario{border:3px solid #00b9d1;border-radius:5px;}
+#login_usuario h3{color:#00b9d1}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
@@ -29,6 +35,8 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #slider h2{color:#fa006a}
 #slider .globo_texto{margin:auto;max-width:500px;background:#fff;border-radius:10px;padding:1em;position:relative;}
 #slider .globo_texto:after{border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;content:"";left:50%;margin-left:-15px;position:absolute;top:100%}
+#terminos_condiciones{border:3px solid #fa006a;border-radius:20px;margin:auto;margin-top:3em;padding:1em;width:70%;}
+#terminos_condiciones h1{color:#fa006a;font-size:1.5em;text-align:center}
 .btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;}
 .btn_facebook:before{content:"\e601";font-family:'social';position:relative;right:.5em}
 .btn_facebook:hover{background:#366ab2}
@@ -57,8 +65,11 @@ fieldset.marco{background-color:#fff;border:4px solid #fa006a;border-radius:10px
 fieldset.marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
 fieldset.marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center}
 fieldset.marco table thead tr{border-bottom:2px dashed #fa006a;}
-fieldset.marco table thead tr th{color:#fa006a}
+fieldset.marco table thead tr th{color:#fa006a;}
+fieldset.marco table thead tr th figure img{width:calc(142px)}
+.sombra_caja{box-shadow:3px 3px 1px #ebebeb}
 .t_centered{text-align:center}
+.texto_blanco{color:#fff}
 .w44{width:44%}
 .w45{width:45%}
 .w49{width:49%}
