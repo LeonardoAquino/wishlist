@@ -7,6 +7,8 @@ header .menu .logo img{width:130px}
 header .menu .menu_opciones{display:none;}
 header .menu .menu_opciones figure{display:inline-block;position:relative;vertical-align:top;}
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1}
+header .menu_navegacion li{display:inline-block;vertical-align:top;}
+header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -20,6 +22,8 @@ header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z
 #formulario_registro .fila label span{font-weight:lighter;color:#999}
 #formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
 #formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
+#seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
+#seccion_tipo_proyecto th:last-child{vertical-align:bottom}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
@@ -42,11 +46,18 @@ header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
 .fondo_rosado{background:#fa006a}
+.fondo_punteado{background:url("../images/bg_slider.png");background-size:100%}
+.fondo_rayado{background:url("../images/mainbg.png");background-size:100%}
 .formulario{margin:auto;width:60%;}
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
 .formulario .fila select{width:180px}
 .iblock{box-sizing:border-box;display:inline-block;vertical-align:top}
+fieldset.marco{background-color:#fff;border:4px solid #fa006a;border-radius:10px;margin:auto;margin-top:3em;width:70%;}
+fieldset.marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
+fieldset.marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center}
+fieldset.marco table thead tr{border-bottom:2px dashed #fa006a;}
+fieldset.marco table thead tr th{color:#fa006a}
 .t_centered{text-align:center}
 .w44{width:44%}
 .w45{width:45%}

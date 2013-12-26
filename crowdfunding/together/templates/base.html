@@ -34,25 +34,7 @@
                 </figure>
             </div>
         </div>
-
-        {% block menu %}
-            <form id="f_login" action="{% url "login" %}" method="post" class="iblock" style="display:none">
-                {% csrf_token %}
-                <aside>
-                    <div>
-                        <label for="usuario">Usuario: </label>
-                        <input id="usuario_login" type="text" value="" placeholder="Usuario" />
-                        <span></span>
-                    </div>
-                    <div>
-                        <label for="password">Contraseña: </label>
-                        <input id="password_login" type="password" value="" placeholder="Contraseña" />
-                        <span></span>
-                    </div>
-                    <input id="btn_enviar" type="submit" value="Ingresar" />
-                </aside>
-            </form>
-        {% endblock %}
+        {% block menu %}{% endblock %}
     </header>
 
     {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}

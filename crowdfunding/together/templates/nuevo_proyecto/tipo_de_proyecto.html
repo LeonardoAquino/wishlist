@@ -1,87 +1,81 @@
 {% extends "base_login.html" %}
+{% load static from staticfiles %}
 
 {% block contenido %}
 
-<table>
-    <thead>
-        <th>*</th>
-        <th>Todo o nada</th>
-        <th>Todo suma</th>
-        <th>Monto fijo</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>¿Cómo Funciona?</td>
-            <td>
-                Debes alcanzar el 100% de tu objetivo económico. <strong>En caso de no hacerlo, se devolverán los fondos a tus colaboradores y no cobrarás nada.</strong>
-            </td>
-            <td>
-                Debes plantear un objetivo económico que tendrás de guía para tu proyecto completo. Sin embargo, <strong>si no alcanzas el 100%, podrás cobrar lo recaudado presentando junto con tu proyecto un plan de acción</strong>, es decir, qué harás con el 10% de lo recaudado, el 25%, el 50% y 75%, esto permite ser totalmente transparentes con tus potenciales colaboradores.
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>¿Qué consideraciones debes tener?</td>
-            <td>
-                <strong>Plantear un objetivo económico acorde a tu red de contactos</strong>. Si tienes 100 amigos, es dificil que consigas US$10,000 y no lograrás el éxito.
-            </td>
-            <td>
-                <p>
-                    <strong>Las recompensas no pueden estar asociadas al proyecto final </strong>y deberán ser creativas para captar colaboradores.
-                </p>
+<section id="seccion_tipo_proyecto" class="fondo_rayado">
+    <article class="fondo_celeste fondo_punteado">
+        <h1>¡Tenemos opciones para todos los gustos y necesidades!</h1>
+        <p>
+            Elige el tipo de recaudación que mejor se ajuste a tu evento y vas a poder estar a un paso más cerca de hacer tus sueños realidad.
+        </p>
+    </article>
 
-                <p>
-                    En caso de no llegar al 100%, antes de cobrar, <strong>deberás presentar un plan alternativo de uso de los fondos.</strong>
-                </p>
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>¿Para que proyectos se sugiere usar?</td>
-            <td>
-                Lo recomendamos para proyectos específicos que tienen un principio y fin claro y no pueden realizarse por partes. Por ejemplo, la edición de un libro.
-            </td>
-            <td>
-                Lo recomendamos para proyectos de emprendimientos o de ONGs donde todo suma para seguir contribuyendo a la misión de la empresa u organismo y su crecimiento.
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Si llegas a tu objetivo (100% o más), las comisiones son:</td>
-            <td>
-                <strong>5% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>
-                (consulta en FAQs las de tu país)
-            </td>
-            <td>
-                <strong>5% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>
-                (consulta en FAQs las de tu país)
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Si NO alcanzas tu objetivo, las comisiones son:</td>
-            <td>
-                <p><strong>No hay costos.</strong></p>
-                <p>Ni Juntándonos ni los métodos de pago cobramos comisión</p>
-            </td>
-            <td>
-                <strong>10% + I.V.A</strong> por parte de Juntándonos <strong>y la comisión de los métodos de pagos</strong>. Es una forma de motivarlos a planteen un objetivo alcanzable y hagan campaña.
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <a href="{% url 'nuevo_proyecto_paso1' 1 %}">Continuar</a>
-            </td>
-            <td>
-                <a href="{% url 'nuevo_proyecto_paso1' 2 %}">Continuar</a>
-            </td>
-            <td>
-                <a href="{% url 'nuevo_proyecto_paso1' 3 %}">Continuar</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <fieldset class="marco">
+        <legend>
+            <strong>Recaudación</strong>
+             Descripción
+            Confirmación
+        </legend>
+        <table>
+            <thead>
+                <th></th>
+                <th>
+                    <figure>
+                        <img src="{% static 'images/img_todo_o_nada.png' %}" alt="imagen todo o nada" />
+                    </figure>
+                    <span>TODO O NADA</span>
+                </th>
+                <th>
+                    <figure>
+                        <img src="{% static 'images/img_todo_suma.png' %}" alt="imagen todo suma" />
+                    </figure>
+                    <span>TODO SUMA</span>
+                </th>
+                <th>
+                    <span>MONTO FIJO</span>
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Característica I</td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, possimus, aut, libero officiis explicabo quisquam reiciendis quidem porro excepturi quae nisi quia enim dolorum iure totam rerum odio natus aliquam.
+                    </td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, cupiditate, totam. Cumque, praesentium incidunt cum quis reprehenderit aspernatur velit aut recusandae alias similique. Incidunt, repellat explicabo aliquid porro ex tempore!
+                    </td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, illum perferendis recusandae obcaecati ipsum ab tempore dolorem nihil eveniet debitis animi deserunt alias! Cupiditate similique optio nulla voluptatem eaque praesentium!
+                    </td>
+                </tr>
+                <tr>
+                    <td>Característica II</td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, odio provident quod molestias est nihil nostrum iste. Rerum, quam, iure fugiat beatae repudiandae provident hic! Numquam quae amet accusamus nisi.
+                    </td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, ea, eligendi tempora deleniti consequuntur maiores provident repellendus dignissimos. Rem, eos eum reiciendis minima delectus consequuntur repellat natus fugiat accusamus voluptatibus?
+                    </td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, beatae, vel, odit molestias consequuntur at perspiciatis dolore explicabo fuga repellat placeat autem ipsam dolorum sapiente ea doloribus obcaecati quas earum.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="t_centered">
+                        <a href="{% url 'nuevo_proyecto_paso1' 1 %}">Continuar</a>
+                    </td>
+                    <td class="t_centered">
+                        <a href="{% url 'nuevo_proyecto_paso1' 2 %}">Continuar</a>
+                    </td>
+                    <td class="t_centered">
+                        <a href="{% url 'nuevo_proyecto_paso1' 3 %}">Continuar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</section>
 
 {% endblock %}
