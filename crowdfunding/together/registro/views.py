@@ -23,7 +23,7 @@ class RegistroView(TemplateView):
         data = {
             "regiones" : regiones,
             "comunas" : [],
-            "dias" : [i + 1 for i in range(30)],
+            "dias" : [i + 1 for i in range(31)],
             "meses" : [],
             "anios" : [i for i in range(1975, datetime.now().year - 15)]
         }
@@ -52,12 +52,19 @@ def obtener_comunas(req):
 
 
 def verificar_usuario(req):
+    email = req.GET.get("email")
+    username = req.GET.get("username")
     try:
-        usuario = User.objects.get(username = req.GET.get("username"))
+        username_exist = User.objects.get(username = username)
     except User.DoesNotExist as e:
-        usuario = None
+        username_exist = None
 
-    data = { "existe" : usuario is not None }
+    try:
+        email_exist = User.objects.get(email = email.lower())
+    except User.DoesNotExist as e:
+        email_exist = None
+
+    data = { "existe" : username_exist is not None }
 
     return HttpResponse(json.dumps(data))
 
@@ -94,7 +101,7 @@ class EnvioView(View):
     def __guardar_usuario(self):
         user = User()
         user.username = self.nombre_usuario
-        user.email = self.email
+        user.email = self.email.lower()
         user.is_staff = False
         user.is_active = True
         user.set_password(self.clave)
