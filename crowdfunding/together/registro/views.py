@@ -54,31 +54,34 @@ def obtener_comunas(req):
 def verificar_usuario(req):
     email = req.GET.get("email")
     username = req.GET.get("username")
-    mensaje = None;
+    mensaje_usuario = None
+    mensaje_email = None
+
     try:
         username_exist = User.objects.get(username = username)
-        mensaje = "El nombre de usuario ya existe"
-        
+
+        if username_exist:
+            mensaje_usuario = "El nombre de usuario ya existe"
+
     except User.DoesNotExist as e:
-        username_exist = None
+        pass
 
     try:
         email_exist = User.objects.get(email = email.lower())
-        if mensaje is None:
-            mensaje = "El Correo ya existe"
-        else:
-            mensaje = "Nombre de usuario y correo ya existen"
+
+        if email_exist:
+            mensaje_email = "El correo ya existe"
 
     except User.MultipleObjectsReturned as mor:
-        if mensaje is None:
-            mensaje = "El Correo ya existe"
-        else:
-            mensaje = "Nombre de usuario y correo ya existen"
-
+        mensaje_email = "El correo ya existe"
     except User.DoesNotExist as dne:
-        email_exist = None
+        pass
 
-    data = { "existe" : username_exist is not None, "mensaje" : mensaje }
+    data = {
+        "existe" : mensaje_usuario and mensaje_email or False,
+        "mensajeUser" : mensaje_usuario,
+        "mensajeEmail" : mensaje_email
+    }
 
     return HttpResponse(json.dumps(data))
 
@@ -120,10 +123,6 @@ class EnvioView(View):
         user.is_active = True
         user.set_password(self.clave)
         user.save()
-
-        print "DIA : " + self.dia
-        print "MES : " + self.mes
-        print "ANIO : " + self.anio
 
         fecha_nacimiento = date(int(self.anio), int(self.mes), int(self.dia))
         comuna = Comuna.objects.get(pk = self.comuna)

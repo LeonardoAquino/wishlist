@@ -90,7 +90,14 @@ App.Controllers.Registro.mixin({
                         me.submit();
                     }else{
                         valido = false;
-                        _this.$nombreUsuario.parent().find("span").addClass("error_message").text(res.mensaje);
+
+                        if(res.mensajeUser){
+                            _this.$nombreUsuario.parent().find("span").addClass("error_message").text(res.mensajeUser);
+                        }
+
+                        if(res.mensajeEmail){
+                            _this.$email.parent().find("span").addClass("error_message").text(res.mensajeEmail);
+                        }
                     }
                 });
             }
