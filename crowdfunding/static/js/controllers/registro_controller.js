@@ -79,13 +79,18 @@ App.Controllers.Registro.mixin({
             }
 
             if(valido){
-                $.get("/registro/verificar_usuario/",{ username : _this.$nombreUsuario.val() }, function(res){
+                json = {
+                    username : _this.$nombreUsuario.val(),
+                    email : _this.$email.val()
+                };
+
+                $.get("/registro/verificar_usuario/", json, function(res){
                     res = JSON.parse(res);
                     if(!res.existe){
                         me.submit();
                     }else{
                         valido = false;
-                        _this.$nombreUsuario.parent().find("span").addClass("error_message").text("Lo sentimos, el usuario ya existe, intente con otro");
+                        _this.$nombreUsuario.parent().find("span").addClass("error_message").text(res.mensaje);
                     }
                 });
             }
