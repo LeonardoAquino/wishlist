@@ -124,6 +124,7 @@ LOGGING = {
     }
 }
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 
 try:
     from .local_settings import *
