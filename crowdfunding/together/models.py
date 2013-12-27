@@ -120,10 +120,10 @@ class CuentaCorriente(models.Model):
 
 class DetalleUsuario(models.Model):
     usuario = models.ForeignKey(User)
-    rut = models.CharField(max_length=40, unique=True, null=True)
-    comuna = models.ForeignKey(Comuna)
+    rut = models.CharField(max_length=40, unique=True, null=True, blank=True)
+    comuna = models.ForeignKey(Comuna, null=True, blank=True)
     sexo = models.BooleanField(default=True)
-    cuenta_corriente = models.ForeignKey(CuentaCorriente, null=True)
+    cuenta_corriente = models.ForeignKey(CuentaCorriente, null=True, blank=True)
     fecha_nacimiento = models.DateField()
 
     def __unicode__(self):
