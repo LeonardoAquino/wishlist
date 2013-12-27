@@ -2,4 +2,27 @@
 
 {% block contenido %}
     mi_perfil
+<table>
+	<tr>
+		<td>Nombre Usuario</td>
+		<td>{{ user.username }}</td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td>{{ user.email }}</td>
+	</tr>
+	<tr>
+		<td>Nombre</td>
+		<td>{{ user.first_name }}</td>
+	</tr>
+	<tr>
+		<td>Apellido</td>
+		<td>{{ user.last_name }}</td>
+	</tr>
+	<tr>
+		<td>Apellido</td>
+		<td>{{ user.last_name }}</td>
+	</tr>
+</table>
+    
 {% endblock %}

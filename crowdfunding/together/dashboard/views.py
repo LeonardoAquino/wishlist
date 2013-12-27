@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView,ListView
 from ..models import Proyecto, Producto, Categoria
 from ..common import is_text_valid
+from django.contrib.auth.models import User
 
 class DashboardView(TemplateView):
     template_name = "dashboard/dashboard.html"
@@ -14,6 +15,11 @@ class DashboardView(TemplateView):
 
 class MiPerfilView(TemplateView):
     template_name = "dashboard/mi_perfil.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(MiPerfilView, self).get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
 
 
 class VerProyectoView(TemplateView):
