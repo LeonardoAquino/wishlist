@@ -126,7 +126,7 @@ header
 #formulario_registro
 #login_facebook
 #login_usuario
-    border-radius 7px
+    border-radius 1em
     box-sizing border-box
     display inline-block
     margin 2em 1em
@@ -135,28 +135,32 @@ header
     width 25%
 
 #formulario_registro
-    background-color #f9f9f9
     border 3px solid rosado
-    padding 1em
+    text-align left
 
     h3
         color rosado
+        text-align center
 
     .fila
+        input[type="password"],
+        input[type="text"]
+            border 1px solid silver
+            border-radius 5px
+
         label
             color #555
             display block
             font-weight bold
             min-width 160px
+            text-align left
 
-            span
-                font-weight lighter
-                color #999999
+        p
+            font-weight lighter
+            color #999999
 
-        input[type="password"],
-        input[type="text"]
-            border 1px solid silver
-            border-radius 5px
+        select
+            width 70px
 
 
     input[type="submit"]
@@ -174,10 +178,33 @@ header
 
 #login_usuario
     border 3px solid celeste
-    border-radius 5px
+    text-align left
+
+    input[type="password"],
+    input[type="text"]
+        border-radius 5px
+        width 100%
+
+    input[type="submit"]
+        background-color celeste
+        border 0
+        border-radius 5px
+        color white
+        display block
+        margin 1em auto
+        padding 0.5em 1em
+        text-align center
 
     h3
         color celeste
+
+    label
+        display block
+        margin 0.5em 0
+
+    span
+        color celeste
+        display block
 
 #seccion_tipo_proyecto
     article
@@ -344,7 +371,7 @@ header
     display inline-block
     vertical-align top
 
-fieldset.marco
+.marco
     background-color white
     border 4px solid rosado
     border-radius 10px

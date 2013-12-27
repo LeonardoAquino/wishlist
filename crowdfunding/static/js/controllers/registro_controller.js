@@ -18,22 +18,6 @@ App.Controllers.Registro.mixin({
         $("#f_registro").on("submit", this.validarEnvio());
     },
 
-    redibujarComunas: function(){
-        var regionId = $(this).val();
-
-        if(!regionId){
-            return;
-        }
-
-        $.get("/registro/obtener_comunas/",{ region : regionId }, function(data){
-            var plantilla = templateLoader.render("/templates/registro/comunas/",{
-                comunas : JSON.parse(data)
-            });
-
-            $("#comuna").empty().html(plantilla);
-        });
-    },
-
     validarEnvio: function(){
         var _this = this;
 
@@ -46,8 +30,6 @@ App.Controllers.Registro.mixin({
             me = this;
             valido = _this.validacionCampo(_this.$nombreUsuario, "nombre_usuario");
             valido = valido && _this.validacionCampo(_this.$email, "email");
-            valido = valido && _this.validacionCampo(_this.$region, "region");
-            valido = valido && _this.validacionCampo(_this.$comuna, "comuna");
             valido = valido && _this.validacionCampo(_this.$password, "contraseña");
             valido = valido && _this.validacionCampo(_this.$repeat,"repetir contraseña");
 
