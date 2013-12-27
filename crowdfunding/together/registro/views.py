@@ -102,8 +102,8 @@ class EnvioView(View):
         valido = True
         valido = valido and is_text_valid(self.nombre_usuario)
         valido = valido and is_email_valid(self.email)
-        valido = valido and is_text_valid(self.region)
-        valido = valido and is_text_valid(self.comuna)
+        #valido = valido and is_text_valid(self.region)
+        #valido = valido and is_text_valid(self.comuna)
         valido = valido and is_text_valid(self.clave)
         valido = valido and is_text_valid(self.sexo)
         valido = valido and is_text_valid(self.dia)
