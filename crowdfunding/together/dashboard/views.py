@@ -22,6 +22,11 @@ class MiPerfilView(TemplateView):
         return context
 
 
+class UpdateUserView(TemplateView):
+    def post(self, req):
+        print 'uhm'
+
+
 class VerProyectoView(TemplateView):
     template_name = 'dashboard/ver_proyecto.html'
 
@@ -39,3 +44,4 @@ class VerProyectoView(TemplateView):
 dashboard = login_required(DashboardView.as_view())
 mi_perfil = login_required(MiPerfilView.as_view())
 ver_proyecto = VerProyectoView.as_view()
+actualizar_usuario = UpdateUserView.as_view()

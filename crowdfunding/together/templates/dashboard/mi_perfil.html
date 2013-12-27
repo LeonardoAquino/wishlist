@@ -2,31 +2,13 @@
 
 {% block contenido %}
     mi_perfil
-<table>
-	<tr>
-		<td>Nombre Usuario</td>
-		<td>{{ user.username }}</td>
-	</tr>
-	<tr>
-		<td>Email</td>
-		<td>{{ user.email }}</td>
-	</tr>
-	<tr>
-		<td>Nombre</td>
-		<td>{{ user.first_name }}</td>
-	</tr>
-	<tr>
-		<td>Apellido</td>
-		<td>{{ user.last_name }}</td>
-	</tr>
-	<tr>
-		<td>Apellido</td>
-		<td>{{ user.last_name }}</td>
-	</tr>
-		<td colspan="2">Edit</td>
-		
-	<tr>
-	</tr>
-</table>
+    <form id="f_edicion_usuario" action="" method="post">
+    	{% csrf_token %}
+	    nombre usuario : <input type="text" value="{{ user.username }}"/>
+	    Email : <input type="text" value="{{ user.email }}"/>
+	    Nombre : <input type="text" value="{{ user.first_name }}" />
+	    Apollo : <input type="text" value="{{ user.last_name }}" />
+	    <input type="submit" value="Submit">
+	</form>
     
 {% endblock %}
