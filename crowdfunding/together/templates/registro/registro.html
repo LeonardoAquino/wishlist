@@ -6,21 +6,23 @@
 
 <section class="t_centered fondo_rayado">
 
-<section id="login_usuario">
-    <h3>¿ YA ERES USUARIO ?</h3>
+<section id="f_login_normal" class="login_usuario">
+    <form action="{% url 'login' %}" method="post">
+        <h3>¿ YA ERES USUARIO ?</h3>
 
-    <label for="email_usuario">email</label>
-    <input id="email_usuario" type="text" value="" />
+        <label for="usr_login">nombre usuario</label>
+        <input id="usr_login" type="text" value="" />
 
-    <label for="clave_usuario">contraseña</label>
-    <input id="clave_usuario" type="password" value="" />
+        <label for="pwd_login">contraseña</label>
+        <input id="pwd_login" type="password" value="" />
 
-    <span>RECUPERAR CONTRASEÑA</span>
+        <span>RECUPERAR CONTRASEÑA</span>
 
-    <input type="checkbox" value="1" />
-    recordarme
+        <input type="checkbox" value="1" />
+        recordarme
 
-    <input type="submit" class="sombra_caja" value="INGRESAR" />
+        <input type="submit" class="sombra_caja" value="INGRESAR" />
+    </form>
 </section>
 
 <section id="login_facebook">
@@ -87,7 +89,7 @@
             <span style="display:block"></span>
         </div>
         <div class="t_centered">
-            <input type="submit" value="REGISTRARSE" />
+            <input type="submit" class="sombra_caja" value="REGISTRARSE" />
         </div>
     </form>
 </section>
@@ -98,7 +100,9 @@
 {% block js %}
 <script src="{% static 'js/plugins/jquery.Rut.min.js' %}"></script>
 <script src="{% static 'js/controllers/registro_controller.js' %}"></script>
+<script src="{% static 'js/controllers/login_controller.js' %}"></script>
 <script>
     App.registroController = new App.Controllers.Registro();
+    App.loginController = new App.Controllers.Login();
 </script>
 {% endblock %}

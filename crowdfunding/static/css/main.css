@@ -17,7 +17,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #contenedor_ingreso .contenedor div input[type="text"],#contenedor_ingreso .contenedor div input[type="password"]{border:1px solid #999;border-radius:5px;padding:.5em}
 #contenedor_ingreso .contenedor div input[type="submit"]{background:#00b9d1;border:0;color:#fff;border-radius:5px;padding:.5em 1em}
 #contenedor_ingreso .contenedor h2{color:#fa006a;font-family:'Lobster',sans-serif}
-#formulario_registro,#login_facebook,#login_usuario{border-radius:1em;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
+#formulario_registro,#login_facebook,.login_usuario{border-radius:1em;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
 #formulario_registro{border:3px solid #fa006a;text-align:left;}
 #formulario_registro h3{color:#fa006a;text-align:center}
 #formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
@@ -27,12 +27,12 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 #login_facebook{border:3px solid #ffd800;}
 #login_facebook h3{color:#ffd800}
-#login_usuario{border:3px solid #00b9d1;text-align:left;}
-#login_usuario input[type="password"],#login_usuario input[type="text"]{border-radius:5px;width:100%}
-#login_usuario input[type="submit"]{background-color:#00b9d1;border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
-#login_usuario h3{color:#00b9d1}
-#login_usuario label{display:block;margin:.5em 0}
-#login_usuario span{color:#00b9d1;display:block}
+.login_usuario{border:3px solid #00b9d1;text-align:left;}
+.login_usuario input[type="password"],.login_usuario input[type="text"]{border-radius:5px;width:100%}
+.login_usuario input[type="submit"]{background-color:#00b9d1;border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
+.login_usuario h3{color:#00b9d1}
+.login_usuario label{display:block;margin:.5em 0}
+.login_usuario span{color:#00b9d1;display:block}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
