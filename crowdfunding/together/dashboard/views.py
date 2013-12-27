@@ -1,5 +1,6 @@
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response, redirect
 from django.views.generic import TemplateView,ListView
 from ..models import Proyecto, Producto, Categoria
 from ..common import is_text_valid
@@ -24,7 +25,13 @@ class MiPerfilView(TemplateView):
 
 class UpdateUserView(TemplateView):
     def post(self, req):
-        print 'uhm'
+        template = "dashboard/actualizar_usuario.html"
+        this_user = self.request.user
+        this_user.first_name = req.POST.get("first_name")
+        this_user.last_name = req.POST.get("last_name")
+        this_user.save()
+        data = {}
+        return render_to_response(template, data, context_instance='')
 
 
 class VerProyectoView(TemplateView):
