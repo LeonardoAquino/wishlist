@@ -4,7 +4,7 @@
     mi_perfil
     <form id="f_edicion_usuario" action="{% url 'actualizar_usuario' %}" method="post">
     	{% csrf_token %}
-	    nombre usuario : <input type="text" value="{{ user.username }}"/>
+	    nombre usuario : <input readonly name="nombre_usuario" id="nombre_usuario" type="text" value="{{ user.username }}"/>
 	    Email : <input name="email" id="email" type="text" value="{{ user.email }}"/>
 	    Nombre : <input name="first_name" id="first_name" type="text" value="{{ user.first_name }}" />
 	    Apollo : <input name="last_name" id="last_name" type="text" value="{{ user.last_name }}" />

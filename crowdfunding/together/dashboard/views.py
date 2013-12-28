@@ -5,6 +5,7 @@ from django.views.generic import TemplateView,ListView
 from ..models import Proyecto, Producto, Categoria
 from ..common import is_text_valid
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 class DashboardView(TemplateView):
     template_name = "dashboard/dashboard.html"
@@ -46,6 +47,19 @@ class VerProyectoView(TemplateView):
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
         #context['categoria'] = self.categoria.objects.filter(obj_proyecto.id_categoria)
         return context
+
+
+def comprovar_password(req):
+    username = self.request.POST.get("nombre_usuario")
+    password = self.request.POST.get("password_old")
+    
+    data = {"status" : "ok"}
+    user = user = authenticate(username=username, password=password)
+
+    if user is None:
+        data["status"] = "fail"
+
+    return HttpResponse(json.dumps(data))
 
 
 dashboard = login_required(DashboardView.as_view())
