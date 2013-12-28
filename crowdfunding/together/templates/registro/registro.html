@@ -16,7 +16,9 @@
         <label for="pwd_login">contraseña</label>
         <input id="pwd_login" type="password" value="" />
 
-        <span>RECUPERAR CONTRASEÑA</span>
+        <span>
+            <a href="{% url 'recuperar_clave' %}">RECUPERAR CONTRASEÑA</a>
+        </span>
 
         <input type="checkbox" value="1" />
         recordarme

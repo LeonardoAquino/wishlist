@@ -127,5 +127,20 @@ class EnvioView(View):
         detalle.sexo = self.sexo
         detalle.save()
 
+
+def actualizar_clave(req):
+    email = req.POST.get("email")
+
+    print "email : " + email
+    print " nueva clave : " + "sadsa"
+
+    data = {
+        "status" : "ok",
+        "message" : "Solicitud realizada exitosamente, revise su bandeja de entrada para ver su nueva clave"
+    }
+
+    return HttpResponse(json.dumps(data),content_type="application/json")
+
 registro = RegistroView.as_view()
 envio = EnvioView.as_view()
+recuperar_clave = TemplateView.as_view(template_name = "registro/recuperar_clave.html")
