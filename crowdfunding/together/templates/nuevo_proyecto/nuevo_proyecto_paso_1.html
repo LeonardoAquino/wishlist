@@ -7,107 +7,113 @@
         <p>Estás a 2 pasos de empezar armar tu gran ocasión</p>
     </div>
 
-    <fieldset>
+    <fieldset class="descripcion_proyecto">
         <legend>
             <span>Recaudación</span>
-            <span>Descripción</span>
+            <span><strong>Descripción</strong></span>
             <span>Confirmación</span>
         </legend>
 
         <article>
-            Datos del proyecto
-
+            <span>Datos del proyecto</span>
+            <span>Información sobre Pagos</span>
         </article>
-        <h2>Paso 1</h2>
-        <h3>
-            <img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" /> Datos generales
-        </h3>
 
-        <form id="f_paso_1" action="{% url 'guardar_paso1' %}" method="post">
-            {% csrf_token %}
+        <section class="wrapper">
+            <h3>
+                <img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" /> Datos generales
+            </h3>
 
-            <div>
-                <label for="titulo">Título:</label>
-                <input id="titulo" name="titulo" type="text" value="" placeholder="Ingrese título" />
-            </div>
+            <form id="f_paso_1" action="{% url 'guardar_paso1' %}" method="post">
+                {% csrf_token %}
 
-            <div>
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" cols="30" rows="10"></textarea>
-            </div>
-
-            <div>
-                <label for="video">URL Video:</label>
-                <input id="video" name="video" type="text" value="" placeholder="Video" />
-            </div>
-
-            <div>
-                <label for="categoria">Categoría:</label>
-                <select id="categoria" name="categoria">
-                    <option value="">Seleccione...</option>
-                    {% for categoria in categorias %}
-                    <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div>
-                <label for="duracion">Duración:</label>
-                <select name="duracion" id="duracion">
-                    <option value="">Seleccione...</option>
-                    {% for i in dias %}
-                    <option value="{{ i }}">{{ i }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <h4>
-                <img src="{% static 'images/productos.png' %}" width="32" alt="imagen productos" />
-                Productos
-            </h4>
-
-            <a id="btn_otro_producto" href="javascript:;"> <span>+</span> Otro producto</a>
-
-            <section id="lista_productos">
-                <article>
-                    <div>
-                        <input id="nombre_0" name="nombre_0" type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" />
+                <div class="lado_a">
+                    <div class="fila">
+                        <label for="titulo">Título:</label>
+                        <input id="titulo" name="titulo" type="text" value="" placeholder="Ingrese título" />
                     </div>
 
-                    <div>
-                        <input id="url_0" name="url_0" type="text" placeholder="URL PRODUCTO/SERVICIO" />
+                    <div class="fila">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" cols="30" rows="10"></textarea>
                     </div>
 
-                    <div>
-                        <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" />
+                    <div class="fila">
+                        <label for="video">Video:</label>
+                        <input id="video" name="video" type="text" value="" placeholder="Video" />
                     </div>
 
-                    <div>
-                        <select id="tipo_moneda_0" name="tipo_moneda_0">
-                            {% for moneda in monedas %}
-                            <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
+                    <div class="fila">
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria">
+                            <option value="">Seleccione...</option>
+                            {% for categoria in categorias %}
+                            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
                             {% endfor %}
                         </select>
-                        <input id="valor_0" name="valor_0" type="text" value="" />
                     </div>
-                </article>
-            </section>
+                </div>
 
-            <div>
-                <label for="total">Total:</label>
-                <input id="total" name="total" type="text" value="" />
-            </div>
+                <div class="lado_b">
+                    <div>
+                        <label for="duracion">Tiempo(días):</label>
+                        <select name="duracion" id="duracion">
+                            <option value="">Seleccione...</option>
+                            {% for i in dias %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
 
-            <div>
-                <label for="con_impuesto">Con impuesto:</label>
-                <input id="con_impuesto" name="con_impuesto" type="text" value="" />
-            </div>
+                <h4>
+                    <img src="{% static 'images/productos.png' %}" width="32" alt="imagen productos" />
+                    Productos
+                </h4>
 
-            <div>
-                <a href="javascript:;">Atrás</a>
-                <a href="javascript:;">Continuar</a>
-            </div>
-        </form>
+                <a id="btn_otro_producto" href="javascript:;"> <span>+</span> Otro producto</a>
+
+                <section id="lista_productos">
+                    <article>
+                        <div>
+                            <input id="nombre_0" name="nombre_0" type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" />
+                        </div>
+
+                        <div>
+                            <input id="url_0" name="url_0" type="text" placeholder="URL PRODUCTO/SERVICIO" />
+                        </div>
+
+                        <div>
+                            <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" />
+                        </div>
+
+                        <div>
+                            <select id="tipo_moneda_0" name="tipo_moneda_0">
+                                {% for moneda in monedas %}
+                                <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                            <input id="valor_0" name="valor_0" type="text" value="" />
+                        </div>
+                    </article>
+                </section>
+
+                <div>
+                    <label for="total">Total:</label>
+                    <input id="total" name="total" type="text" value="" />
+                </div>
+
+                <div>
+                    <label for="con_impuesto">Con impuesto:</label>
+                    <input id="con_impuesto" name="con_impuesto" type="text" value="" />
+                </div>
+
+                <div>
+                    <a href="javascript:;">Atrás</a>
+                    <a href="javascript:;">Continuar</a>
+                </div>
+            </form>
+        </section>
     </fieldset>
 {% endblock %}
 {% block js %}
