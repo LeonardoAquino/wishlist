@@ -102,6 +102,7 @@ class GuardarPasoUno(View):
 
         if not valido:
             raise Http500()
+        tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
 
         proyecto_data ={
             "titulo": titulo,
@@ -110,39 +111,14 @@ class GuardarPasoUno(View):
             "categoria": categoria,
             "duracion": duracion,
             "creador_id":creador_id,
-            "productos": productos_dict
+            "tipo_proyecto": tipo_proyecto_id,
+            "productos": productos_dict,
+
         }
 
         req.session['f_nuevo_proyecto'] = proyecto_data
         return redirect("nuevo_proyecto_paso2")
 
-    def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
-        tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
-        creador = User.objects.get(pk = creador_id)
-
-        tipo_proyecto = TipoProyecto.objects.get(pk = tipo_proyecto_id)
-
-        proyecto = Proyecto()
-        proyecto.titulo = titulo
-        proyecto.descripcion = descripcion
-        proyecto.creador = creador
-        proyecto.video_url = video
-        proyecto.duracion = duracion
-        proyecto.tipo_proyecto = tipo_proyecto
-        proyecto.save()
-
-        return proyecto
-
-    def __guardar_producto(self, items, proyecto):
-        for item in items:
-            producto = Producto()
-            producto.nombre = item['nombre']
-            producto.url = item['url']
-            producto.precio = item['precio']
-            producto.proyecto = proyecto
-            producto.descripcion = item['descripcion']
-            producto.moneda = item['tipo_moneda_producto']
-            producto.save()
 
 class GuardarPasoDos(View):
     def post(self,req):
@@ -174,10 +150,11 @@ class GuardarPasoDos(View):
             "creador": creador_id
         }
 
-        self.crear_cuenta(data_cuenta)
+        self.__crear_cuenta(data_cuenta)
+        self.__crear_proyecto(req.session['f_nuevo_proyecto'])
         return redirect("nuevo_proyecto_paso3")
 
-    def crear_cuenta(self, data):
+    def __crear_cuenta(self, data):
         
         try:
             cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta']\
@@ -207,7 +184,32 @@ class GuardarPasoDos(View):
             detalle_usuario.cuenta_bancaria = cuenta
             detalle_usuario.save()
 
-        return 1
+    def __crear_proyecto(self, data):
+        creador = User.objects.get(pk = data["creador_id"])
+        tipo_proyecto = TipoProyecto.objects.get(pk = data["tipo_proyecto"])
+
+        proyecto = Proyecto()
+        proyecto.titulo = data["titulo"]
+        proyecto.descripcion = data["descripcion"]
+        proyecto.creador = creador
+        proyecto.video_url = data["video"]
+        proyecto.duracion = data["duracion"]
+        proyecto.tipo_proyecto = tipo_proyecto
+        proyecto.save()
+
+        self.__crear_producto(data['productos'], proyecto)
+
+    def __crear_producto(self, data, proyecto):
+        for item in data:
+            moneda = Moneda.objects.get(pk=item['tipo_moneda_producto'])
+            producto = Producto()
+            producto.nombre = item['nombre']
+            producto.url = item['url']
+            producto.precio = item['precio']
+            producto.proyecto = proyecto
+            producto.descripcion = item['descripcion']
+            producto.moneda = moneda
+            producto.save()
 
 
 class NuevoProyecto3View(TemplateView):
