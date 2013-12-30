@@ -204,7 +204,7 @@ class NuevoProyecto2View(TemplateView):
 
 mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
-guardar_paso1 = login_required(GuardarPasoUno.as_view())
-nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
+#guardar_paso1 = login_required(GuardarPasoUno.as_view())
+guardar_paso1 = login_required(NuevoProyecto2View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
