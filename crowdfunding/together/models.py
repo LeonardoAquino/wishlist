@@ -28,7 +28,7 @@ class Proyecto(models.Model):
         return self.titulo + ", por " + nombre_creador
 
     def get_proyecto(self):
-        nombre_creador = self.creador.first_name + " " + self.creador.last_name
+        nombre_creador = self.creador.username
 
         obj = {
             'id': self.id,
