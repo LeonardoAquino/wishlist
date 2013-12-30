@@ -36,10 +36,12 @@ class NuevoProyecto1View(TemplateView):
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
+    
     def post(self, req):
         i = 0
         valido = True
         productos_dict = []
+        data = {}
 
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
@@ -99,7 +101,7 @@ class NuevoProyecto2View(TemplateView):
 
         request.session['f_nuevo_proyecto'] = proyecto_data
 
-        return render_to_response(template, data, context_instance=RequestContext(req))
+        return render_to_response(template_name, data, context_instance=RequestContext(req))
 
 class NuevoProyecto3View(TemplateView):
     def some():
@@ -108,7 +110,6 @@ class NuevoProyecto3View(TemplateView):
 
 class GuardarPasoUno(View):
 
-    @transaction.commit_on_success
     def post(self, req):
 
         titulo = req.POST.get('titulo')
@@ -198,14 +199,12 @@ class GuardarPasoUno(View):
             producto.descripcion = item['descripcion']
             producto.moneda = item['tipo_moneda_producto']
             producto.save()
-"""
-class NuevoProyecto2View(TemplateView):
-    template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
-"""
+
 
 mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
-guardar_paso1 = login_required(GuardarPasoUno.as_view())
 nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
+guardar_paso1 = login_required(GuardarPasoUno.as_view())
+
