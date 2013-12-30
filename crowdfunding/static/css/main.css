@@ -55,21 +55,27 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .categorias .proyecto figure figcaption{color:#fff;text-align:left}
 .categorias .proyecto figure img{width:100%}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
-.descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:auto;padding:0;width:70%;}
+.descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
 .descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;}
 .descripcion_proyecto legend span:first-child,.descripcion_proyecto legend span:last-child{opacity:.7}
-.descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;z-index:-1;}
+.descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;text-align:center;z-index:-1;}
 .descripcion_proyecto .descripcion_cabecera span:first-child{color:#ffd700}
 .descripcion_proyecto .descripcion_cabecera span:last-child{color:#c0c0c0}
 .descripcion_proyecto .lista_productos{clear:right;}
-.descripcion_proyecto .lista_productos .producto{background-color:#fff;border:2px solid #ffd700;border-radius:.5em;margin:1em 0;padding:.7em;}
+.descripcion_proyecto .lista_productos .producto{background-color:#fff;border:2px solid #ffd700;border-radius:.5em;margin:1em 0;padding:.7em;position:relative;}
 .descripcion_proyecto .lista_productos .producto input[type="text"]{border-radius:5px;display:inline-block;margin:.3em 0;width:270px}
+.descripcion_proyecto .lista_productos .producto .monto{position:absolute;right:0;top:0}
 .descripcion_proyecto .wrapper{background:url("../images/bg_box.png");border-radius:1em;padding:1em;}
-.descripcion_proyecto .wrapper #btn_otro_producto{float:right}
-.descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
+.descripcion_proyecto .wrapper #btn_otro_producto{display:block;float:right;margin:1em 0;text-decoration:none;}
+.descripcion_proyecto .wrapper #btn_otro_producto span{border:2px solid #ffd700;border-radius:50%;color:#ffd700;padding:0 5px}
+.descripcion_proyecto .wrapper .btn_accion{margin:1em 0;text-align:right;}
+.descripcion_proyecto .wrapper .btn_accion a{background-color:#ffd700;border-radius:5px;color:#fff;padding:.5em 1em;text-decoration:none}
+.descripcion_proyecto .wrapper .calculo_precio{margin:.5em 0;text-align:right;}
+.descripcion_proyecto .wrapper .calculo_precio input[type="text"]{border:1px solid #ffd700;border-radius:5px}
 .descripcion_proyecto .wrapper .fila{margin:.5em 0;}
 .descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
+.descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
 .error_message{color:#d15538}
 .fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}

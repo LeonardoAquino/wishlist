@@ -1,22 +1,27 @@
 <article class="producto">
     <div>
-        <label for="nombre_{{ numero }}">Nombre: </label>
-        <input id="nombre_{{ numero }}" name="nombre_{{ numero }}" type="text" />
+        <input id="nombre_{{ numero }}" name="nombre_{{ numero }}"
+            type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" />
     </div>
 
     <div>
-        <label for="url_{{ numero }}">URL: </label>
-        <input id="url_{{ numero }}" name="url_{{ numero }}" type="text" />
+        <input id="url_{{ numero }}" name="url_{{ numero }}"
+            type="text" placeholder="URL PRODUCTO/SERVICIO" />
     </div>
 
     <div>
-        <label for="descripcion_{{ numero }}">Descripción: </label>
-        <input id="descripcion_{{ numero }}" name="descripcion_{{ numero }}" type="text" />
+        <input id="descripcion_{{ numero }}" name="descripcion_{{ numero }}"
+            type="text" placeholder="DESCRIPCION" />
     </div>
-    <div>
+
+    <div class="monto">
         <select id="tipo_moneda_{{ numero }}" name="tipo_moneda_{{ numero }}">
             {{{ monedas }}}
         </select>
         <input id="valor_{{ numero }}" name="valor_{{ numero }}" type="text" value="" />
+    </div>
+
+    <div>
+        <a href="javascript:;" data-accion="eliminar_producto">Eliminar</a>
     </div>
 </article>

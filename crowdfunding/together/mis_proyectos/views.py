@@ -27,7 +27,8 @@ class NuevoProyecto1View(TemplateView):
         data = {
             "dias" : [i + 1 for i in xrange(60)],
             "monedas" : Moneda.objects.all(),
-            "categorias" : Categoria.objects.all()
+            "categorias" : Categoria.objects.all(),
+            "cantidad_impuesto" : 10
         }
 
         return render_to_response(template, data, context_instance=RequestContext(req))
@@ -158,7 +159,7 @@ class GuardarPasoUno(View):
             }
 
             productos_dict.append(prod)
-            i +=1
+            i += 1
 
         creador_id = self.request.user.id
 

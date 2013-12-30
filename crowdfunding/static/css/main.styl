@@ -334,7 +334,7 @@ header
 .descripcion_proyecto
     border 3px solid gold
     border-radius 1em
-    margin auto
+    margin 1em auto
     padding 0
     width 70%
 
@@ -355,6 +355,7 @@ header
         border-radius 7px 7px 0 0
         padding 2em
         position relative
+        text-align center
         z-index -1
 
         span:first-child
@@ -372,6 +373,7 @@ header
             border-radius 0.5em
             margin 1em 0
             padding 0.7em
+            position relative
 
             input[type="text"]
                 border-radius 5px
@@ -379,18 +381,45 @@ header
                 margin 0.3em 0
                 width 270px
 
+            .monto
+                position absolute
+                right 0
+                top 0
+
     .wrapper
         background url("../images/bg_box.png")
         border-radius 1em
         padding 1em
 
         #btn_otro_producto
+            display block
             float right
+            margin 1em 0
+            text-decoration none
 
-        .lado_a
-        .lado_b
-            display inline-block
-            vertical-align top
+            span
+                border 2px solid gold
+                border-radius 50%
+                color gold
+                padding 0 5px
+
+        .btn_accion
+            margin 1em 0
+            text-align right
+            a
+                background-color gold
+                border-radius 5px
+                color white
+                padding 0.5em 1em
+                text-decoration none
+
+        .calculo_precio
+            margin 0.5em 0
+            text-align right
+
+            input[type="text"]
+                border 1px solid gold
+                border-radius 5px
 
         .fila
             margin 0.5em 0
@@ -402,6 +431,11 @@ header
             label
                 display inline-block
                 width 100px
+
+        .lado_a
+        .lado_b
+            display inline-block
+            vertical-align top
 
 .error_message
     color #D15538
