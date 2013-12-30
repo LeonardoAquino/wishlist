@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 
 from ..models import Proyecto, TipoProyecto, Producto, Moneda
-from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco
+from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco, DetalleUsuario
 from ..common import is_text_valid, Http500, is_rut_valid
 
 class MisProyectosView(ListView):
@@ -147,6 +147,7 @@ class GuardarPasoUno(View):
 class GuardarPasoDos(View):
     def post(self,req):
         valido = True
+        creador_id = self.request.user.id
 
         titular_cuenta = req.POST.get('titular_cuenta')
         num_cuenta = req.POST.get('num_cuenta')
@@ -169,24 +170,39 @@ class GuardarPasoDos(View):
             "cuenta": num_cuenta,
             "banco": banco,
             "rut": rut,
-            "tipo":tipo_cuenta
+            "tipo": tipo_cuenta,
+            "creador": creador_id
         }
 
         self.crear_cuenta(data_cuenta)
         return redirect("nuevo_proyecto_paso3")
 
     def crear_cuenta(self, data):
-        """
         try:
             cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta'])
-        except 
-        """
-        tipo_cuenta = TipoCuenta.objects.get(pk=1)
-        """
-        n_cuenta = CuentaBancaria()
-        n_cuenta.numero_cuenta = data['cuenta']
-        n_cuenta.tipo_cuenta = 
-        """
+        except cuenta.DoesNotExist as dne:
+            banco = Banco.objects.get(pk=data['banco'])
+            tipo_cuenta = TipoCuenta.objects.get(pk=data['tipo'])
+
+            cuenta = CuentaBancaria()
+            cuenta.numero_cuenta = data['cuenta']
+            cuenta.tipo_cuenta = tipo_cuenta
+            cuenta.banco = banco
+            cuenta.save()
+
+        try:
+            detalle_usuario = DetalleUsuario.objects.get(usuario = data['creador'])
+        except detalle_usuario.DoesNotExist as dne:
+            creador = User.objects.get(pk=data['creador'])
+
+            n_detalle = DetalleUsuario()
+            n_detalle.usuario = creador
+            n_detalle.rut = data['rut']
+            n_detalle.cuenta_bancaria = cuenta
+            n_detalle.save()
+
+        return 1
+
 
 class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
