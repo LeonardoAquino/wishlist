@@ -37,71 +37,6 @@ class NuevoProyecto1View(TemplateView):
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
 
-    def post(self, req):
-        i = 0
-        valido = True
-        productos_dict = []
-        data = {}
-
-        titulo = req.POST.get('titulo')
-        descripcion = req.POST.get('descripcion')
-        video = req.POST.get('video')
-        categoria = req.POST.get('categoria')
-        duracion = req.POST.get('duracion')
-
-        valido = valido and is_text_valid(titulo)
-        valido = valido and is_text_valid(descripcion, 500)
-        valido = valido and is_text_valid(video, 250)
-
-        while True:
-            if not is_text_valid(req.POST.get("nombre_%d"%i)):
-                break
-
-            nombre_producto = req.POST.get("nombre_%d"%i)
-            url_producto = req.POST.get("url_%d"%i)
-            desc_producto = req.POST.get("descripcion_%d"%i)
-            tipo_moneda_producto = req.POST.get("tipo_moneda_%d"%i)
-            precio = req.POST.get("valor_%d"%i)
-
-            valido = valido and is_text_valid(nombre_producto)
-            valido = valido and is_text_valid(url_producto, 500)
-            valido = valido and is_text_valid(desc_producto, 500)
-            valido = valido and is_text_valid(precio)
-            valido = valido and is_text_valid(tipo_moneda_producto)
-
-            if not valido:
-                break
-
-            moneda = Moneda.objects.get(pk=tipo_moneda_producto)
-
-            prod = {
-                "nombre": nombre_producto,
-                "url": url_producto,
-                "descripcion": desc_producto,
-                "tipo_moneda_producto": moneda,
-                "precio": precio,
-            }
-
-            productos_dict.append(prod)
-            i +=1
-
-        if not valido:
-            raise Http500()
-
-        creador_id = self.request.user.id
-        proyecto_data ={
-            "titulo": titulo,
-            "descripcion": descripcion,
-            "video": video,
-            "categoria": categoria,
-            "duracion": duracion,
-            "creador_id":creador_id,
-            "productos": productos_dict
-        }
-
-        request.session['f_nuevo_proyecto'] = proyecto_data
-
-        return render_to_response(template_name, data, context_instance=RequestContext(req))
 
 class NuevoProyecto3View(TemplateView):
     def some():
@@ -145,17 +80,17 @@ class GuardarPasoUno(View):
             valido = valido and is_text_valid(url_producto, 500)
             valido = valido and is_text_valid(desc_producto, 500)
             valido = valido and is_text_valid(precio)
-            valido = valido and is_text_valid(tipo_moneda_producto)
+            #valido = valido and is_text_valid(tipo_moneda_producto)
 
             if not valido:
                 break
 
-            moneda = Moneda.objects.get(pk=tipo_moneda_producto)
+            moneda = Moneda.objects.get(pk=1)
             prod = {
                 "nombre": nombre_producto,
                 "url": url_producto,
                 "descripcion": desc_producto,
-                "tipo_moneda_producto": moneda,
+                "tipo_moneda_producto": moneda.id,
                 "precio": precio,
             }
 
@@ -177,7 +112,7 @@ class GuardarPasoUno(View):
             "productos": productos_dict
         }
 
-        request.session['f_nuevo_proyecto'] = proyecto_data
+        req.session['f_nuevo_proyecto'] = proyecto_data
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
