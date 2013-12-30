@@ -131,9 +131,6 @@ class EnvioView(View):
 def actualizar_clave(req):
     email = req.POST.get("email")
 
-    print "email : " + email
-    print " nueva clave : " + "sadsa"
-
     data = {
         "status" : "ok",
         "message" : "Solicitud realizada exitosamente, revise su bandeja de entrada para ver su nueva clave"
