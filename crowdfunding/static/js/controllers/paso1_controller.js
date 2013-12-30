@@ -74,6 +74,7 @@ App.Controllers.Paso1.mixin({
             $categoria = $("#categoria"),
             $duracion = $("#duracion"),
             errores = [],
+            $productos = $(".producto"),
             valido = true;
 
         if($titulo.val().trim() === ""){
@@ -95,6 +96,26 @@ App.Controllers.Paso1.mixin({
             valido = false;
             errores.push("Debes seleccionar la duración del proyecto");
         }
+
+        if(!$productos.length){
+            valido = false;
+            errores.push("Se debe ingresar al menos 1 producto");
+        }
+
+        $(".producto").each(function(i){
+            var debeCompletarse = false;
+
+            $(this).find("*[id]").each(function(){
+                if($(this).val().trim() === ""){
+                    debeCompletarse = true;
+                }
+            });
+
+            if(debeCompletarse){
+                valido = false;
+                errores.push("El producto {0} debe completarse".format(i + 1));
+            }
+        });
 
         if(!valido){
             alert(errores.join("\n"));

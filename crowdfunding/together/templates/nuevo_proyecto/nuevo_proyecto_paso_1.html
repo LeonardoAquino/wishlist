@@ -79,19 +79,19 @@
                 <section id="lista_productos" class="lista_productos">
                     <article class="producto">
                         <div>
-                            <input id="nombre_0" name="nombre_0" type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" />
+                            <input id="nombre_0" name="nombre_0" type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" required />
                         </div>
 
                         <div>
-                            <input id="url_0" name="url_0" type="text" placeholder="URL PRODUCTO/SERVICIO" />
+                            <input id="url_0" name="url_0" type="text" placeholder="URL PRODUCTO/SERVICIO" required />
                         </div>
 
                         <div>
-                            <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" />
+                            <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" required />
                         </div>
 
                         <div class="monto">
-                            <select id="tipo_moneda_0" name="tipo_moneda_0">
+                            <select id="tipo_moneda_0" name="tipo_moneda_0" required>
                                 {% for moneda in monedas %}
                                 <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
                                 {% endfor %}
