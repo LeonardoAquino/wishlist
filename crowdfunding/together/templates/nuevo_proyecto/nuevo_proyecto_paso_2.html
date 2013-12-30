@@ -1,28 +1,31 @@
 {% extends "base_login.html" %}
 {% block contenido %}
-    <div class="fila">
-	    <label for="titular_cuenta">Nombre:</label>
-	    <input id="titular_cuenta" name="titular_cuenta" type="text" value="" placeholder="Nombre del titular" />
-	</div>
+    <form id="f_paso_2" action="{% url 'guardar_paso2' %}" method="post">
+    	{% csrf_token %}
+	    <div class="fila">
+		    <label for="titular_cuenta">Nombre:</label>
+		    <input id="titular_cuenta" name="titular_cuenta" type="text" value="" placeholder="Nombre del titular" />
+		</div>
 
-	<div class="fila">
-	    <label for="num_cuenta">Numero de cuenta:</label>
-	    <input id="num_cuenta" name="num_cuenta" type="text" value="" placeholder="Numero de cuenta" />
-	</div>
+		<div class="fila">
+		    <label for="num_cuenta">Numero de cuenta:</label>
+		    <input id="num_cuenta" name="num_cuenta" type="text" value="" placeholder="Numero de cuenta" />
+		</div>
 
-	<div class="fila">
-	    <label for="banco">Banco:</label>
-	    <input id="banco" name="banco" type="text" value="" placeholder="Banco" />
-	</div>
+		<div class="fila">
+		    <label for="banco">Banco:</label>
+		    <input id="banco" name="banco" type="text" value="" placeholder="Banco" />
+		</div>
 
-	<div class="fila">
-	    <label for="rut">Rut:</label>
-	    <input id="rut" name="rut" type="text" value="" placeholder="Rut" />
-	</div>
+		<div class="fila">
+		    <label for="rut">Rut:</label>
+		    <input id="rut" name="rut" type="text" value="" placeholder="Rut" />
+		</div>
 
-	<div class="fila">
-	    <label for="tipo_cuenta">Tipo de cuenta:</label>
-	    <input id="tipo_cuenta" name="tipo_cuenta" type="text" value="" placeholder="Tipo Cuenta" />
-	</div>
+		<div class="fila">
+		    <label for="tipo_cuenta">Tipo de cuenta:</label>
+		    <input id="tipo_cuenta" name="tipo_cuenta" type="text" value="" placeholder="Tipo Cuenta" />
+		</div>
+	</form>
 
 {% endblock %}

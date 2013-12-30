@@ -38,11 +38,6 @@ class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
 
 
-class NuevoProyecto3View(TemplateView):
-    def some():
-        pass
-
-
 class GuardarPasoUno(View):
 
     def post(self, req):
@@ -143,11 +138,15 @@ class GuardarPasoUno(View):
             producto.moneda = item['tipo_moneda_producto']
             producto.save()
 
+class GuardarPasoDos(View):
+    pass
+
 
 mis_proyectos = login_required(MisProyectosView.as_view())
 nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
+guardar_paso1 = login_required(GuardarPasoUno.as_view())
+guardar_paso2 = login_required(GuardarPasoDos.as_view())
 nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
-guardar_paso1 = login_required(GuardarPasoUno.as_view())
 
