@@ -5,8 +5,9 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 
-from ..models import Proyecto, TipoProyecto, Producto, Moneda, Categoria
-from ..common import is_text_valid, Http500
+from ..models import Proyecto, TipoProyecto, Producto, Moneda
+from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco
+from ..common import is_text_valid, Http500, is_rut_valid
 
 class MisProyectosView(ListView):
     model = Proyecto
@@ -36,6 +37,11 @@ class NuevoProyecto1View(TemplateView):
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
+    def get_context_data(self, **kw):
+        data = super(NuevoProyecto2View, self).get_context_data(**kw)
+        data['bancos'] = Banco.objects.all()
+        data['tipos_cuentas'] = TipoCuenta.objects.all()
+        return data
 
 
 class GuardarPasoUno(View):
@@ -139,7 +145,52 @@ class GuardarPasoUno(View):
             producto.save()
 
 class GuardarPasoDos(View):
-    pass
+    def post(self,req):
+        valido = True
+
+        titular_cuenta = req.POST.get('titular_cuenta')
+        num_cuenta = req.POST.get('num_cuenta')
+        banco = req.POST.get('banco')
+        rut = req.POST.get('rut')
+        tipo_cuenta = req.POST.get('tipo_cuenta')
+
+        valido = valido and is_text_valid(titular_cuenta)
+        valido = valido and is_text_valid(num_cuenta)
+        valido = valido and is_text_valid(banco)
+        valido = valido and is_rut_valid(rut)
+        valido = valido and is_text_valid(tipo_cuenta)
+
+        if not valido:
+            raise Http500()
+
+
+        data_cuenta ={
+            "titular": titular_cuenta,
+            "cuenta": num_cuenta,
+            "banco": banco,
+            "rut": rut,
+            "tipo":tipo_cuenta
+        }
+
+        self.crear_cuenta(data_cuenta)
+        return redirect("nuevo_proyecto_paso3")
+
+    def crear_cuenta(self, data):
+        """
+        try:
+            cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta'])
+        except 
+        """
+        tipo_cuenta = TipoCuenta.objects.get(pk=1)
+        """
+        n_cuenta = CuentaBancaria()
+        n_cuenta.numero_cuenta = data['cuenta']
+        n_cuenta.tipo_cuenta = 
+        """
+
+class NuevoProyecto3View(TemplateView):
+    template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
+
 
 
 mis_proyectos = login_required(MisProyectosView.as_view())
@@ -147,6 +198,7 @@ nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
 guardar_paso1 = login_required(GuardarPasoUno.as_view())
 guardar_paso2 = login_required(GuardarPasoDos.as_view())
 nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
+nuevo_proyecto_paso3 = login_required(NuevoProyecto3View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
 
