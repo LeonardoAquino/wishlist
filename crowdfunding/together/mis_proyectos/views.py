@@ -36,6 +36,7 @@ class NuevoProyecto1View(TemplateView):
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
+
     def post(self, req):
         i = 0
         valido = True

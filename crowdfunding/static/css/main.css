@@ -59,6 +59,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;}
 .descripcion_proyecto legend span:first-child,.descripcion_proyecto legend span:last-child{opacity:.7}
 .descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;text-align:center;z-index:-1;}
+.descripcion_proyecto .descripcion_cabecera img{position:relative;top:.5em;width:27px}
 .descripcion_proyecto .descripcion_cabecera span:first-child{color:#ffd700}
 .descripcion_proyecto .descripcion_cabecera span:last-child{color:#c0c0c0}
 .descripcion_proyecto .lista_productos{clear:right;}
