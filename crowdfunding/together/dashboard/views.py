@@ -3,15 +3,19 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, redirect
 from django.views.generic import TemplateView,ListView
 from ..models import Proyecto, Producto, Categoria
-from ..common import is_text_valid
+from ..common import is_text_valid, is_email_valid
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+
 class DashboardView(TemplateView):
     template_name = "dashboard/dashboard.html"
+    model = Proyecto
 
     def get_context_data(self,**kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
+        mi_usuario = self.request.user
+        context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
         return context
 
 
@@ -27,12 +31,25 @@ class MiPerfilView(TemplateView):
 class UpdateUserView(TemplateView):
     def post(self, req):
         template = "dashboard/actualizar_usuario.html"
-        this_user = self.request.user
-        this_user.first_name = req.POST.get("first_name")
-        this_user.last_name = req.POST.get("last_name")
-        this_user.save()
-        data = {}
-        return render_to_response(template, data, context_instance='')
+        user_name = req.POST.get("nombre_usuario")
+        fisrt_name = req.POST.get("first_name")
+        last_name = req.POST.get("last_name")
+        email = req.POST.get("email")
+        new_password = req.POST.get("password")
+        
+        valido = True
+        valido = valido and is_text_valid(user_name)
+        valido = valido and is_email_valid(email)
+
+        if valido:
+            this_user = User.objects.get(username__exact=user_name)
+            this_user.email = email
+            this_user.first_name = first_name
+            this_user.last_name = last_name
+            this_user.set_password(new_password)
+            this_user.save()
+            data = {}
+            return render_to_response(template, data, context_instance='')
 
 
 class VerProyectoView(TemplateView):
