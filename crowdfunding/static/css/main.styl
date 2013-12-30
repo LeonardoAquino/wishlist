@@ -338,7 +338,18 @@ header
     padding 0
     width 70%
 
-    article
+    legend
+        background gold
+        border-radius 7px
+        color white
+        padding 0.5em 1em
+        text-align center
+
+        span:first-child
+        span:last-child
+            opacity 0.7
+
+    .descripcion_cabecera
         bottom 1em
         background white
         border-radius 7px 7px 0 0
@@ -352,21 +363,29 @@ header
         span:last-child
             color silver
 
-    legend
-        background gold
-        border-radius 7px
-        color white
-        padding 0.5em 1em
-        text-align center
+    .lista_productos
+        clear right
 
-        span:first-child
-        span:last-child
-            opacity 0.7
+        .producto
+            background-color white
+            border 2px solid gold
+            border-radius 0.5em
+            margin 1em 0
+            padding 0.7em
+
+            input[type="text"]
+                border-radius 5px
+                display inline-block
+                margin 0.3em 0
+                width 270px
 
     .wrapper
         background url("../images/bg_box.png")
         border-radius 1em
         padding 1em
+
+        #btn_otro_producto
+            float right
 
         .lado_a
         .lado_b
