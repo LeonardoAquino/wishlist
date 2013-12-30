@@ -167,9 +167,17 @@ class GuardarPasoUno(View):
         if not valido:
             raise Http500()
 
-        proyecto = self.__guardar_proyecto(titulo, descripcion, creador_id, video, categoria, duracion)
+        proyecto_data ={
+            "titulo": titulo,
+            "descripcion": descripcion,
+            "video": video,
+            "categoria": categoria,
+            "duracion": duracion,
+            "creador_id":creador_id,
+            "productos": productos_dict
+        }
 
-        self.__guardar_producto(productos_dict, proyecto)
+        request.session['f_nuevo_proyecto'] = proyecto_data
         return redirect("nuevo_proyecto_paso2")
 
     def __guardar_proyecto(self, titulo, descripcion, creador_id, video, categoria, duracion):
