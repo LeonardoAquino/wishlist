@@ -180,7 +180,7 @@ class GuardarPasoDos(View):
     def crear_cuenta(self, data):
         try:
             cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta'])
-        except cuenta.DoesNotExist as dne:
+        except CuentaBancaria.DoesNotExist as dne:
             banco = Banco.objects.get(pk=data['banco'])
             tipo_cuenta = TipoCuenta.objects.get(pk=data['tipo'])
 
@@ -192,14 +192,18 @@ class GuardarPasoDos(View):
 
         try:
             detalle_usuario = DetalleUsuario.objects.get(usuario = data['creador'])
-        except detalle_usuario.DoesNotExist as dne:
+            detalle_usuario.rut = data['rut']
+            detalle_usuario.cuenta_bancaria = cuenta
+            detalle_usuario.save()
+            
+        except DetalleUsuario.DoesNotExist as dne:
             creador = User.objects.get(pk=data['creador'])
 
-            n_detalle = DetalleUsuario()
-            n_detalle.usuario = creador
-            n_detalle.rut = data['rut']
-            n_detalle.cuenta_bancaria = cuenta
-            n_detalle.save()
+            detalle_usuario = DetalleUsuario()
+            detalle_usuario.usuario = creador
+            detalle_usuario.rut = data['rut']
+            detalle_usuario.cuenta_bancaria = cuenta
+            detalle_usuario.save()
 
         return 1
 
