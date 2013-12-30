@@ -110,9 +110,10 @@ class Banco(models.Model):
         return self.nombre
 
 
-class CuentaCorriente(models.Model):
+class CuentaBancaria(models.Model):
     numero_cuenta = models.IntegerField()
     tipo_cuenta = models.ForeignKey(TipoCuenta)
+    banco = models.ForeignKey(Banco)
 
     def __unicode__(self):
         return self.numero_cuenta + " " + self.tipo_cuenta.nombre
@@ -123,7 +124,7 @@ class DetalleUsuario(models.Model):
     rut = models.CharField(max_length=40, unique=True, null=True, blank=True)
     comuna = models.ForeignKey(Comuna, null=True, blank=True)
     sexo = models.BooleanField(default=True)
-    cuenta_corriente = models.ForeignKey(CuentaCorriente, null=True, blank=True)
+    cuenta_bancaria = models.ForeignKey(CuentaBancaria, null=True, blank=True)
     fecha_nacimiento = models.DateField()
 
     def __unicode__(self):

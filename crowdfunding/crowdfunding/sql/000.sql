@@ -385,3 +385,26 @@ INSERT INTO together_tipoproyecto(id, nombre) VALUES(3, 'Monto fijo');
 
 INSERT INTO together_moneda(id, nombre) VALUES (1, 'CLP');
 INSERT INTO together_moneda(id, nombre) VALUES (2, 'USD');
+
+INSERT INTO together_banco(id, nombre) VALUES(1,'Banco Security');
+INSERT INTO together_banco(id, nombre) VALUES(2,'Banco Chile-Edwards-Citi');
+INSERT INTO together_banco(id, nombre) VALUES(3,'Banco Consorcio');
+INSERT INTO together_banco(id, nombre) VALUES(4,'Banco del Desarrollo');
+INSERT INTO together_banco(id, nombre) VALUES(5,'Banco Estado');
+INSERT INTO together_banco(id, nombre) VALUES(6,'Banco Falabella');
+INSERT INTO together_banco(id, nombre) VALUES(7,'Banco Internacional');
+INSERT INTO together_banco(id, nombre) VALUES(8,'Banco Itaú');
+INSERT INTO together_banco(id, nombre) VALUES(9,'Banco Paris');
+INSERT INTO together_banco(id, nombre) VALUES(10,'Banco Rabobank');
+INSERT INTO together_banco(id, nombre) VALUES(11,'Banco Ripley');
+INSERT INTO together_banco(id, nombre) VALUES(12,'Banco Santander');
+INSERT INTO together_banco(id, nombre) VALUES(13,'BBVA');
+INSERT INTO together_banco(id, nombre) VALUES(14,'BCI');
+INSERT INTO together_banco(id, nombre) VALUES(15,'BICE');
+INSERT INTO together_banco(id, nombre) VALUES(16,'Corpbanca');
+INSERT INTO together_banco(id, nombre) VALUES(17,'HSBC BANK');
+INSERT INTO together_banco(id, nombre) VALUES(18,'Scotiabank');
+
+INSERT INTO together_tipocuenta(id, nombre) VALUES(1,'Cuenta Corriente');
+INSERT INTO together_tipocuenta(id, nombre) VALUES(2,'Cuenta Vista');
+INSERT INTO together_tipocuenta(id, nombre) VALUES(3,'Cuenta Ahorro');

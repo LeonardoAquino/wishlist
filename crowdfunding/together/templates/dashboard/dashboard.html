@@ -1,13 +1,9 @@
 {% extends "base_login.html" %}
 {% block contenido %}
-    dashboard</br>
     <h1>MIS PROYECTOS</h1>
     <a href="{% url 'terminos_condiciones' %}">Nuevo Proyecto</a>
-    <table>
+    <table border="1">
     	<tr>
-	    	<td>
-	    		ID
-	    	</td>
 	    	<td>
 	    		titulo
 	    	</td>
@@ -27,9 +23,6 @@
     {% for proyecto in mis_proyectos %}
         <tr>
         	<td>
-        		{{ proyecto.get_proyecto.id }}
-        	</td>
-        	<td>
         		{{ proyecto.get_proyecto.titulo }}
         	</td>
         	<td>
@@ -39,7 +32,7 @@
         		{{ proyecto.get_proyecto.fecha_creacion }}
         	</td>
         	<td>
-        		{{ proyecto.get_proyecto.duracion }}
+        		{{ proyecto.get_proyecto.duracion }} días
         	</td>
         	<td>
         		<a href="{% url 'ver_proyecto' proyecto.get_proyecto.id %}">Ver mas</a>
