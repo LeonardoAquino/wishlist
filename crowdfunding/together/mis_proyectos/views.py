@@ -21,8 +21,9 @@ class MisProyectosView(ListView):
 
 
 class NuevoProyecto1View(TemplateView):
-    def get(self, req, tipo_proyecto):
-        req.session["tipo_proyecto_id"] = tipo_proyecto
+    def get(self, req, tipo_proyecto_id):
+
+        req.session["tipo_proyecto_id"] = tipo_proyecto_id
         template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
 
         data = {
@@ -42,7 +43,7 @@ class NuevoProyecto2View(TemplateView):
         data = super(NuevoProyecto2View, self).get_context_data(**kw)
         data['bancos'] = Banco.objects.all()
         data['tipos_cuentas'] = TipoCuenta.objects.all()
-        data["tipo_proyecto_id"] = self.request.session["tipo_proyecto_id"]
+        data["tipo_proyecto_id"] = self.request.session.get("tipo_proyecto_id")
 
         return data
 
@@ -50,7 +51,6 @@ class NuevoProyecto2View(TemplateView):
 class GuardarPasoUno(View):
 
     def post(self, req):
-
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
         video = req.POST.get('video')
@@ -91,6 +91,7 @@ class GuardarPasoUno(View):
                 break
 
             moneda = Moneda.objects.get(pk=1)
+
             prod = {
                 "nombre": nombre_producto,
                 "url": url_producto,
@@ -106,6 +107,7 @@ class GuardarPasoUno(View):
 
         if not valido:
             raise Http500()
+
         tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
 
         proyecto_data ={
@@ -116,11 +118,11 @@ class GuardarPasoUno(View):
             "duracion": duracion,
             "creador_id":creador_id,
             "tipo_proyecto": tipo_proyecto_id,
-            "productos": productos_dict,
-
+            "productos": productos_dict
         }
 
         req.session['f_nuevo_proyecto'] = proyecto_data
+
         return redirect("nuevo_proyecto_paso2")
 
 class GuardarPasoDos(View):
@@ -160,7 +162,6 @@ class GuardarPasoDos(View):
         return redirect("nuevo_proyecto_paso3", id_proyecto = id_proyecto)
 
     def __crear_cuenta(self, data):
-
         try:
             cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta']\
                 , banco = data['banco'], tipo_cuenta = data['tipo'])
