@@ -17,19 +17,14 @@
 
 <section id="categorias" class="categorias">
     <h2>CATEGORÍAS</h2>
-
-    <article class="proyecto iblock fondo_calipso">
-        <figure>
-            <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
-            <figcaption>Título del evento</figcaption>
-        </figure>
-    </article>
-    <article class="proyecto iblock fondo_calipso">
-        <figure>
-            <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
-            <figcaption>Título del evento</figcaption>
-        </figure>
-    </article>
+    {% for proyecto in proyectos %}
+        <article class="proyecto iblock fondo_calipso">
+            <figure>
+                <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
+                <figcaption>{{ proyecto.titulo }}</figcaption>
+            </figure>
+        </article>
+    {% endfor %}
 </section>
 
 {% endblock %}

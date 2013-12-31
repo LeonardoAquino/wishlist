@@ -57,7 +57,7 @@ class ProyectosList(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(ProyectosList, self).get_context_data(**kwargs)
-        context["proyectos"] = self.model.objects.all()
+        context["proyectos"] = self.model.objects.all().order_by("-id")[0:3]
 
         return context
 
