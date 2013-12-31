@@ -120,6 +120,7 @@ class GuardarPasoUno(View):
         return redirect("nuevo_proyecto_paso2")
 
 class GuardarPasoDos(View):
+
     @transaction.commit_on_success
     def post(self,req):
         valido = True
@@ -140,8 +141,7 @@ class GuardarPasoDos(View):
         if not valido:
             raise Http500()
 
-
-        data_cuenta ={
+        data_cuenta = {
             "titular": titular_cuenta,
             "cuenta": num_cuenta,
             "banco": banco,
@@ -152,11 +152,11 @@ class GuardarPasoDos(View):
 
         self.__crear_cuenta(data_cuenta)
         id_proyecto = self.__crear_proyecto(req.session['f_nuevo_proyecto'])
-        #TODO
+
         return redirect("nuevo_proyecto_paso3", id_proyecto = id_proyecto)
 
     def __crear_cuenta(self, data):
-        
+
         try:
             cuenta = CuentaBancaria.objects.get(numero_cuenta = data['cuenta']\
                 , banco = data['banco'], tipo_cuenta = data['tipo'])
@@ -216,11 +216,6 @@ class GuardarPasoDos(View):
 
 class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
-
-    def get(self, req, id_proyecto):
-        pass
-        #template = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
-
 
 
 mis_proyectos = login_required(MisProyectosView.as_view())
