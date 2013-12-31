@@ -119,8 +119,8 @@ class GuardarPasoUno(View):
         req.session['f_nuevo_proyecto'] = proyecto_data
         return redirect("nuevo_proyecto_paso2")
 
-
 class GuardarPasoDos(View):
+    @transaction.commit_on_success
     def post(self,req):
         valido = True
         creador_id = self.request.user.id
@@ -151,8 +151,9 @@ class GuardarPasoDos(View):
         }
 
         self.__crear_cuenta(data_cuenta)
-        self.__crear_proyecto(req.session['f_nuevo_proyecto'])
-        return redirect("nuevo_proyecto_paso3")
+        id_proyecto = self.__crear_proyecto(req.session['f_nuevo_proyecto'])
+        #TODO
+        return redirect("nuevo_proyecto_paso3", id_proyecto = id_proyecto)
 
     def __crear_cuenta(self, data):
         
@@ -198,6 +199,7 @@ class GuardarPasoDos(View):
         proyecto.save()
 
         self.__crear_producto(data['productos'], proyecto)
+        return proyecto.id
 
     def __crear_producto(self, data, proyecto):
         for item in data:
@@ -214,6 +216,10 @@ class GuardarPasoDos(View):
 
 class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
+
+    def get(self, req, id_proyecto):
+        pass
+        #template = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
 
 
 
