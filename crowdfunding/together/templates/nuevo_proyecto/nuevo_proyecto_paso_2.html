@@ -1,42 +1,64 @@
 {% extends "base_login.html" %}
+{% load static from staticfiles %}
+
 {% block contenido %}
-    <form id="f_paso_2" action="{% url 'guardar_paso2' %}" method="post">
-    	{% csrf_token %}
-	    <div class="fila">
-		    <label for="titular_cuenta">Nombre:</label>
-		    <input id="titular_cuenta" name="titular_cuenta" type="text" value="" placeholder="Nombre del titular" />
-		</div>
 
-		<div class="fila">
-		    <label for="num_cuenta">Numero de cuenta:</label>
-		    <input id="num_cuenta" name="num_cuenta" type="text" value="" placeholder="Numero de cuenta" />
-		</div>
+    <fieldset class="descripcion_proyecto">
+        <legend>
+            <span class="fade">Recaudación</span>
+            <span>Descripción</span>
+            <span class="fade">Confirmación</span>
+        </legend>
 
-		<div class="fila">
-		    <label for="rut">Rut:</label>
-		    <input id="rut" name="rut" type="text" value="" placeholder="Rut" />
-		</div>
+        <article class="descripcion_cabecera">
+            <span class="silver">Datos del proyecto</span>
+            <img src="{% static 'images/flechita.png' %}" alt="flechita" />
+            <span class="gold">Información sobre Pagos</span>
+        </article>
 
-		<div class="fila">
-		    <label for="banco">Banco:</label>
-		    <select id="banco" name="banco">
-		    	<option value='0'>Seleccione banco</option>
-		    	{% for banco in bancos %}
-		    		<option value="{{ banco.id }}">{{ banco.nombre }}</option>
-		    	{% endfor %}
-		    </select>
-		</div>
+        <section class="wrapper">
+            <form id="f_paso_2" action="{% url 'guardar_paso2' %}" method="post">
+                {% csrf_token %}
+                <div class="fila">
+                    <label for="titular_cuenta">Nombre:</label>
+                    <input id="titular_cuenta" name="titular_cuenta" type="text" value="" placeholder="Nombre del titular" />
+                </div>
 
-		<div class="fila">
-		    <label for="tipo_cuenta">Tipo de cuenta:</label>
-		    <select id="tipo_cuenta" name="tipo_cuenta">
-		    	<option value='0'>Seleccione tipo de cuenta</option>
-		    	{% for tipo_cuenta in tipos_cuentas%}
-		    		<option value="{{ tipo_cuenta.id }}">{{ tipo_cuenta.nombre }}</option>
-		    	{% endfor %}
-		    </select>
-		</div>
-		<input type="submit" value="Submit">
-	</form>
+                <div class="fila">
+                    <label for="num_cuenta">Numero de cuenta:</label>
+                    <input id="num_cuenta" name="num_cuenta" type="text" value="" placeholder="Numero de cuenta" />
+                </div>
 
+                <div class="fila">
+                    <label for="rut">Rut:</label>
+                    <input id="rut" name="rut" type="text" value="" placeholder="Rut" />
+                </div>
+
+                <div class="fila">
+                    <label for="banco">Banco:</label>
+                    <select id="banco" name="banco">
+                        <option value='0'>Seleccione banco</option>
+                        {% for banco in bancos %}
+                            <option value="{{ banco.id }}">{{ banco.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="fila">
+                    <label for="tipo_cuenta">Tipo de cuenta:</label>
+                    <select id="tipo_cuenta" name="tipo_cuenta">
+                        <option value='0'>Seleccione tipo de cuenta</option>
+                        {% for tipo_cuenta in tipos_cuentas%}
+                            <option value="{{ tipo_cuenta.id }}">{{ tipo_cuenta.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="btn_accion">
+                    <a href="{% url 'paso1' 1 %}">Atrás</a>
+                    <a href="javascript:;">Continuar</a>
+                </div>
+            </form>
+        </section>
+    </fieldset>
 {% endblock %}

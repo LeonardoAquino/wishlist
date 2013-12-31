@@ -11,15 +11,15 @@
 
     <fieldset class="descripcion_proyecto">
         <legend>
-            <span>Recaudación</span>
+            <span class="fade">Recaudación</span>
             <span><strong>Descripción</strong></span>
-            <span>Confirmación</span>
+            <span class="fade">Confirmación</span>
         </legend>
 
         <article class="descripcion_cabecera">
-            <span>Datos del proyecto</span>
+            <span class="gold">Datos del proyecto</span>
             <img src="{% static 'images/flechita.png' %}" alt="flechita" />
-            <span>Información sobre Pagos</span>
+            <span class="silver">Información sobre Pagos</span>
         </article>
 
         <section class="wrapper">
@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="btn_accion">
-                    <a href="{% url 'tipo_proyecto' %}">Atrás</a>
+                    <a href="{% url 'tipo_proyecto' tipo_proyecto_id %}">Atrás</a>
                     <a id="btn_continuar" href="javascript:;">Continuar</a>
                 </div>
             </form>

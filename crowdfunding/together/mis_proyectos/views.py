@@ -37,10 +37,13 @@ class NuevoProyecto1View(TemplateView):
 
 class NuevoProyecto2View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_2.html"
+
     def get_context_data(self, **kw):
         data = super(NuevoProyecto2View, self).get_context_data(**kw)
         data['bancos'] = Banco.objects.all()
         data['tipos_cuentas'] = TipoCuenta.objects.all()
+        data["tipo_proyecto_id"] = self.request.session["tipo_proyecto_id"]
+
         return data
 
 
@@ -67,6 +70,7 @@ class GuardarPasoUno(View):
         valido = valido and is_text_valid(video, 250)
 
         productos_dict = []
+
         while True:
             if not is_text_valid(req.POST.get("nombre_%d"%i)):
                 break
@@ -226,4 +230,3 @@ nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
 nuevo_proyecto_paso3 = login_required(NuevoProyecto3View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
-
