@@ -15,7 +15,9 @@ class DashboardView(TemplateView):
     def get_context_data(self,**kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
         mi_usuario = self.request.user
+
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
+
         return context
 
 
@@ -36,7 +38,7 @@ class UpdateUserView(TemplateView):
         last_name = req.POST.get("last_name")
         email = req.POST.get("email")
         new_password = req.POST.get("password")
-        
+
         valido = True
         valido = valido and is_text_valid(user_name)
         valido = valido and is_email_valid(email)
@@ -49,6 +51,7 @@ class UpdateUserView(TemplateView):
             this_user.set_password(new_password)
             this_user.save()
             data = {}
+
             return render_to_response(template, data, context_instance='')
 
 
@@ -62,14 +65,14 @@ class VerProyectoView(TemplateView):
         obj_proyecto = Proyecto.objects.get(id = id_proyecto)
         context["proyecto"] = obj_proyecto
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
-        #context['categoria'] = self.categoria.objects.filter(obj_proyecto.id_categoria)
+
         return context
 
 
-def comprovar_password(req):
+def comprobar_password(req):
     username = self.request.POST.get("nombre_usuario")
     password = self.request.POST.get("password_old")
-    
+
     data = {"status" : "ok"}
     user = user = authenticate(username=username, password=password)
 
