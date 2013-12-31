@@ -210,7 +210,6 @@ class GuardarPasoDos(View):
 class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
 
-
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
 
