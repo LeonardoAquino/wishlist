@@ -9,6 +9,7 @@ from ..models import Proyecto, TipoProyecto, Producto, Moneda
 from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco, DetalleUsuario
 from ..common import is_text_valid, Http500, is_rut_valid
 
+"""
 class MisProyectosView(ListView):
     model = Proyecto
     template_name = "dashboard/mis_proyectos.html"
@@ -19,6 +20,7 @@ class MisProyectosView(ListView):
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
 
         return context
+"""
 
 
 class NuevoProyecto1View(TemplateView):
@@ -223,7 +225,7 @@ class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
 
 
-mis_proyectos = login_required(MisProyectosView.as_view())
+#mis_proyectos = login_required(MisProyectosView.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
 

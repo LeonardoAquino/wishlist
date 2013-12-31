@@ -8,6 +8,6 @@ urlpatterns = patterns('together.dashboard.views',
 )
 
 urlpatterns += patterns("together.mis_proyectos.views",
-    url(r'^mis\-proyectos/', "mis_proyectos", name="mis_proyectos"),
+    #url(r'^mis\-proyectos/', "mis_proyectos", name="mis_proyectos"),
     url(r'^nuevo\-proyecto/',include("together.mis_proyectos.urls")),
 )
