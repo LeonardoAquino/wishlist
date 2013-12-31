@@ -17,12 +17,12 @@ class MisProyectosView(ListView):
         context = super(MisProyectosView, self).get_context_data(**kwargs)
         mi_usuario = self.request.user
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
+
         return context
 
 
 class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto_id):
-
         req.session["tipo_proyecto_id"] = tipo_proyecto_id
         template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
 
@@ -224,10 +224,11 @@ class NuevoProyecto3View(TemplateView):
 
 
 mis_proyectos = login_required(MisProyectosView.as_view())
-nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
-guardar_paso1 = login_required(GuardarPasoUno.as_view())
-guardar_paso2 = login_required(GuardarPasoDos.as_view())
-nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
-nuevo_proyecto_paso3 = login_required(NuevoProyecto3View.as_view())
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))
+
+nuevo_proyecto_paso1 = login_required(NuevoProyecto1View.as_view())
+guardar_paso1 = login_required(GuardarPasoUno.as_view())
+nuevo_proyecto_paso2 = login_required(NuevoProyecto2View.as_view())
+guardar_paso2 = login_required(GuardarPasoDos.as_view())
+nuevo_proyecto_paso3 = login_required(NuevoProyecto3View.as_view())
