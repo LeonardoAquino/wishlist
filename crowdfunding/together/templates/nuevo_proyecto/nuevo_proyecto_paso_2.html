@@ -56,9 +56,17 @@
 
                 <div class="btn_accion">
                     <a href="{% url 'nuevo_proyecto_paso1' tipo_proyecto_id %}">Atrás</a>
-                    <a href="javascript:;">Continuar</a>
+                    <a id="btn_continuar" href="javascript:;">Continuar</a>
                 </div>
             </form>
         </section>
     </fieldset>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/controllers/paso2_controller.js' %}"></script>
+<script>
+    App.paso2Controller = new App.Controllers.Paso2();
+</script>
 {% endblock %}
