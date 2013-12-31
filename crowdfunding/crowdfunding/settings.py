@@ -11,8 +11,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-SERVER_EMAIL = "rlaysystems@gmail.com"
-
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
@@ -125,6 +123,12 @@ LOGGING = {
 }
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "rlaysystems@gmail.com"
+EMAIL_HOST_PASSWORD = "realreyes"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 try:
     from .local_settings import *
