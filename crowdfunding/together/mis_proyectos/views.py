@@ -41,16 +41,10 @@ class GuardarPasoUno(View):
     def post(self, req):
         titulo = req.POST.get('titulo')
         descripcion = req.POST.get('descripcion')
+        thumbnail = req.FILES.get("thumbnail")
         video = req.POST.get('video')
         categoria = req.POST.get('categoria')
         duracion = req.POST.get('duracion')
-        i = 0
-
-        nombre_producto = req.POST.get("nombre_0")
-        url_producto = req.POST.get("url_0")
-        desc_producto = req.POST.get("descripcion_0")
-        tipo_moneda_producto = req.POST.get("tipo_moneda_0")
-        precio = req.POST.get("valor_0")
 
         valido = True
         valido = valido and is_text_valid(titulo)
@@ -59,7 +53,10 @@ class GuardarPasoUno(View):
 
         productos_dict = []
 
+        i = 0
+
         while True:
+
             if not is_text_valid(req.POST.get("nombre_%d"%i)):
                 break
 
@@ -98,7 +95,7 @@ class GuardarPasoUno(View):
 
         tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
 
-        proyecto_data ={
+        proyecto_data = {
             "titulo": titulo,
             "descripcion": descripcion,
             "video": video,
@@ -106,7 +103,8 @@ class GuardarPasoUno(View):
             "duracion": duracion,
             "creador_id":creador_id,
             "tipo_proyecto": tipo_proyecto_id,
-            "productos": productos_dict
+            "productos": productos_dict,
+            "thumbnail" : thumbnail
         }
 
         req.session['f_nuevo_proyecto'] = proyecto_data
@@ -185,6 +183,7 @@ class GuardarPasoDos(View):
         proyecto = Proyecto()
         proyecto.titulo = data["titulo"]
         proyecto.descripcion = data["descripcion"]
+        proyecto.imagen = data["thumbnail"]
         proyecto.creador = creador
         proyecto.video_url = data["video"]
         proyecto.duracion = data["duracion"]

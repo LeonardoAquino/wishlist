@@ -19,6 +19,7 @@ class Proyecto(models.Model):
     video_url = models.URLField(max_length=250)
     duracion = models.IntegerField()
     tipo_proyecto = models.ForeignKey(TipoProyecto)
+    imagen = models.FileField(upload_to="proyectos/thumbnails", null=True)
 
     def __unicode__(self):
         return self.titulo + " " + str(self.terminado)

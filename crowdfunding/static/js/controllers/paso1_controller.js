@@ -70,6 +70,7 @@ App.Controllers.Paso1.mixin({
     guardarPaso1: function(){
         var $titulo = $("#titulo"),
             $descripcion = $("#descripcion"),
+            $thumbnail = $("#thumbnail"),
             $video = $("#video"),
             $categoria = $("#categoria"),
             $duracion = $("#duracion"),
@@ -85,6 +86,11 @@ App.Controllers.Paso1.mixin({
         if($descripcion.val().trim() === ""){
             valido = false;
             errores.push("Debes agregar una descripción al proyecto");
+        }
+
+        if($thumbnail.val().trim() === ""){
+            valido = false;
+            errores.push("Debes agregar una imagen de avatar representando al evento");
         }
 
         if($categoria.val() === ""){

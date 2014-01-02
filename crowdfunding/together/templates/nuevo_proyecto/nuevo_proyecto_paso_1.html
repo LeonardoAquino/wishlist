@@ -27,7 +27,7 @@
                 <img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" /> Datos generales
             </h3>
 
-            <form id="f_paso_1" action="{% url 'guardar_paso1' %}" method="post">
+            <form id="f_paso_1" action="{% url 'guardar_paso1' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div class="lado_a">
@@ -39,6 +39,11 @@
                     <div class="fila">
                         <label for="descripcion">Descripción:</label>
                         <textarea id="descripcion" name="descripcion" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="fila">
+                        <label for="thumbnail">imagen:</label>
+                        <input id="thumbnail" name="thumbnail" type="file" value="" />
                     </div>
 
                     <div class="fila">

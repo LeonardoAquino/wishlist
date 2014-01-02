@@ -20,7 +20,7 @@
     {% for proyecto in proyectos %}
         <article class="proyecto iblock fondo_calipso">
             <figure>
-                <img src="{% static 'images/imagen_proyecto.png' %}" alt="imagen proyecto" />
+                <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen proyecto" />
                 <figcaption>{{ proyecto.titulo }}</figcaption>
             </figure>
         </article>
