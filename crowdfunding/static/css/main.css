@@ -9,6 +9,7 @@ header .menu .menu_opciones figure{display:inline-block;position:relative;vertic
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
+#bg_home{background:url("../images/crowd_party.jpg");background-size:100%}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -36,7 +37,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario span a{color:#00b9d1}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
-#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;min-height:10em;padding:.5em;}
+#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;margin:auto;min-height:10em;padding:.5em;width:70%;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
 #slider .globo_texto{margin:auto;max-width:500px;background:#fff;border-radius:10px;padding:1em;position:relative;}
@@ -49,8 +50,6 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
 .buscador .caja_busqueda{border:none;border-radius:5px;color:#fa006a;padding:.5em}
 .categorias{padding:0;text-align:center;}
-.categorias h2{background-color:#ffd800;color:#fff;margin-top:0;position:relative;text-shadow:3px 2px 1px #555;}
-.categorias h2:after{content:"";border-bottom:10px solid transparent;border-left:10px solid #fff;border-top:10px solid transparent;position:absolute;right:.2em;top:.2em}
 .categorias .proyecto{padding:.5em;border-radius:5px;margin:.5em;width:135px;}
 .categorias .proyecto figure figcaption{color:#fff;text-align:left}
 .categorias .proyecto figure img{width:100%}

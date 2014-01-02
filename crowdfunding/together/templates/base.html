@@ -38,10 +38,11 @@
     <footer>
         <input id="foo" type="hidden" value="{{ csrf_token }}" />
     </footer>
+
     <script src="{% static 'js/vendor/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/vendor/rlay_core.js' %}"></script>
     <script src="{% static 'js/vendor/handlebars-1.1.2.min.js' %}"></script>
     <script src="{% static 'js/vendor/template_loader.js' %}"></script>
-    <script src="{% static 'js/vendor/rlay_core.js' %}"></script>
     <script src="{% static 'js/vendor/storage.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
     {% block js %}{% endblock %}

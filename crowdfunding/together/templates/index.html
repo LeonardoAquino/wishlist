@@ -3,28 +3,22 @@
 
 {% block contenido %}
 
+<section id="bg_home">
+
 <section id="slider">
-    <article id="inner_slide" class="globo_texto">
+    <article id="inner_slide" class="globo_texto categorias">
         <h2>Slider</h2>
-        <p>Explicación de lo que se busca en slider</p>
-        <p>Explicación de lo que se busca en slider</p>
+        {% for proyecto in proyectos %}
+            <article class="proyecto iblock fondo_calipso">
+                <figure>
+                    <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen proyecto" />
+                    <figcaption>{{ proyecto.titulo }}</figcaption>
+                </figure>
+            </article>
+        {% endfor %}
     </article>
 </section>
 
-<section id="buscador" class="fondo_rosado buscador">
-    <input id="busqueda" class="caja_busqueda" type="text" value="" placeholder="BUSCA TU EVENTO" />
-</section>
-
-<section id="categorias" class="categorias">
-    <h2>CATEGORÍAS</h2>
-    {% for proyecto in proyectos %}
-        <article class="proyecto iblock fondo_calipso">
-            <figure>
-                <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen proyecto" />
-                <figcaption>{{ proyecto.titulo }}</figcaption>
-            </figure>
-        </article>
-    {% endfor %}
 </section>
 
 {% endblock %}
