@@ -9,10 +9,12 @@
     <article id="inner_slide" class="globo_texto categorias">
         <h2>Slider</h2>
         {% for proyecto in proyectos %}
-            <article class="proyecto iblock fondo_calipso">
+            <article class="proyecto iblock"
+                onclick="window.location.href='{% url 'ver_proyecto' id_proyecto=proyecto.id %}'">
+                <h3>{{ proyecto.titulo }}</h3>
+                <p>{{ proyecto.descripcion }}</p>
                 <figure>
                     <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen proyecto" />
-                    <figcaption>{{ proyecto.titulo }}</figcaption>
                 </figure>
             </article>
         {% endfor %}

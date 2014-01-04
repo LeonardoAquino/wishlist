@@ -1,4 +1,49 @@
-{{ proyecto.get_proyecto }}
-{% for producto in productos %}
-	{{ producto.get_producto }}
-{% endfor %}
+{% extends "base.html" %}
+
+{% block contenido %}
+    <section class="detalle_proyecto">
+        <article class="detalle">
+            <figure class="imagen_proyecto">
+                <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen de {{ proyecto.titulo }}" />
+            </figure>
+            <h2 class="titulo_proyecto">{{ proyecto.titulo }}</h2>
+            <div>
+                <h3 class="titulo_descripcion">Descripción</h3>
+                <p>
+                    {{ proyecto.descripcion }}
+                </p>
+            </div>
+            <div>
+                <div class="producto">
+                    {% for producto in productos %}
+                        {{ producto.url }}
+                        {{ producto.nombre }}
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
+
+        <article class="informacion">
+            <div class="seccion_recaudacion">
+                <div><span>${{ recaudado }}</span> Recaudado de</div>
+                <div><strong>${{ total }}</strong> en total</div>
+            </div>
+            <div class="seccion_colaboracion">
+                <span>{{ dias_restantes }} días</span> Restantes
+                <span>{{ numero_colaboradores }}</span> Colaboradores
+            </div>
+
+            <a class="seccion_aporte" href="javascript:;">APORTA</a>
+
+            <div class="seccion_creador">
+                <figure>
+                    <img src="" alt="imagen del creador del proyecto {{ proyecto.titulo }}">
+                </figure>
+                <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, earum quae error quos accusamus eveniet fugiat. Quod, praesentium, voluptas doloribus fugiat iure perferendis quia ab facere error voluptate doloremque perspiciatis!
+                </p>
+            </div>
+        </article>
+    </section>
+{% endblock %}

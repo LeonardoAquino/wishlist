@@ -83,7 +83,9 @@ header
 
 #bg_home
     background url("../images/crowd_party.jpg")
+    background-position fixed
     background-size 100%
+    min-height 500px
 
 #contenedor_ingreso
     background-color amarillo_oscuro
@@ -225,10 +227,10 @@ header
     background-image url('../images/bg_slider.png')
     background-position left top
     background-size 100%
-    background-repeat no-repeat
+    background-repeat repeat-y
     margin auto
     min-height 10em
-    padding 0.5em
+    padding 1em
     width 70%
 
     h2, p
@@ -302,18 +304,16 @@ header
     text-align center
 
     .proyecto
-        padding 0.5em
         border-radius 5px
+        cursor pointer
         margin 0.5em
-        width 135px
+        padding 0.5em
 
         figure
-            figcaption
-                color white
-                text-align left
+            cursor pointer
 
             img
-                width 100%
+                width 200px
 
 .contenedor
     background-color #f9f9f9
@@ -430,6 +430,75 @@ header
         .lado_b
             display inline-block
             vertical-align top
+
+.detalle_proyecto
+    border 3px solid celeste
+    border-radius 1em
+    margin 1em auto
+    width 70%
+
+    article
+        box_style()
+        width 49.7%
+
+    .informacion
+        background url("../images/barra_celeste.png")
+        border-radius 0 12px 0 0
+        padding 0.5em
+
+    .imagen_proyecto
+        text-align center
+
+        img
+            border 3px solid celeste
+            width 200px
+
+    .producto
+        background celeste
+        border-radius 0.5em
+        color white
+        margin 0.5em 0
+        padding 1em
+
+    .seccion_aporte
+        border 1px solid white
+        border-radius 5px
+        background celeste
+        color blue
+        display block
+        margin 1em 0
+        padding 1em
+        text-decoration none
+
+    .seccion_creador
+        background url("../images/bg_box.png")
+        border 1px solid celeste
+        border-radius 5px
+        padding 1em
+
+        figure
+        h3
+            box_style()
+
+    .seccion_colaboracion,
+    .seccion_recaudacion
+        background white
+        border 1px solid celeste
+        border-radius 5px
+        margin 0.5em 0
+        padding 0.5em
+
+        span, strong
+            color celeste
+
+    .titulo_descripcion
+        color celeste
+
+    .titulo_proyecto
+        background-color celeste
+        border-radius 0 5px 5px 0
+        color white
+        padding-left 1em
 
 .error_message
     color #D15538

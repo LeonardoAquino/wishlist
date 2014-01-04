@@ -61,9 +61,13 @@ class VerProyectoView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
         id_proyecto = kwargs.get('id_proyecto')
-
         obj_proyecto = Proyecto.objects.get(id = id_proyecto)
+
         context["proyecto"] = obj_proyecto
+        context["recaudado"] = 15000
+        context["total"] = 20000
+        context["dias_restantes"] = 2
+        context["numero_colaboradores"] = 6
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
 
         return context

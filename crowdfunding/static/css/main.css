@@ -9,7 +9,7 @@ header .menu .menu_opciones figure{display:inline-block;position:relative;vertic
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
-#bg_home{background:url("../images/crowd_party.jpg");background-size:100%}
+#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%;min-height:500px}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -37,7 +37,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario span a{color:#00b9d1}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
-#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:no-repeat;margin:auto;min-height:10em;padding:.5em;width:70%;}
+#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:10em;padding:1em;width:70%;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
 #slider .globo_texto{margin:auto;max-width:500px;background:#fff;border-radius:10px;padding:1em;position:relative;}
@@ -50,9 +50,9 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
 .buscador .caja_busqueda{border:none;border-radius:5px;color:#fa006a;padding:.5em}
 .categorias{padding:0;text-align:center;}
-.categorias .proyecto{padding:.5em;border-radius:5px;margin:.5em;width:135px;}
-.categorias .proyecto figure figcaption{color:#fff;text-align:left}
-.categorias .proyecto figure img{width:100%}
+.categorias .proyecto{border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;}
+.categorias .proyecto figure{cursor:pointer;}
+.categorias .proyecto figure img{width:200px}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
 .descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
 .descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;}
@@ -76,6 +76,19 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
+.detalle_proyecto{border:3px solid #00b9d1;border-radius:1em;margin:1em auto;width:70%;}
+.detalle_proyecto article{box-sizing:border-box;display:inline-block;vertical-align:top;width:49.7%}
+.detalle_proyecto .informacion{background:url("../images/barra_celeste.png");border-radius:0 12px 0 0;padding:.5em}
+.detalle_proyecto .imagen_proyecto{text-align:center;}
+.detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px}
+.detalle_proyecto .producto{background:#00b9d1;border-radius:.5em;color:#fff;margin:.5em 0;padding:1em}
+.detalle_proyecto .seccion_aporte{border:1px solid #fff;border-radius:5px;background:#00b9d1;color:#00f;display:block;margin:1em 0;padding:1em;text-decoration:none}
+.detalle_proyecto .seccion_creador{background:url("../images/bg_box.png");border:1px solid #00b9d1;border-radius:5px;padding:1em;}
+.detalle_proyecto .seccion_creador figure,.detalle_proyecto .seccion_creador h3{box-sizing:border-box;display:inline-block;vertical-align:top}
+.detalle_proyecto .seccion_colaboracion,.detalle_proyecto .seccion_recaudacion{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
+.detalle_proyecto .seccion_colaboracion span,.detalle_proyecto .seccion_recaudacion span,.detalle_proyecto .seccion_colaboracion strong,.detalle_proyecto .seccion_recaudacion strong{color:#00b9d1}
+.detalle_proyecto .titulo_descripcion{color:#00b9d1}
+.detalle_proyecto .titulo_proyecto{background-color:#00b9d1;border-radius:0 5px 5px 0;color:#fff;padding-left:1em}
 .error_message{color:#d15538}
 .fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}
