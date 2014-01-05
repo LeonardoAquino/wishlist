@@ -90,8 +90,8 @@ class GuardarPasoUno(View):
 
         creador_id = self.request.user.id
 
-        if not valido:
-            raise Http500()
+        #if not valido:
+        #    raise Http500()
 
         tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
 
