@@ -13,9 +13,12 @@
                 onclick="window.location.href='{% url 'ver_proyecto' id_proyecto=proyecto.id %}'">
                 <h3>{{ proyecto.titulo }}</h3>
                 <p>{{ proyecto.descripcion }}</p>
+
+                {% for imagen_proyecto in proyecto.imagenproyecto_set.all %}
                 <figure>
-                    <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen proyecto" />
+                    <img src="{{ MEDIA_URL }}{{ imagen_proyecto.imagen }}" alt="imagen proyecto" />
                 </figure>
+                {% endfor %}
             </article>
         {% endfor %}
     </article>

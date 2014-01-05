@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class TipoProyecto(models.Model):
     nombre = models.CharField(max_length=140)
+    impuesto = models.IntegerField(null=True)
 
     def __unicode__(self):
         return self.nombre
@@ -16,10 +17,9 @@ class Proyecto(models.Model):
     fecha_creacion = models.DateField(auto_now_add=True)
     fecha_modificacion = models.DateField(auto_now=True, auto_now_add=True)
     terminado = models.BooleanField(default=False)
-    video_url = models.URLField(max_length=250)
+    video_url = models.URLField(max_length=500)
     duracion = models.IntegerField()
     tipo_proyecto = models.ForeignKey(TipoProyecto)
-    imagen = models.FileField(upload_to="proyectos/thumbnails", null=True)
 
     def __unicode__(self):
         return self.titulo + " " + str(self.terminado)
@@ -42,6 +42,15 @@ class Proyecto(models.Model):
         return obj
 
 
+class ImagenProyecto(models.Model):
+    imagen = models.FileField(upload_to="proyectos/thumbnails")
+    proyecto = models.ForeignKey(Proyecto,null=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.proyecto.titulo + " " + self.fecha_creacion
+
+
 class Moneda(models.Model):
     nombre = models.CharField(max_length=140)
 
@@ -51,9 +60,8 @@ class Moneda(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=140)
-    url = models.URLField(max_length=250)
+    url = models.URLField(max_length=500)
     precio = models.IntegerField(default=0)
-    impuesto = models.IntegerField(default=0)
     moneda = models.ForeignKey(Moneda)
     es_recomendado = models.BooleanField(default=False)
     descripcion = models.TextField()
@@ -72,6 +80,15 @@ class Producto(models.Model):
         }
 
         return obj
+
+
+class ImagenProducto(models.Model):
+    imagen = models.FileField(upload_to="productos/thumbnails")
+    producto = models.ForeignKey(Producto,null=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.producto.nombre + " " + self.fecha_creacion
 
 
 class Categoria(models.Model):

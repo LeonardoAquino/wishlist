@@ -6,7 +6,7 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 
 from ..models import Proyecto, TipoProyecto, Producto, Moneda
-from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco, DetalleUsuario
+from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco, DetalleUsuario, ImagenProyecto
 from ..common import is_text_valid, Http500, is_rut_valid
 
 class NuevoProyecto1View(TemplateView):
@@ -38,39 +38,64 @@ class NuevoProyecto2View(TemplateView):
 
 class GuardarPasoUno(View):
 
-    def post(self, req):
-        titulo = req.POST.get('titulo')
-        descripcion = req.POST.get('descripcion')
-        thumbnail = req.FILES.get("thumbnail")
-        video = req.POST.get('video')
-        categoria = req.POST.get('categoria')
-        duracion = req.POST.get('duracion')
+    def post(self, request):
+        titulo = request.POST.get('titulo')
+        descripcion = request.POST.get('descripcion')
+        thumbnail = request.FILES.get("thumbnail")
+        video = request.POST.get('video')
+        categoria = request.POST.get('categoria')
+        duracion = request.POST.get('duracion')
 
         valido = True
         valido = valido and is_text_valid(titulo)
         valido = valido and is_text_valid(descripcion, 500)
-        valido = valido and is_text_valid(video, 250)
+        valido = valido and is_text_valid(video, 500)
 
-        productos_dict = []
+        productos = self.obtener_productos(request)
 
+        creador_id = self.request.user.id
+        tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
+
+        imagen_proyecto = ImagenProyecto()
+        imagen_proyecto.imagen = thumbnail
+        imagen_proyecto.save()
+
+        proyecto_data = {
+            "titulo": titulo,
+            "descripcion": descripcion,
+            "video": video,
+            "categoria": categoria,
+            "duracion": duracion,
+            "creador_id":creador_id,
+            "tipo_proyecto": tipo_proyecto_id,
+            "productos": productos,
+            "thumbnail" : imagen_proyecto
+        }
+
+        request.session['f_nuevo_proyecto'] = proyecto_data
+
+        return redirect("nuevo_proyecto_paso2")
+
+    def obtener_productos(self, request):
+        productos = []
+        valido = True
         i = 0
 
         while True:
 
-            if not is_text_valid(req.POST.get("nombre_%d"%i)):
+            if not is_text_valid(request.POST.get("nombre_%d"%i)):
                 break
 
-            nombre_producto = req.POST.get("nombre_%d"%i)
-            url_producto = req.POST.get("url_%d"%i)
-            desc_producto = req.POST.get("descripcion_%d"%i)
-            tipo_moneda_producto = req.POST.get("tipo_moneda_%d"%i)
-            precio = req.POST.get("valor_%d"%i)
+            nombre_producto = request.POST.get("nombre_%d"%i)
+            url_producto = request.POST.get("url_%d"%i)
+            desc_producto = request.POST.get("descripcion_%d"%i)
+            tipo_moneda_producto = request.POST.get("tipo_moneda_%d"%i)
+            precio = request.POST.get("valor_%d"%i)
 
             valido = valido and is_text_valid(nombre_producto)
             valido = valido and is_text_valid(url_producto, 500)
             valido = valido and is_text_valid(desc_producto, 500)
             valido = valido and is_text_valid(precio)
-            #valido = valido and is_text_valid(tipo_moneda_producto)
 
             if not valido:
                 break
@@ -85,31 +110,10 @@ class GuardarPasoUno(View):
                 "precio": precio,
             }
 
-            productos_dict.append(prod)
+            productos.append(prod)
             i += 1
 
-        creador_id = self.request.user.id
-
-        #if not valido:
-        #    raise Http500()
-
-        tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
-
-        proyecto_data = {
-            "titulo": titulo,
-            "descripcion": descripcion,
-            "video": video,
-            "categoria": categoria,
-            "duracion": duracion,
-            "creador_id":creador_id,
-            "tipo_proyecto": tipo_proyecto_id,
-            "productos": productos_dict,
-            "thumbnail" : thumbnail
-        }
-
-        req.session['f_nuevo_proyecto'] = proyecto_data
-
-        return redirect("nuevo_proyecto_paso2")
+        return productos
 
 class GuardarPasoDos(View):
 
@@ -190,7 +194,11 @@ class GuardarPasoDos(View):
         proyecto.tipo_proyecto = tipo_proyecto
         proyecto.save()
 
+        data["thumbnail"].proyecto = proyecto
+        data["thumbnail"].save()
+
         self.__crear_producto(data['productos'], proyecto)
+
         return proyecto.id
 
     def __crear_producto(self, data, proyecto):

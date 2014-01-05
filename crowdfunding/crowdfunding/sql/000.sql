@@ -379,9 +379,9 @@ INSERT INTO together_categoria(id, nombre) VALUES (2, 'Evento');
 INSERT INTO together_categoria(id, nombre) VALUES (3, 'Causa social');
 
 
-INSERT INTO together_tipoproyecto(id, nombre) VALUES(1, 'Todo o nada');
-INSERT INTO together_tipoproyecto(id, nombre) VALUES(2, 'Todo suma');
-INSERT INTO together_tipoproyecto(id, nombre) VALUES(3, 'Monto fijo');
+INSERT INTO together_tipoproyecto(id, nombre, impuesto) VALUES(1, 'Todo o nada', 5);
+INSERT INTO together_tipoproyecto(id, nombre, impuesto) VALUES(2, 'Todo suma', 5);
+INSERT INTO together_tipoproyecto(id, nombre, impuesto) VALUES(3, 'Monto fijo', 5);
 
 INSERT INTO together_moneda(id, nombre) VALUES (1, 'CLP');
 INSERT INTO together_moneda(id, nombre) VALUES (2, 'USD');

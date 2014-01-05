@@ -3,9 +3,11 @@
 {% block contenido %}
     <section class="detalle_proyecto">
         <article class="detalle">
+            {% for imagenproyecto in proyecto.imagenproyecto_set.all %}
             <figure class="imagen_proyecto">
-                <img src="{{ MEDIA_URL }}{{ proyecto.imagen }}" alt="imagen de {{ proyecto.titulo }}" />
+                <img src="{{ MEDIA_URL }}{{ imagenproyecto.imagen }}" alt="imagen de {{ proyecto.titulo }}" />
             </figure>
+            {% endfor %}
             <h2 class="titulo_proyecto">{{ proyecto.titulo }}</h2>
             <div>
                 <h3 class="titulo_descripcion">Descripción</h3>
