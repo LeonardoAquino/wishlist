@@ -7,20 +7,39 @@
 
 <section id="slider">
     <article id="inner_slide" class="globo_texto categorias">
-        <h2>Slider</h2>
-        {% for proyecto in proyectos %}
-            <article class="proyecto iblock"
-                onclick="window.location.href='{% url 'ver_proyecto' id_proyecto=proyecto.id %}'">
-                <h3>{{ proyecto.titulo }}</h3>
-                <p>{{ proyecto.descripcion }}</p>
 
-                {% for imagen_proyecto in proyecto.imagenproyecto_set.all %}
-                <figure>
-                    <img src="{{ MEDIA_URL }}{{ imagen_proyecto.imagen }}" alt="imagen proyecto" />
-                </figure>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                {% for proyecto in proyectos %}
+                    <article class="item {% if forloop.first %}active {% endif %}proyecto iblock"
+                        onclick="window.location.href='{% url 'ver_proyecto' id_proyecto=proyecto.id %}'">
+                        <h3>{{ proyecto.titulo }}</h3>
+                        <h4>{{ proyecto.descripcion }}</h4>
+                        {% for imagen_proyecto in proyecto.imagenproyecto_set.all %}
+                            <figure>
+                                <img src="{{ MEDIA_URL }}{{ imagen_proyecto.imagen }}" alt="imagen proyecto" />
+                            </figure>
+                        {% endfor %}
+                    </article>
                 {% endfor %}
-            </article>
-        {% endfor %}
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
     </article>
 </section>
 

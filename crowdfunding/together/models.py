@@ -48,6 +48,9 @@ class ImagenProyecto(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
+        if self.proyecto is None:
+            return " Sin proyecto " + self.fecha_creacion
+
         return self.proyecto.titulo + " " + self.fecha_creacion
 
 

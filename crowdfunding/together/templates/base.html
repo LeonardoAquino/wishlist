@@ -8,6 +8,7 @@
     <title>{% block titulo %}{% endblock %}</title>
     <link href='http://fonts.googleapis.com/css?family=Lobster|Varela+Round|Exo+2:400,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
     {% block css %}{% endblock %}
 </head>
@@ -40,6 +41,7 @@
     </footer>
 
     <script src="{% static 'js/vendor/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/vendor/rlay_core.js' %}"></script>
     <script src="{% static 'js/vendor/handlebars-1.1.2.min.js' %}"></script>
     <script src="{% static 'js/vendor/template_loader.js' %}"></script>
