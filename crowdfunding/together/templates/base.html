@@ -31,7 +31,11 @@
                 </figure>
             </div>
         </div>
-        {% block menu %}{% endblock %}
+        {% block menu %}
+            {% if user.is_authenticated %}
+                {% include "mi_menu.html" %}
+            {% endif %}
+        {% endblock %}
     </header>
 
     {% block contenido %}NO SE HA SOBREESCRITO CONTENIDO{% endblock %}

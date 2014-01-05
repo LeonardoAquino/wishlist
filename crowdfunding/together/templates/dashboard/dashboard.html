@@ -1,42 +1,33 @@
-{% extends "base_login.html" %}
+{% extends "base.html" %}
 {% block contenido %}
-    <h1>MIS PROYECTOS</h1>
-    <a href="{% url 'terminos_condiciones' %}">Nuevo Proyecto</a>
-    <table border="1">
-    	<tr>
-	    	<td>
-	    		titulo
-	    	</td>
-	    	<td>
-	    		Creador
-	    	</td>
-	    	<td>
-	    		Fecha de inicio
-	    	</td>
-	    	<td>
-	    		Duracion
-	    	</td>
-	    	<td>
-	    		Mas Datos
-	    	</td>
-	    </tr>
+    <h2>MIS PROYECTOS</h2>
+    <a href="{% url 'terminos_condiciones' %}" class="btn btn-primary">Nuevo Proyecto</a>
+
+    <table class="table table-hover table-striped" style="margin:1em 0">
+        <tr>
+            <th>TITULO</th>
+            <th>CREADOR</th>
+            <th>FECHA DE INICIO</th>
+            <th>DURACION</th>
+            <th>MAS DATOS</th>
+        </tr>
     {% for proyecto in mis_proyectos %}
         <tr>
-        	<td>
-        		{{ proyecto.get_proyecto.titulo }}
-        	</td>
-        	<td>
-        		{{ proyecto.get_proyecto.creador }}
-        	</td>
-        	<td>
-        		{{ proyecto.get_proyecto.fecha_creacion }}
-        	</td>
-        	<td>
-        		{{ proyecto.get_proyecto.duracion }} días
-        	</td>
-        	<td>
-        		<a href="{% url 'ver_proyecto' proyecto.get_proyecto.id %}">Ver mas</a>
-        	</td>
+            <td>
+                {{ proyecto.get_proyecto.titulo }}
+            </td>
+            <td>
+                {{ proyecto.get_proyecto.creador }}
+            </td>
+            <td>
+                {{ proyecto.get_proyecto.fecha_creacion }}
+            </td>
+            <td>
+                {{ proyecto.get_proyecto.duracion }} días
+            </td>
+            <td>
+                <a href="{% url 'ver_proyecto' proyecto.get_proyecto.id %}">Ver mas</a>
+            </td>
         </tr>
     {% endfor %}
     </table>

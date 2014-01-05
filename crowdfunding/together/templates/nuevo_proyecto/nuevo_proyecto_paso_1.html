@@ -1,4 +1,4 @@
-{% extends "base_login.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
 {% block contenido %}
@@ -84,7 +84,8 @@
                 <section id="lista_productos" class="lista_productos">
                     <article class="producto">
                         <div>
-                            <input id="nombre_0" name="nombre_0" type="text" placeholder="NOMBRE PRODUCTO/SERVICIO" required />
+                            <input id="nombre_0" name="nombre_0" type="text"
+                                placeholder="NOMBRE PRODUCTO/SERVICIO" required />
                         </div>
 
                         <div>
@@ -93,6 +94,10 @@
 
                         <div>
                             <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" required />
+                        </div>
+
+                        <div>
+                            <input type="file" value="" placeholder="IMAGEN PRODUCTO" required />
                         </div>
 
                         <div class="monto">

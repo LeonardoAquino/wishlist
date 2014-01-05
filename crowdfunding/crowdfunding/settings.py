@@ -6,7 +6,7 @@ TEMPLATE_DEBUG = DEBUG
 SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 ADMINS = (
-    ("Crowdfunding", "crowdfunding@mailinator.com"),
+    ("crowdf", "crowdf@mailinator.com"),
 )
 
 MANAGERS = ADMINS
