@@ -1,3 +1,5 @@
+import math
+
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, redirect
@@ -6,7 +8,6 @@ from ..models import Proyecto, Producto, Categoria
 from ..common import is_text_valid, is_email_valid
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-
 
 class DashboardView(TemplateView):
     template_name = "dashboard/dashboard.html"
@@ -61,13 +62,20 @@ class VerProyectoView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
         id_proyecto = kwargs.get('id_proyecto')
-        obj_proyecto = Proyecto.objects.get(id = id_proyecto)
+        proyecto = Proyecto.objects.get(id = id_proyecto)
+        impuesto = proyecto.tipo_proyecto.impuesto
+        total = 0
 
-        context["proyecto"] = obj_proyecto
-        context["recaudado"] = 15000
-        context["total"] = 20000
-        context["dias_restantes"] = 2
-        context["numero_colaboradores"] = 6
+        for producto in proyecto.producto_set.all():
+            total += producto.precio
+
+        total += total * (impuesto/100.0)
+
+        context["proyecto"] = proyecto
+        context["recaudado"] = 0
+        context["total"] = math.trunc(total)
+        context["dias_restantes"] = 0
+        context["numero_colaboradores"] = 0
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
 
         return context

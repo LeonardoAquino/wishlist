@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load separador_miles from custom_tags_filters %}
 {% block contenido %}
     <section class="detalle_proyecto">
         <article class="detalle">
@@ -27,8 +27,8 @@
 
         <article class="informacion">
             <div class="seccion_recaudacion">
-                <div><span>${{ recaudado }}</span> Recaudado de</div>
-                <div><strong>${{ total }}</strong> en total</div>
+                <div><span>${{ recaudado|separador_miles }}</span> Recaudado de</div>
+                <div><strong>${{ total|separador_miles }}</strong> en total</div>
             </div>
             <div class="seccion_colaboracion">
                 <span>{{ dias_restantes }} días</span> Restantes

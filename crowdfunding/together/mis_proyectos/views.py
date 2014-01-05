@@ -11,14 +11,16 @@ from ..common import is_text_valid, Http500, is_rut_valid
 
 class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto_id):
-        req.session["tipo_proyecto_id"] = tipo_proyecto_id
         template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
+
+        req.session["tipo_proyecto_id"] = tipo_proyecto_id
+        tipo_proyecto = TipoProyecto.objects.get(pk = tipo_proyecto_id)
 
         data = {
             "dias" : [i + 1 for i in xrange(60)],
             "monedas" : Moneda.objects.all(),
             "categorias" : Categoria.objects.all(),
-            "cantidad_impuesto" : 10
+            "cantidad_impuesto" : tipo_proyecto.impuesto
         }
 
         return render_to_response(template, data, context_instance=RequestContext(req))
