@@ -49,9 +49,9 @@ class ImagenProyecto(models.Model):
 
     def __unicode__(self):
         if self.proyecto is None:
-            return " Sin proyecto " + self.fecha_creacion
+            return " Sin proyecto " + str(self.fecha_creacion)
 
-        return self.proyecto.titulo + " " + self.fecha_creacion
+        return self.proyecto.titulo + " " + str(self.fecha_creacion)
 
 
 class Moneda(models.Model):

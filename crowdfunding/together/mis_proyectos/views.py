@@ -71,7 +71,7 @@ class GuardarPasoUno(View):
             "creador_id":creador_id,
             "tipo_proyecto": tipo_proyecto_id,
             "productos": productos,
-            "thumbnail" : imagen_proyecto
+            "thumbnail" : imagen_proyecto.id
         }
 
         request.session['f_nuevo_proyecto'] = proyecto_data
@@ -186,18 +186,20 @@ class GuardarPasoDos(View):
         creador = User.objects.get(pk = data["creador_id"])
         tipo_proyecto = TipoProyecto.objects.get(pk = data["tipo_proyecto"])
 
+        imagen_proyecto = ImagenProyecto.objects.get(pk = data["thumbnail"])
+
         proyecto = Proyecto()
         proyecto.titulo = data["titulo"]
         proyecto.descripcion = data["descripcion"]
-        proyecto.imagen = data["thumbnail"]
+        proyecto.imagen = imagen_proyecto
         proyecto.creador = creador
         proyecto.video_url = data["video"]
         proyecto.duracion = data["duracion"]
         proyecto.tipo_proyecto = tipo_proyecto
         proyecto.save()
 
-        data["thumbnail"].proyecto = proyecto
-        data["thumbnail"].save()
+        imagen_proyecto.proyecto = proyecto
+        imagen_proyecto.save()
 
         self.__crear_producto(data['productos'], proyecto)
 
