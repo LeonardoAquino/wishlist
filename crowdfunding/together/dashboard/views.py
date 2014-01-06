@@ -47,7 +47,7 @@ class UpdateUserView(TemplateView):
         if valido:
             this_user = User.objects.get(username__exact=user_name)
             this_user.email = email
-            this_user.first_name = first_name
+            this_user.first_name = fisrt_name
             this_user.last_name = last_name
             this_user.set_password(new_password)
             this_user.save()
