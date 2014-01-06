@@ -38,8 +38,10 @@ class UpdateUserView(TemplateView):
         fisrt_name = req.POST.get("first_name")
         last_name = req.POST.get("last_name")
         email = req.POST.get("email")
+        old_password = req.POST.get("password_old")
         new_password = req.POST.get("password")
 
+        data = {"status" : "ok"}
         valido = True
         valido = valido and is_text_valid(user_name)
         valido = valido and is_email_valid(email)
@@ -49,11 +51,19 @@ class UpdateUserView(TemplateView):
             this_user.email = email
             this_user.first_name = fisrt_name
             this_user.last_name = last_name
+            this_user.save()
+            data['status'] = 'ok'
+        else:
+            data['status'] = 'fail'
+
+        user = authenticate(username=user_name, password=old_password)
+            
+        if user is not None:
             this_user.set_password(new_password)
             this_user.save()
-            data = {}
+            data['status'] = 'ok'
 
-            return render_to_response(template, data, context_instance='')
+        return render_to_response(template, data, context_instance='')
 
 
 class VerProyectoView(TemplateView):
