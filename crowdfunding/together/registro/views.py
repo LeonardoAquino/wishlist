@@ -11,7 +11,7 @@ from django.template import RequestContext
 from django.views.generic import View, TemplateView
 
 from ..models import DetalleUsuario
-from ..common import is_text_valid, is_email_valid
+from ..common import is_text_valid, is_email_valid, mail_sender
 
 class RegistroView(TemplateView):
     template_name = "registro/registro.html"
@@ -126,6 +126,15 @@ class EnvioView(View):
         detalle.usuario = user
         detalle.sexo = self.sexo
         detalle.save()
+        
+        subject = "Bienvenido "+self.nombre_usuario
+        message = """Se ha creado una cuenta asociada a este correo los datos son:
+        Correo : {0}
+        Usuario : {1}
+        Clave : {2}
+        """.format(self.email.lower(), self.nombre_usuario, self.clave)
+        to = [self.email.lower()]
+        mail_sender(subject, message, to)
 
 
 def actualizar_clave(req):

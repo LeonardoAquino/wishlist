@@ -1,5 +1,6 @@
 import re
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 def is_text_valid(texto, largo=140):
     if texto is None or texto.strip() == "":
@@ -24,3 +25,6 @@ def is_rut_valid(rut):
     dv = { 10 : 'K', 11 : '0'}.get(value, str(value))
 
     return str(dv) == str(rut[1])
+
+def mail_sender(subject, message, to):
+    send_mail(subject, message, 'n.glaves@gmail.com', to, fail_silently=False)
