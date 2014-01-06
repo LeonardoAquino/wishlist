@@ -41,7 +41,7 @@ class UpdateUserView(TemplateView):
         old_password = req.POST.get("password_old")
         new_password = req.POST.get("password")
 
-        data = {"status" : "ok"}
+        data = {"status_form" : "ok", "status_pass" : "fail"}
         valido = True
         valido = valido and is_text_valid(user_name)
         valido = valido and is_email_valid(email)
@@ -52,16 +52,16 @@ class UpdateUserView(TemplateView):
             this_user.first_name = fisrt_name
             this_user.last_name = last_name
             this_user.save()
-            data['status'] = 'ok'
+            data['status_form'] = "ok"
         else:
-            data['status'] = 'fail'
+            data['status_form'] = "fail"
 
         user = authenticate(username=user_name, password=old_password)
             
         if user is not None:
             this_user.set_password(new_password)
             this_user.save()
-            data['status'] = 'ok'
+            data['status_pass'] = "ok"
 
         return render_to_response(template, data, context_instance='')
 

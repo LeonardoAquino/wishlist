@@ -1,1 +1,13 @@
-{{ status }}
+{% extends "base.html" %}
+{% block contenido %}
+	{% if status_form = "ok" %}
+		{% if status_pass = "ok" %}
+			Su clave ha sido cambida
+		{% endif %}
+		
+		Cambios realizados
+	{% else %}
+		algo ah fallado
+	{% endif %}
+
+{% endblock %}
