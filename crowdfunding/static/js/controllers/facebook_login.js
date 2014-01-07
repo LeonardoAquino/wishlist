@@ -38,18 +38,20 @@ $("#btn_login_facebook").on("click",function(){
 
     FB.login(function(response){
         res = response;
-    });
-
-    FB.api('/me', function(resp) {
-        $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){
-            usr = {
-                user_name : resp.username,
-                first_name : resp.first_name,
-                last_name : resp.last_name,
-                sexo : resp.gender,
-                img_url : data.picture.data.url
-            };
-            console.log(usr);
+        console.log("response : ", res);
+        FB.api('/me', function(resp) {
+            console.log("me ->", resp);
+            $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){
+                console.log("data->", data);
+                usr = {
+                    user_name : resp.username,
+                    first_name : resp.first_name,
+                    last_name : resp.last_name,
+                    sexo : resp.gender,
+                    img_url : data.picture.data.url
+                };
+                console.log(usr);
+            });
         });
     });
 });
