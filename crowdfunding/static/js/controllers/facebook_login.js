@@ -34,8 +34,25 @@ window.fbAsyncInit = function() {
 })(document);
 
 $("#btn_login_facebook").on("click",function(){
+    var response_ = user_ = null;
+
     FB.login(function(response){
-        console.log("pshh pshh pshhhh");
-        console.log(response);
+        response_ = response;
+    });
+
+    FB.api('/me', function(response_) {
+        user_ = {
+            "user_name" : response_.username,
+            "first_name" : response_.first_name,
+            "last_name" : response_.last_name,
+            "sexo": response_.gender,
+        };
+
+        console.log(user_);
     });
 });
+
+//Temporalmente.
+function testAPI(){
+    console.log('alive');
+}
