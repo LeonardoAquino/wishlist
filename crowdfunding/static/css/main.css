@@ -1,6 +1,6 @@
 @font-face{font-family:'social';src:url("../fonts/social.eot");src:url("../fonts/social.eot?#iefix") format('embedded-opentype'),url("../fonts/social.woff") format('woff'),url("../fonts/social.ttf") format('truetype'),url("../fonts/social.svg#social") format('svg');font-weight:normal;font-style:normal}
 body{background-color:#f5f5f5;font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
-header{background:#ff942d;border-bottom:5px solid #fa006a;padding:0 0 1em;position:relative;text-align:center;}
+header{background:linear-gradient(to bottom,#fbd200 0%,#f8b800 100%);border-bottom:5px solid #fa006a;padding:0 0 1em;position:relative;text-align:center;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:60%;}
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
 header .menu .logo img{width:130px}
@@ -10,7 +10,7 @@ header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z
 header .menu_navegacion{margin-top:1em;}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
-#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%;min-height:500px}
+#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -38,7 +38,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario span a{color:#00b9d1}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
-#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:10em;padding:1em;width:70%;}
+#slider{background-color:#00aef0;background-image:url("../images/bg_slider.png");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:300px;padding:1em;width:70%;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
 #slider .globo_texto{margin:auto;max-width:500px;background:#fff;border-radius:10px;padding:1em;position:relative;}
@@ -107,12 +107,12 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .marco table thead tr th{color:#fa006a;}
 .marco table thead tr th figure img{width:calc(213px / 1.5)}
 .proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
-.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
-.proyectos .proyecto:hover{border:3px solid #fc00a0}
+.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:5px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
+.proyectos .proyecto:hover{border:5px solid #fc00a0}
 .proyectos .proyecto .imagen_proyecto img{width:100%}
 .proyectos .proyecto .imagen_user{float:left;position:relative;top:-10px;}
 .proyectos .proyecto .imagen_user img{width:50px}
-.proyectos .proyecto .nombre_usuario{color:#fb54b3}
+.proyectos .proyecto .nombre_usuario{color:#fb54b3;margin:0;text-transform:capitalize}
 .proyectos .proyecto .proyecto_porcentaje{background:linear-gradient(to right,#fcd800 0%,#e72623 100%);color:#fff;padding:0 .5em;text-align:right}
 .proyectos .proyecto .proyecto_recaudacion{color:#666;text-align:right}
 .proyectos .proyecto .proyecto_restante{color:#666}

@@ -35,7 +35,7 @@ body
     max-width 1200px
 
 header
-    background naranjo
+    background linear-gradient(to bottom, #fbd200 0%, #f8b800 100%)
     border-bottom 5px solid rosado
     padding 0 0 1em
     position relative
@@ -86,7 +86,6 @@ header
     background url("../images/crowd_party.jpg")
     background-position fixed
     background-size 100%
-    min-height 500px
 
 #contenedor_ingreso
     background-color amarillo_oscuro
@@ -230,7 +229,7 @@ header
     background-size 100%
     background-repeat repeat-y
     margin auto
-    min-height 10em
+    min-height 300px
     padding 1em
     width 70%
 
@@ -577,7 +576,7 @@ header
 
     .proyecto
         box_style()
-        border 3px solid #00a0ff
+        border 5px solid #00a0ff
         border-radius 5px
         cursor pointer
         margin 0.5em
@@ -586,7 +585,7 @@ header
         min-height 600px
 
         &:hover
-            border 3px solid #fc00a0
+            border 5px solid #fc00a0
 
         .imagen_proyecto
             img
@@ -602,6 +601,8 @@ header
 
         .nombre_usuario
             color #fb54b3
+            margin 0
+            text-transform capitalize
 
         .proyecto_porcentaje
             background linear-gradient(to right, #fcd800 0%, #e72623 100%)
