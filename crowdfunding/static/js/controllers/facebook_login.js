@@ -34,25 +34,23 @@ window.fbAsyncInit = function() {
 })(document);
 
 $("#btn_login_facebook").on("click",function(){
-    var response_ = user_ = null;
+    var res = usr = null;
+
     FB.login(function(response){
-        response_ = response;
+        res = response;
     });
 
-    FB.api('/me', function(response_) {
-        img_url = "";
-
-        user_ = {
-            "user_name" : response_.username,
-            "first_name" : response_.first_name,
-            "last_name" : response_.last_name,
-            "sexo": response_.gender,
-        };
-        $.get("http://graph.facebook.com/"+response_.id,{fields:"picture",type:"large"},function(data){
-            img_url = data.picture.data.url;
+    FB.api('/me', function(resp) {
+        $.get("http://graph.facebook.com/" + response_.id, {fields:"picture",type:"large"}, function(data){
+            usr = {
+                user_name : resp.username,
+                first_name : resp.first_name,
+                last_name : resp.last_name,
+                sexo : resp.gender,
+                img_url : data.picture.data.url
+            };
+            console.log(usr);
         });
-        user_['img_url'] = img_url;
-        console.log(user_);
     });
 });
 
