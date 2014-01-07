@@ -41,7 +41,7 @@ $("#btn_login_facebook").on("click",function(){
     });
 
     FB.api('/me', function(resp) {
-        $.get("http://graph.facebook.com/" + response_.id, {fields:"picture",type:"large"}, function(data){
+        $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){
             usr = {
                 user_name : resp.username,
                 first_name : resp.first_name,
