@@ -50,6 +50,8 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .btn_facebook:hover{background:#366ab2}
 .buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
 .buscador .caja_busqueda{border:none;border-radius:5px;color:#fa006a;padding:.5em}
+.categorias{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00c0f3;width:30%;}
+.categorias h1{color:#fc00a0;font-family:'Lobster',cursive;text-align:center;text-shadow:1px 2px 1px #999}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
 .descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
 .descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;}
@@ -104,8 +106,8 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .marco table thead tr{border-bottom:2px dashed #fa006a;}
 .marco table thead tr th{color:#fa006a;}
 .marco table thead tr th figure img{width:calc(213px / 1.5)}
-.proyectos{margin:auto;padding:0;width:70%;}
-.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;}
+.proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
+.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
 .proyectos .proyecto:hover{border:3px solid #fc00a0}
 .proyectos .proyecto figure{cursor:pointer;}
 .proyectos .proyecto figure img{width:100%}
