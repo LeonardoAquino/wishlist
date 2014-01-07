@@ -41,9 +41,6 @@ $("#btn_login_facebook").on("click",function(){
 
     FB.api('/me', function(response_) {
         img_url = "";
-        $.get("http://graph.facebook.com/"+response_.id,{fields:"picture",type:"large"},function(data){
-
-        });
 
         user_ = {
             "user_name" : response_.username,
@@ -51,6 +48,10 @@ $("#btn_login_facebook").on("click",function(){
             "last_name" : response_.last_name,
             "sexo": response_.gender,
         };
+        $.get("http://graph.facebook.com/"+response_.id,{fields:"picture",type:"large"},function(data){
+            img_url = data.picture.data.url;
+        });
+        user_['img_url'] = img_url;
         console.log(user_);
     });
 });
