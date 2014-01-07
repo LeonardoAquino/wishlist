@@ -104,14 +104,16 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .marco table thead tr{border-bottom:2px dashed #fa006a;}
 .marco table thead tr th{color:#fa006a;}
 .marco table thead tr th figure img{width:calc(213px / 1.5)}
-.proyectos{padding:0;}
-.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00f;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;}
+.proyectos{margin:auto;padding:0;width:70%;}
+.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;}
+.proyectos .proyecto:hover{border:3px solid #fc00a0}
 .proyectos .proyecto figure{cursor:pointer;}
-.proyectos .proyecto figure img{width:200px}
-.proyectos .proyecto .nombre_usuario{color:#ee82ee}
-.proyectos .proyecto .proyecto_recaudacion{color:#808080}
-.proyectos .proyecto .proyecto_restante{color:#808080}
-.proyectos .proyecto .proyecto_titulo{color:#00b9d1;font-size:1.2em}
+.proyectos .proyecto figure img{width:100%}
+.proyectos .proyecto .nombre_usuario{color:#fb54b3}
+.proyectos .proyecto .proyecto_porcentaje{background:linear-gradient(to right,#fcd800 0%,#e72623 100%);color:#fff;padding:0 .5em;text-align:right}
+.proyectos .proyecto .proyecto_recaudacion{color:#666;text-align:right}
+.proyectos .proyecto .proyecto_restante{color:#666}
+.proyectos .proyecto .proyecto_titulo{color:#00a0ff;font-size:1.2em}
 .sombra_caja{box-shadow:3px 3px 1px #ebebeb}
 .t_centered{text-align:center}
 .texto_blanco{color:#fff}

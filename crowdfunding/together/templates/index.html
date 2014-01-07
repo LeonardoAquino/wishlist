@@ -43,7 +43,9 @@
         </figure>
 
         <p class="nombre_usuario">{{ proyecto.get_nombre_creador }}</p>
-        <p class="proyecto_titulo">{{ proyecto.titulo }}</p>
+        <p>{{ proyecto.tipo_proyecto.nombre }}</p>
+        <p>{{ proyecto }}</p>
+        <p class="proyecto_titulo">{{ proyecto.titulo|upper }}</p>
         <p class="proyecto_descripcion">{{ proyecto.descripcion }}</p>
         <p class="proyecto_recaudacion">recaudó $15.000 CLP</p>
         <p class="proyecto_porcentaje">270%</p>

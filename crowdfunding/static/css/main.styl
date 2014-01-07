@@ -560,34 +560,46 @@ header
                         width calc(213px / 1.5)
 
 .proyectos
+    margin auto
     padding 0
+    width 70%
 
     .proyecto
         box_style()
-        border 3px solid blue
+        border 3px solid #00a0ff
         border-radius 5px
         cursor pointer
         margin 0.5em
         padding 0.5em
         width 250px
 
+        &:hover
+            border 3px solid #fc00a0
+
         figure
             cursor pointer
 
             img
-                width 200px
+                width 100%
 
         .nombre_usuario
-            color violet
+            color #fb54b3
+
+        .proyecto_porcentaje
+            background linear-gradient(to right, #fcd800 0%, #e72623 100%)
+            color white
+            padding 0 0.5em
+            text-align right
 
         .proyecto_recaudacion
-            color gray
+            color #666666
+            text-align right
 
         .proyecto_restante
-            color gray
+            color #666666
 
         .proyecto_titulo
-            color celeste
+            color #00a0ff
             font-size 1.2em
 
 
