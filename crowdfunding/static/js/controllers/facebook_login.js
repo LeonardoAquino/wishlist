@@ -9,7 +9,6 @@ window.fbAsyncInit = function() {
     FB.Event.subscribe('auth.authResponseChange', function(response) {
         if (response.status === 'connected') {
             console.log("paso 1");
-            testAPI();
         } else if (response.status === 'not_authorized') {
             console.log("paso 2");
         }else{
@@ -34,16 +33,10 @@ window.fbAsyncInit = function() {
 })(document);
 
 $("#btn_login_facebook").on("click",function(){
-    var res = usr = null;
-
     FB.login(function(response){
-        res = response;
-        console.log("response : ", res);
         FB.api('/me', function(resp) {
-            console.log("me ->", resp);
             $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){
-                console.log("data->", data);
-                usr = {
+                var usr = {
                     user_name : resp.username,
                     first_name : resp.first_name,
                     last_name : resp.last_name,
