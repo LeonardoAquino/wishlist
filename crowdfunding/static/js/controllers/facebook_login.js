@@ -35,31 +35,18 @@ window.fbAsyncInit = function() {
 
 $("#btn_login_facebook").on("click",function(){
     var response_ = user_ = null;
-<<<<<<< HEAD
-    FB.login(function(response){
-        response_ = response;
-    });
-=======
-
     FB.login(function(response){
         response_ = response;
     });
 
->>>>>>> 507bcbff32119d8f6c6a11f2b5bc68be668d7124
     FB.api('/me', function(response_) {
         user_ = {
             "user_name" : response_.username,
             "first_name" : response_.first_name,
             "last_name" : response_.last_name,
             "sexo": response_.gender,
-<<<<<<< HEAD
-        }
-        console.log(user_)
-=======
         };
-
         console.log(user_);
->>>>>>> 507bcbff32119d8f6c6a11f2b5bc68be668d7124
     });
 });
 
@@ -67,7 +54,3 @@ $("#btn_login_facebook").on("click",function(){
 function testAPI(){
     console.log('alive');
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 507bcbff32119d8f6c6a11f2b5bc68be668d7124
