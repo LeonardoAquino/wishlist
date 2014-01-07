@@ -300,22 +300,6 @@ header
         color rosado
         padding 0.5em
 
-.categorias
-    padding 0
-    text-align center
-
-    .proyecto
-        border-radius 5px
-        cursor pointer
-        margin 0.5em
-        padding 0.5em
-
-        figure
-            cursor pointer
-
-            img
-                width 200px
-
 .contenedor
     background-color #f9f9f9
     border-radius 7px
@@ -574,6 +558,38 @@ header
                     color rosado
                     figure img
                         width calc(213px / 1.5)
+
+.proyectos
+    padding 0
+
+    .proyecto
+        box_style()
+        border 3px solid blue
+        border-radius 5px
+        cursor pointer
+        margin 0.5em
+        padding 0.5em
+        width 250px
+
+        figure
+            cursor pointer
+
+            img
+                width 200px
+
+        .nombre_usuario
+            color violet
+
+        .proyecto_recaudacion
+            color gray
+
+        .proyecto_restante
+            color gray
+
+        .proyecto_titulo
+            color celeste
+            font-size 1.2em
+
 
 .sombra_caja
     box-shadow 3px 3px 1px #ebebeb

@@ -41,6 +41,10 @@ class Proyecto(models.Model):
 
         return obj
 
+    def get_nombre_creador(self):
+        nombre_creador = self.creador.username
+        return nombre_creador
+
 
 class ImagenProyecto(models.Model):
     imagen = models.FileField(upload_to="proyectos/thumbnails")
