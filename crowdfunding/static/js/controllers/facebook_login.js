@@ -40,6 +40,11 @@ $("#btn_login_facebook").on("click",function(){
     });
 
     FB.api('/me', function(response_) {
+        img_url = "";
+        $.get("http://graph.facebook.com/"+response_.id,{fields:"picture",type:"large"},function(data){
+
+        });
+
         user_ = {
             "user_name" : response_.username,
             "first_name" : response_.first_name,
