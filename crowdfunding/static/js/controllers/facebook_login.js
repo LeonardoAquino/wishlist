@@ -39,7 +39,6 @@ $("#btn_login_facebook").on("click",function(){
                 if(data.status == "ok"){
                     window.location.href = data.url
                 }
-
             });
 
             $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){

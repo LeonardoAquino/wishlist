@@ -129,6 +129,31 @@ class EnvioView(View):
         mail_sender_new_account(self.email.lower(), self.clave, self.nombre_usuario)        
 
 
+class RegistroFbUserView(View):
+    def post(self, req):
+        password = "juntandonos.com"
+        email = req.POST.get("user_name")+"@facebook.com"
+        user = User()
+        user.username = req.POST.get("user_name")
+        user.email = email.lower()
+        user.is_staff = False
+        user.is_active = True
+        user.set_password(password)
+        user.save()
+
+        if req.POST.get("user_name") = 'male':
+            sexo = 1
+
+        detalle = DetalleUsuario()
+        detalle.fb_id = req.POST.get("fb_id")
+        detalle.usuario = user
+        detalle.sexo = sexo
+        detalle.save()
+
+
+
+        pass
+
 def actualizar_clave(req):
     email = req.POST.get("email")
 
@@ -139,6 +164,8 @@ def actualizar_clave(req):
 
     return HttpResponse(json.dumps(data),content_type="application/json")
 
+
 registro = RegistroView.as_view()
+registro_fb = RegistroFbUserView.as_view()
 envio = EnvioView.as_view()
 recuperar_clave = TemplateView.as_view(template_name = "registro/recuperar_clave.html")
