@@ -35,8 +35,11 @@ window.fbAsyncInit = function() {
 $("#btn_login_facebook").on("click",function(){
     FB.login(function(response){
         FB.api('/me', function(resp) {
+            
+            
             $.get("http://graph.facebook.com/" + resp.id, {fields:"picture",type:"large"}, function(data){
                 var usr = {
+                    fb_id : resp.id,
                     user_name : resp.username,
                     first_name : resp.first_name,
                     last_name : resp.last_name,
@@ -45,6 +48,7 @@ $("#btn_login_facebook").on("click",function(){
                 };
                 console.log(usr);
             });
+            
         });
     });
 });
