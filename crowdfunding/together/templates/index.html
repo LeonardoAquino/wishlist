@@ -46,7 +46,7 @@
                 <p class="proyecto_descripcion">{{ proyecto.descripcion }}</p>
                 <p class="proyecto_recaudacion">recaudó $15.000 CLP</p>
                 <p class="proyecto_porcentaje">270%</p>
-                <p class="proyecto_restante">9 días</p>
+                <p class="proyecto_restante">{{ proyecto.get_dias_restantes.days }} días restantes</p>
             </article>
         {% endfor %}
 </section>
