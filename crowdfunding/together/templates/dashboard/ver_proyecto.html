@@ -18,6 +18,11 @@
             <div>
                 <div class="producto">
                     {% for producto in productos %}
+                        {% for imagen_proyecto in producto.imagenproducto_set.all %}
+                        <figure>
+                            <img src="{{ imagen_proyecto.imagen.url }}" alt="imagen de {{ producto.nombre }}" />
+                        </figure>
+                        {% endfor %}
                         {{ producto.url }}
                         {{ producto.nombre }}
                     {% endfor %}

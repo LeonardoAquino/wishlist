@@ -54,7 +54,7 @@ class GuardarPasoUno(View):
         valido = valido and is_text_valid(descripcion, 500)
         valido = valido and is_text_valid(video, 500)
 
-        productos = self.obtener_productos(request)
+        productos = self.obtener_productos()
 
         creador_id = self.request.user.id
         tipo_proyecto_id = self.request.session.get("tipo_proyecto_id")
@@ -79,27 +79,26 @@ class GuardarPasoUno(View):
 
         return redirect("nuevo_proyecto_paso2")
 
-    def obtener_productos(self, request):
+    def obtener_productos(self):
         productos = []
         valido = True
         i = 0
 
         while True:
 
-            if not is_text_valid(request.POST.get("nombre_%d"%i)):
+            if not is_text_valid(self.request.POST.get("nombre_%d"%i)):
                 break
 
-            nombre_producto = request.POST.get("nombre_%d"%i)
-            url_producto = request.POST.get("url_%d"%i)
-            desc_producto = request.POST.get("descripcion_%d"%i)
-            tipo_moneda_producto = request.POST.get("tipo_moneda_%d"%i)
-            precio = request.POST.get("valor_%d"%i)
-            imagen_producto = request.POST.get("imagen_producto_%d"%i)
+            nombre_producto = self.request.POST.get("nombre_%d"%i)
+            url_producto = self.request.POST.get("url_%d"%i)
+            desc_producto = self.request.POST.get("descripcion_%d"%i)
+            tipo_moneda_producto = self.request.POST.get("tipo_moneda_%d"%i)
+            precio = self.request.POST.get("valor_%d"%i)
+            imagen_producto = self.request.FILES.get("imagen_producto_%d"%i)
 
             img_producto = ImagenProducto()
             img_producto.imagen = imagen_producto
             img_producto.save()
-
 
             valido = valido and is_text_valid(nombre_producto)
             valido = valido and is_text_valid(url_producto, 500)
