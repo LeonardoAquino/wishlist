@@ -11,7 +11,7 @@ from django.shortcuts import render_to_response, redirect, render
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 
-from .models import Proyecto
+from .models import Proyecto, DetalleUsuario
 
 def get_js_template(req):
     my_path = os.path.dirname(__file__) + req.path
@@ -47,8 +47,19 @@ class LoginView(View):
 
 class SearchFacebookUserView(View):
     def post(self, req):
-        #id_fb = self.request.POST.get("")
+        data = {"status" : "ok"}
+        fb_id = self.request.POST.get("fb_id")
+        try:
+            user = DetalleUsuario.objects.get(fb_id = fb_id)
+            sys_user = User.objects.get(id = user.usuario)
+            log = authenticate(username=sys_user.username, password=password)
+            log_in(self.request, log)
+            data['url'] = reverse("dashboard")
+
+        except DetalleUsuario.DoesNotExist as e:
+            data['status'] = "fail"
         pass
+        
 
 class LogoutView(View):
     def get(self, req):
