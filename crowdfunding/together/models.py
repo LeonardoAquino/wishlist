@@ -102,7 +102,7 @@ class ImagenProducto(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return self.producto.nombre + " " + self.fecha_creacion
+        return self.imagen + " " + self.fecha_creacion
 
 
 class Categoria(models.Model):

@@ -6,7 +6,8 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 
 from ..models import Proyecto, TipoProyecto, Producto, Moneda
-from ..models import Categoria, CuentaBancaria, TipoCuenta, Banco, DetalleUsuario, ImagenProyecto
+from ..models import Categoria, CuentaBancaria, TipoCuenta
+from ..models import Banco, DetalleUsuario, ImagenProyecto, ImagenProducto
 from ..common import is_text_valid, Http500, is_rut_valid
 
 class NuevoProyecto1View(TemplateView):
@@ -93,6 +94,12 @@ class GuardarPasoUno(View):
             desc_producto = request.POST.get("descripcion_%d"%i)
             tipo_moneda_producto = request.POST.get("tipo_moneda_%d"%i)
             precio = request.POST.get("valor_%d"%i)
+            imagen_producto = request.POST.get("imagen_producto_%d"%i)
+
+            img_producto = ImagenProducto()
+            img_producto.imagen = imagen_producto
+            img_producto.save()
+
 
             valido = valido and is_text_valid(nombre_producto)
             valido = valido and is_text_valid(url_producto, 500)
@@ -110,6 +117,7 @@ class GuardarPasoUno(View):
                 "descripcion": desc_producto,
                 "tipo_moneda_producto": moneda.id,
                 "precio": precio,
+                "imagen_producto_id" : img_producto.id
             }
 
             productos.append(prod)
@@ -216,6 +224,10 @@ class GuardarPasoDos(View):
             producto.descripcion = item['descripcion']
             producto.moneda = moneda
             producto.save()
+
+            imagen_producto = ImagenProducto.objects.get(pk=item["imagen_producto_id"])
+            imagen_producto.producto = producto
+            imagen_producto.save()
 
 
 class NuevoProyecto3View(TemplateView):
