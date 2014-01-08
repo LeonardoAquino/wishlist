@@ -9,6 +9,7 @@ urlpatterns = patterns('together.views',
     url(r'^$',"index", name="index"),
     url(r'^ingresar/$',"ingresar", name="ingresar"),
     url(r'^login/$',"login",name="login"),
+    url(r'^fb_login/$',"fb_login",name="login"),
     url(r'^logout/$',"logout",name="logout"),
     url(r'^templates/.+?/$', 'get_js_template', name="templates"),
 )

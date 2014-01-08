@@ -45,6 +45,11 @@ class LoginView(View):
         return HttpResponse(json.dumps(data))
 
 
+class SearchFacebookUserView(View):
+    def post(self, req):
+        #id_fb = self.request.POST.get("")
+        pass
+
 class LogoutView(View):
     def get(self, req):
         log_out(req)
@@ -83,5 +88,6 @@ index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
 misproyectos = MisProyectos.as_view()
 login = LoginView.as_view()
+fb_login = SearchFacebookUserView.as_view()
 logout = LogoutView.as_view()
 ingresar = IngresoView.as_view()
