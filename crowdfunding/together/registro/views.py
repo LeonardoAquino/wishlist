@@ -126,7 +126,7 @@ class EnvioView(View):
         detalle.usuario = user
         detalle.sexo = self.sexo
         detalle.save()
-        mail_sender_new_account(self.email.lower(), self.clave, self.nombre_usuario)        
+        mail_sender_new_account(self.email.lower(), self.clave, self.nombre_usuario)
 
 
 class RegistroFbUserView(View):
@@ -141,15 +141,17 @@ class RegistroFbUserView(View):
         user.set_password(password)
         user.save()
 
-        if req.POST.get("user_name") = 'male':
+        if req.POST.get("sexo") == 'male':
             sexo = 1
+        else:
+            sexo = 0
 
         detalle = DetalleUsuario()
         detalle.fb_id = req.POST.get("fb_id")
         detalle.usuario = user
         detalle.sexo = sexo
         detalle.save()
-        
+
 
 def actualizar_clave(req):
     email = req.POST.get("email")
