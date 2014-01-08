@@ -47,19 +47,19 @@ class LoginView(View):
 
 class SearchFacebookUserView(View):
     def post(self, req):
-        data = {"status" : "ok"}
-        fb_id = self.request.POST.get("fb_id")
+        data = { "status" : "ok" }
+
+        fb_id = req.POST.get("fb_id")
+
         try:
-            user = DetalleUsuario.objects.get(fb_id = fb_id)
+            user = DetalleUsuario.objects.get(fb_id=fb_id)
             sys_user = User.objects.get(id = user.usuario)
-            log = authenticate(username=sys_user.username, password=password)
+            log = authenticate(username=sys_user.username)
             log_in(self.request, log)
             data['url'] = reverse("dashboard")
-
         except DetalleUsuario.DoesNotExist as e:
             data['status'] = "fail"
-        pass
-        
+
 
 class LogoutView(View):
     def get(self, req):
