@@ -12,6 +12,7 @@ TEMPLATE_NEW_ACCOUNT = u"""
     <p>SALUDOS!!!!</p>
 </div>
 """
+
 def is_text_valid(texto, largo=140):
     if texto is None or texto.strip() == "":
         return False
@@ -42,7 +43,7 @@ def mail_sender_new_account(correo, clave, usuario):
     plantilla = plantilla.replace("{{ nombre }}", usuario)
     plantilla = plantilla.replace("{{ clave }}", clave)
     destinatarios = (correo, )
-    msg = EmailMultiAlternatives(asunto, plantilla, "Rlay Systems", destinatarios)
+    msg = EmailMultiAlternatives(asunto, plantilla, "Equipo juntandonos", destinatarios)
     msg.content_subtype = "html"
     msg.send()
-    
+
