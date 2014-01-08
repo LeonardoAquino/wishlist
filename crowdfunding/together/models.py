@@ -1,3 +1,4 @@
+from datetime import timedelta, date
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -44,6 +45,12 @@ class Proyecto(models.Model):
     def get_nombre_creador(self):
         nombre_creador = self.creador.username
         return nombre_creador
+
+    def get_dias_restantes(self):
+        fecha_final = self.fecha_creacion + timedelta(days = self.duracion)
+        dias_restantes = fecha_final - date.today()
+
+        return dias_restantes
 
 
 class ImagenProyecto(models.Model):
