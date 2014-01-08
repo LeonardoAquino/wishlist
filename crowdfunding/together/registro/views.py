@@ -149,10 +149,7 @@ class RegistroFbUserView(View):
         detalle.usuario = user
         detalle.sexo = sexo
         detalle.save()
-
-
-
-        pass
+        
 
 def actualizar_clave(req):
     email = req.POST.get("email")
