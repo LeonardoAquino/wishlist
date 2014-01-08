@@ -36,6 +36,9 @@ $("#btn_login_facebook").on("click",function(){
     FB.login(function(response){
         FB.api('/me', function(resp) {
             $.post("/fb_login/", {'fb_id' : resp.id}, function(data){
+                if(data.status == "ok"){
+                    window.location.href = data.url
+                }
 
             });
 
