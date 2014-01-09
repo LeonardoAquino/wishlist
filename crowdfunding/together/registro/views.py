@@ -150,6 +150,7 @@ class RegistroFbUserView(View):
         detalle.fb_id = req.POST.get("fb_id")
         detalle.usuario = user
         detalle.sexo = sexo
+        detalle.url_img = req.POST.get("img_url")
         detalle.save()
 
         #autentificacion del usuario
