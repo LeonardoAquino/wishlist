@@ -149,10 +149,9 @@ class RegistroFbUserView(View):
             user.set_password(password)
             user.save()
 
+        sexo = 0
         if req.POST.get("sexo") == 'male':
-            sexo = 1
-        else:
-            sexo = 0
+            sexo = 1            
 
         detalle = DetalleUsuario()
         detalle.fb_id = req.POST.get("fb_id")

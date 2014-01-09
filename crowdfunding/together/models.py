@@ -159,7 +159,7 @@ class DetalleUsuario(models.Model):
     sexo = models.BooleanField(default=True)
     cuenta_bancaria = models.ForeignKey(CuentaBancaria, null=True, blank=True)
     fecha_nacimiento = models.DateField(null=True, blank=True)
-    url_img = models.URLField(max_length=1000)
+    #url_img = models.URLField(max_length=1000)
 
     def __unicode__(self):
         return self.usuario.username
