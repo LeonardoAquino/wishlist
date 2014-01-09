@@ -60,6 +60,8 @@ class SearchFacebookUserView(View):
         except DetalleUsuario.DoesNotExist as e:
             data['status'] = "fail"
 
+        return HttpResponse(json.dumps(data))
+
 
 class LogoutView(View):
     def get(self, req):

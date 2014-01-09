@@ -152,6 +152,11 @@ class RegistroFbUserView(View):
         detalle.sexo = sexo
         detalle.save()
 
+        #autentificacion del usuario
+        log = authenticate(username=user.username)
+        log_in(self.request, log)
+        data['url'] = reverse("dashboard")
+        return HttpResponse(json.dumps(data))
 
 def actualizar_clave(req):
     email = req.POST.get("email")
@@ -168,3 +173,4 @@ registro = RegistroView.as_view()
 registro_fb = RegistroFbUserView.as_view()
 envio = EnvioView.as_view()
 recuperar_clave = TemplateView.as_view(template_name = "registro/recuperar_clave.html")
+
