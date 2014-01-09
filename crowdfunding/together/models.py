@@ -158,7 +158,7 @@ class DetalleUsuario(models.Model):
     comuna = models.ForeignKey(Comuna, null=True, blank=True)
     sexo = models.BooleanField(default=True)
     cuenta_bancaria = models.ForeignKey(CuentaBancaria, null=True, blank=True)
-    fecha_nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField(null=True,blank=True)
 
     def __unicode__(self):
         return self.usuario.username
