@@ -137,8 +137,8 @@ class RegistroFbUserView(View):
         try:
             username_exist = User.objects.get(username = username)
 
-        if username_exist:
-            user = username_exist
+            if username_exist:
+                user = username_exist
 
         except User.DoesNotExist as e:
             user = User()
