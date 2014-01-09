@@ -152,14 +152,14 @@ class CuentaBancaria(models.Model):
 
 
 class DetalleUsuario(models.Model):
-    usuario = models.OneToOneField(User,related_name="usuario")
+    usuario = models.OneToOneField(User, related_name="usuario")
     fb_id = models.IntegerField(null=True, blank=True)
     rut = models.CharField(max_length=40, unique=True, null=True, blank=True)
     comuna = models.ForeignKey(Comuna, null=True, blank=True)
-    sexo = models.BooleanField(default=True)
+    sexo = models.BooleanField(null=True, blank=True)
     cuenta_bancaria = models.ForeignKey(CuentaBancaria, null=True, blank=True)
     fecha_nacimiento = models.DateField(null=True, blank=True)
-    url_img = models.URLField(max_length=1000)
+    avatar = models.URLField(max_length=1000,null=True)
 
     def __unicode__(self):
         return self.usuario.username
