@@ -153,12 +153,12 @@ class CuentaBancaria(models.Model):
 
 class DetalleUsuario(models.Model):
     usuario = models.OneToOneField(User,related_name="usuario")
-    fb_id = models.IntegerField(null=True,blank=True)
+    fb_id = models.IntegerField(null=True, blank=True)
     rut = models.CharField(max_length=40, unique=True, null=True, blank=True)
     comuna = models.ForeignKey(Comuna, null=True, blank=True)
     sexo = models.BooleanField(default=True)
     cuenta_bancaria = models.ForeignKey(CuentaBancaria, null=True, blank=True)
-    fecha_nacimiento = models.DateField(null=True,blank=True)
+    fecha_nacimiento = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
         return self.usuario.username
