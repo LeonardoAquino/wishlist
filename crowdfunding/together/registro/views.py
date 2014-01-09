@@ -134,6 +134,7 @@ class RegistroFbUserView(View):
         password = "juntandonos.com"
         email = req.POST.get("user_name")+"@facebook.com"
         username = req.POST.get("user_name")
+
         try:
             username_exist = User.objects.get(username = username)
 
@@ -149,21 +150,20 @@ class RegistroFbUserView(View):
             user.set_password(password)
             user.save()
 
-        sexo = 0
-        if req.POST.get("sexo") == 'male':
-            sexo = 1            
+        sexo = req.POST.get("sexo") == "male" and 1 or 0
 
         detalle = DetalleUsuario()
         detalle.fb_id = req.POST.get("fb_id")
         detalle.usuario = user
         detalle.sexo = sexo
-        #detalle.url_img = req.POST.get("img_url")
+        detalle.avatar = req.POST.get("img_url")
         detalle.save()
 
         #autentificacion del usuario
-        log = authenticate(username=user.username)
+        log = authenticate(username = user.username)
         log_in(self.request, log)
         data['url'] = reverse("dashboard")
+
         return HttpResponse(json.dumps(data))
 
 def actualizar_clave(req):
@@ -174,11 +174,10 @@ def actualizar_clave(req):
         "message" : "Solicitud realizada exitosamente, revise su bandeja de entrada para ver su nueva clave"
     }
 
-    return HttpResponse(json.dumps(data),content_type="application/json")
+    return HttpResponse(json.dumps(data),content_type = "application/json")
 
 
 registro = RegistroView.as_view()
 registro_fb = RegistroFbUserView.as_view()
 envio = EnvioView.as_view()
 recuperar_clave = TemplateView.as_view(template_name = "registro/recuperar_clave.html")
-
