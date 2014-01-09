@@ -133,13 +133,21 @@ class RegistroFbUserView(View):
     def post(self, req):
         password = "juntandonos.com"
         email = req.POST.get("user_name")+"@facebook.com"
-        user = User()
-        user.username = req.POST.get("user_name")
-        user.email = email.lower()
-        user.is_staff = False
-        user.is_active = True
-        user.set_password(password)
-        user.save()
+        username = req.POST.get("user_name")
+        try:
+            username_exist = User.objects.get(username = username)
+
+        if username_exist:
+            user = username_exist
+
+        except User.DoesNotExist as e:
+            user = User()
+            user.username = username
+            user.email = email.lower()
+            user.is_staff = False
+            user.is_active = True
+            user.set_password(password)
+            user.save()
 
         if req.POST.get("sexo") == 'male':
             sexo = 1
