@@ -133,25 +133,38 @@ class RegistroFbUserView(View):
     def post(self, req):
         password = "juntandonos.com"
         email = req.POST.get("user_name")+"@facebook.com"
-        user = User()
-        user.username = req.POST.get("user_name")
-        user.email = email.lower()
-        user.is_staff = False
-        user.is_active = True
-        user.set_password(password)
-        user.save()
+        username = req.POST.get("user_name")
 
-        if req.POST.get("sexo") == 'male':
-            sexo = 1
-        else:
-            sexo = 0
+        try:
+            username_exist = User.objects.get(username = username)
+
+            if username_exist:
+                user = username_exist
+
+        except User.DoesNotExist as e:
+            user = User()
+            user.username = username
+            user.email = email.lower()
+            user.is_staff = False
+            user.is_active = True
+            user.set_password(password)
+            user.save()
+
+        sexo = req.POST.get("sexo") == "male" and 1 or 0
 
         detalle = DetalleUsuario()
         detalle.fb_id = req.POST.get("fb_id")
         detalle.usuario = user
         detalle.sexo = sexo
+        detalle.avatar = req.POST.get("img_url")
         detalle.save()
 
+        #autentificacion del usuario
+        log = authenticate(username = user.username)
+        log_in(self.request, log)
+        data['url'] = reverse("dashboard")
+
+        return HttpResponse(json.dumps(data))
 
 def actualizar_clave(req):
     email = req.POST.get("email")
@@ -161,7 +174,7 @@ def actualizar_clave(req):
         "message" : "Solicitud realizada exitosamente, revise su bandeja de entrada para ver su nueva clave"
     }
 
-    return HttpResponse(json.dumps(data),content_type="application/json")
+    return HttpResponse(json.dumps(data),content_type = "application/json")
 
 
 registro = RegistroView.as_view()

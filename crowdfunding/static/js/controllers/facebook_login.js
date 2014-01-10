@@ -50,6 +50,11 @@ $("#btn_login_facebook").on("click",function(){
                     sexo : resp.gender,
                     img_url : data.picture.data.url
                 };
+                
+                $.post("/registro/registro_fb/", usr, function(data){
+                    window.location.href = data.url
+                })
+
                 console.log(usr);
             });
 
