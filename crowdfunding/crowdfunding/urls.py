@@ -15,10 +15,10 @@ urlpatterns = patterns('together.views',
 )
 
 urlpatterns += patterns('',
+    url(r'', include('social_auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^dashboard/', include('together.dashboard.urls')),
     url(r'^registro/',include('together.registro.urls')),
-    url(r'', include('social_auth.urls'))
 )
 
 if settings.DEBUG:
