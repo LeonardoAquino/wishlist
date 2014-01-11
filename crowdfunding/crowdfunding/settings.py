@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     #'south',
     'together',
+    'social_auth',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
