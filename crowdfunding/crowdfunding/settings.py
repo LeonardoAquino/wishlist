@@ -116,7 +116,7 @@ SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 FACEBOOK_APP_ID              = '1420749211490800'
 FACEBOOK_API_SECRET          = '32f8fcbfa167f64d3ee072d9b586a503'
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/fb_login/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 
