@@ -93,6 +93,33 @@ INSTALLED_APPS = (
     'social_auth',
 )
 
+#configuracion social_auth.
+#TO-DO : 
+# - validar app id y api secret, datos tomados desde js
+# - Tengo mis dudas sobre la Url login.
+# - Crear login_error_url
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'social_auth.context_processors.social_auth_by_type_backends',
+)
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook')
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+
+#Fuertes dudas.
+FACEBOOK_APP_ID              = '1420749211490800'
+FACEBOOK_API_SECRET          = '32f8fcbfa167f64d3ee072d9b586a503'
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL = '/'
+
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
