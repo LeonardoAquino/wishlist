@@ -94,14 +94,14 @@ INSTALLED_APPS = (
 )
 
 #configuracion social_auth.
-#TO-DO : 
+#TO-DO :
 # - validar app id y api secret, datos tomados desde js
 # - Tengo mis dudas sobre la Url login.
 # - Crear login_error_url
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'social_auth.backends.facebook.FacebookBackend',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -109,7 +109,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_by_type_backends',
 )
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook')
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', )
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
 #Fuertes dudas.

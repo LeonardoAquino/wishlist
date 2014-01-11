@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block contenido %}
     <section id="contenedor_ingreso" class="t_centered">
@@ -25,7 +25,7 @@
             <h2>Iniciar sesión con Facebook</h2>
             <div>
                 <a id="btn_login_facebook" class="btn_facebook sombra_caja">Entra con facebook</a>
-                <a class="btn_facebook sombra_caja" href="{% url socialauth_begin 'facebook' %}">Login with Facebook</a>
+                <a class="btn_facebook sombra_caja" href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>
             </div>
         </section>
     </section>
