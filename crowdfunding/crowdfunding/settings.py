@@ -119,8 +119,9 @@ FACEBOOK_API_SECRET          = '32f8fcbfa167f64d3ee072d9b586a503'
 LOGIN_URL = '/fb_login/'
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_ERROR_URL = '/'
+SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = "/"
 
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+#SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
