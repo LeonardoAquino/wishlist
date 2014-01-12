@@ -7,11 +7,7 @@
             <a href="{% url 'mi_perfil' %}">Mi perfil</a>
         </li>
         <li>
-            {% if logged_by_facebook %}
-                <a href="{% url 'socialauth_disconnect' 'facebook' %}">Salir</a>
-            {% else %}
-                <a href="{% url 'logout' %}">Salir</a>
-            {% endif %}
+            <a href="{% url 'logout' %}">Salir</a>
         </li>
     </ul>
 </nav>

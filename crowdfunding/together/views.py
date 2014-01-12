@@ -81,6 +81,7 @@ class FBLoginView(View):
 
 class LogoutView(View):
     def get(self, req):
+        log_out(req)
         return redirect(reverse("index"))
 
 

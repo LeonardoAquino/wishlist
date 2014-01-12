@@ -114,14 +114,12 @@ FACEBOOK_API_SECRET          = '32f8fcbfa167f64d3ee072d9b586a503'
 LOGIN_URL = '/fb_login/'
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_ERROR_URL = '/'
-SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = "/"
+SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/'
+#SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/account-disconnected-redirect-url/'
 
 #SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
