@@ -44,7 +44,7 @@ class LoginView(View):
 
         return HttpResponse(json.dumps(data))
 
-
+"""
 class SearchFacebookUserView(View):
     def post(self, req):
         data = { "status" : "ok" }
@@ -61,7 +61,10 @@ class SearchFacebookUserView(View):
             data['status'] = "fail"
 
         return HttpResponse(json.dumps(data))
-
+"""
+def fb_login(self):
+    self.client.login(self.user, backend='facebook')
+    return HttpResponse(json.dumps(self.user))
 
 class LogoutView(View):
     def get(self, req):
@@ -101,6 +104,6 @@ index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
 misproyectos = MisProyectos.as_view()
 login = LoginView.as_view()
-fb_login = SearchFacebookUserView.as_view()
+#fb_login = SearchFacebookUserView.as_view()
 logout = LogoutView.as_view()
 ingresar = IngresoView.as_view()

@@ -117,7 +117,7 @@ FACEBOOK_APP_ID              = '1420749211490800'
 FACEBOOK_API_SECRET          = '32f8fcbfa167f64d3ee072d9b586a503'
 
 LOGIN_URL = '/fb_login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_ERROR_URL = '/'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
