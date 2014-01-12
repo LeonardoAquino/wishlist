@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-import os, json, pickle
+import os, json
 
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
@@ -45,13 +45,34 @@ class LoginView(View):
         return HttpResponse(json.dumps(data))
 
 
+"""
+user = {
+    'first_name': 'Django',
+    'last_name': 'Reinhardt',
+    'verified': True,
+    'name': 'Django Reinhardt',
+    'locale': 'en_US',
+    'hometown': {
+        'id': '12345678',
+        'name': 'Any Town, Any State'
+    },
+    'expires': '4812',
+    'updated_time': '2012-01-29T19:27:32+0000',
+    'access_token': 'dummyToken',
+    'link': 'http://www.facebook.com/profile.php?id=1234',
+    'location': {
+        'id': '108659242498155',
+        'name': 'Chicago, Illinois'
+    },
+    'gender': 'male',
+    'timezone': -6,
+    'id': '1234',
+    'email': 'user@domain.com'
+}
+"""
 class FBLoginView(View):
     def get(self,request):
         self.client.login(self.user, backend="facebook")
-        fichero = open("/tmp/cliente_pickle.txt","w")
-        pickle.dump(self.client, fichero)
-        fichero.close()
-
         return redirect(reverse("dashboard"))
 
 
@@ -66,7 +87,7 @@ class ProyectosList(ListView):
 
     def get_context_data(self,**kwargs):
         context = super(ProyectosList, self).get_context_data(**kwargs)
-        context["proyectos"] = self.model.objects.all().order_by("-id")#[0:6]
+        context["proyectos"] = self.model.objects.all().order_by("-id")
 
         return context
 
