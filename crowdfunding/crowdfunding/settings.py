@@ -101,6 +101,7 @@ AUTHENTICATION_BACKENDS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'social_auth.context_processors.social_auth_by_type_backends',
+    'together.context_processor.is_logged_by_facebook',
 )
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', )

@@ -37,6 +37,7 @@ class LoginView(View):
 
         if user is not None:
             log_in(self.request, user)
+            req.session["is_logged_by_facebook"] = False
             data["url"] = reverse("dashboard")
         else:
             data["status"] = "fail"
@@ -73,6 +74,8 @@ user = {
 class FBLoginView(View):
     def get(self,request):
         self.client.login(self.user, backend="facebook")
+        self.request.session["is_logged_by_facebook"] = True
+
         return redirect(reverse("dashboard"))
 
 
