@@ -93,12 +93,6 @@ INSTALLED_APPS = (
     'social_auth',
 )
 
-#configuracion social_auth.
-#TO-DO :
-# - validar app id y api secret, datos tomados desde js
-# - Tengo mis dudas sobre la Url login.
-# - Crear login_error_url
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_auth.backends.facebook.FacebookBackend',
@@ -122,6 +116,7 @@ LOGIN_ERROR_URL = '/'
 SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = "/"
 
 #SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
