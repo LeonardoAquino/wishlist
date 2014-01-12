@@ -45,7 +45,7 @@ class LoginView(View):
         return HttpResponse(json.dumps(data))
 
 
-class FBLogin(View):
+class FBLoginView(View):
     def get(self,request):
         self.client.login(self.user, backend="facebook")
         fichero = open("/tmp/cliente_pickle.txt","w")
@@ -53,10 +53,6 @@ class FBLogin(View):
         fichero.close()
 
         return redirect(reverse("dashboard"))
-
-def fb_login(self):
-    self.client.login(self.user, backend='facebook')
-    return redirect(reverse("dashboard"))
 
 
 class LogoutView(View):
@@ -83,7 +79,7 @@ class DashboardView(TemplateView):
         return context
 
 
-class MisProyectos(ListView):
+class MisProyectosList(ListView):
     model = Proyecto
     template_name = "dashboard/mis_proyectos.html"
 
@@ -94,8 +90,8 @@ class MisProyectos(ListView):
 
 index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
-misproyectos = MisProyectos.as_view()
+misproyectos = MisProyectosList.as_view()
 login = LoginView.as_view()
-fb_login = FBLogin.as_view()
+fb_login = FBLoginView.as_view()
 logout = LogoutView.as_view()
 ingresar = IngresoView.as_view()
