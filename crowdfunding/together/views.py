@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-import os, json
+import os, json, pickle
 
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
@@ -44,31 +44,23 @@ class LoginView(View):
 
         return HttpResponse(json.dumps(data))
 
-"""
-class SearchFacebookUserView(View):
-    def post(self, req):
-        data = { "status" : "ok" }
 
-        fb_id = req.POST.get("fb_id")
+class FBLogin(View):
+    def get(self,request):
+        self.client.login(self.user, backend="facebook")
+        fichero = open("/tmp/cliente_pickle.txt","w")
+        pickle.dump(self.client, fichero)
+        fichero.close()
 
-        try:
-            user = DetalleUsuario.objects.get(fb_id=fb_id)
-            sys_user = User.objects.get(id = user.usuario)
-            log = authenticate(username=sys_user.username)
-            log_in(self.request, log)
-            data['url'] = reverse("dashboard")
-        except DetalleUsuario.DoesNotExist as e:
-            data['status'] = "fail"
+        return redirect(reverse("dashboard"))
 
-        return HttpResponse(json.dumps(data))
-"""
 def fb_login(self):
     self.client.login(self.user, backend='facebook')
-    return HttpResponse(json.dumps(self.user))
+    return redirect(reverse("dashboard"))
+
 
 class LogoutView(View):
     def get(self, req):
-        log_out(req)
         return redirect(reverse("index"))
 
 
@@ -104,6 +96,6 @@ index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
 misproyectos = MisProyectos.as_view()
 login = LoginView.as_view()
-#fb_login = SearchFacebookUserView.as_view()
+fb_login = FBLogin.as_view()
 logout = LogoutView.as_view()
 ingresar = IngresoView.as_view()
