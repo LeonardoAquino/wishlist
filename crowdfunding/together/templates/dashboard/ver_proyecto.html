@@ -43,7 +43,8 @@
 
             <div class="seccion_creador">
                 <figure>
-                    <img src="http://profile.ak.fbcdn.net/hprofile-ak-prn2/1086296_1190032736_291343723_q.jpg" alt="imagen del creador del proyecto {{ proyecto.titulo }}">
+                    <img src="//graph.facebook.com/{{ proyecto.creador.username }}/picture"
+                        alt="imagen del creador del proyecto {{ proyecto.titulo }}">
                 </figure>
                 <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
                 <p>
