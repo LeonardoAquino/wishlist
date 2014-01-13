@@ -1,4 +1,5 @@
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -98,8 +99,8 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.facebook.FacebookBackend',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
+TEMPLATE_CONTEXT_PROCESSORS += (
+    #'django.contrib.auth.context_processors.auth',
     'social_auth.context_processors.social_auth_by_type_backends',
     'together.context_processor.is_logged_by_facebook',
 )
