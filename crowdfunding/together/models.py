@@ -52,6 +52,17 @@ class Proyecto(models.Model):
 
         return dias_restantes
 
+    def get_total_proyecto(self):
+        impuesto = self.tipo_proyecto.impuesto
+        total = 0
+
+        for producto in self.producto_set.all():
+            total += producto.precio
+
+        total += total * (impuesto/100.0)
+
+        return total
+
 
 class ImagenProyecto(models.Model):
     imagen = models.FileField(upload_to="proyectos/thumbnails")

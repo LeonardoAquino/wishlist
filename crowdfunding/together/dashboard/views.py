@@ -57,7 +57,7 @@ class UpdateUserView(TemplateView):
             data['status_form'] = "fail"
 
         user = authenticate(username=user_name, password=old_password)
-            
+
         if user is not None:
             this_user.set_password(new_password)
             this_user.save()
@@ -73,17 +73,10 @@ class VerProyectoView(TemplateView):
         context = super(VerProyectoView, self).get_context_data(**kwargs)
         id_proyecto = kwargs.get('id_proyecto')
         proyecto = Proyecto.objects.get(id = id_proyecto)
-        impuesto = proyecto.tipo_proyecto.impuesto
-        total = 0
-
-        for producto in proyecto.producto_set.all():
-            total += producto.precio
-
-        total += total * (impuesto/100.0)
 
         context["proyecto"] = proyecto
         context["recaudado"] = 0
-        context["total"] = math.trunc(total)
+        context["total"] = math.trunc(proyecto.get_total_proyecto())
         context["dias_restantes"] = 0
         context["numero_colaboradores"] = 0
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
