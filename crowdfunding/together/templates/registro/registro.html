@@ -85,6 +85,9 @@
             <span style="display:block"></span>
         </div>
         <div class="t_centered">
+            <input id="chk_aceptar_terminos" type="checkbox" value="" /> He aceptado los términos y condiciones
+        </div>
+        <div id="caja_registrarse" class="t_centered" style="display:none">
             <input type="submit" class="sombra_caja" value="REGISTRARSE" />
         </div>
     </form>
@@ -100,5 +103,13 @@
 <script>
     App.registroController = new App.Controllers.Registro();
     App.loginController = new App.Controllers.Login();
+
+    $("#chk_aceptar_terminos").on("click",function(evt){
+        if($(this).is(":checked")){
+            $("#caja_registrarse").show();
+        }else{
+            $("#caja_registrarse").hide();
+        }
+    });
 </script>
 {% endblock %}
