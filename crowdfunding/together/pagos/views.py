@@ -7,3 +7,11 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import View, TemplateView
+
+
+
+class PagoView(TemplateView):
+    def get(self, req):
+        return HttpResponse("Jelou parkimeter, jelouuuuu")
+
+pagos = PagoView.as_view()

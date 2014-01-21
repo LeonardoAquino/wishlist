@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <meta name="description" content="Lista de regalos por la life 1313 eaea sadsa qwertyuiop" />
     <title>{% block titulo %}{% endblock %}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lobster|Varela+Round|Exo+2:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Varela+Round|Exo+2:400,700'
+        rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
@@ -20,7 +21,9 @@
             </figure>
 
             <div class="menu_opciones">
+                <!--
                 <a href="javascript:;" class="link_aportar sombra_caja">QUIERO APORTAR</a>
+                -->
                 <a href="{% url 'registro' %}" class="link_evento sombra_caja">COMENZAR UN EVENTO</a>
                 <a href="{% url 'ingresar' %}" class="link_entrar">
                     <img src="{% static 'images/entrar.png' %}" alt="imagen entrar" />

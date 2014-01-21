@@ -1,17 +1,7 @@
-import re
+#-*- coding: utf-8 -*-
+import re, os
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
-
-TEMPLATE_NEW_ACCOUNT = u"""
-<div>
-    <p>Bienvenido:</p>
-    <p>Nos complace anunciar que tu cuenta ha sido creada exitosamente</p>
-    <p>Recuerda que tus datos para loggear son :</p>
-    <p>Nombre : {{ nombre }}</p>
-    <p>Clave : {{ clave }}</p>
-    <p>SALUDOS!!!!</p>
-</div>
-"""
 
 def is_text_valid(texto, largo=140):
     if texto is None or texto.strip() == "":
@@ -38,12 +28,11 @@ def is_rut_valid(rut):
     return str(dv) == str(rut[1])
 
 def mail_sender_new_account(correo, clave, usuario):
-    asunto = "Bienvenido a Juntandonos"
-    plantilla = TEMPLATE_NEW_ACCOUNT
+    asunto = "Bienvenido a Juntándonos"
+
+    plantilla = open(os.path.dirname(__file__) + "/email_templates/registro.html","rb").read()
     plantilla = plantilla.replace("{{ nombre }}", usuario)
-    plantilla = plantilla.replace("{{ clave }}", clave)
     destinatarios = (correo, )
     msg = EmailMultiAlternatives(asunto, plantilla, "Equipo juntandonos", destinatarios)
     msg.content_subtype = "html"
     msg.send()
-
