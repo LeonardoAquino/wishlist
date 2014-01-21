@@ -1,3 +1,5 @@
+import math
+
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.views.generic import TemplateView,ListView,View
@@ -231,6 +233,22 @@ class GuardarPasoDos(View):
 
 class NuevoProyecto3View(TemplateView):
     template_name = "nuevo_proyecto/nuevo_proyecto_paso_3.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(NuevoProyecto3View, self).get_context_data(**kwargs)
+
+        id_proyecto = kwargs["id_proyecto"]
+
+        proyecto = Proyecto.objects.get(id = id_proyecto)
+
+        context["proyecto"] = proyecto
+        context["recaudado"] = 0
+        context["total"] = math.trunc(proyecto.get_total_proyecto())
+        context["dias_restantes"] = 0
+        context["numero_colaboradores"] = 0
+        context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
+
+        return context
 
 terminos_condiciones = login_required(TemplateView.as_view(template_name="nuevo_proyecto/terminos_y_condiciones.html"))
 tipo_proyecto = login_required(TemplateView.as_view(template_name="nuevo_proyecto/tipo_de_proyecto.html"))

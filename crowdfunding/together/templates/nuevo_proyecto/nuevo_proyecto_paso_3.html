@@ -1,5 +1,88 @@
 {% extends "base.html" %}
+{% load separador_miles from custom_tags_filters %}
 
 {% block contenido %}
-    Su proyecto ha sido creado con exito
+    <style>
+        .descripcion_proyecto{
+            width: 90%;
+            border: 3px solid #00b9d1;
+        }
+
+        .descripcion_proyecto legend{
+            background-color: #00b9d1;
+        }
+
+        .detalle_proyecto{
+            width: 80%;
+        }
+    </style>
+
+    <fieldset class="descripcion_proyecto">
+        <legend>
+            <span class="fade">Recaudación</span>
+            <span class="fade">Descripción</span>
+            <span><strong>Confirmación</strong></span>
+        </legend>
+        <h2>Confirmación de la creación del proyecto</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, aliquid magnam cumque dolorem aut distinctio id dolorum nam quisquam atque repudiandae obcaecati porro eum. Labore, reprehenderit iste tenetur illo sit?
+        </p>
+
+    <section class="detalle_proyecto">
+        <article class="detalle">
+            {% for imagenproyecto in proyecto.imagenproyecto_set.all %}
+            <figure class="imagen_proyecto">
+                <img src="{{ MEDIA_URL }}{{ imagenproyecto.imagen }}" alt="imagen de {{ proyecto.titulo }}" />
+            </figure>
+            {% endfor %}
+            <h2 class="titulo_proyecto">{{ proyecto.titulo }}</h2>
+            <div class="descripcion">
+                <h3 class="titulo_descripcion">Descripción</h3>
+                <p>
+                    {{ proyecto.descripcion }}
+                </p>
+            </div>
+            <div>
+                {% for producto in productos %}
+                <div class="producto">
+                    {% for imagen_proyecto in producto.imagenproducto_set.all %}
+                        <figure>
+                            <img src="{{ imagen_proyecto.imagen.url }}" alt="imagen de {{ producto.nombre }}" />
+                        </figure>
+                    {% endfor %}
+                    {{ producto.nombre }}
+                </div>
+                {% endfor %}
+            </div>
+        </article>
+
+        <article class="informacion">
+            <div class="seccion_recaudacion">
+                <div><span>${{ recaudado|separador_miles }}</span> Recaudado de</div>
+                <div><strong>${{ total|separador_miles }}</strong> en total</div>
+            </div>
+            <div class="seccion_colaboracion">
+                <span>{{ proyecto.get_dias_restantes.days }} días</span> Restantes
+                <span>{{ numero_colaboradores }}</span> Colaboradores
+            </div>
+
+            <a class="seccion_aporte" href="javascript:;">APORTA</a>
+
+            <div class="seccion_creador">
+                <figure>
+                    <img src="//graph.facebook.com/{{ proyecto.creador.username }}/picture"
+                        alt="imagen del creador del proyecto {{ proyecto.titulo }}">
+                </figure>
+                <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, earum quae error quos accusamus eveniet fugiat. Quod, praesentium, voluptas doloribus fugiat iure perferendis quia ab facere error voluptate doloremque perspiciatis!
+                </p>
+            </div>
+        </article>
+    </section>
+
+        <div style="text-align:center">
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">Confirmar</a>
+        </div>
+    </fieldset>
 {% endblock %}
