@@ -29,17 +29,23 @@ class IngresoView(View):
 
 class LoginView(View):
     def post(self, req):
-        username = self.request.POST.get("username")
+        email = self.request.POST.get("username")
         password = self.request.POST.get("password")
-
         data = { "status" : "ok", "message" : "" }
-        user = authenticate(username=username, password=password)
 
-        if user is not None:
-            log_in(self.request, user)
-            req.session["is_logged_by_facebook"] = False
-            data["url"] = reverse("dashboard")
-        else:
+        try:
+            usuario_db = User.objects.get(email=email)
+            user = authenticate(username=usuario_db.username, password=password)
+
+            if user is None:
+                data["status"] = "fail"
+                data["message"] = "El usuario y/o contraseña son inválidos"
+            else:
+                log_in(self.request, user)
+                req.session["is_logged_by_facebook"] = False
+                data["url"] = reverse("dashboard")
+
+        except User.DoesNotExist:
             data["status"] = "fail"
             data["message"] = "El usuario y/o contraseña son inválidos"
 
