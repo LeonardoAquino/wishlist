@@ -174,3 +174,26 @@ class DetalleUsuario(models.Model):
 
     def __unicode__(self):
         return self.usuario.username
+
+
+class TipoPago(models.Model):
+    nombre = models.CharField(max_length=140)
+
+
+class ComprobantePago(models.Model):
+    nombre = models.CharField(max_length=140)
+    mail = models.EmailField(max_length=140)
+    monto = models.IntegerField()
+    opcion_pago = models.IntegerField()
+    proyecto = models.ForeignKey(Proyecto)
+
+    def __unicode__(self):
+        return self.nombre
+
+
+class mensaje(models.Model):
+    proyecto = models.ForeignKey(Proyecto)
+    mensaje = models.CharField(max_length=500)
+
+    def __unicode__(self):
+        return self.mensaje
