@@ -13,5 +13,7 @@ from django.views.generic import View, TemplateView
 class PagoView(TemplateView):
     def get(self, req):
         return HttpResponse("Jelou parkimeter, jelouuuuu")
+    def post(self, req):
+    	pass
 
 pagos = PagoView.as_view()
