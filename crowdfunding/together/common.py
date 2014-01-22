@@ -12,6 +12,15 @@ def is_text_valid(texto, largo=140):
 
     return True
 
+def is_number_valid(texto):
+    if texto is None or not(texto.isdigit()):
+        return False
+
+    if texto < 1 :
+        return False
+
+    return True
+
 class Http500(Exception):
     pass
 

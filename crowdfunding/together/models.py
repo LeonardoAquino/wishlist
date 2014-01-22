@@ -192,7 +192,7 @@ class ComprobantePago(models.Model):
 
 
 class mensaje(models.Model):
-    proyecto = models.ForeignKey(Proyecto)
+    pago = models.ForeignKey(ComprobantePago)
     mensaje = models.CharField(max_length=500)
 
     def __unicode__(self):
