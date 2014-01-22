@@ -191,7 +191,7 @@ class ComprobantePago(models.Model):
         return self.nombre
 
 
-class mensaje(models.Model):
+class Mensaje(models.Model):
     pago = models.ForeignKey(ComprobantePago)
     mensaje = models.CharField(max_length=500)
 
