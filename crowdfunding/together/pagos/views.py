@@ -14,7 +14,8 @@ from ..common import is_text_valid, is_email_valid, is_number_valid
 
 class PagoView(TemplateView):
     def get(self, req):
-        return HttpResponse("Jelou parkimeter, jelouuuuu")
+        return render_to_response("pagos/pago.html",context_instance=RequestContext(req))
+
     def post(self, req):
     	nombre = req.Post.get("nombre")
     	mensaje = req.Post.get("mensaje")
@@ -46,7 +47,4 @@ class PagoView(TemplateView):
     	m.pago = cp
     	m.mensaje = mensaje
 
-
-    	
-
-pagos = PagoView.as_view()
+pago = PagoView.as_view()
