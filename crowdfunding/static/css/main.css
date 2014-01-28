@@ -14,7 +14,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
-#contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(50% - 15px)}
+#contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(35%)}
 #contenedor_ingreso .contenedor div{margin:.5em 0;}
 #contenedor_ingreso .contenedor div input[type="text"],#contenedor_ingreso .contenedor div input[type="password"]{border:1px solid #999;border-radius:5px;padding:.5em}
 #contenedor_ingreso .contenedor div input[type="submit"]{background:#00b9d1;border:0;color:#fff;border-radius:5px;padding:.5em 1em}
@@ -110,7 +110,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center}
 .marco table thead tr{border-bottom:2px dashed #fa006a;}
 .marco table thead tr th{color:#fa006a;}
-.marco table thead tr th figure img{width:calc(s("213px / 1.5"))}
+.marco table thead tr th figure img{width:calc(213px / 1.5)}
 .pago_form{border:3px solid #fa006a;margin:1em auto;padding:1em;}
 .pago_form div label{width:200px}
 .pago_form div input[type="text"],.pago_form div textarea{border:2px solid #fa006a;border-radius:5px}

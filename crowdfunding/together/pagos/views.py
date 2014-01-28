@@ -13,11 +13,11 @@ from django.views.generic import View, TemplateView
 from ..models import ComprobantePago, Mensaje, Proyecto, TipoPago
 from ..common import is_text_valid, is_email_valid, is_number_valid
 
-
 class PagoView(TemplateView):
     def get(self, req):
         return render_to_response("pagos/pago.html",context_instance=RequestContext(req))
 
+    @transaction.commit_on_success
     def post(self, req):
     	nombre = req.POST.get("nombre")
     	mensaje = req.POST.get("mensaje")
@@ -50,6 +50,7 @@ class PagoView(TemplateView):
     	m = Mensaje()
     	m.pago = cp
     	m.mensaje = mensaje
+        m.save()
 
         return redirect("ver_proyecto", id_proyecto = id_proyecto)
 
