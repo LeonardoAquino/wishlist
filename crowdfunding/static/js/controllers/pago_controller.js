@@ -31,7 +31,7 @@ App.Controllers.Pago.prototype = {
             var valido = true,
                 regexEmail = /^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$/;
 
-            $(".error_message").removeClass("error_message");
+            $(".error_message").removeClass("error_message").empty();
 
             if(isEmpty(_this.nombre)){
                 valido = false;

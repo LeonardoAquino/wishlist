@@ -15,6 +15,7 @@ class PagoView(TemplateView):
     def get(self, req):
         return render_to_response("pagos/pago.html",context_instance=RequestContext(req))
 
+    @transaction.commit_on_success
     def post(self, req):
     	nombre = req.Post.get("nombre")
     	mensaje = req.Post.get("mensaje")
@@ -46,6 +47,7 @@ class PagoView(TemplateView):
     	m = Mensaje()
     	m.pago = cp
     	m.mensaje = mensaje
+        m.save()
 
 class PagoPrimerPasoView(TemplateView):
     template_name = "pagos/pago_primer_paso.html"
