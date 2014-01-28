@@ -48,4 +48,8 @@ class PagoView(TemplateView):
     	m.pago = cp
     	m.mensaje = mensaje
 
+class PagoPrimerPasoView(TemplateView):
+    template_name = "pagos/pago_primer_paso.html"
+
 pago = PagoView.as_view()
+pago_primer_paso = PagoPrimerPasoView.as_view()
