@@ -8,7 +8,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import View, TemplateView
 
-from ..models import ComprobantePago, Mensaje, Proyecto
+from ..models import ComprobantePago, Mensaje, Proyecto, TipoPago
 from ..common import is_text_valid, is_email_valid, is_number_valid
 
 
@@ -34,12 +34,13 @@ class PagoView(TemplateView):
     		raise Http500()
 
     	proyecto = Proyecto.objects.get(pk = id_proyecto)
+        tp = TipoPago.objects.get(pk = forma_pago)
 
     	cp = ComprobantePago()
     	cp.nombre = nombre
     	cp.mail = email
     	cp.monto = monto
-    	cp.opcion_pago = forma_pago
+    	cp.opcion_pago = tp
     	cp.proyecto = proyecto
     	cp.save()
 

@@ -408,3 +408,6 @@ INSERT INTO together_banco(id, nombre) VALUES(18,'Scotiabank');
 INSERT INTO together_tipocuenta(id, nombre) VALUES(1,'Cuenta Corriente');
 INSERT INTO together_tipocuenta(id, nombre) VALUES(2,'Cuenta Vista');
 INSERT INTO together_tipocuenta(id, nombre) VALUES(3,'Cuenta Ahorro');
+
+INSERT INTO together_tipopago(id, nombre) VALUES(1, 'Credito');
+INSERT INTO together_tipopago(id, nombre) VALUES(2, 'Paypal');
