@@ -21,17 +21,21 @@
                 {% csrf_token %}
                 <div class="fila">
                     <label for="titular_cuenta">Nombre:</label>
-                    <input id="titular_cuenta" name="titular_cuenta" type="text" value="" placeholder="Nombre del titular" />
+                    <input id="titular_cuenta" name="titular_cuenta"
+                        type="text" value="" placeholder="Nombre del titular" />
+                    <span></span>
                 </div>
 
                 <div class="fila">
                     <label for="num_cuenta">Numero de cuenta:</label>
                     <input id="num_cuenta" name="num_cuenta" type="text" value="" placeholder="Numero de cuenta" />
+                    <span></span>
                 </div>
 
                 <div class="fila">
                     <label for="rut">Rut:</label>
                     <input id="rut" name="rut" type="text" value="" placeholder="Rut" />
+                    <span></span>
                 </div>
 
                 <div class="fila">
@@ -42,6 +46,7 @@
                             <option value="{{ banco.id }}">{{ banco.nombre }}</option>
                         {% endfor %}
                     </select>
+                    <span></span>
                 </div>
 
                 <div class="fila">
@@ -52,6 +57,7 @@
                             <option value="{{ tipo_cuenta.id }}">{{ tipo_cuenta.nombre }}</option>
                         {% endfor %}
                     </select>
+                    <span></span>
                 </div>
 
                 <div class="btn_accion">
@@ -65,6 +71,7 @@
 {% endblock %}
 
 {% block js %}
+<script src="{% static 'js/plugins/jquery.Rut.min.js' %}"></script>
 <script src="{% static 'js/controllers/paso2_controller.js' %}"></script>
 <script>
     App.paso2Controller = new App.Controllers.Paso2();
