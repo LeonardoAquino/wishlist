@@ -6,7 +6,7 @@ from datetime import datetime, date
 from django.contrib.auth.models import User
 from django.db import transaction, IntegrityError
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.views.generic import View, TemplateView
 
@@ -15,6 +15,12 @@ from ..common import is_text_valid, is_email_valid, mail_sender_new_account
 
 class RegistroView(TemplateView):
     template_name = "registro/registro.html"
+
+    def get(self, req):
+        if req.user.is_authenticated():
+            return redirect("dashboard")
+
+        return render_to_response("registro/registro.html", context_instance=RequestContext(req))
 
     def get_context_data(self, **kw):
         data = super(RegistroView, self).get_context_data(**kw)

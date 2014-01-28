@@ -24,6 +24,9 @@ def get_js_template(req):
 
 class IngresoView(View):
     def get(self, req):
+        if req.user.is_authenticated():
+            return redirect("dashboard")
+
         return render_to_response("ingreso/index.html",context_instance=RequestContext(req))
 
 
