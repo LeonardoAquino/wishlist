@@ -1,4 +1,34 @@
 {% extends "base.html" %}
 {% block contenido %}
-    holis
+    <form action="" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" name="nombre" type="text" value="" />
+        </div>
+        <div>
+            <label for="email">Mail:</label>
+            <input id="email" name="email" type="text" value="" />
+        </div>
+        <div>
+            <label for="monto">Monto:</label>
+            <input id="monto" name="monto" type="text" value="" />
+        </div>
+        <div>
+            <label for="mensaje">Mensaje al creador:</label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+        </div>
+
+        <p>OPCIONES DE PAGO</p>
+
+        <div>
+            <input id="tipo_pago_credito" name="tipo_pago" type="radio" value="1" />
+            <span>tarjetas de crédito</span>
+        </div>
+        <div>
+            <input id="tipo_pago_paypal" name="tipo_pago" type="radio" value="2" />
+            <span>
+                paypal
+            </span>
+        </div>
+    </form>
 {% endblock %}

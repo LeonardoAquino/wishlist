@@ -63,6 +63,18 @@ class Proyecto(models.Model):
 
         return total
 
+    def get_monto_actual(self):
+        monto_actual = 0
+
+        for comprobante_pago in self.comprobantepago_set.all():
+            monto_actual += comprobante_pago.monto
+
+        return monto_actual
+
+    def get_porcentaje_actual(self):
+        porcentaje_actual = 0
+        return 1313
+
 
 class ImagenProyecto(models.Model):
     imagen = models.FileField(upload_to="proyectos/thumbnails")
