@@ -5,8 +5,10 @@ from django.contrib.auth.models import User
 from django.db import transaction, IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.shortcuts import redirect
 from django.template import RequestContext
 from django.views.generic import View, TemplateView
+
 
 from ..models import ComprobantePago, Mensaje, Proyecto, TipoPago
 from ..common import is_text_valid, is_email_valid, is_number_valid
@@ -17,36 +19,39 @@ class PagoView(TemplateView):
         return render_to_response("pagos/pago.html",context_instance=RequestContext(req))
 
     def post(self, req):
-    	nombre = req.Post.get("nombre")
-    	mensaje = req.Post.get("mensaje")
-    	email = req.Post.get("email")
-    	monto = req.Post.get("monto")
-    	forma_pago = req.Post.get("forma_pago")
-    	id_proyecto = req.Post.get("id_proyecto")
+    	nombre = req.POST.get("nombre")
+    	mensaje = req.POST.get("mensaje")
+    	email = req.POST.get("email")
+    	monto = req.POST.get("monto")
+    	forma_pago = req.POST.get("tipo_pago")
 
-    	valido = True
-    	valido = valido and is_text_valid(nombre, 140)
-    	valido = valido and is_email_valid(email)
-    	valido = valido and is_text_valid(mensaje, 500)
-    	valido = valido and is_number_valid(monto)
+        id_proyecto = self.request.session['id_this_proyect']
 
-    	if not valido:
-    		raise Http500()
+        valido = True
+        valido = valido and is_text_valid(nombre, 140)
+        valido = valido and is_email_valid(email)
+        valido = valido and is_text_valid(mensaje, 500)
+        valido = valido and is_number_valid(monto)
 
-    	proyecto = Proyecto.objects.get(pk = id_proyecto)
+        if not valido:
+            raise Http500()
+
+        proyecto = Proyecto.objects.get(pk = id_proyecto)
         tp = TipoPago.objects.get(pk = forma_pago)
+        usuario = User.objects.get(pk = self.request.user.id)
 
     	cp = ComprobantePago()
-    	cp.nombre = nombre
-    	cp.mail = email
+    	cp.usuario = usuario
     	cp.monto = monto
-    	cp.opcion_pago = tp
+    	cp.tipo_pago = tp
     	cp.proyecto = proyecto
     	cp.save()
 
     	m = Mensaje()
     	m.pago = cp
     	m.mensaje = mensaje
+
+        return redirect("ver_proyecto", id_proyecto = id_proyecto)
 
 class PagoPrimerPasoView(TemplateView):
     template_name = "pagos/pago_primer_paso.html"

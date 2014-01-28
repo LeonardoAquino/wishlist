@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contenido %}
-    <form id="f_pago" action="{% url 'pago_primer_paso' %}" method="post" class="w70 auto_margin pago_form">
+    <form id="f_pago" action="{% url 'pago' %}" method="post" class="w70 auto_margin pago_form">
+        {% csrf_token %} 
         <div>
             <label for="nombre">Nombre:</label>
             <input id="nombre" name="nombre" type="text" value="" />

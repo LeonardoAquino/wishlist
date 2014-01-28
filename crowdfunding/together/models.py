@@ -75,6 +75,16 @@ class Proyecto(models.Model):
         porcentaje_actual = ( self.get_monto_actual() * 100 )/self.get_total_proyecto()
         return porcentaje_actual
 
+    def get_colaboradores(self):
+        colaboradores = 0
+        id_array = []
+        for comprobante_pago in self.comprobantepago_set.all():
+            if comprobante_pago.usuario not in id_array:
+                id_array.append(comprobante_pago.usuario)
+                colaboradores += 1
+
+        return colaboradores
+
 
 class ImagenProyecto(models.Model):
     imagen = models.FileField(upload_to="proyectos/thumbnails")

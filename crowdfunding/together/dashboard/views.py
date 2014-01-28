@@ -75,11 +75,12 @@ class VerProyectoView(TemplateView):
         proyecto = Proyecto.objects.get(id = id_proyecto)
 
         context["proyecto"] = proyecto
-        context["recaudado"] = 0
+        context["recaudado"] = proyecto.get_monto_actual
         context["total"] = math.trunc(proyecto.get_total_proyecto())
-        context["dias_restantes"] = 0
-        context["numero_colaboradores"] = 0
+        context["dias_restantes"] = proyecto.get_dias_restantes
+        context["numero_colaboradores"] = proyecto.get_colaboradores
         context["productos"] = Producto.objects.filter(proyecto = id_proyecto)
+        self.request.session['id_this_proyect'] = id_proyecto
 
         return context
 

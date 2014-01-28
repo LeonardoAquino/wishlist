@@ -6,7 +6,8 @@ App.Controllers.Pago = function(){
 App.Controllers.Pago.prototype = {
     constructor: App.Controllers.Pago,
     init: function(){
-        this.form.on("submit", this.validarForm());
+        //this.form.on("submit", this.validarForm());
+        console.log('some');
     },
 
     validarForm: function(){
