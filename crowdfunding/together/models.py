@@ -72,8 +72,8 @@ class Proyecto(models.Model):
         return monto_actual
 
     def get_porcentaje_actual(self):
-        porcentaje_actual = 0
-        return 1313
+        porcentaje_actual = ( self.get_monto_actual() * 100 )/self.get_total_proyecto()
+        return porcentaje_actual
 
 
 class ImagenProyecto(models.Model):
