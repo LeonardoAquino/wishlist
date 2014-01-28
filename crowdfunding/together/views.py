@@ -52,31 +52,6 @@ class LoginView(View):
         return HttpResponse(json.dumps(data))
 
 
-"""
-user = {
-    'first_name': 'Django',
-    'last_name': 'Reinhardt',
-    'verified': True,
-    'name': 'Django Reinhardt',
-    'locale': 'en_US',
-    'hometown': {
-        'id': '12345678',
-        'name': 'Any Town, Any State'
-    },
-    'expires': '4812',
-    'updated_time': '2012-01-29T19:27:32+0000',
-    'access_token': 'dummyToken',
-    'link': 'http://www.facebook.com/profile.php?id=1234',
-    'location': {
-        'id': '108659242498155',
-        'name': 'Chicago, Illinois'
-    },
-    'gender': 'male',
-    'timezone': -6,
-    'id': '1234',
-    'email': 'user@domain.com'
-}
-"""
 class FBLoginView(View):
     def get(self,request):
         self.client.login(self.user, backend="facebook")
