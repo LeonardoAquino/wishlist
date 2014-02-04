@@ -104,11 +104,13 @@
                         </div>
 
                         <div class="monto">
-                            <select id="tipo_moneda_0" name="tipo_moneda_0" required>
+                            <!--select id="tipo_moneda_0" name="tipo_moneda_0" required>
                                 {% for moneda in monedas %}
                                 <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
                                 {% endfor %}
-                            </select>
+                            </select-->
+                            USD:
+                            <input id="tipo_moneda_0" type="hidden" value="2">
                             <input id="valor_0" name="valor_0" type="text" value="" />
                         </div>
                     </article>
