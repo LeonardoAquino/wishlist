@@ -109,7 +109,7 @@ class ProyectosFilterView(View):
         for proyecto in proyectos:
             data.append({
                 "id" : proyecto.id,
-                "imagenProyecto" : proyecto.imagenproyecto_set.all()[0].imagen,
+                "imagenProyecto" : proyecto.imagenproyecto_set.all()[0].imagen.url,
                 "avatarUsername" : proyecto.creador.username,
                 "nombreCreador" : proyecto.get_nombre_creador(),
                 "tipoProyecto" : proyecto.tipo_proyecto.nombre,
@@ -122,7 +122,7 @@ class ProyectosFilterView(View):
                 }
             })
 
-        return HttpResponse(json_dumps(data), content_type="application/json")
+        return HttpResponse(json.dumps({ "proyectos" : data }), content_type="application/json")
 
 index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()

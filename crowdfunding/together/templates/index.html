@@ -72,7 +72,7 @@
 
 <section id="categorias" class="categorias">
     <h1>Categorías</h1>
-    <select name="categorias" id="categorias">
+    <select name="sel_categoria" id="sel_categoria">
         <option value="">SELECCIONE</option>
         {% for categoria in categorias %}
         <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
@@ -87,6 +87,7 @@
 <script src="{% static 'js/controllers/categorias_controller.js' %}"></script>
 <script src="{% static 'js/controllers/login_controller.js' %}"></script>
 <script>
+    App.categoriasController = new App.Controllers.Categoria("{% url 'obtener_proyectos' 99 %}");
     App.login = new App.Controllers.Login();
 </script>
 
