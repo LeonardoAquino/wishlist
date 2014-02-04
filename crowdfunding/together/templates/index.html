@@ -63,7 +63,7 @@
                 <p>{{ proyecto.tipo_proyecto.nombre }}</p>
                 <p class="proyecto_titulo">{{ proyecto.titulo|upper }}</p>
                 <p class="proyecto_descripcion">{{ proyecto.descripcion }}</p>
-                <p class="proyecto_recaudacion">recaudó ${{ proyecto.get_monto_actual|separador_miles }} CLP</p>
+                <p class="proyecto_recaudacion">recaudó ${{ proyecto.get_monto_actual|separador_miles }} USD</p>
                 <p class="proyecto_porcentaje">{{ proyecto.get_porcentaje_actual }}%</p>
                 <p class="proyecto_restante">{{ proyecto.get_dias_restantes.days }} días restantes</p>
             </article>
@@ -72,14 +72,20 @@
 
 <section id="categorias" class="categorias">
     <h1>Categorías</h1>
+    <select name="categorias" id="categorias">
+        <option value="">SELECCIONE</option>
+        {% for categoria in categorias %}
+        <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+        {% endfor %}
+    </select>
 </section>
 </section>
 
 {% endblock %}
 
 {% block js %}
-
-<script src="{% static "js/controllers/login_controller.js" %}"></script>
+<script src="{% static 'js/controllers/categorias_controller.js' %}"></script>
+<script src="{% static 'js/controllers/login_controller.js' %}"></script>
 <script>
     App.login = new App.Controllers.Login();
 </script>

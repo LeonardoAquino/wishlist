@@ -11,7 +11,7 @@ from django.shortcuts import render_to_response, redirect, render
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 
-from .models import Proyecto, DetalleUsuario
+from .models import Proyecto, DetalleUsuario, Categoria
 
 def get_js_template(req):
     my_path = os.path.dirname(__file__) + req.path
@@ -76,6 +76,7 @@ class ProyectosList(ListView):
     def get_context_data(self,**kwargs):
         context = super(ProyectosList, self).get_context_data(**kwargs)
         context["proyectos"] = self.model.objects.all().order_by("-id")
+        context["categorias"] = Categoria.objects.all().order_by("id")
 
         return context
 
@@ -96,6 +97,32 @@ class MisProyectosList(ListView):
         context = super(MisProyectos, self).get_context_data(**kwargs)
         tmp = self.model.objects.filter()
 
+class ProyectosFilterView(View):
+    def get(self, req, categoria_id):
+        data = []
+
+        if categoria_id is None:
+            proyectos = Proyecto.objects.all().order_by("-id")[0:6]
+        else:
+            proyectos = Proyecto.objects.filter(categoria_id=categoria_id).order_by("-id")[0:6]
+
+        for proyecto in proyectos:
+            data.append({
+                "id" : proyecto.id,
+                "imagenProyecto" : proyecto.imagenproyecto_set.all()[0].imagen,
+                "avatarUsername" : proyecto.creador.username,
+                "nombreCreador" : proyecto.get_nombre_creador(),
+                "tipoProyecto" : proyecto.tipo_proyecto.nombre,
+                "proyecto" : {
+                    "titulo" : proyecto.titulo.upper(),
+                    "descripcion" : proyecto.descripcion,
+                    "montoActual" : proyecto.get_monto_actual(),
+                    "porcentajeActual" : proyecto.get_porcentaje_actual(),
+                    "diasRestantes" : proyecto.get_dias_restantes().days
+                }
+            })
+
+        return HttpResponse(json_dumps(data), content_type="application/json")
 
 index = ProyectosList.as_view()
 dashboard = DashboardView.as_view()
@@ -104,3 +131,4 @@ login = LoginView.as_view()
 fb_login = FBLoginView.as_view()
 logout = LogoutView.as_view()
 ingresar = IngresoView.as_view()
+obtener_proyectos = ProyectosFilterView.as_view()
