@@ -194,7 +194,7 @@ class GuardarPasoDos(View):
     def __crear_proyecto(self, data):
         creador = User.objects.get(pk = data["creador_id"])
         tipo_proyecto = TipoProyecto.objects.get(pk = data["tipo_proyecto"])
-
+        categoria_proyecto = Categoria.objects.get(pk = data["categoria"])
         imagen_proyecto = ImagenProyecto.objects.get(pk = data["thumbnail"])
 
         proyecto = Proyecto()
@@ -205,6 +205,7 @@ class GuardarPasoDos(View):
         proyecto.video_url = data["video"]
         proyecto.duracion = data["duracion"]
         proyecto.tipo_proyecto = tipo_proyecto
+        proyecto.categoria_proyecto = categoria_proyecto
         proyecto.save()
 
         imagen_proyecto.proyecto = proyecto
