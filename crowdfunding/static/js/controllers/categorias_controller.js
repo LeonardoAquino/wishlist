@@ -13,13 +13,13 @@ App.Controllers.Categoria.prototype = {
         var _this = this;
 
         return function(evt){
-            var datos = {
+            /*var datos = {
                 categoria : $(this).val();
             };
 
             $.get(_this.urlConsulta,datos, function(data){
                 console.log(data);
-            });
+            });*/
         };
     }
 }

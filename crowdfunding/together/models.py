@@ -28,7 +28,7 @@ class Proyecto(models.Model):
     video_url = models.URLField(max_length=500)
     duracion = models.IntegerField()
     tipo_proyecto = models.ForeignKey(TipoProyecto)
-    categoria_proyecto = models.ForeignKey(Categoria)
+    categoria = models.ForeignKey(Categoria)
 
     def __unicode__(self):
         return self.titulo + " " + str(self.terminado)

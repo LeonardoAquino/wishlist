@@ -20,11 +20,6 @@ class RegistroView(TemplateView):
         if req.user.is_authenticated():
             return redirect("dashboard")
 
-        return render_to_response("registro/registro.html", context_instance=RequestContext(req))
-
-    def get_context_data(self, **kw):
-        data = super(RegistroView, self).get_context_data(**kw)
-
         data = {
             "dias" : [i + 1 for i in range(31)],
             "meses" : [],
@@ -39,8 +34,7 @@ class RegistroView(TemplateView):
                 "nombre" : calendar.month_name[monthnumber]
             })
 
-        return data
-
+        return render_to_response("registro/registro.html",data,context_instance=RequestContext(req))
 
 def obtener_comunas(req):
     region_id = req.GET.get("region")

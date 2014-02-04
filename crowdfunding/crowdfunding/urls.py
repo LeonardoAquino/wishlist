@@ -12,7 +12,7 @@ urlpatterns = patterns('together.views',
     url(r'^fb_login/$',"fb_login",name="fb_login"),
     url(r'^logout/$',"logout",name="logout"),
     url(r'^templates/.+?/$', 'get_js_template', name="templates"),
-    url(r"^obtener\-proyectos/categoria/\d+","obtener_proyectos", name="obtener_proyectos")
+    url(r"^obtener\-proyectos/categoria/(\d+)/$","obtener_proyectos", name="obtener_proyectos")
 )
 
 urlpatterns += patterns('',
