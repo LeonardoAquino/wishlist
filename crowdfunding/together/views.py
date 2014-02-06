@@ -100,7 +100,9 @@ class MisProyectosList(ListView):
 class ProyectosFilterView(View):
     def get(self, req, categoria_id):
         data = []
-
+        if categoria_id == "0":
+            categoria_id = None
+        
         if categoria_id is None:
             proyectos = Proyecto.objects.all().order_by("-id")[0:6]
         else:

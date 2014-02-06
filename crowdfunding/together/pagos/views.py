@@ -48,7 +48,7 @@ class PagoView(TemplateView):
     	cp.save()
 
     	m = Mensaje()
-    	m.pago = cp
+    	m.comprobante_pago = cp
     	m.mensaje = mensaje
         m.save()
 

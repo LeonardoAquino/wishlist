@@ -16,7 +16,7 @@ App.Controllers.Pago = function(){
 App.Controllers.Pago.prototype = {
     constructor: App.Controllers.Pago,
     init: function(){
-        //this.form.on("submit", this.validarForm());
+        this.form.on("submit", this.validarForm());
         console.log('some');
     },
 
@@ -47,6 +47,7 @@ App.Controllers.Pago.prototype = {
                 _this.email.siblings("span").addClass("error_message").text(_this.mensajeEmailNoValido);
             }
 
+
             if(isEmpty(_this.monto)){
                 valido = false;
                 _this.monto.siblings("span").addClass("error_message").text(_this.mensajeObligatorio);
@@ -68,7 +69,6 @@ App.Controllers.Pago.prototype = {
             if(!valido){
                 return;
             }
-
             _this.form.get(0).submit();
         };
     }

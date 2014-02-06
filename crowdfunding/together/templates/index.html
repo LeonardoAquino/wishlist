@@ -73,7 +73,7 @@
 <section id="categorias" class="categorias">
     <h1>Categorías</h1>
     <select name="sel_categoria" id="sel_categoria">
-        <option value="">SELECCIONE</option>
+        <option value="0">TODOS</option>
         {% for categoria in categorias %}
         <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
         {% endfor %}
