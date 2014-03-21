@@ -53,16 +53,6 @@
                         <label for="video">Video:</label>
                         <input id="video" name="video" type="text" value="" placeholder="Video" />
                     </div>
-
-                    <div class="fila">
-                        <label for="categoria">Categoría:</label>
-                        <select id="categoria" name="categoria">
-                            <option value="">Seleccione...</option>
-                            {% for categoria in categorias %}
-                            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
                 </div>
 
                 <div class="lado_b">
@@ -77,38 +67,18 @@
                     </div>
                 </div>
 
-                <h4>
-                    <img src="{% static 'images/productos.png' %}" width="32" alt="imagen productos" />
-                    Productos
-                </h4>
-
-                <a id="btn_otro_producto" href="javascript:;"> <span>+</span> Otro producto</a>
-
                 <section id="lista_productos" class="lista_productos">
                     <article class="producto">
                         <div>
-                            <input id="nombre_0" name="nombre_0" type="text"
-                                placeholder="NOMBRE PRODUCTO/SERVICIO" required />
+                            <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="10" placeholder="descripcion"></textarea>
                         </div>
 
                         <div>
-                            <input id="url_0" name="url_0" type="text" placeholder="URL PRODUCTO/SERVICIO" required />
-                        </div>
-
-                        <div>
-                            <input id="descripcion_0" name="descripcion_0" type="text" placeholder="DESCRIPCION" required />
-                        </div>
-
-                        <div>
-                            <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" required />
+                            imagen producto o servicio:
+                            <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" />
                         </div>
 
                         <div class="monto">
-                            <!--select id="tipo_moneda_0" name="tipo_moneda_0" required>
-                                {% for moneda in monedas %}
-                                <option value="{{ moneda.id }}">{{ moneda.nombre }}</option>
-                                {% endfor %}
-                            </select-->
                             USD:
                             <input id="tipo_moneda_0" type="hidden" value="2">
                             <input id="valor_0" name="valor_0" type="text" value="" />
@@ -117,12 +87,7 @@
                 </section>
 
                 <div class="calculo_precio">
-                    <label for="total">TOTAL</label>
-                    <input id="total" name="total" type="text" value="" readonly />
-                </div>
-
-                <div class="calculo_precio">
-                    <label for="con_impuesto">Cargo por servicio</label>
+                    <label for="con_impuesto">Costo total:</label>
                     <input id="con_impuesto" name="con_impuesto" type="text" value="" readonly />
                 </div>
 
