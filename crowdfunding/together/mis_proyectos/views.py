@@ -81,28 +81,27 @@ class GuardarPasoUno(View):
         return redirect("nuevo_proyecto_paso2")
 
     def obtener_productos(self):
+        print "?============================================?"
+        print "?PRODUCTOS!?"
+        print "?============================================?"
         productos = []
         valido = True
         i = 0
 
         while True:
 
-            if not is_text_valid(self.request.POST.get("nombre_%d"%i)):
-                break
-
-            nombre_producto = self.request.POST.get("nombre_%d"%i)
             url_producto = self.request.POST.get("url_%d"%i)
-            desc_producto = self.request.POST.get("descripcion_%d"%i)
+            desc_producto = self.request.POST.get("descripcion_producto")
             tipo_moneda_producto = self.request.POST.get("tipo_moneda_%d"%i)
             precio = self.request.POST.get("valor_%d"%i)
             imagen_producto = self.request.FILES.get("imagen_producto_%d"%i)
+
+            print 
 
             img_producto = ImagenProducto()
             img_producto.imagen = imagen_producto
             img_producto.save()
 
-            #valido = valido and is_text_valid(nombre_producto)
-            #valido = valido and is_text_valid(url_producto, 500)
             valido = valido and is_text_valid(desc_producto, 500)
             valido = valido and is_text_valid(precio)
 
@@ -110,16 +109,14 @@ class GuardarPasoUno(View):
                 break
 
             moneda = Moneda.objects.get(pk=1)
-
             prod = {
                 "nombre": " ",
-                "url": url_producto,
+                "url": " ",
                 "descripcion": desc_producto,
                 "tipo_moneda_producto": moneda.id,
                 "precio": precio,
                 "imagen_producto_id" : img_producto.id
             }
-
             productos.append(prod)
             i += 1
 
@@ -215,6 +212,7 @@ class GuardarPasoDos(View):
         return proyecto.id
 
     def __crear_producto(self, data, proyecto):
+        print data
         for item in data:
             moneda = Moneda.objects.get(pk=item['tipo_moneda_producto'])
             producto = Producto()
@@ -225,6 +223,8 @@ class GuardarPasoDos(View):
             producto.descripcion = item['descripcion']
             producto.moneda = moneda
             producto.save()
+
+            print "guarde tu wea"
 
             imagen_producto = ImagenProducto.objects.get(pk=item["imagen_producto_id"])
             imagen_producto.producto = producto

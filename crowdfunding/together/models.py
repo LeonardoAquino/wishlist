@@ -18,7 +18,7 @@ class Categoria(models.Model):
 
 
 class Proyecto(models.Model):
-    titulo = models.CharField(max_length=250, unique=True)
+    titulo = models.CharField(max_length=250)
     descripcion = models.TextField()
     creador = models.ForeignKey(User, related_name="creador")
     contribuyentes = models.ManyToManyField(User, related_name="contribuyentes", blank=True, null=True)
@@ -120,8 +120,8 @@ class Moneda(models.Model):
 
 
 class Producto(models.Model):
-    nombre = models.CharField(max_length=140)
-    url = models.URLField(max_length=500)
+    nombre = models.CharField(max_length=140, blank=True, null=True)
+    url = models.URLField(max_length=500, blank=True, null=True)
     precio = models.IntegerField(default=0)
     moneda = models.ForeignKey(Moneda)
     es_recomendado = models.BooleanField(default=False)
