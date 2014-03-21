@@ -81,7 +81,7 @@ class Proyecto(models.Model):
 
     def get_porcentaje_actual(self):
         if self.get_monto_actual() == 0:
-            porcentaje_actual = 0    
+            porcentaje_actual = 0
         elif self.get_total_proyecto() == 0:
             porcentaje_actual = 0
         else :
@@ -92,12 +92,21 @@ class Proyecto(models.Model):
     def get_colaboradores(self):
         colaboradores = 0
         id_array = []
+
         for comprobante_pago in self.comprobantepago_set.all():
             if comprobante_pago.usuario not in id_array:
                 id_array.append(comprobante_pago.usuario)
                 colaboradores += 1
 
         return colaboradores
+
+    def obtener_lista_colaboradores(self):
+        colaboradores = []
+
+        for comprobante_pago in self.comprobantepago_set.all():
+            colaboradores.append(comprobante_pago.usuario)
+
+        return
 
 
 class ImagenProyecto(models.Model):
