@@ -101,8 +101,8 @@ class GuardarPasoUno(View):
             img_producto.imagen = imagen_producto
             img_producto.save()
 
-            valido = valido and is_text_valid(nombre_producto)
-            valido = valido and is_text_valid(url_producto, 500)
+            #valido = valido and is_text_valid(nombre_producto)
+            #valido = valido and is_text_valid(url_producto, 500)
             valido = valido and is_text_valid(desc_producto, 500)
             valido = valido and is_text_valid(precio)
 
@@ -112,7 +112,7 @@ class GuardarPasoUno(View):
             moneda = Moneda.objects.get(pk=1)
 
             prod = {
-                "nombre": nombre_producto,
+                "nombre": " ",
                 "url": url_producto,
                 "descripcion": desc_producto,
                 "tipo_moneda_producto": moneda.id,
