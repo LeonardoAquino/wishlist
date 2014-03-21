@@ -38,6 +38,11 @@
                 <span>{{ proyecto.get_dias_restantes.days }} días</span> Restantes
                 <span>{{ numero_colaboradores }}</span> Colaboradores
             </div>
+            <div>
+                {% for colaborador in proyecto.obtener_lista_colaboradores %}
+                    {{colaborador.username}}
+                {% endfor %}
+            </div>
 
             <a class="seccion_aporte" href="{% url 'pago' %}">APORTA</a>
 

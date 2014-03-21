@@ -106,7 +106,7 @@ class Proyecto(models.Model):
         for comprobante_pago in self.comprobantepago_set.all():
             colaboradores.append(comprobante_pago.usuario)
 
-        return
+        return colaboradores
 
 
 class ImagenProyecto(models.Model):
