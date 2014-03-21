@@ -13,6 +13,12 @@ App.Controllers.Paso1.mixin({
         $("#lista_productos").on("keyup","input[id^=valor_]", this.calcularMonto(this.cantidadImpuesto));
 
         $("#btn_continuar").on("click", this.guardarPaso1);
+        $("#fecha").datepicker();
+        $("#descripcion").on("keyup",function(evt){
+            if( $(this).val().length > 140 ){
+                $(this).val( $(this).val().substring(0,140) );
+            }
+        });
     },
 
     guardarPaso1: function(){

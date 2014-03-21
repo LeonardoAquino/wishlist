@@ -188,6 +188,7 @@ header
         color white
         padding 2em 1em
         text-align center
+        text-shadow 1px 2px #444
 
     th:last-child
         vertical-align bottom
@@ -308,6 +309,7 @@ header
         color white
         padding 0.5em 1em
         text-align center
+        width 80%
 
         .fade
             opacity 0.7
@@ -322,8 +324,13 @@ header
         z-index -1
 
         img
+        span.gold,
+        span.silver
             position relative
             top 0.5em
+            vertical-align top
+
+        img
             width 27px
 
         span.gold
@@ -579,15 +586,16 @@ header
         color white
         padding 0.5em 3em
         text-align center
+        width 80%
 
     table
+        margin auto
+        width 90%
+
         thead
             tr
-                border-bottom 2px dashed rosado
                 th
                     color rosado
-                    figure img
-                        width calc(s("213px / 1.5"))
 
 .pago_form
     border 3px solid rosado
