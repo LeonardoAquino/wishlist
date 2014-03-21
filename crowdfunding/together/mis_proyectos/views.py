@@ -16,13 +16,12 @@ class NuevoProyecto1View(TemplateView):
     def get(self, req, tipo_proyecto_id):
         template = "nuevo_proyecto/nuevo_proyecto_paso_1.html"
 
-        req.session["tipo_proyecto_id"] = tipo_proyecto_id
-        tipo_proyecto = TipoProyecto.objects.get(pk = tipo_proyecto_id)
-
+        req.session["tipo_proyecto_id"] = 2
+        req.session["categoria_id"] = tipo_proyecto_id
+        tipo_proyecto = TipoProyecto.objects.get(pk = 2)
         data = {
             "dias" : [i + 1 for i in xrange(60)],
             "monedas" : Moneda.objects.all(),
-            "categorias" : Categoria.objects.all(),
             "cantidad_impuesto" : tipo_proyecto.impuesto
         }
 
@@ -48,12 +47,12 @@ class GuardarPasoUno(View):
         descripcion = request.POST.get('descripcion')
         thumbnail = request.FILES.get("thumbnail")
         video = request.POST.get('video')
-        categoria = request.POST.get('categoria')
+        categoria = self.request.session.get("categoria_id")
         duracion = request.POST.get('duracion')
 
         valido = True
         valido = valido and is_text_valid(titulo)
-        valido = valido and is_text_valid(descripcion, 500)
+        valido = valido and is_text_valid(descripcion, 140)
         valido = valido and is_text_valid(video, 500)
 
         productos = self.obtener_productos()

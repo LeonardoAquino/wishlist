@@ -9,6 +9,9 @@ App.Controllers.Paso1 = function(cantidadImpuesto){
 
 App.Controllers.Paso1.mixin({
     addEvents: function(){
+        alert("HOLA");
+        $("#lista_productos").on("keyup","input[id^=valor_]", this.calcularMonto(this.cantidadImpuesto));
+
         $("#btn_continuar").on("click", this.guardarPaso1);
     },
 
@@ -74,5 +77,24 @@ App.Controllers.Paso1.mixin({
         }
 
         $("#f_paso_1").trigger("submit");
-    }
+    },
+
+    calcularMonto: function(cantidadImpuesto){
+        return function(){
+            var total = 0;
+
+            $("input[id^=valor_]").each(function(){
+                var valor = parseInt($(this).val(), 10);
+
+                if(!type.isNaN(valor)){
+                    total += valor;
+                }
+            });
+
+            $("#total").val(total);
+            $("#con_impuesto").val(total + (total * (cantidadImpuesto/100)));
+        };
+    },
+
+
 });
