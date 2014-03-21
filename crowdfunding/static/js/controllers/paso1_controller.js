@@ -9,11 +9,16 @@ App.Controllers.Paso1 = function(cantidadImpuesto){
 
 App.Controllers.Paso1.mixin({
     addEvents: function(){
-        alert("HOLA");
         $("#lista_productos").on("keyup","input[id^=valor_]", this.calcularMonto(this.cantidadImpuesto));
-
         $("#btn_continuar").on("click", this.guardarPaso1);
-        $("#fecha").datepicker();
+
+        $("#fecha").datepicker({
+            onRender: function(date) {
+                var now = new Date();
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        });
+
         $("#descripcion").on("keyup",function(evt){
             if( $(this).val().length > 140 ){
                 $(this).val( $(this).val().substring(0,140) );
@@ -25,12 +30,13 @@ App.Controllers.Paso1.mixin({
         var $titulo = $("#titulo"),
             $descripcion = $("#descripcion"),
             $thumbnail = $("#thumbnail"),
-            $video = $("#video"),
-            $categoria = $("#categoria"),
-            $duracion = $("#duracion"),
+            $fecha = $("#fecha"),
             errores = [],
-            $productos = $(".producto"),
-            valido = true;
+            valido = true,
+            hoy = new Date(),
+            fechaNueva = new Date(),
+            tmp = null,
+            $duracion = $("#duracion");
 
         if($titulo.val().trim() === ""){
             valido = false;
@@ -47,41 +53,26 @@ App.Controllers.Paso1.mixin({
             errores.push("Debes agregar una imagen de avatar representando al evento");
         }
 
-        if($categoria.val() === ""){
+        if($fecha.val() === ""){
             valido = false;
-            errores.push("Debes seleccionar un tipo de categoria");
+            errores.push("Debes seleccionar la fecha del proyecto");
         }
-
-        if($duracion.val() === ""){
-            valido = false;
-            errores.push("Debes seleccionar la duración del proyecto");
-        }
-
-        if(!$productos.length){
-            valido = false;
-            errores.push("Se debe ingresar al menos 1 producto");
-        }
-
-        $(".producto").each(function(i){
-            var debeCompletarse = false;
-
-            $(this).find("*[id]").each(function(){
-                if($(this).val().trim() === ""){
-                    debeCompletarse = true;
-                }
-            });
-
-            if(debeCompletarse){
-                valido = false;
-                errores.push("El producto {0} debe completarse".format(i + 1));
-            }
-        });
 
         if(!valido){
             alert(errores.join("\n"));
-            return;
+            return;w
         }
 
+        tmp = $fecha.val().split("-");
+        fechaNueva.setDate(tmp[0]);
+        fechaNueva.setMonth(tmp[1] - 1);
+        fechaNueva.setFullYear(tmp[2]);
+
+        tmp = fechaNueva - hoy;
+        tmp /= 1000;//sacandole los milisegundos
+        tmp /= 86400;//pasandolo a dias
+
+        $("#duracion").val(tmp);
         $("#f_paso_1").trigger("submit");
     },
 
