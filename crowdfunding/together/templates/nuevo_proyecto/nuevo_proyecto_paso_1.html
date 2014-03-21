@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/datepicker.css' %}" />
+{% endblock %}
+
 {% block contenido %}
     <div class="fondo_rosado texto_blanco t_centered" style="padding:1em">
         <p>¡Comparte tus eventos con el mundo!</p>
@@ -10,7 +14,7 @@
         </p>
     </div>
 
-    <section>
+<section>
 
     <fieldset class="descripcion_proyecto">
         <legend>
@@ -36,16 +40,18 @@
                 <div class="lado_a">
                     <div class="fila">
                         <label for="titulo">Título:</label>
-                        <input id="titulo" name="titulo" type="text" value="" placeholder="Ingrese título" />
+                        <input id="titulo" name="titulo" type="text" value="" />
+                        *
                     </div>
 
                     <div class="fila">
                         <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" name="descripcion" cols="30" rows="10"></textarea>
+                        <textarea id="descripcion" name="descripcion" cols="30" rows="5" placeholder="máximo 140 caracteres"></textarea>
+                        *
                     </div>
 
                     <div class="fila">
-                        <label for="thumbnail">imagen:</label>
+                        <label for="thumbnail">imagen del proyecto:</label>
                         <input id="thumbnail" name="thumbnail" type="file" value="" />
                     </div>
 
@@ -57,20 +63,15 @@
 
                 <div class="lado_b">
                     <div>
-                        <label for="duracion">Tiempo(días):</label>
-                        <select name="duracion" id="duracion">
-                            <option value="">Seleccione...</option>
-                            {% for i in dias %}
-                            <option value="{{ i }}">{{ i }}</option>
-                            {% endfor %}
-                        </select>
+                        Tiempo:
+                        <input id="fecha" name="fecha" type="text" value="" data-date-format="dd-mm-yyyy" />
                     </div>
                 </div>
 
                 <section id="lista_productos" class="lista_productos">
                     <article class="producto">
                         <div>
-                            <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="10" placeholder="descripcion"></textarea>
+                            <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="descripcion"></textarea>
                         </div>
 
                         <div>
@@ -99,9 +100,10 @@
         </section>
     </fieldset>
 
-    </section>
+</section>
 {% endblock %}
 {% block js %}
+<script src="{% static 'js/plugins/bootstrap-datepicker.js' %}"></script>
 <script src="{% static 'js/controllers/paso1_controller.js' %}"></script>
 <script>
     App.paso1 = new App.Controllers.Paso1({{ cantidad_impuesto }});

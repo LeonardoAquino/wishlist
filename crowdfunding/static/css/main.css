@@ -29,7 +29,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 #login_facebook{border:3px solid #ffd800;}
 #login_facebook h3{color:#ffd800}
-#seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center}
+#seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center;text-shadow:1px 2px #444}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.jpg");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:300px;padding:1em;text-align:center;width:70%;}
 #slider h2,#slider p{text-align:center}
@@ -49,10 +49,11 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .categorias h1{color:#fc00a0;font-family:'Lobster',cursive;text-shadow:1px 2px 1px #999}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
 .descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
-.descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;}
+.descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;width:80%;}
 .descripcion_proyecto legend .fade{opacity:.7}
 .descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;text-align:center;z-index:-1;}
-.descripcion_proyecto .descripcion_cabecera img{position:relative;top:.5em;width:27px}
+.descripcion_proyecto .descripcion_cabecera img,.descripcion_proyecto .descripcion_cabecera span.gold,.descripcion_proyecto .descripcion_cabecera span.silver{position:relative;top:.5em;vertical-align:top}
+.descripcion_proyecto .descripcion_cabecera img{width:27px}
 .descripcion_proyecto .descripcion_cabecera span.gold{color:#ffd700}
 .descripcion_proyecto .descripcion_cabecera span.silver{color:#c0c0c0}
 .descripcion_proyecto .lista_productos{clear:right;}
@@ -107,10 +108,9 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario span a{color:#00b9d1}
 .marco{background-color:#fff;border:4px solid #fa006a;border-radius:10px;margin:auto;margin-top:3em;width:70%;}
 .marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
-.marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center}
-.marco table thead tr{border-bottom:2px dashed #fa006a;}
-.marco table thead tr th{color:#fa006a;}
-.marco table thead tr th figure img{width:calc(213px / 1.5)}
+.marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center;width:80%}
+.marco table{margin:auto;width:90%;}
+.marco table thead tr th{color:#fa006a}
 .pago_form{border:3px solid #fa006a;margin:1em auto;padding:1em;}
 .pago_form div label{width:200px}
 .pago_form div input[type="text"],.pago_form div textarea{border:2px solid #fa006a;border-radius:5px}

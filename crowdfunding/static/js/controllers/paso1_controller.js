@@ -10,6 +10,12 @@ App.Controllers.Paso1 = function(cantidadImpuesto){
 App.Controllers.Paso1.mixin({
     addEvents: function(){
         $("#btn_continuar").on("click", this.guardarPaso1);
+        $("#fecha").datepicker();
+        $("#descripcion").on("keyup",function(evt){
+            if( $(this).val().length > 140 ){
+                $(this).val( $(this).val().substring(0,140) );
+            }
+        });
     },
 
     guardarPaso1: function(){
