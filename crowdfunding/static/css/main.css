@@ -10,7 +10,7 @@ header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z
 header .menu_navegacion{margin-top:1em;}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
-#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%;border-bottom:5px solid #fbd200;border-top:5px solid #fa006a}
+#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -94,6 +94,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .fondo_rosado{background:#fa006a}
 .fondo_punteado{background:url("../images/bg_slider.jpg");background-size:100%}
 .fondo_rayado{background:url("../images/mainbg.jpg");background-size:100%}
+.fondo_rayado-home{background:url("../images/mainbg.jpg");background-size:100%; border-top: 5px solid #f8b800;}
 .formulario{margin:auto;width:60%;}
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
@@ -219,6 +220,20 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .w98{width:98%;}
 .w99{width:99%;}
 .w100{width:100%;}
+/*add*/
+.slider-text{
+	width: 260px;
+	height: 270px;
+	background: white;
+	float: left;
+}
+.lateral{
+	width: 20%;
+	border-top: none;
+	border-bottom: none;
+	min-height: 616px;
+	background:url("../images/bg_box.jpg");background-size:100%
+}
 @media screen and (min-width: 768px){header .menu{width:75%;}
 header .menu .menu_opciones{box-sizing:border-box;display:inline-block;vertical-align:top;}
 header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_evento,header .menu .menu_opciones .link_registro{box-sizing:border-box;display:inline-block;vertical-align:top;text-decoration:none;padding:.5em}
@@ -226,12 +241,4 @@ header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_even
 header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_registro{color:#000}
 header .menu .menu_opciones .link_aportar{background-color:#fa006a}
 header .menu .menu_opciones .link_evento{background-color:#00aef0}
-}
-
-/*add*/
-.slider-text{
-	width: 260px;
-	height: 270px;
-	background: white;
-	float: left;
 }
