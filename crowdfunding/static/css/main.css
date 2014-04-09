@@ -76,7 +76,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .detalle_proyecto .detalle .descripcion{padding-left:1em}
 .detalle_proyecto .informacion{background:url("../images/barra_celeste.png");border-radius:0 12px 12px 0;padding:.5em}
 .detalle_proyecto .imagen_proyecto{text-align:center;}
-.detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px}
+.detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px;height: auto; text-align: center;}
 .detalle_proyecto .producto{background:#00b9d1;border-radius:.5em;color:#fff;margin:.5em auto;padding:1em;width:90%;}
 .detalle_proyecto .producto figure{display:inline-block;}
 .detalle_proyecto .producto figure img{width:100px}
@@ -118,10 +118,12 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
 .proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:5px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
 .proyectos .proyecto:hover{border:5px solid #fc00a0}
-.proyectos .proyecto .imagen_proyecto img{width:100%}
+.proyectos .proyecto .imagen_proyecto img{width:auto;height: 220px}
 .proyectos .proyecto .imagen_user{float:left;position:relative;top:-10px;}
 .proyectos .proyecto .imagen_user img{width:50px}
 .proyectos .proyecto .nombre_usuario{color:#fb54b3;margin:0;text-transform:capitalize}
+.proyecto figure {text-align:center !important;}
+.proyecto .proyecto_descripcion{height: 150px;}
 .proyectos .proyecto .proyecto_porcentaje{background:linear-gradient(to right,#fcd800 0%,#e72623 100%);color:#fff;padding:0 .5em;text-align:right}
 .proyectos .proyecto .proyecto_recaudacion{color:#666;text-align:right}
 .proyectos .proyecto .proyecto_restante{color:#666}

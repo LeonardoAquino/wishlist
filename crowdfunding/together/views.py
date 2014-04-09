@@ -32,12 +32,12 @@ class IngresoView(View):
 
 class LoginView(View):
     def post(self, req):
-        email = self.request.POST.get("username")
+        username = self.request.POST.get("username")
         password = self.request.POST.get("password")
         data = { "status" : "ok", "message" : "" }
 
         try:
-            usuario_db = User.objects.get(email=email)
+            usuario_db = User.objects.get(username=username)
             user = authenticate(username=usuario_db.username, password=password)
 
             if user is None:
