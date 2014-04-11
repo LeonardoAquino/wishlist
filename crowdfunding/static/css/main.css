@@ -2,7 +2,7 @@
 @font-face{font-family:'Exo2.0bold';src:url("../fonts/exo2.0bold");src:url("../fonts/exo2.0bold?#iefix") format('embedded-opentype'),url("../fonts/exo2.0bold.woff") format('woff'),url("../fonts/exo2.0bold.ttf") format('truetype'),url("../fonts/exo2.0bold.svg#exo2.0bold") format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'Exo2.0medium';src:url("../fonts/exo2.0medium");src:url("../fonts/exo2.0medium?#iefix") format('embedded-opentype'),url("../fonts/exo2.0medium.woff") format('woff'),url("../fonts/exo2.0medium.ttf") format('truetype'),url("../fonts/exo2.0medium.svg#exo2.0medium") format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'Exo2.0regular';src:url("../fonts/exo2.0regular");src:url("../fonts/exo2.0regular?#iefix") format('embedded-opentype'),url("../fonts/exo2.0regular.woff") format('woff'),url("../fonts/exo2.0regular.ttf") format('truetype'),url("../fonts/exo2.0regular.svg#exo2.0regular") format('svg');font-weight:normal;font-style:normal}
-body{background-color:#f5f5f5;font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
+body{background-color:#f5f5f5;font-family:'exo2.0regular',sans-serif;font-size:16px;margin:auto;max-width:1200px}
 header{background-image: url("../images/header.jpg");border-bottom:5px solid #FA006A;padding:0 0 1em;position:relative;text-align:center;height: 170px;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:75%;}
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
@@ -108,7 +108,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario h3{color:#00b9d1}
 .login_usuario label{display:block;margin:.5em 0}
 .login_usuario span{display:block;}
-.login_usuario span a{color:#00b9d1}
+.login_usuario span a{color:#00b9d1; font-family: "exo2.0medium";}
 .marco{border: 7px solid #fa006a;border-radius:10px;margin:auto;margin-top: 3em;width:70%;background-image: url("../images/bg_box.jpg");}
 .marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
 .marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center;width:80%}
