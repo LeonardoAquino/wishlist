@@ -1,4 +1,7 @@
 @font-face{font-family:'social';src:url("../fonts/social.eot");src:url("../fonts/social.eot?#iefix") format('embedded-opentype'),url("../fonts/social.woff") format('woff'),url("../fonts/social.ttf") format('truetype'),url("../fonts/social.svg#social") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'Exo2.0bold';src:url("../fonts/exo2.0bold");src:url("../fonts/exo2.0bold?#iefix") format('embedded-opentype'),url("../fonts/exo2.0bold.woff") format('woff'),url("../fonts/exo2.0bold.ttf") format('truetype'),url("../fonts/exo2.0bold.svg#exo2.0bold") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'Exo2.0medium';src:url("../fonts/exo2.0medium");src:url("../fonts/exo2.0medium?#iefix") format('embedded-opentype'),url("../fonts/exo2.0medium.woff") format('woff'),url("../fonts/exo2.0medium.ttf") format('truetype'),url("../fonts/exo2.0medium.svg#exo2.0medium") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'Exo2.0regular';src:url("../fonts/exo2.0regular");src:url("../fonts/exo2.0regular?#iefix") format('embedded-opentype'),url("../fonts/exo2.0regular.woff") format('woff'),url("../fonts/exo2.0regular.ttf") format('truetype'),url("../fonts/exo2.0regular.svg#exo2.0regular") format('svg');font-weight:normal;font-style:normal}
 body{background-color:#f5f5f5;font-family:'Varela Round',sans-serif;font-size:16px;margin:auto;max-width:1200px}
 header{background-image: url("../images/header.jpg");border-bottom:5px solid #FA006A;padding:0 0 1em;position:relative;text-align:center;height: 170px;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:75%;}
@@ -20,14 +23,14 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #contenedor_ingreso .contenedor div input[type="submit"]{background:#00b9d1;border:0;color:#fff;border-radius:5px;padding:.5em 1em}
 #contenedor_ingreso .contenedor h2{color:#fa006a;font-family:'Lobster',sans-serif}
 #formulario_registro,#login_facebook,.login_usuario{border-radius:1em;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
-#formulario_registro{border:3px solid #fa006a;text-align:left;}
+#formulario_registro{border: 6px solid #fa006a;text-align:left;background-image: url("../images/bg_box.jpg");}
 #formulario_registro h3{color:#fa006a;text-align:center}
 #formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
 #formulario_registro .fila label{color:#555;display:block;font-weight:bold;min-width:160px;text-align:left}
 #formulario_registro .fila p{font-weight:lighter;color:#999}
 #formulario_registro .fila select{width:65px}
 #formulario_registro input[type="submit"]{background-color:#fa006a;border:0;border-radius:5px;color:#fff;padding:.2em 2em}
-#login_facebook{border:3px solid #ffd800;}
+#login_facebook{border: 6px solid #ffd800;background-image: url("../images/bg_box.jpg");height: 336px;}
 #login_facebook h3{color:#ffd800}
 #seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center;text-shadow:1px 2px #444}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
@@ -100,14 +103,14 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .formulario .fila label{display:inline-block;min-width:140px}
 .formulario .fila select{width:180px}
 .iblock{box-sizing:border-box;display:inline-block;vertical-align:top}
-.login_usuario{border:3px solid #00b9d1;text-align:left;}
+.login_usuario{border:6px solid #00b9d1;background-image: url("../images/bg_box.jpg");text-align:left;}
 .login_usuario input[type="password"],.login_usuario input[type="text"]{border-radius:5px;width:100%}
 .login_usuario input[type="submit"]{background-color:#00b9d1;border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
 .login_usuario h3{color:#00b9d1}
 .login_usuario label{display:block;margin:.5em 0}
 .login_usuario span{display:block;}
 .login_usuario span a{color:#00b9d1}
-.marco{background-color:#fff;border:4px solid #fa006a;border-radius:10px;margin:auto;margin-top:3em;width:70%;}
+.marco{border: 7px solid #fa006a;border-radius:10px;margin:auto;margin-top: 3em;width:70%;background-image: url("../images/bg_box.jpg");}
 .marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
 .marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center;width:80%}
 .marco table{margin:auto;width:90%;}
