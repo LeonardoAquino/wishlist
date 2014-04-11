@@ -10,7 +10,7 @@ header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z
 header .menu_navegacion{margin-top:1em;}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
-#bg_home{background:url("../images/crowd_party.jpg");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
+#bg_home{background:url("../images/fondo.png");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
