@@ -51,7 +51,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .categorias{box-sizing:border-box;display:inline-block;vertical-align:top;border:3px solid #00c0f3;padding:2em;text-align:center;width:75%;}
 .categorias h1{color:#fc00a0;font-family:'Lobster',cursive;text-shadow:1px 2px 1px #999}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
-.descripcion_proyecto{border:3px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
+.descripcion_proyecto{border:6px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
 .descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;width:80%;}
 .descripcion_proyecto legend .fade{opacity:.7}
 .descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;text-align:center;z-index:-1;}
@@ -74,7 +74,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
-.detalle_proyecto{border:3px solid #00b9d1;border-radius:1em;margin:1em auto;width:70%;}
+.detalle_proyecto{border:4px solid #00b9d1;border-radius:1em;margin:1em auto;background-image: url("../images/bg_box.png");;width:70%;}
 .detalle_proyecto article{box-sizing:border-box;display:inline-block;vertical-align:top;width:49.71%}
 .detalle_proyecto .detalle .descripcion{padding-left:1em}
 .detalle_proyecto .informacion{background:url("../images/barra_celeste.png");border-radius:0 12px 12px 0;padding:.5em}
@@ -83,8 +83,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .detalle_proyecto .producto{background:#00b9d1;border-radius:.5em;color:#fff;margin:.5em auto;padding:1em;width:90%;}
 .detalle_proyecto .producto figure{display:inline-block;}
 .detalle_proyecto .producto figure img{width:100px}
-.detalle_proyecto .seccion_aporte{border:1px solid #fff;border-radius:5px;background:#00b9d1;color:#00f;display:block;margin:1em 0;padding:1em;text-decoration:none}
-.detalle_proyecto .seccion_creador{background:url("../images/bg_box.png");border:1px solid #00b9d1;border-radius:5px;padding:1em;}
+.detalle_proyecto .seccion_aporte{/* border:1px solid #fff; *//* border-radius:5px; *//* color:#00f; */display:block;/* margin:1em 0; */background-image: url("../images/aporta.png");padding:1em;text-decoration:none}.detalle_proyecto .seccion_creador{background:url("../images/bg_box.png");border:1px solid #00b9d1;border-radius:5px;padding:1em;}
 .detalle_proyecto .seccion_creador figure,.detalle_proyecto .seccion_creador h3{box-sizing:border-box;display:inline-block;vertical-align:top}
 .detalle_proyecto .seccion_colaboracion,.detalle_proyecto .seccion_recaudacion{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
 .detalle_proyecto .seccion_colaboracion span,.detalle_proyecto .seccion_recaudacion span,.detalle_proyecto .seccion_colaboracion strong,.detalle_proyecto .seccion_recaudacion strong{color:#00b9d1}
@@ -94,10 +93,10 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
-.fondo_rosado{background:#fa006a}
-.fondo_punteado{background:url("../images/bg_slider.jpg");background-size:100%}
+.fondo_rosado{background-image: url("../images/bg_recaudacion2.png");}
+.fondo_punteado{background:url("../images/bg_recaudacion1.png");background-size:100%}
 .fondo_rayado{background:url("../images/mainbg.jpg");background-size:100%}
-.fondo_rayado-home{background:url("../images/mainbg.jpg");background-size:100%; border-top: 5px solid #f8b800;}
+.fondo_rayado-home{background:url("../images/mainbg.jpg");background-size:100%; border-top: 10px solid #f8b800;}
 .formulario{margin:auto;width:60%;}
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
@@ -119,8 +118,8 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .pago_form div label{width:200px}
 .pago_form div input[type="text"],.pago_form div textarea{border:2px solid #fa006a;border-radius:5px}
 .proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
-.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:5px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
-.proyectos .proyecto:hover{border:5px solid #fc00a0}
+.proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:6px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
+.proyectos .proyecto:hover{border:6px solid #fc00a0}
 .proyectos .proyecto .imagen_proyecto img{width:auto;height: 220px}
 .proyectos .proyecto .imagen_user{float:left;position:relative;top:-10px;}
 .proyectos .proyecto .imagen_user img{width:50px}
