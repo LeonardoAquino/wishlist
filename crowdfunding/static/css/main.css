@@ -20,7 +20,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #contenedor_ingreso .contenedor:after{content:"";border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;position:absolute;top:100%;left:calc(35%)}
 #contenedor_ingreso .contenedor div{margin:.5em 0;}
 #contenedor_ingreso .contenedor div input[type="text"],#contenedor_ingreso .contenedor div input[type="password"]{border:1px solid #999;border-radius:5px;padding:.5em}
-#contenedor_ingreso .contenedor div input[type="submit"]{background:#00b9d1;border:0;color:#fff;border-radius:5px;padding:.5em 1em}
+#contenedor_ingreso .contenedor div input[type="submit"]{background-image: url("../images/bg_slider"); border:0;color:#fff;border-radius:5px;padding:.5em 1em}
 #contenedor_ingreso .contenedor h2{color:#fa006a;font-family:'Lobster',sans-serif}
 #formulario_registro,#login_facebook,.login_usuario{border-radius:1em;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
 #formulario_registro{border: 6px solid #fa006a;text-align:left;background-image: url("../images/bg_box.jpg");}
@@ -43,7 +43,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #terminos_condiciones{border:3px solid #fa006a;border-radius:20px;margin:auto;margin-top:3em;padding:1em;width:70%;}
 #terminos_condiciones h1{color:#fa006a;font-size:1.5em;text-align:center}
 .auto_margin{margin:auto}
-.btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;position: absolute;top: 65%;left: 45%;}
+.btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;}
 .btn_facebook:before{content:"\e601";font-family:'social';position:relative;right:.5em}
 .btn_facebook:hover{background:#366ab2}
 .buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
@@ -52,7 +52,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .categorias h1{color:#fc00a0;font-family:'Lobster',cursive;text-shadow:1px 2px 1px #999}
 .contenedor{background-color:#f9f9f9;border-radius:7px;margin-top:2em;padding:1em}
 .descripcion_proyecto{border:6px solid #ffd700;border-radius:1em;margin:1em auto;padding:0;width:70%;}
-.descripcion_proyecto legend{background:#ffd700;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;width:80%;}
+.descripcion_proyecto legend{background-image: url("..images/marco2.png"); ;border-radius:7px;color:#fff;padding:.5em 1em;text-align:center;width:80%;}
 .descripcion_proyecto legend .fade{opacity:.7}
 .descripcion_proyecto .descripcion_cabecera{bottom:1em;background:#fff;border-radius:7px 7px 0 0;padding:2em;position:relative;text-align:center;z-index:-1;}
 .descripcion_proyecto .descripcion_cabecera img,.descripcion_proyecto .descripcion_cabecera span.gold,.descripcion_proyecto .descripcion_cabecera span.silver{position:relative;top:.5em;vertical-align:top}
@@ -67,11 +67,11 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .wrapper #btn_otro_producto{display:block;float:right;margin:1em 0;text-decoration:none;}
 .descripcion_proyecto .wrapper #btn_otro_producto span{border:2px solid #ffd700;border-radius:50%;color:#ffd700;padding:0 5px}
 .descripcion_proyecto .wrapper .btn_accion{margin:1em 0;text-align:right;}
-.descripcion_proyecto .wrapper .btn_accion a{background-color:#ffd700;border-radius:5px;color:#fff;padding:.5em 1em;text-decoration:none}
+.descripcion_proyecto .wrapper .btn_accion a{background-image: url("../images/background_login.png"); ;border-radius:10px;color:#fff;padding:.5em 1em;text-decoration:none}
 .descripcion_proyecto .wrapper .calculo_precio{margin:.5em 0;text-align:right;}
 .descripcion_proyecto .wrapper .calculo_precio input[type="text"]{border:1px solid #ffd700;border-radius:5px}
 .descripcion_proyecto .wrapper .fila{margin:.5em 0;}
-.descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px}
+.descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px;width: 80%}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
 .detalle_proyecto{border:4px solid #00b9d1;border-radius:1em;margin:1em auto;background-image: url("../images/bg_box.png");;width:70%;}
@@ -94,14 +94,14 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
 .fondo_rosado{background-image: url("../images/bg_recaudacion2.png");}
-.fondo_punteado{background:url("../images/bg_recaudacion1.png");background-size:100%}
+.fondo_punteado{background:url("../images/bg_recaudacion1.png");}
 .fondo_rayado{background:url("../images/mainbg.jpg");background-size:100%}
 .fondo_rayado-home{background:url("../images/mainbg.jpg");background-size:100%; border-top: 10px solid #f8b800;}
 .formulario{margin:auto;width:60%;}
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
 .formulario .fila select{width:180px}
-.iblock{box-sizing:border-box;display:inline-block;vertical-align:top}
+.iblock{box-sizing:border-box;display:inline-block;vertical-align:top;border: 3px solid #fa006a; border-radius: 1em; background-color: white;}
 .login_usuario{border:6px solid #00b9d1;background-image: url("../images/bg_box.jpg");text-align:left;}
 .login_usuario input[type="password"],.login_usuario input[type="text"]{border-radius:5px;width:100%}
 .login_usuario input[type="submit"]{background-color:#00b9d1;border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
@@ -110,17 +110,17 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .login_usuario span{display:block;}
 .login_usuario span a{color:#00b9d1; font-family: "exo2.0medium";}
 .marco{border: 7px solid #fa006a;border-radius:10px;margin:auto;margin-top: 3em;width:70%;background-image: url("../images/bg_box.jpg");}
-.marco a{background-color:#fa006a;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;padding:.5em 1em;text-decoration:none}
-.marco legend{background-color:#fa006a;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center;width:80%}
+.marco a{background-image: url("../images/bg_recaudacion2"); ;border-radius:5px;color:#fff;display:inline-block;margin-top:.5em;margin-bottom:.5em;padding:.5em 1em;text-decoration:none}
+.marco legend{background-image: url("../images/marco1.png"); ;border-radius:.5em;color:#fff;padding:.5em 3em;text-align:center;width:80%}
 .marco table{margin:auto;width:90%;}
 .marco table thead tr th{color:#fa006a}
-.pago_form{border:3px solid #fa006a;margin:1em auto;padding:1em;}
+.pago_form{border:6px solid #fa006a;margin:1em auto;border-radius: 1em; padding:1em;background-image: url("../images/bg_box");}
 .pago_form div label{width:200px}
-.pago_form div input[type="text"],.pago_form div textarea{border:2px solid #fa006a;border-radius:5px}
+.pago_form div input[type="text"],.pago_form div textarea{border:2px solid #fa006a;border-radius:10px;width: 70%}
 .proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
 .proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:6px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
 .proyectos .proyecto:hover{border:6px solid #fc00a0}
-.proyectos .proyecto .imagen_proyecto img{width:auto;height: 220px}
+.proyectos .proyecto .imagen_proyecto img{width:auto;height: 150px}
 .proyectos .proyecto .imagen_user{float:left;position:relative;top:-10px;}
 .proyectos .proyecto .imagen_user img{width:50px}
 .proyectos .proyecto .nombre_usuario{color:#fb54b3;margin:0;text-transform:capitalize}
@@ -244,5 +244,5 @@ header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_entr
 header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_evento{border-radius:.5em;color:#fff}
 header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_registro{color:#000}
 header .menu .menu_opciones .link_aportar{background-color:#fa006a}
-header .menu .menu_opciones .link_evento{background-color:#00aef0}
+header .menu .menu_opciones .link_evento{background-image: url("../images/bg_recaudacion1");}
 }
