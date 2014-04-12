@@ -244,5 +244,5 @@ header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_entr
 header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_evento{border-radius:.5em;color:#fff}
 header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_registro{color:#000}
 header .menu .menu_opciones .link_aportar{background-color:#fa006a}
-header .menu .menu_opciones .link_evento{background-image: url("../images/bg_recaudacion1");}
+header .menu .menu_opciones .link_evento{background-image: url("../images/bg_recaudacion1.png");}
 }
