@@ -30,6 +30,7 @@ App.Controllers.Paso1.mixin({
         var $titulo = $("#titulo"),
             $descripcion = $("#descripcion"),
             $thumbnail = $("#thumbnail"),
+            $thumbnail2 = $("#imagen_producto_0"),
             $fecha = $("#fecha"),
             errores = [],
             valido = true,
@@ -53,6 +54,11 @@ App.Controllers.Paso1.mixin({
             errores.push("Debes agregar una imagen de avatar representando al evento");
         }
 
+        if($thumbnail2.val().trim() === ""){
+            valido = false;
+            errores.push("Debes agregar una imagen de detalle");
+        }
+
         if($fecha.val() === ""){
             valido = false;
             errores.push("Debes seleccionar la fecha del proyecto");
@@ -60,7 +66,7 @@ App.Controllers.Paso1.mixin({
 
         if(!valido){
             alert(errores.join("\n"));
-            return;w
+            return;
         }
 
         tmp = $fecha.val().split("-");
