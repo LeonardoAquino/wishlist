@@ -16,14 +16,16 @@
                 </p>
             </div>
             <div>
+                <h2 class="titulo_proyecto">Acerca del proyecto</h2>
+                <h3 class="titulo_descripcion">Descripción extendida</h3>
                 {% for producto in productos %}
-                <div class="producto">
+                <div class="producto descripcion">
                     {% for imagen_proyecto in producto.imagenproducto_set.all %}
                         <figure>
                             <img src="{{ imagen_proyecto.imagen.url }}" alt="imagen de {{ producto.nombre }}" />
                         </figure>
                     {% endfor %}
-                    {{ producto.descripcion }}
+                    <p>{{ producto.descripcion }}</p>
                 </div>
                 {% endfor %}
             </div>

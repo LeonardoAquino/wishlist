@@ -82,9 +82,9 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .detalle_proyecto .informacion{background:url("../images/barra_celeste.png");border-radius:0 12px 12px 0;padding:.5em}
 .detalle_proyecto .imagen_proyecto{text-align:center;}
 .detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px;height: auto; text-align: center;}
-.detalle_proyecto .producto{background:#00b9d1;border-radius:.5em;color:#fff;margin:.5em auto;padding:1em;width:90%;}
-.detalle_proyecto .producto figure{display:inline-block;}
-.detalle_proyecto .producto figure img{width:100px}
+.detalle_proyecto .producto{width:90%;}
+.detalle_proyecto .producto figure{text-align: center;}
+.detalle_proyecto .producto figure img{width:100px;}
 .detalle_proyecto .seccion_aporte{display:block;background-image: url("../images/aporta.png");background-repeat: no-repeat;background-position:center;height: 80px;padding:1em;text-decoration:none}
 .detalle_proyecto .seccion_creador{background:url("../images/bg_box.png");border:1px solid #00b9d1;border-radius:5px;padding:1em;}
 .detalle_proyecto .seccion_creador figure,.detalle_proyecto .seccion_creador h3{box-sizing:border-box;display:inline-block;vertical-align:top}
