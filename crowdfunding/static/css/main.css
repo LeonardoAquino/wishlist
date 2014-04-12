@@ -81,7 +81,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .detalle_proyecto .detalle .descripcion{padding-left:1em}
 .detalle_proyecto .informacion{background:url("../images/barra_celeste.png");border-radius:0 12px 12px 0;padding:.5em}
 .detalle_proyecto .imagen_proyecto{text-align:center;}
-.detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px;height: auto; text-align: center;}
+.detalle_proyecto .imagen_proyecto img{border:3px solid #00b9d1;width:200px;height: auto; text-align: center;margin: 15px}
 .detalle_proyecto .producto{width:90%;}
 .detalle_proyecto .producto figure{text-align: center;}
 .detalle_proyecto .producto figure img{width:100px;}
