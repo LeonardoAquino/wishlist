@@ -6,7 +6,7 @@ body{background-color:#f5f5f5;font-family:'exo2.0regular',sans-serif;font-size:1
 header{background-image: url("../images/header.jpg");border-bottom:5px solid #FA006A;padding:0 0 1em;position:relative;text-align:center;height: 170px;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:75%;}
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
-header .menu .logo img{width:170px}
+header .menu .logo img{width:200px}
 header .menu .menu_opciones{display:none;}
 header .menu .menu_opciones figure{display:inline-block;position:relative;vertical-align:top;}
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1}
@@ -25,7 +25,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #formulario_registro,#login_facebook,.login_usuario{border-radius:1em;box-sizing:border-box;display:inline-block;margin:2em 1em;padding:1em;vertical-align:top;width:25%}
 #formulario_registro{border: 6px solid #fa006a;text-align:left;background-image: url("../images/bg_box.jpg");}
 #formulario_registro h3{color:#fa006a;text-align:center}
-#formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px}
+#formulario_registro .fila input[type="password"],#formulario_registro .fila input[type="text"]{border:1px solid #c0c0c0;border-radius:5px;width: 100%;}
 #formulario_registro .fila label{color:#555;display:block;font-weight:bold;min-width:160px;text-align:left}
 #formulario_registro .fila p{font-weight:lighter;color:#999}
 #formulario_registro .fila select{width:65px}
@@ -43,7 +43,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 #terminos_condiciones{border:3px solid #fa006a;border-radius:20px;margin:auto;margin-top:3em;padding:1em;width:70%;}
 #terminos_condiciones h1{color:#fa006a;font-size:1.5em;text-align:center}
 .auto_margin{margin:auto}
-.btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;}
+.btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;position: absolute;top: 65%;left: 45%;}
 .btn_facebook:before{content:"\e601";font-family:'social';position:relative;right:.5em}
 .btn_facebook:hover{background:#366ab2}
 .buscador{border-bottom:5px solid #ffc0cb;padding:1em;text-align:center;}
@@ -89,7 +89,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .detalle_proyecto .seccion_colaboracion span,.detalle_proyecto .seccion_recaudacion span,.detalle_proyecto .seccion_colaboracion strong,.detalle_proyecto .seccion_recaudacion strong{color:#00b9d1}
 .detalle_proyecto .titulo_descripcion{color:#00b9d1}
 .detalle_proyecto .titulo_proyecto{background-color:#00b9d1;border-radius:0 5px 5px 0;color:#fff;padding-left:1em}
-.error_message{color:#d15538}
+.error_message{color:#ff0000}
 .fondo_calipso{background:#00aef0}
 .fondo_celeste{background:#00b9d1}
 .fondo_naranjo{background:#ff942d}
