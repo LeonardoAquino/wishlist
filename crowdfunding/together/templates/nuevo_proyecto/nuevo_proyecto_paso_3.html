@@ -43,14 +43,16 @@
                 </p>
             </div>
             <div>
+                <h2 class="titulo_proyecto">Acerca del proyecto</h2>
+                <h3 class="titulo_descripcion">Descripción extendida</h3>
                 {% for producto in productos %}
-                <div class="producto">
+                <div class="producto descripcion">
                     {% for imagen_proyecto in producto.imagenproducto_set.all %}
                         <figure>
                             <img src="{{ imagen_proyecto.imagen.url }}" alt="imagen de {{ producto.nombre }}" />
                         </figure>
                     {% endfor %}
-                    {{ producto.nombre }}
+                    <p>{{ producto.descripcion }}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -58,13 +60,20 @@
 
         <article class="informacion">
             <div class="seccion_recaudacion">
-                <div><span>${{ recaudado|separador_miles }}</span> Recaudado de</div>
-                <div><strong>${{ total|separador_miles }}</strong> en total</div>
+                <div><span>USD ${{ recaudado|separador_miles }}</span> Recaudado de</div>
+                <div><strong>USD ${{ total|separador_miles }}</strong> en total</div>
             </div>
             <div class="seccion_colaboracion">
                 <span>{{ proyecto.get_dias_restantes.days }} días</span> Restantes
                 <span>{{ numero_colaboradores }}</span> Colaboradores
             </div>
+            <div>
+                {% for colaborador in proyecto.obtener_lista_colaboradores %}
+                    {{ colaborador.username }}
+                {% endfor %}
+            </div>
+
+            <a class="seccion_aporte" href="{% url 'pago' %}"></a>
 
             <div class="seccion_creador">
                 <figure>
@@ -72,9 +81,6 @@
                         alt="imagen del creador del proyecto {{ proyecto.titulo }}">
                 </figure>
                 <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, earum quae error quos accusamus eveniet fugiat. Quod, praesentium, voluptas doloribus fugiat iure perferendis quia ab facere error voluptate doloremque perspiciatis!
-                </p>
             </div>
         </article>
     </section>
