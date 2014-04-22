@@ -62,7 +62,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .descripcion_cabecera span.silver{color:#c0c0c0}
 .descripcion_proyecto .lista_productos{clear:right;}
 .descripcion_proyecto .lista_productos .producto{position:relative}
-.descripcion_proyecto .lista_productos .producto input[type="text"]{border-radius:5px;display:inline-block;margin:.3em 0;width:270px}
+.descripcion_proyecto .lista_productos .producto input[type="text"]{border:1px solid #ffd700;border-radius:5px;display:inline-block;margin:.3em 0;width:270px}
 .descripcion_proyecto .lista_productos .producto .monto{position:absolute;right:0;top:0}
 .descripcion_proyecto .wrapper{background:url("../images/bg_box.png");border-radius:1em;padding:1em;}
 .descripcion_proyecto .wrapper #btn_otro_producto{display:block;float:right;margin:1em 0;text-decoration:none;}
@@ -72,7 +72,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .wrapper .calculo_precio{margin:.5em 0;text-align:right;}
 .descripcion_proyecto .wrapper .calculo_precio input[type="text"]{border:1px solid #ffd700;border-radius:5px}
 .descripcion_proyecto .wrapper .fila{margin:.5em 0;}
-.descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px;width: 80%}
+.descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px;width: 80%;border: 1px solid #ffd700}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
 .detalle_proyecto{border:4px solid #00b9d1;border-radius:1em;margin:1em auto;background-image: url("../images/bg_box.png");;width:70%;}
