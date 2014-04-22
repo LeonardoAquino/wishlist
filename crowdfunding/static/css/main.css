@@ -73,7 +73,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .descripcion_proyecto .wrapper .calculo_precio input[type="text"]{border:1px solid #ffd700;border-radius:5px}
 .descripcion_proyecto .wrapper .fila{margin:.5em 0;}
 .descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px;width: 80%;}
-.descripcion_proyecto .wrapper .fila label{display:inline-block;width:100px}
+.descripcion_proyecto .wrapper .fila label{display:inline-block;}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
 .detalle_proyecto{border:4px solid #00b9d1;border-radius:1em;margin:1em auto;background-image: url("../images/bg_box.png");;width:70%;}
 .detalle_proyecto article{box-sizing:border-box;display:inline-block;vertical-align:top;width:49.71%}
