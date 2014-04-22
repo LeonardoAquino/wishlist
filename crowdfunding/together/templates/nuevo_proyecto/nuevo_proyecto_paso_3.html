@@ -58,8 +58,8 @@
 
         <article class="informacion">
             <div class="seccion_recaudacion">
-                <div><span>USD ${{ recaudado|separador_miles }}</span> Recaudado de</div>
-                <div><strong>USD ${{ total|separador_miles }}</strong> en total</div>
+                <div><span>${{ recaudado|separador_miles }}</span> Recaudado de</div>
+                <div><strong>${{ total|separador_miles }}</strong> en total</div>
             </div>
             <div class="seccion_colaboracion">
                 <span>{{ proyecto.get_dias_restantes.days }} días</span> Restantes
