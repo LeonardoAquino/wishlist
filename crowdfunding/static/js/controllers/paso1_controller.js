@@ -32,6 +32,7 @@ App.Controllers.Paso1.mixin({
             $thumbnail = $("#thumbnail"),
             $thumbnail2 = $("#imagen_producto_0"),
             $fecha = $("#fecha"),
+            $valor = $("#valor_0"),
             errores = [],
             valido = true,
             hoy = new Date(),
@@ -63,6 +64,20 @@ App.Controllers.Paso1.mixin({
             valido = false;
             errores.push("Debes seleccionar la fecha del proyecto");
         }
+
+        if($valor.val() === ""){
+            valido = false;
+            errores.push("Debes ingresar un monto");
+            
+        }else{
+            alert(parseInt($valor.val()));
+            test = parseInt($valor.val());
+            if(isNaN(test)){
+                valido = false;
+                errores.push("El monto debe ser un numero");
+            }
+        }
+
 
         if(!valido){
             alert(errores.join("\n"));
