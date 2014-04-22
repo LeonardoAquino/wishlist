@@ -239,6 +239,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 	min-height: 616px;
 	background:url("../images/bg_box.jpg");background-size:100%
 }
+.carousel-control, .carousel-control:hover, .carousel-control:focus{ background: none !important;color: #A3A3A3;}
 
 .p3{ border:10px !important;}
 @media screen and (min-width: 768px){header .menu{width:75%;}
