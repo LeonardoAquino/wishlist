@@ -71,19 +71,24 @@
                 <section id="lista_productos" class="lista_productos">
                     <h3><img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" />Datos del proyecto</h3>
                     <article class="producto">
-                        <div>
-                            <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="descripcion"></textarea>
-                        </div>
+                        <div class="lado_a">
+                            <div class="fila">
+                                <label>descripcion:</label>
+                                <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="descripcion"></textarea>
+                            </div>
 
-                        <div>
-                            imagen producto o servicio:
-                            <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" />
+                            <div class="fila">
+                                <label>imagen producto o servicio:</label>
+                                <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" />
+                            </div>
                         </div>
-
-                        <div class="monto">
-                            Monto:
-                            <input id="tipo_moneda_0" type="hidden" value="2">
-                            <input id="valor_0" name="valor_0" type="text" value="" />
+                        <div  class="lado_b">
+                            <div class="fila">
+                                <label for="tipo_moneda_0">Monto:</label>
+                                
+                                <input id="tipo_moneda_0" type="hidden" value="2">
+                                <input id="valor_0" name="valor_0" type="text" value="" />                            
+                            </div>
                         </div>
                     </article>
                 </section>
