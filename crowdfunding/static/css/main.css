@@ -244,6 +244,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .slider-text > h1{font-size: 45px;}
 .slider-text > p {text-align: center;}
 .p3{ border:10px !important;}
+span.gold, span.silver{font-size: 20px !important;}
 @media screen and (min-width: 768px){header .menu{width:75%;}
 header .menu .menu_opciones{box-sizing:border-box;display:inline-block;vertical-align:top;}
 header .menu .menu_opciones .link_aportar,header .menu .menu_opciones .link_entrar,header .menu .menu_opciones .link_evento,header .menu .menu_opciones .link_registro{box-sizing:border-box;display:inline-block;vertical-align:top;text-decoration:none;padding:.5em}
