@@ -69,6 +69,7 @@
                 </div>
 
                 <section id="lista_productos" class="lista_productos">
+                    <h3>Datos del proyecto</h3>
                     <article class="producto">
                         <div>
                             <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="descripcion"></textarea>
@@ -80,18 +81,14 @@
                         </div>
 
                         <div class="monto">
-                            USD:
+                            Monto:
                             <input id="tipo_moneda_0" type="hidden" value="2">
                             <input id="valor_0" name="valor_0" type="text" value="" />
                         </div>
                     </article>
                 </section>
-
-                <div class="calculo_precio">
-                    <label for="con_impuesto">Costo total:</label>
-                    <input id="con_impuesto" name="con_impuesto" type="text" value="" readonly />
-                    <input id="duracion" name="duracion" type="hidden" value="" />
-                </div>
+                <input id="con_impuesto" name="con_impuesto" type="hidden" value="" readonly />
+                <input id="duracion" name="duracion" type="hidden" value="" />
 
                 <div class="btn_accion">
                     <a href="{% url 'tipo_proyecto' %}">Atras</a>
