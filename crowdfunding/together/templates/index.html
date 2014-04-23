@@ -76,7 +76,7 @@
                 <p>{{ proyecto.tipo_proyecto.nombre }}</p>
                 <p class="proyecto_titulo">{{ proyecto.titulo|upper }}</p>
                 <p class="proyecto_descripcion">{{ proyecto.descripcion }}</p>
-                <p class="proyecto_recaudacion">recaudó ${{ proyecto.get_monto_actual|separador_miles }} USD</p>
+                <p class="proyecto_recaudacion">recaudó ${{ proyecto.get_monto_actual|separador_miles }}</p>
                 <p class="proyecto_porcentaje">{{ proyecto.get_porcentaje_actual }}%</p>
                 <p class="proyecto_restante">{{ proyecto.get_dias_restantes.days }} días restantes</p>
             </article>
