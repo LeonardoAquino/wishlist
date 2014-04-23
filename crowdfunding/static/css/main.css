@@ -13,7 +13,7 @@ header .menu .menu_opciones figure{display:inline-block;position:relative;vertic
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1}
 header .menu_navegacion{margin-top:1em;}
 header .menu_navegacion li{display:inline-block;vertical-align:top;}
-header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decoration:none}
+header .menu_navegacion li a{border-radius:5px;background-image: url("../images/barra_fondo.png") ;padding:.5em 1em;text-decoration:none}
 #bg_home{background:url("../images/fondo.png");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
@@ -103,7 +103,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
 .formulario .fila select{width:180px}
-.iblock{min-height: 270px;box-sizing:border-box;display:inline-block;vertical-align:top;/*border: 3px solid #fa006a*/; border-radius: 1em; background-color: white;padding: 7px;}
+.iblock{;box-sizing:border-box;display:inline-block;vertical-align:top;/*border: 3px solid #fa006a*/; border-radius: 1em; background-color: white;padding: 7px;}
 .login_usuario{border:6px solid #00b9d1;background-image: url("../images/bg_box.jpg");text-align:left;}
 .login_usuario input[type="password"],.login_usuario input[type="text"]{border-radius:5px;width:100%}
 .login_usuario input[type="submit"]{background-image: url("../images/bg_slider.jpg");border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
@@ -122,7 +122,7 @@ header .menu_navegacion li a{background-color:#fff;padding:.5em 1em;text-decorat
 .proyectos{box-sizing:border-box;display:inline-block;vertical-align:top;width:69%;}
 .proyectos .proyecto{box-sizing:border-box;display:inline-block;vertical-align:top;border:6px solid #00a0ff;border-radius:5px;cursor:pointer;margin:.5em;padding:.5em;width:250px;min-height:600px;}
 .proyectos .proyecto:hover{border:6px solid #fc00a0}
-.proyectos .proyecto .imagen_proyecto img{width:auto;height: 150px}
+.proyectos .proyecto .imagen_proyecto img{width:auto;height: 150px;width: 200px;}
 .proyectos .proyecto .imagen_user{float:left;position:relative;top:-10px;}
 .proyectos .proyecto .imagen_user img{width:50px}
 .proyectos .proyecto .nombre_usuario{color:#fb54b3;margin:0;text-transform:capitalize}
