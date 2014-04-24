@@ -63,17 +63,18 @@
 
                 <section id="lista_productos" class="lista_productos">
                     <h3><img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" />Datos del proyecto</h3>
-                    <article class="producto">
+                    
+                    <label for="video">Video:</label>
+                        <input id="video" name="video" type="text" value="" placeholder="Video" />
+                    </div>
+                   <article class="producto">
                         <div class="lado_a">
                             <div class="fila">
                                 <label>Descripción Ampliada:</label>
                                 <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="Descripción"></textarea>
                             </div>
 <div class="fila">
-                        <label for="video">Video:</label>
-                        <input id="video" name="video" type="text" value="" placeholder="Video" />
-                    </div>
-                            <div class="fila">
+                          <div class="fila">
                                 <label>*Imagen de descripción:</label>
                                 <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" />
                             </div>
