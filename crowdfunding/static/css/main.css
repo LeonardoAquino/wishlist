@@ -103,7 +103,8 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 .formulario .fila{padding:.3em;}
 .formulario .fila label{display:inline-block;min-width:140px}
 .formulario .fila select{width:180px}
-.iblock{;box-sizing:border-box;display:inline-block;vertical-align:top;/*border: 3px solid #fa006a*/; border-radius: 1em; background-color: white;padding: 7px;}
+.iblock{;box-sizing:border-box;min-height: 294px;display:inline-block;vertical-align:top;/*border: 3px solid #fa006a*/; border-radius: 1em; background-color: white;padding: 7px;}
+.iblock2{;box-sizing:border-box;display:inline-block;vertical-align:top;border: 3px solid #fa006a; border-radius: 1em; background-color: white;padding: 7px;}
 .login_usuario{border:6px solid #00b9d1;background-image: url("../images/bg_box.jpg");text-align:left;margin: 10px;}
 .login_usuario input[type="password"],.login_usuario input[type="text"]{border-radius:5px;width:100%}
 .login_usuario input[type="submit"]{background-image: url("../images/bg_slider.jpg");border:0;border-radius:5px;color:#fff;display:block;margin:1em auto;padding:.5em 1em;text-align:center}
