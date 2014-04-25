@@ -75,11 +75,11 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 .descripcion_proyecto .wrapper .fila input[type="text"],.descripcion_proyecto .wrapper .fila textarea{border-radius:5px;width: 100%;}
 .descripcion_proyecto .wrapper .fila label{display:inline-block;}
 .descripcion_proyecto .wrapper .fecha{margin:.5em 0;}
-.descripcion_proyecto .wrapper .fecha input[type="text"],.descripcion_proyecto .wrapper .fecha textarea{border-radius:5px;width: 80%;}
+.descripcion_proyecto .wrapper .fecha input[type="text"],.descripcion_proyecto .wrapper .fecha textarea{border-radius:5px;width: 80%;margin-left: 50%}
 .descripcion_proyecto .wrapper .fecha label{display:inline-block;margin-left: 50%}
 .descripcion_proyecto .wrapper .monto{margin:.5em 0;}
-.descripcion_proyecto .wrapper .monto input[type="text"],.descripcion_proyecto .wrapper .monto textarea{border-radius:5px;width: 80%;}
-.descripcion_proyecto .wrapper .monto label{display:inline-block;margin-left: 50%}
+.descripcion_proyecto .wrapper .monto input[type="text"],.descripcion_proyecto .wrapper .monto textarea{border-radius:5px;width: 80%;border: 2px solid #ffd700}
+.descripcion_proyecto .wrapper .monto label{display:inline-block;}
 .descripcion_proyecto .wrapper .lado_a,.descripcion_proyecto .wrapper .lado_b{display:inline-block;vertical-align:top}
 .detalle_proyecto{border:4px solid #00b9d1;border-radius:1em;margin:1em auto;background-image: url("../images/bg_box.png");;width:70%;}
 .detalle_proyecto article{box-sizing:border-box;display:inline-block;vertical-align:top;width:49.71%}
