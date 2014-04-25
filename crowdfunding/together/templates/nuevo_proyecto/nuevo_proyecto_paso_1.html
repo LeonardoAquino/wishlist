@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="lado_b">
-                    <div class="fila">
+                    <div class="fecha">
                         <label for="fecha">Fecha Límite:</label>
                         <input id="fecha" name="fecha" type="text" value="" data-date-format="dd-mm-yyyy" />
                     </div>
@@ -63,22 +63,26 @@
 
                 <section id="lista_productos" class="lista_productos">
                     <h3><img src="{% static 'images/datosgenerales.png' %}" alt="icono de lapiz" width="32" />Datos del proyecto</h3>
-                    
-                    <label for="video">Video:</label>
-                        <input id="video" name="video" type="text" value="" placeholder="Video" />
+                   
                     </div>
                    <article class="producto">
                         <div class="lado_a">
                             <div class="fila">
+                              <p>
+                                <label for="video">Video:</label>
+                                <input id="video" name="video" type="text" value="" placeholder="Video" />
+                              </p>
+                              <p>
                                 <label>Descripción Ampliada:</label>
                                 <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5" placeholder="Descripción"></textarea>
+                              </p>
                             </div>
 <div class="fila">
                           <div class="fila">
                                 <label>*Imagen de descripción:</label>
                                 <input id="imagen_producto_0" name="imagen_producto_0" type="file" value="" />
-                            </div>
-                        </div>
+              </div>
+                     </div>
                         <div  class="lado_b">
                             <div class="fila">
                                 <label for="tipo_moneda_0">*Monto:</label>
@@ -87,7 +91,7 @@
                                 <input id="valor_0" name="valor_0" type="text" value="" />                            
                             </div>
                         </div>
-                    </article>
+                  </article>
                 </section>
                 <input id="con_impuesto" name="con_impuesto" type="hidden" value="" readonly />
                 <input id="duracion" name="duracion" type="hidden" value="" />
