@@ -33,7 +33,7 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 #formulario_registro input[type="submit"]{background-image: url("../images/bg_recaudacion2.png");border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 #login_facebook{border: 6px solid #ffd800;background-image: url("../images/bg_box.jpg");height: 336px;margin: 10px;}
 #login_facebook h3{color:#ffd800}
-#seccion_tipo_proyecto article{color:#fff;padding:2em 1em;text-align:center;text-shadow:1px 2px #444}
+#seccion_tipo_proyecto article{color:#fff;padding:1em 1em;text-align:center;text-shadow:1px 2px #444}
 #seccion_tipo_proyecto th:last-child{vertical-align:bottom}
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.jpg");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:300px;padding:1em;text-align:center;width:70%;}
 #slider h2,#slider p{text-align:center}
