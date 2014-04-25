@@ -81,9 +81,6 @@ class GuardarPasoUno(View):
         return redirect("nuevo_proyecto_paso2")
 
     def obtener_productos(self):
-        print "?============================================?"
-        print "?PRODUCTOS!?"
-        print "?============================================?"
         productos = []
         valido = True
         i = 0
@@ -96,7 +93,7 @@ class GuardarPasoUno(View):
             precio = self.request.POST.get("valor_%d"%i)
             imagen_producto = self.request.FILES.get("imagen_producto_%d"%i)
 
-            print 
+            print
 
             img_producto = ImagenProducto()
             img_producto.imagen = imagen_producto
