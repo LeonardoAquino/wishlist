@@ -70,7 +70,6 @@ App.Controllers.Paso1.mixin({
             errores.push("Debes ingresar un monto");
             
         }else{
-            alert(parseInt($valor.val()));
             test = parseInt($valor.val());
             if(isNaN(test)){
                 valido = false;
