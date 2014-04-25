@@ -1,23 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 {% block contenido %}
-
-    <div class="t_centered" style="margin: 5em 0">
-        <h1>Recuperar contraseña</h1>
-        <form id="f_recuperar_clave" action="{% url 'actualizar_clave' %}" method="post">
-            <div class="fila">
-                <input id="email" name="email" type="text" value="" placeholder="EMAIL USUARIO" required />
-                <span></span>
-            </div>
-            <div class="fila">
-                <input id="repite_email" name="repite_email" type="text" value="" placeholder="REPETIR EMAIL" required />
-                <span></span>
-            </div>
-            <div>
-                <input type="submit" value="Enviar" />
-            </div>
-        </form>
-    </div>
-
+    <section id="contenedor_ingreso" class="t_centered">
+        <section class="iblock w45 t_centered contenedor sombra_caja">
+            <h2>Recuperar contraseña</h2>
+            <form id="f_recuperar_clave" action="{% url 'actualizar_clave' %}" method="post">
+                <div class="fila">
+                    <input id="email" name="email" type="text" value="" placeholder="EMAIL USUARIO" required />
+                    <span></span>
+                </div>
+                <div class="fila">
+                    <input id="repite_email" name="repite_email" type="text" value="" placeholder="REPETIR EMAIL" required />
+                    <span></span>
+                </div>
+                <div>
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </section>
+    </section>
 {% endblock %}
 
 {% block js %}
