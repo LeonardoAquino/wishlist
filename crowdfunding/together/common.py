@@ -29,6 +29,7 @@ def is_email_valid(email):
 
 def is_rut_valid(rut):
     rut = rut.split('-')
+    rut[0] = rut[0].replace('.','')
     rut[1] = str(rut[1]).upper()
 
     value = 11 - sum([ int(a)*int(b) for a,b in zip(str(rut[0]).zfill(8), '32765432')]) % 11
