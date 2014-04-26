@@ -87,7 +87,7 @@ class Proyecto(models.Model):
         else :
             porcentaje_actual = ( self.get_monto_actual() * 100 )/self.get_total_proyecto()
 
-        return porcentaje_actual
+        return round(porcentaje_actual,1)
 
     def get_colaboradores(self):
         colaboradores = 0
