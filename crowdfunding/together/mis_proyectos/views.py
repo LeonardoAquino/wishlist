@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import math
 
 from django.contrib.auth.decorators import login_required
