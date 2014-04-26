@@ -28,9 +28,14 @@ def is_email_valid(email):
     return re.match('^[(a-z0-9\_\-\.)]+@[(a-z0-9\_\-\.)]+\.[(a-z)]{2,4}$',email.lower())
 
 def is_rut_valid(rut):
-    rut = rut.split('-')
-    rut[0] = rut[0].replace('.','')
-    rut[1] = str(rut[1]).upper()
+    if '-' in rut :
+        rut = rut.split('-')
+    
+    if '.' in rut[0] :
+        rut[0] = rut[0].replace('.','')
+    
+    if 'K' in rut[1] :
+        rut[1] = str(rut[1]).upper()
 
     value = 11 - sum([ int(a)*int(b) for a,b in zip(str(rut[0]).zfill(8), '32765432')]) % 11
     dv = { 10 : 'K', 11 : '0'}.get(value, str(value))
