@@ -38,7 +38,7 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 #slider{background-color:#00aef0;background-image:url("../images/bg_slider.jpg");background-position:left top;background-size:100%;background-repeat:repeat-y;margin:auto;min-height:300px;padding:1em;text-align:center;width:70%;}
 #slider h2,#slider p{text-align:center}
 #slider h2{color:#fa006a}
-#slider img{width:200px}
+#slider img{width:100%}
 #slider .globo_texto{margin:auto;width:100%;background:#fff;border-radius:10px;padding:1em;position:relative;}
 #slider .globo_texto:after{border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;content:"";left:50%;margin-left:-15px;position:absolute;top:100%}
 #terminos_condiciones{border:3px solid #fa006a;border-radius:20px;margin:auto;margin-top:3em;padding:1em;width:70%;}
