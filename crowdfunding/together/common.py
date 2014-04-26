@@ -30,7 +30,12 @@ def is_email_valid(email):
 def is_rut_valid(rut):
     if '-' in rut :
         rut = rut.split('-')
-    
+    else:
+        tmp = str(rut)
+        rut = []
+        rut.append(str(tmp)[0:-1])
+        rut.append(str(tmp)[-1])
+
     if '.' in rut[0] :
         rut[0] = rut[0].replace('.','')
     

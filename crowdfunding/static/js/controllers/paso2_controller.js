@@ -56,7 +56,7 @@ App.Controllers.Paso2.mixin({
         if(!valido){
             return;
         }
-
+        
         this.$form.trigger("submit");
     },
 
