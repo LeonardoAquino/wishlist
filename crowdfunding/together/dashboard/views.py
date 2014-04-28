@@ -19,7 +19,8 @@ class DashboardView(TemplateView):
 
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
 
-        if not(re.search(r"facebook\.com",self.request.user.email) is None):
+
+        if self.request.user.email is None:
             context["es_facebook"] =  True
         else:
             context["es_facebook"] = False
