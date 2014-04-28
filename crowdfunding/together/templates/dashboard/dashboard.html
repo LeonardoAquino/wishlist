@@ -32,3 +32,11 @@
     {% endfor %}
     </table>
 {% endblock %}
+
+{% block js %}
+{% if  es_facebook %}
+<script>
+    alert("Por favor cambie en su perfil el correo actual");
+</script>
+{% endif %}
+{% endblock %}
