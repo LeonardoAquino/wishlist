@@ -9,9 +9,8 @@ from django.shortcuts import redirect
 from django.template import RequestContext
 from django.views.generic import View, TemplateView
 
-
 from ..models import ComprobantePago, Mensaje, Proyecto, TipoPago
-from ..common import is_text_valid, is_email_valid, is_number_valid, Http500
+from ..common import is_text_valid, is_email_valid, is_number_valid, Http500, mail_aporte
 
 class PagoView(TemplateView):
     def get(self, req):
@@ -51,6 +50,21 @@ class PagoView(TemplateView):
     	m.comprobante_pago = cp
     	m.mensaje = mensaje
         m.save()
+        creador = User.objects.get(username = proyecto.creador)
+        nombre = creador.username
+        correo = creador.email
+        aportador = nombre
+        aportes = monto
+        nombre_proyecto = proyecto.titulo
+
+        print "==============="
+        print nombre
+        print "==============="
+        print "==============="
+        print correo
+        print "==============="
+
+        mail_aporte(nombre, aportador, aportes, nombre_proyecto, correo)
 
         return redirect("ver_proyecto", id_proyecto = id_proyecto)
 

@@ -56,3 +56,16 @@ def mail_sender_new_account(correo, clave, usuario):
     msg = EmailMultiAlternatives(asunto, plantilla, "Equipo juntandonos", destinatarios)
     msg.content_subtype = "html"
     msg.send()
+
+def mail_aporte(nombre, aportador, aportes, proyecto, correo):
+    asunto = "Has recibido un aporte"
+    
+    plantilla = open(os.path.dirname(__file__) + "/email_templates/aporte.html","rb").read()
+    plantilla = plantilla.replace("{{ nombre }}", nombre)
+    plantilla = plantilla.replace("{{ aportador }}", aportador)
+    plantilla = plantilla.replace("{{ aportes }}", aportes)
+    plantilla = plantilla.replace("{{ proyecto }}", proyecto)
+    destinatarios = (correo, )
+    msg = EmailMultiAlternatives(asunto, plantilla, "Equipo juntandonos", destinatarios)
+    msg.content_subtype = "html"
+    msg.send()
