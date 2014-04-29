@@ -31,6 +31,7 @@ App.Controllers.Paso1.mixin({
             $descripcion = $("#descripcion"),
             $thumbnail = $("#thumbnail"),
             $thumbnail2 = $("#imagen_producto_0"),
+            $descripcion2 = $("#descripcion_producto"),
             $fecha = $("#fecha"),
             $valor = $("#valor_0"),
             errores = [],
@@ -48,6 +49,11 @@ App.Controllers.Paso1.mixin({
         if($descripcion.val().trim() === ""){
             valido = false;
             errores.push("Debes agregar una descripción al proyecto");
+        }
+
+        if($descripcion2.val().trim() === ""){
+            valido = false;
+            errores.push("Debes agregar una descripción ampliada al proyecto");
         }
 
         if($thumbnail.val().trim() === ""){
