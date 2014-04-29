@@ -57,13 +57,6 @@ class PagoView(TemplateView):
         aportes = monto
         nombre_proyecto = proyecto.titulo
 
-        print "==============="
-        print nombre
-        print "==============="
-        print "==============="
-        print correo
-        print "==============="
-
         mail_aporte(nombre, aportador, aportes, nombre_proyecto, correo)
 
         return redirect("ver_proyecto", id_proyecto = id_proyecto)
