@@ -77,7 +77,7 @@ def verificar_usuario(req):
         pass
 
     data = {
-        "existe" : mensaje_usuario and mensaje_email or False,
+        "existe" : mensaje_usuario or mensaje_email or False,
         "mensajeUser" : mensaje_usuario,
         "mensajeEmail" : mensaje_email
     }
