@@ -135,11 +135,7 @@ class GuardarPasoDos(View):
         valido = valido and is_text_valid(titular_cuenta)
         valido = valido and is_text_valid(num_cuenta)
         valido = valido and is_text_valid(banco)
-        #valido = valido and is_rut_valid(rut)
         valido = valido and is_text_valid(tipo_cuenta)
-
-        #if not valido:
-        #    raise Http500()
 
         data_cuenta = {
             "titular": titular_cuenta,
