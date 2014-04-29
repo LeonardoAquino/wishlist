@@ -11,7 +11,7 @@ from django.views.generic import View, TemplateView
 
 
 from ..models import ComprobantePago, Mensaje, Proyecto, TipoPago
-from ..common import is_text_valid, is_email_valid, is_number_valid
+from ..common import is_text_valid, is_email_valid, is_number_valid, Http500
 
 class PagoView(TemplateView):
     def get(self, req):
