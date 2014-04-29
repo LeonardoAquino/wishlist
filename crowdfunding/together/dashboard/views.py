@@ -1,5 +1,5 @@
 import math
-
+import re
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, redirect
@@ -18,6 +18,12 @@ class DashboardView(TemplateView):
         mi_usuario = self.request.user
 
         context["mis_proyectos"] = self.model.objects.filter(creador_id = mi_usuario.id)
+
+
+        if (self.request.user.email is None) or self.request.user.email == "":
+            context["es_facebook"] =  True
+        else:
+            context["es_facebook"] = False
 
         return context
 

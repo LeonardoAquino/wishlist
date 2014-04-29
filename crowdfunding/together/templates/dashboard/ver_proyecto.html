@@ -40,7 +40,9 @@
                 <span>{{ proyecto.get_dias_restantes.days }} días</span> Restantes
                 <span>{{ numero_colaboradores }}</span> Colaboradores
             </div>
-            <div>
+            <div id="colaboradores">
+                Colaboradores:
+                <p></p>
                 {% for colaborador in proyecto.obtener_lista_colaboradores %}
                     {{ colaborador.username }}
                 {% endfor %}
