@@ -16,6 +16,7 @@ header .menu_navegacion li{display:inline-block;vertical-align:top;}
 header .menu_navegacion li a{border-radius:5px;background-image: url("../images/barra_fondo.png") ;padding:.5em 1em;text-decoration:none;color: #428bca;border: 2px solid #fc00a0}
 #bg_home{background:url("../images/fondo.png");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
 #colaboradores{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
+#video{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
 #contenedor_ingreso .contenedor{border-radius:20px;position:relative;}
@@ -137,10 +138,11 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 .proyecto figure {text-align:center !important;}
 .proyecto .proyecto_descripcion{height: 150px;}
 .proyectos .proyecto .proyecto_porcentaje{background:linear-gradient(to right,#fcd800 0%,#e72623 100%);color:#fff;padding:0 .5em;text-align:right}
-.proyectos .proyecto .proyecto_recaudacion{color:#666;text-align:right}
+.proyectos .proyecto .proyecto_recaudacion{margin-top: 38%;color:#666;text-align:right}
 .proyectos .proyecto .proyecto_restante{color:#666}
 .proyectos .proyecto .proyecto_titulo{color:#00a0ff;font-size:1.2em}
 .sombra_caja{box-shadow:3px 3px 1px #ebebeb}
+.sombra_caja2{box-shadow:3px 3px 1px #ebebeb;background-image: url("../images/bg_recaudacion2.png");border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 .t_centered{text-align:center}
 .texto_blanco{color:#fff}
 .w10{width:10%;}

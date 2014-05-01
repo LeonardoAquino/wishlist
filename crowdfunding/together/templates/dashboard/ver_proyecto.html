@@ -47,10 +47,7 @@
                     {{ colaborador.username }}
                 {% endfor %}
             </div>
-			<div id="video">
-                aca debe ir el video de YT
-            </div>
-            <a class="seccion_aporte" href="{% url 'pago' %}"></a>
+			<a class="seccion_aporte" href="{% url 'pago' %}"></a>
 
             <div class="seccion_creador">
                 <figure>
@@ -58,6 +55,9 @@
                         alt="imagen del creador del proyecto {{ proyecto.titulo }}">
                 </figure>
                 <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
+            </div>
+            <div id="video">
+                aca debe ir el video de YT
             </div>
             </article>
     </section>
