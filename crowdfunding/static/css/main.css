@@ -4,7 +4,7 @@
 @font-face{font-family:'Exo2.0regular';src:url("../fonts/exo2.0regular");src:url("../fonts/exo2.0regular?#iefix") format('embedded-opentype'),url("../fonts/exo2.0regular.woff") format('woff'),url("../fonts/exo2.0regular.ttf") format('truetype'),url("../fonts/exo2.0regular.svg#exo2.0regular") format('svg');font-weight:normal;font-style:normal}
 body{background-color:#f5f5f5;font-family:'exo2.0regular',sans-serif;font-size:16px;margin:auto;max-width:1200px}
 header{background-image: url("../images/header.jpg");border-bottom:5px solid #FA006A;padding:0 0 1em;position:relative;text-align:center;height: 165px;}
-footer{background-image: url("../images/footer.png");  height: 150px;margin: 6px;}
+footer{background-image: url("../images/footer.png");  height: 150px;margin: 6px;width: 100%;margin-left: 0em;}
 header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:0 0 .4em .4em;box-shadow:0 0 10px #000;font-family:'Exo 2',sans-serif;margin:auto;padding:1em 0;width:75%;}
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
 header .menu .logo img{width:200px}
@@ -45,6 +45,7 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 #slider .globo_texto:after{border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid #fff;content:"";left:50%;margin-left:-15px;position:absolute;top:100%}
 #terminos_condiciones{border:3px solid #fa006a;border-radius:20px;margin:auto;margin-top:3em;padding:1em;width:70%;}
 #terminos_condiciones h1{color:#fa006a;font-size:1.5em;text-align:center}
+#sombra_caja2{box-shadow:3px 3px 1px #ebebeb;background-image: url("../images/bg_recaudacion2.png");border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 .auto_margin{margin:auto}
 .btn_facebook{background:#1e62a9;border:1px solid #143f72;border-bottom-width:2px;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;padding:.5em 1em;}
 .btn_facebook:before{content:"\e601";font-family:'social';position:relative;right:.5em}
@@ -142,7 +143,6 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 .proyectos .proyecto .proyecto_restante{color:#666}
 .proyectos .proyecto .proyecto_titulo{color:#00a0ff;font-size:1.2em}
 .sombra_caja{box-shadow:3px 3px 1px #ebebeb}
-.sombra_caja2{box-shadow:3px 3px 1px #ebebeb;background-image: url("../images/bg_recaudacion2.png");border:0;border-radius:5px;color:#fff;padding:.2em 2em}
 .t_centered{text-align:center}
 .texto_blanco{color:#fff}
 .w10{width:10%;}
