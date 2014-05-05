@@ -47,9 +47,13 @@
                     {{ colaborador.username }}
                 {% endfor %}
             </div>
-
-            <a class="seccion_aporte" href="{% url 'pago' %}"></a>
-
+            {% block menu %}
+                {% if user.is_authenticated%}
+                    <a class="seccion_aporte" href="{% url 'pago' %}"></a>
+                {% else %}
+                    <a class="seccion_aporte" href="{% url 'ingresar' %}"></a>
+                {% endif %}
+            {% endblock %}
             <div class="seccion_creador">
                 <figure>
                     <img src="//graph.facebook.com/{{ proyecto.creador.username }}/picture"

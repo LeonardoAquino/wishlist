@@ -92,6 +92,7 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 .detalle_proyecto .producto figure{text-align: center;}
 .detalle_proyecto .producto figure img{width:80%}
 .detalle_proyecto .seccion_aporte{display:block;background-image: url("../images/aporta.png");background-repeat: no-repeat;background-position:center;height: 80px;padding:1em;text-decoration:none}
+.detalle_proyecto .seccion_no_log_aporte{display:block;background-repeat: no-repeat;background-position:center;height: 80px;padding:1em;text-decoration:none}
 .detalle_proyecto .seccion_creador{background:url("../images/bg_box.png");border:1px solid #00b9d1;border-radius:5px;padding:1em;}
 .detalle_proyecto .seccion_creador figure,.detalle_proyecto .seccion_creador h3{box-sizing:border-box;display:inline-block;vertical-align:top}
 .detalle_proyecto .seccion_colaboracion,.detalle_proyecto .seccion_recaudacion{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}

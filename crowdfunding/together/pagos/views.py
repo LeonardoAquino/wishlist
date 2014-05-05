@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 import os, json
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import transaction, IntegrityError
 from django.http import HttpResponse
@@ -64,5 +65,5 @@ class PagoView(TemplateView):
 class PagoPrimerPasoView(TemplateView):
     template_name = "pagos/pago_primer_paso.html"
 
-pago = PagoView.as_view()
+pago = login_required(PagoView.as_view())
 pago_primer_paso = PagoPrimerPasoView.as_view()
