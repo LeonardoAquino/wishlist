@@ -5,6 +5,9 @@ header .menu{background:url("../images/barra_fondo.png") repeat-y;border-radius:
 header .menu .logo{box-sizing:border-box;display:inline-block;vertical-align:top;cursor:pointer;}
 header .menu .logo img{width:170px}
 header .menu .menu_opciones{display:none;}
+header .menu .menu_opciones article aside{display:inline-block;position:relative;vertical-align:top;width:50%;}
+header .menu .menu_opciones article aside:last-child{width:45%}
+header .menu .menu_opciones article aside p{text-align:left}
 header .menu .menu_opciones figure{display:inline-block;position:relative;vertical-align:top;}
 header .menu .menu_opciones figure img{position:absolute;top:-10px;width:135px;z-index:1;}
 header .menu .menu_opciones figure img:hover{cursor:pointer}
