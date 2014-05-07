@@ -149,6 +149,7 @@ class GuardarPasoDos(View):
         self.__crear_cuenta(data_cuenta)
         id_proyecto = self.__crear_proyecto(req.session['f_nuevo_proyecto'])
 
+
         return redirect("nuevo_proyecto_paso3", id_proyecto = id_proyecto)
 
     def __crear_cuenta(self, data):
@@ -217,8 +218,6 @@ class GuardarPasoDos(View):
             producto.moneda = moneda
             producto.save()
 
-            print "guarde tu wea"
-
             imagen_producto = ImagenProducto.objects.get(pk=item["imagen_producto_id"])
             imagen_producto.producto = producto
             imagen_producto.save()
@@ -231,7 +230,6 @@ class NuevoProyecto3View(TemplateView):
         context = super(NuevoProyecto3View, self).get_context_data(**kwargs)
 
         id_proyecto = kwargs["id_proyecto"]
-
         proyecto = Proyecto.objects.get(id = id_proyecto)
 
         context["proyecto"] = proyecto

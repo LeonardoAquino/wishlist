@@ -88,3 +88,10 @@
         </div>
     </fieldset>
 {% endblock %}
+
+{% block js %}
+<script>
+    $.storage("flag", "ok");
+    alert("Si vuelve atrás perderá todos los datos de su proyecto");
+</script>
+{% endblock %}

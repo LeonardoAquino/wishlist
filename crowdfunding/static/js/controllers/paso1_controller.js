@@ -44,7 +44,9 @@ App.Controllers.Paso1.mixin({
         if($titulo.val().trim() === ""){
             valido = false;
             errores.push("Debes agregar título al proyecto");
-        }else if($titulo.val().length() > 36){
+        }
+
+        if($titulo.val().length >= 36){
             valido = false;
             errores.push("El título debe ser mas breve");
         }
@@ -52,6 +54,10 @@ App.Controllers.Paso1.mixin({
         if($descripcion.val().trim() === ""){
             valido = false;
             errores.push("Debes agregar una descripción al proyecto");
+        }
+        if($descripcion.val().length >= 140){
+            valido = false;
+            errores.push("La descripción no debe superar los 140 caracteres");
         }
 
         if($descripcion2.val().trim() === ""){

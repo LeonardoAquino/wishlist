@@ -74,6 +74,9 @@
 <script src="{% static 'js/plugins/jquery.Rut.min.js' %}"></script>
 <script src="{% static 'js/controllers/paso2_controller.js' %}"></script>
 <script>
+    if($.storage("flag") == "ok"){
+        window.location.href = "{% url 'dashboard' %}"
+    }
     App.paso2Controller = new App.Controllers.Paso2();
 </script>
 {% endblock %}
