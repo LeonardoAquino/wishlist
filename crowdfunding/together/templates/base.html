@@ -32,7 +32,7 @@
                     Entrar
                 </a>
                 <figure>
-                    <img src="{% static 'images/que_es_juntandonos.png' %}" alt="¿ qué es juntandonos ?" />
+                    <img id="quees" src="{% static 'images/que_es_juntandonos.png' %}" alt="¿ qué es juntandonos ?" />
                 </figure>
             </div>
         </div>
@@ -56,8 +56,25 @@
     <script src="{% static 'js/vendor/handlebars-1.1.2.min.js' %}"></script>
     <script src="{% static 'js/vendor/template_loader.js' %}"></script>
     <script src="{% static 'js/vendor/storage.js' %}"></script>
-    <script src="{% static 'js/vendor/jQueryStorage.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.storage.min.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
+    <script>
+        App.Controllers.Home = function(){
+            this.queEs = $("#quees");
+            this.init();
+        };
+
+        App.Controllers.Home.prototype = {
+            constructor: App.Controllers.Home,
+            init: function(){
+                this.queEs.on("click",function(){
+                    console.log("potato");
+                });
+            }
+        };
+
+        App.homeController = new App.Controllers.Home();
+    </script>
     {% block js %}{% endblock %}
 </body>
 </html>
