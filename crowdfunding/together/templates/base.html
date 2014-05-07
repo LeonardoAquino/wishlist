@@ -31,7 +31,7 @@
                     <img src="{% static 'images/entrar.png' %}" alt="imagen entrar" />
                     Entrar
                 </a>
-                <article>
+                <article id="sobre_juntandonos">
                     <aside>
                         <p>¡Juntándonos podemos lograrlo!</p>
                         <p>En juntandonos podrás:</p>
@@ -83,14 +83,23 @@
     <script>
         App.Controllers.Home = function(){
             this.queEs = $("#quees");
+            this.sobreJuntandonos = $("#sobre_juntandonos");
             this.init();
         };
 
         App.Controllers.Home.prototype = {
             constructor: App.Controllers.Home,
             init: function(){
+                var _this = this;
+
                 this.queEs.on("click",function(){
-                    console.log("potato");
+                    if(_this.sobreJuntandonos.is(":hidden")){
+                        $(this).css("top","+=260px");
+                        _this.sobreJuntandonos.show();
+                    }else{
+                        _this.sobreJuntandonos.hide();
+                        $(this).css("top","-=260px");
+                    }
                 });
             }
         };
