@@ -21,6 +21,7 @@ header .menu_navegacion li a{border-radius:5px;background-image: url("../images/
 #bg_home{background:url("../images/fondo.png");background-position:fixed;background-size:100%;border-bottom:10px solid #fa006a;;border-top:5px solid #fa006a}
 #colaboradores{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
 #video{background:#fff;border:1px solid #00b9d1;border-radius:5px;margin:.5em 0;padding:.5em;}
+#videoquees{background-color: #FA006A;margin-top: 1em;min-height: 200px;color:white}
 #comofunciona{width:140px ;box-shadow:3px 3px 1px #ebebeb;background-image: url("../images/bg_slider.jpg");border:0;border-radius:5px;color:#fff;padding:.4em;margin-top:3px}
 #contenedor_ingreso{background-color:#f7d000;background-image:url("../images/background_login.png");background-size:100% 100%;margin:auto;width:90%;}
 #contenedor_ingreso section{margin:1em}
