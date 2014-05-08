@@ -61,6 +61,13 @@
                 </figure>
                 <h3 class="titulo_descripcion">{{ proyecto.creador }}</h3>
             </div>
+            <div class="link_box">
+                {% if proyecto.if_youtube %}
+                    <iframe width="360" height="203"  src="//www.youtube.com/embed/{{proyecto.id_youtube_video}}" frameborder="0" allowfullscreen></iframe>
+                {% else %}
+                    <p>Para mas información <a href="{{proyecto.video_url}}">Aquí</a></p>
+                {% endif %}
+            </div>
         </article>
     </section>
 {% endblock %}

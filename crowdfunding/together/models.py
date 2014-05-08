@@ -1,3 +1,5 @@
+import re
+
 from datetime import timedelta, date
 from django.db import models
 from django.contrib.auth.models import User
@@ -108,6 +110,20 @@ class Proyecto(models.Model):
 
         return colaboradores
 
+    def if_youtube(self):
+        if re.search('youtube|youtu', self.video_url):
+            return True
+        else:
+            return False
+
+    def id_youtube_video(self):
+        if re.search('youtube', self.video_url):
+            _str = self.video_url.split("=")
+            return _str[1]
+
+        if re.search('youtu', self.video_url)
+            _str = self.video_url.split(".be/")
+            return _str[1]
 
 class ImagenProyecto(models.Model):
     imagen = models.FileField(upload_to="proyectos/thumbnails")
