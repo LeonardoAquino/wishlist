@@ -121,7 +121,7 @@ class Proyecto(models.Model):
             _str = self.video_url.split("=")
             return _str[1]
 
-        if re.search('youtu', self.video_url)
+        if re.search('youtu', self.video_url):
             _str = self.video_url.split(".be/")
             return _str[1]
 
