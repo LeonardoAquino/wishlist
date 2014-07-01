@@ -17,8 +17,7 @@ App.Controllers.Pago.prototype = {
     constructor: App.Controllers.Pago,
     init: function(){
         this.form.on("submit", this.validarForm());
-        url = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66CKSNDPEZMWJ";
-        $(location).attr('href',url);
+        console.log('some');
     },
 
     validarForm: function(){
