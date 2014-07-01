@@ -60,7 +60,7 @@ class PagoView(TemplateView):
 
         mail_aporte(nombre, aportador, aportes, nombre_proyecto, correo)
 
-        return redirect("ver_proyecto", id_proyecto = id_proyecto)
+        return redirect("paypal")
 
 class PagoPrimerPasoView(TemplateView):
     template_name = "pagos/pago_primer_paso.html"
