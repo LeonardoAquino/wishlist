@@ -61,7 +61,7 @@ class PagoView(TemplateView):
         mail_aporte(nombre, aportador, aportes, nombre_proyecto, correo)
 
         #return redirect("ver_proyecto", id_proyecto = id_proyecto)
-        return redirect("ver_proyecto", https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dinero@juntandonos.com&currency_code=USD&item_name=asdf&amount=1200000)
+        return redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dinero@juntandonos.com&currency_code=USD&item_name=asdf&amount=1200000")
 
 class PagoPrimerPasoView(TemplateView):
     template_name = "pagos/pago_primer_paso.html"
