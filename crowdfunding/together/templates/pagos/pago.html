@@ -15,7 +15,7 @@
         </div>
         <div>
             <label for="clp">Monto:</label>
-            <input id="clp" onchange="getElementById('monto').value=Math.ceil(cambio*this.value)" type="text" name="clp">
+            <input id="clp" onchange="getElementById('monto').value=Math.ceil(this.value/cambio)" type="text" name="clp">
             <label for="monto">USD:</label>
             <input id="monto" name="monto" type="text" value="" readonly/>
             <span></span>
@@ -52,7 +52,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
 <script type="text/javascript">
 
-var your_url = 'https://www.google.com/finance/converter?a=1&from=CLP&to=USD';
+var your_url = 'https://www.google.com/finance/converter?a=1&from=USD&to=CLP';
 var cambio=0;
 //basado en codigo de http://stackoverflow.com/questions/11708387/get-contents-of-link-tag-with-javascript-not-css/18447625#18447625
 // jquery.xdomainajax.js  ------ from padolsey
